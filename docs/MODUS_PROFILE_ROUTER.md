@@ -111,3 +111,8 @@ used 2.99× the total tokens and edited later. This cannot supply an Oracle
 label, but it confirms that the Profile treatment changes trajectory and cost
 outside the original two tasks. See
 [`MODUS_SWE_MAC_READINESS.md`](MODUS_SWE_MAC_READINESS.md).
+
+A subsequent pinned DSH attempt was invalid: neutral stopped without editing,
+p000 hit provider quota before a finalized response, usage was incomplete, and
+the intended unattended tool confinement was absent. It is retained as
+apparatus evidence only and supplies no Profile comparison.

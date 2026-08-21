@@ -86,3 +86,24 @@ This canary deliberately omits the DSH runtime information gate used by prior
 Modus fixed-Worker experiments, so it is a different treatment bundle. The
 machine-readable record and all raw-log/session hashes are in
 [`agentic-artifacts/modus-swe-profile-cost-canary-v1.json`](../agentic-artifacts/modus-swe-profile-cost-canary-v1.json).
+
+## DSH runtime-gate follow-up
+
+A clean pinned DSH/plugin follow-up attempted to restore the fixed Worker gate
+on the same task. It did not produce a valid pair:
+
+- neutral consumed 33,088 complete tokens, performed three information
+  attempts, made no edit, and ended `max-tokens`;
+- p000 received provider `429 QUOTA` before a finalized assistant response,
+  made no edit, and has incomplete usage; its numeric zero fields are not zero
+  cost;
+- both workspaces remained at the seed and no cell was redispatched;
+- the request catalog still exposed `ask_user_question` and `web_search`, so
+  the intended unattended fixed-Worker confinement was not established in this
+  exact composition;
+- the pinned DSH lockfile was stale, forcing an unpinned dependency resolution.
+
+The run is therefore an apparatus/provider failure, not evidence that the DSH
+gate succeeds or fails. It is excluded from the Profile pipeline and Oracle.
+See
+[`agentic-artifacts/modus-swe-dsh-gate-canary-v1.json`](../agentic-artifacts/modus-swe-dsh-gate-canary-v1.json).

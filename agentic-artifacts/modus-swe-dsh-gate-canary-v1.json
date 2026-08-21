@@ -1,0 +1,81 @@
+{
+  "schema": "acrouter-modus-swe-dsh-gate-canary-v1",
+  "captured_at": "2026-08-21",
+  "scientific_evidence": false,
+  "evidence_kind": "invalid-development-apparatus-canary",
+  "task": {
+    "instance_id": "django__django-10999",
+    "prompt_sha256": "71ecaec9b9e1aa4662406e81368e0ad2541baf9e6573f21389b7202eafeb6484",
+    "workspace_seed_sha256": "d4a35e4e0a013e765814cae3eb43f44ea95714a5111b94e4f72a6f119a242d58"
+  },
+  "provenance": {
+    "dsh_commit": "71705c7ff0d47cc7823b240e4d3f2be1dd7d52bb",
+    "plugin_commit": "b8a7c27ce93c231adeb9cfdfa8b7aebc647f40b6",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e",
+    "agent_as_router_commit": "9e251b841f3714b5cf618bf1a223361777b21104",
+    "runner_sha256": "4dbb755dc5985af0150e739d2a5793bd7518b581501a122eabf7c0126baaeb65",
+    "dsh_clean_after_build": true,
+    "plugin_clean": true,
+    "dependency_resolution": "pnpm install with lockfile disabled because the pinned repository lockfile was stale; development-only provenance"
+  },
+  "zero_token_startup_attempt": {
+    "status": "invalid-build-missing",
+    "model_requests": 0,
+    "prompt_dispatched": false,
+    "stderr_sha256": "5336a5b97ae17d02c1224a4f5be3b49ec7bbf452ccf1646a8346704d3ad764ea",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "arms": {
+    "neutral": {
+      "terminal": "max-tokens",
+      "workspace_edited": false,
+      "correctness": false,
+      "usage": {
+        "uncached_input_tokens": 11089,
+        "output_tokens": 4591,
+        "cache_read_tokens": 17408,
+        "cache_write_tokens": 0,
+        "total_tokens": 33088,
+        "complete": true
+      },
+      "assistant_steps": 4,
+      "pre_edit_information_attempts": 3,
+      "session_export_sha256": "e19cb38b64dd1b88d1cbbec63c2320dfc4547aeb20834a842e134b072f87ceff",
+      "session_jsonl_sha256": "26a7597fa7051e363cb5f47bcf2ac4a42ef14b2bbd06fef2219368eded1f3407",
+      "record_sha256": "06d5c39c298eab921c75bf52e822ffde197b1f67adfcf588ab19ae0a7a94a25c"
+    },
+    "p000": {
+      "terminal": "provider-quota-429",
+      "workspace_edited": false,
+      "correctness": false,
+      "usage": {
+        "uncached_input_tokens": 0,
+        "output_tokens": 0,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "total_tokens": 0,
+        "complete": false
+      },
+      "assistant_steps": 0,
+      "pre_edit_information_attempts": 0,
+      "session_export_sha256": "64acbdff273e3d6135eb78f7cd8caf321a2b7f33f9b435fe4828415a21e87691",
+      "session_jsonl_sha256": "b9b2a098b9b23112c24602e72594cc375ab4bb56c6d8aa365cd89f2dd8b258e0",
+      "record_sha256": "26104474eb3646b9c80b8ad8959092606334e3f78175feaae9bd564f267ed8d4"
+    }
+  },
+  "contract_violations": [
+    "The p000 provider response was not finalized, so its zero counters are incomplete usage and must not be treated as zero cost.",
+    "The fixed Worker request catalog exposed ask_user_question and web_search; the intended unattended tool confinement was not established under this DSH/plugin/runtime composition.",
+    "The dependency graph was resolved without the pinned lockfile, so the run cannot be attributed only to the DSH source commit."
+  ],
+  "result": {
+    "paired_comparison_valid": false,
+    "profile_fidelity_evaluable": false,
+    "cost_winner": null,
+    "claim_status": "invalid-apparatus-and-provider-failure"
+  },
+  "automatic_redispatches": 0,
+  "raw_credential_matches": 0,
+  "raw_artifacts_committed": false,
+  "claim_boundary": "No DSH Profile comparison is available from this run. Neutral produced a complete 33,088-token no-edit max-token trajectory; p000 failed before a finalized response with provider 429 and incomplete usage. The pair is invalid and may not enter Oracle, cost, or behavior conclusions."
+}

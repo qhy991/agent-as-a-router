@@ -26,6 +26,8 @@ that need to decide what to inspect before loading the full repository.
    materialization and baseline/gold verifier gate.
 10. Read `modus-swe-profile-cost-canary-v1.json` for the first prompt-only
     neutral/p000 trajectory and token comparison on a reconstructed SWE task.
+11. Read `modus-swe-dsh-gate-canary-v1.json` for the excluded fixed-Worker
+    apparatus/provider failure and its no-redispatch evidence.
 
 ## Scope
 
