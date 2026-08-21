@@ -1,0 +1,91 @@
+{
+  "schema": "acrouter-modus-swe-t-axis-development-v2",
+  "captured_at": "2026-08-21",
+  "scientific_evidence": false,
+  "evidence_kind": "provider-interrupted-two-arm-development-attempt",
+  "task": {
+    "instance_id": "django__django-10999",
+    "prompt_sha256": "71ecaec9b9e1aa4662406e81368e0ad2541baf9e6573f21389b7202eafeb6484",
+    "target_seed_sha256": "d4a35e4e0a013e765814cae3eb43f44ea95714a5111b94e4f72a6f119a242d58"
+  },
+  "provenance": {
+    "dsh_commit": "71705c7ff0d47cc7823b240e4d3f2be1dd7d52bb",
+    "plugin_commit": "5907af92c89f3227e8894f867f0d2ef5b12973d1",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e",
+    "agent_router_commit_at_dispatch": "bde7f1ed978b04557b8e3a0cbc5d3c171adeec99",
+    "runner_sha256": "d936bcee5d935db451e00bf7f7301c2b05c6d8f98a5b143cd6904112429824ae",
+    "model": "deepseek-v4-flash",
+    "reasoning_effort": "high"
+  },
+  "frozen_inputs": {
+    "run_plan_sha256": "07fc94222d06850a2ed66d5addbb69bbb0051f8181bf7bb94574a11870f1073f",
+    "schedule": ["p000", "p010"],
+    "request_max_tokens": 16384,
+    "max_new_tokens_before_next_request": 200000,
+    "max_cache_read_tokens_before_next_request": 2000000,
+    "automatic_redispatch": false
+  },
+  "preflight": {
+    "provider_probe_status": 200,
+    "provider_probe_tokens": 11,
+    "apparatus_status": "pass",
+    "apparatus_sha256": "e885e77dcc844d4263a660000216b2a5855b6083df3071c9888625d95319d479",
+    "p000_task_runtime_status": "pass",
+    "p000_task_runtime_sha256": "80c405dbcd10de844b2ec56afb6fcb362c2d3769863b057b7381aba38acfcca0",
+    "p010_task_runtime_status": "pass",
+    "p010_task_runtime_sha256": "5901a93bbbd115ed33c4fec2260635d56c5c685fcf6214ce7d399fb7155da05d",
+    "model_requests": 0
+  },
+  "arms": {
+    "p000": {
+      "terminal": "max-tokens",
+      "workspace_edited": false,
+      "pre_edit_information_attempts": 3,
+      "assistant_steps": 3,
+      "visible_tests_passed": 9,
+      "hidden_failures": 5,
+      "correct": false,
+      "usage": {
+        "uncached_input_tokens": 9716,
+        "output_tokens": 16670,
+        "cache_read_tokens": 12288,
+        "total_tokens": 38674,
+        "complete": true
+      },
+      "session_jsonl_sha256": "fae27d95d96ea236ef5ae44816294d82c761c197a35803ca20db88af7a6c42d8",
+      "visible_verifier_log_sha256": "6820942151e680bba941b2136b0e0c2bd1ac817be1b75fcabd4702f2f7abaa9a",
+      "hidden_verifier_log_sha256": "01ffa1bc40287e7a5b94477382de8de79e0e945bde8f8dc4c5e5d75d00575b33"
+    },
+    "p010": {
+      "terminal": "provider-quota-429",
+      "workspace_edited": false,
+      "pre_edit_information_attempts": 5,
+      "assistant_steps_finalized": 5,
+      "proposed_steps": 6,
+      "visible_tests_passed": 9,
+      "hidden_failures": 5,
+      "correct": false,
+      "finalized_usage_lower_bound": {
+        "uncached_input_tokens": 25464,
+        "output_tokens": 14684,
+        "cache_read_tokens": 45824,
+        "total_tokens": 85972,
+        "complete": false
+      },
+      "session_jsonl_sha256": "573ab0bca3719364a653f05c694e896c19931892d73c79202cf724e919172d0c",
+      "visible_verifier_log_sha256": "3bb15c7d99ed240213dd58748f5a52635fd509ab205ea831c2b2054c83c0305f",
+      "hidden_verifier_log_sha256": "84fa3ddff5f2564d18bc1246cbf0906f20977bda49ff9a84a56f8bbb1e5c5183"
+    }
+  },
+  "result": {
+    "early_t_axis_behavior_direction_observed": true,
+    "behavior_observation": "p010 continued to five pre-edit information attempts while p000 stopped at the T0 boundary of three",
+    "paired_usage_complete": false,
+    "paired_comparison_valid": false,
+    "correctness_improvement_observed": false,
+    "cost_preference_evaluable": false,
+    "profile_preference_evaluable": false,
+    "next_action": "Do not spend more provider quota on this task until a durable quota window is available; then require both arms to complete in one new pair."
+  },
+  "claim_boundary": "The early behavior trace is consistent with the intended T0/T1 manipulation, but p010 ended on provider 429 with incomplete usage and neither arm edited or passed hidden correctness. No quality or cost preference is established."
+}

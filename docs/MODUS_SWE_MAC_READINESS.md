@@ -223,3 +223,15 @@ the pair, so p000 was not started and no T-axis comparison exists.
 
 See
 [`agentic-artifacts/modus-swe-t-axis-development-v1.json`](../agentic-artifacts/modus-swe-t-axis-development-v1.json).
+
+A new pair was later frozen after a fresh provider probe returned HTTP 200,
+with the order reversed to p000 then p010. p000 completed its usage ledger but
+ended `max-tokens` after three information attempts and no edit: 38,674 total
+tokens, 9/9 visible tests, and five hidden failures. p010 made five information
+attempts and no edit, then received provider 429 during its sixth proposed
+step. Its 85,972 finalized tokens are an incomplete lower bound; it also has
+five hidden failures. Thus the expected early T1 manipulation direction
+(continued investigation beyond the T0 boundary) appeared, but correctness
+did not improve and the provider failure still prevents a valid paired cost or
+outcome comparison. See
+[`agentic-artifacts/modus-swe-t-axis-development-v2.json`](../agentic-artifacts/modus-swe-t-axis-development-v2.json).
