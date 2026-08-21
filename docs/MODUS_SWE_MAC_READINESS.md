@@ -136,3 +136,48 @@ Profile run remains pending a representative provider preflight.
 
 See
 [`agentic-artifacts/modus-swe-dsh-preflight-repair-v1.json`](../agentic-artifacts/modus-swe-dsh-preflight-repair-v1.json).
+
+### Repaired paired canaries
+
+Two new neutral/p000 development pairs were run only after the repaired
+model-free preflight passed and a two-token provider probe returned HTTP 200.
+Both used fresh workspaces, the same task seed, Profile-blind host verifiers,
+complete finalized usage, and no redispatch.
+
+At the original `4096` request cap, both arms made three information attempts,
+never edited, ended `max-tokens`, passed the nine visible tests, and failed five
+hidden cases. p000 used 26,382 total tokens versus neutral's 25,953, a 1.65%
+increase. This is a valid dual-failure development pair, not a cost winner.
+
+A separately frozen apparatus calibration raised the common request cap to
+`16384` after observing that both prior final responses had exhausted exactly
+4096 reasoning tokens. It was not pooled with the original pair as a
+pre-registered repetition. The calibration produced a clear manipulation
+effect:
+
+| Arm | Terminal | Typed edits | Hidden failures | New tokens | Cache-read tokens | Total tokens |
+|---|---|---:|---:|---:|---:|---:|
+| neutral | max-tokens | 0 | 5 | 74,529 | 214,528 | 289,057 |
+| p000 | completed | 4 | 4 | 148,005 | 1,089,536 | 1,237,541 |
+
+The actual p000 request catalog initially matched neutral. After three
+pre-edit information attempts, the runtime removed `bash`, `glob`, `grep`,
+`read`, and `read_image`; the first typed edit then occurred at step 6 and the
+catalog was restored. Neutral had no such transition and never edited. Thus
+the Profile plus qualified behavior gate changed the Worker trajectory in the
+intended direction. It did not produce an accepted solution: p000 fixed only
+one of five hidden failures and cost 4.28 times neutral's total tokens. Neither
+arm is quality-eligible, so no cost-efficiency or Profile-preference winner is
+declared.
+
+The calibration also found a task-runtime defect. Isolating `HOME` hid the
+prebuilt `acrouter-swe-django30-py38` environment from micromamba. Neutral
+created a replacement environment inside its cell home; p000 installed missing
+packages inside its own cell home. No user environment was modified, but these
+different recovery paths confound benchmark cost. A model-free check proved
+that setting the existing `MAMBA_ROOT_PREFIX` while retaining an isolated HOME
+makes the declared visible command pass. Future outcome cells must freeze that
+binding and disable package installation before dispatch.
+
+The redacted record is
+[`agentic-artifacts/modus-swe-dsh-repaired-paired-canary-v2-v3.json`](../agentic-artifacts/modus-swe-dsh-repaired-paired-canary-v2-v3.json).

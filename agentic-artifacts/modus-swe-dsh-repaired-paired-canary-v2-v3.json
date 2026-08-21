@@ -1,0 +1,188 @@
+{
+  "schema": "acrouter-modus-swe-dsh-repaired-paired-canary-v2-v3",
+  "captured_at": "2026-08-21",
+  "scientific_evidence": false,
+  "evidence_kind": "development-paired-canary-and-apparatus-calibration",
+  "task": {
+    "instance_id": "django__django-10999",
+    "prompt_sha256": "71ecaec9b9e1aa4662406e81368e0ad2541baf9e6573f21389b7202eafeb6484",
+    "target_seed_sha256": "d4a35e4e0a013e765814cae3eb43f44ea95714a5111b94e4f72a6f119a242d58",
+    "hidden_verifier_sha256": "0fc7e869dc8d7f1244228dcc4489044d2efad0bdf9f711bfcd7581e86efc2415"
+  },
+  "provenance": {
+    "dsh_commit": "71705c7ff0d47cc7823b240e4d3f2be1dd7d52bb",
+    "plugin_commit": "15fb98d2c98767dfdba748d6e79aa2b11ec2aa6e",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e",
+    "model": "deepseek-v4-flash",
+    "reasoning_effort": "high",
+    "provider_fallback_allowed": false
+  },
+  "startup": {
+    "apparatus_preflight": "pass",
+    "apparatus_model_requests": 0,
+    "provider_probe_http_status": 200,
+    "provider_probe_tokens": 11,
+    "provider_probe_response_text_retained": false,
+    "automatic_redispatches": 0
+  },
+  "request_surface": {
+    "initial_tool_catalog_sha256": "f92c0d8c4d7fa852f2b117273ef3c96366d864b41c755962ca1b340a75c6c283",
+    "matched_between_arms": true,
+    "forbidden_tools_observed": [],
+    "p000_profile_occurrences_per_recorded_header": 1,
+    "neutral_profile_occurrences_per_recorded_header": 0
+  },
+  "v2_original_request_cap": {
+    "scientific_role": "repaired-apparatus development pair",
+    "request_max_tokens": 4096,
+    "run_plan_sha256": "445e3d8273e5b8c5a9fa2dd039473a1ad823aadf069f71e8324cfa803ae2c10b",
+    "apparatus_preflight_sha256": "7e981fb7ee9dc9c23d20b91b7038571557ed970593141e3bf210241bad8c1d50",
+    "provider_probe_sha256": "af5b7ef5b18344d175ceef83813bbb774a7c21174a2d30b779ee0dbe18dd8ef9",
+    "arms": {
+      "neutral": {
+        "terminal": "max-tokens",
+        "workspace_edited": false,
+        "visible_tests_passed": 9,
+        "hidden_failures": 5,
+        "correct": false,
+        "assistant_steps": 3,
+        "tool_calls": 3,
+        "usage": {
+          "uncached_input_tokens": 10446,
+          "output_tokens": 4499,
+          "new_tokens": 14945,
+          "cache_read_tokens": 11008,
+          "total_tokens": 25953,
+          "complete": true
+        },
+        "session_jsonl_sha256": "4bb6d176f02b3d1d0c048eeaee56d322e456a4348c8f93a0111166f1782c8da2",
+        "visible_verifier_log_sha256": "2d527b04ea429aaf4a6ed738845328ecad7f9c41479ac30cb4ff5f8cb7d26e9d",
+        "hidden_verifier_log_sha256": "309ecffb0c95262423e9e78f0882af003244a4fa558baa42d3aa2bc9001f04d3"
+      },
+      "p000": {
+        "terminal": "max-tokens",
+        "workspace_edited": false,
+        "visible_tests_passed": 9,
+        "hidden_failures": 5,
+        "correct": false,
+        "assistant_steps": 3,
+        "tool_calls": 3,
+        "usage": {
+          "uncached_input_tokens": 9713,
+          "output_tokens": 4381,
+          "new_tokens": 14094,
+          "cache_read_tokens": 12288,
+          "total_tokens": 26382,
+          "complete": true
+        },
+        "session_jsonl_sha256": "4505bf96ac657a81fb67ba393e473c72f407e82cedaeac8e8cea50884c490760",
+        "visible_verifier_log_sha256": "f493fd8d9f320efdaddd98dc5530767d8bdf853bc8417f6cd44121662145826a",
+        "hidden_verifier_log_sha256": "88b73f16ba7de6b89313ec5f5e3ac591838a91a6ac49fd28aca22eae59df11a3"
+      }
+    },
+    "comparison": {
+      "p000_total_token_delta": 429,
+      "p000_total_token_ratio": 1.0165298809386198,
+      "p000_new_token_delta": -851,
+      "cost_winner": null,
+      "reason": "Both arms failed the hidden verifier."
+    }
+  },
+  "v3_post_observation_calibration": {
+    "scientific_role": "post-v2 apparatus calibration; not pooled with v2",
+    "request_max_tokens": 16384,
+    "run_plan_sha256": "8c9e0fa23d2cc50c92f12b22745be59720e6d6e01a6fb7d11a6aac0b576d8bcd",
+    "apparatus_preflight_sha256": "76f422ee9a2720e645c7285c310eab9a37d7a365ba49a31b07e759b5e1baeeb4",
+    "arms": {
+      "neutral": {
+        "terminal": "max-tokens",
+        "workspace_edited": false,
+        "visible_tests_passed": 9,
+        "hidden_failures": 5,
+        "correct": false,
+        "assistant_steps": 18,
+        "tool_calls": 18,
+        "typed_edit_calls": 0,
+        "usage": {
+          "uncached_input_tokens": 30830,
+          "output_tokens": 43699,
+          "new_tokens": 74529,
+          "cache_read_tokens": 214528,
+          "total_tokens": 289057,
+          "complete": true
+        },
+        "session_jsonl_sha256": "ced0c6b6cf988536817514bf02a64d89f9232966219f3aeadc0aa8b0e03ca565",
+        "visible_verifier_log_sha256": "f86293cc9a87ea300bf808f23b01248659783af0f165a712f8c8e23e0b5ea31e",
+        "hidden_verifier_log_sha256": "97f495834a01781e5b51e65678a0f7dc5edaf7f036581860ec192d2bbe8f955b"
+      },
+      "p000": {
+        "terminal": "completed",
+        "workspace_edited": true,
+        "changed_implementation_files": [
+          "django/utils/dateparse.py"
+        ],
+        "visible_tests_passed": 9,
+        "hidden_failures": 4,
+        "correct": false,
+        "assistant_steps": 26,
+        "tool_calls": 27,
+        "typed_edit_calls": 4,
+        "first_typed_edit_step": 6,
+        "final_target_sha256": "16a4b126afa0c4001f987c4cf423b23334a57a990231bf10c7531eda80b56601",
+        "usage": {
+          "uncached_input_tokens": 100466,
+          "output_tokens": 47539,
+          "new_tokens": 148005,
+          "cache_read_tokens": 1089536,
+          "total_tokens": 1237541,
+          "complete": true
+        },
+        "session_jsonl_sha256": "ef8e36b0596ff75c3a7e0a4411581399308bdb5e76166fe841b7a4d17f7a5065",
+        "visible_verifier_log_sha256": "8786574a63b92b561eae7abd6b0a95779adb7113df63b7444e02ad3561bac820",
+        "hidden_verifier_log_sha256": "b7f9f72d90af8935f0b38f244a87aebc3abfa157d438846af9072cc2a6478554"
+      }
+    },
+    "qualified_profile_gate": {
+      "activated": true,
+      "information_tools_removed_after_limit": [
+        "bash",
+        "glob",
+        "grep",
+        "read",
+        "read_image"
+      ],
+      "restored_after_typed_edit": true,
+      "behavior_effect_observed": true
+    },
+    "comparison": {
+      "p000_hidden_failure_delta": -1,
+      "p000_total_token_delta": 948484,
+      "p000_total_token_ratio": 4.281304379413057,
+      "p000_new_token_ratio": 1.9858712715855573,
+      "p000_cache_read_token_ratio": 5.078758949880668,
+      "cost_winner": null,
+      "reason": "p000 made partial progress but both arms failed the hidden verifier."
+    }
+  },
+  "runtime_incident": {
+    "code": "isolated-home-hid-prebuilt-micromamba-root",
+    "user_environment_modified": false,
+    "neutral_recovery": "created a replacement conda environment inside its isolated cell home",
+    "p000_recovery": "installed missing packages inside its isolated cell home",
+    "benchmark_cost_confounded": true,
+    "model_free_repair_probe": {
+      "binding": "existing MAMBA_ROOT_PREFIX with isolated HOME",
+      "visible_tests_passed": 9,
+      "log_sha256": "5736683c00554debf57b03dbec4a1b942d5f85aed4779410b6d2c04ad18e96bc"
+    }
+  },
+  "result": {
+    "profile_injection_verified": true,
+    "profile_behavior_effect_observed": true,
+    "end_to_end_correctness_observed": false,
+    "profile_cost_efficiency_observed": false,
+    "formal_profile_preference_evaluable": false,
+    "next_gate": "Freeze the existing micromamba root under isolated HOME, disable package installation, and rerun a counterbalanced matched pair before adding tasks."
+  },
+  "claim_boundary": "The repaired plugin demonstrably changed the qualified p000 Worker trajectory: the information-tool lock activated, forced a transition to typed editing, and later released. That is a manipulation check for controllable behavior, not proof of task suitability or cost efficiency. Neither arm passed hidden correctness, p000 used 4.28x neutral total tokens in the 16384 calibration, and environment recovery confounded benchmark cost."
+}
