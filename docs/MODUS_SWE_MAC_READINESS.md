@@ -107,3 +107,32 @@ The run is therefore an apparatus/provider failure, not evidence that the DSH
 gate succeeds or fails. It is excluded from the Profile pipeline and Oracle.
 See
 [`agentic-artifacts/modus-swe-dsh-gate-canary-v1.json`](../agentic-artifacts/modus-swe-dsh-gate-canary-v1.json).
+
+### Apparatus repair
+
+The local plugin repair at `15fb98d2c98767dfdba748d6e79aa2b11ec2aa6e`
+adds `web_search` to the fixed-Worker deny SSOT. On the pinned clean DSH
+checkout, the real ToolRuntime test now proves both model-catalog exclusion and
+pre-body execution denial for `ask_user_question` and `web_search`. The full
+plugin checks pass: 35 Node tests, 33 Python tests, and 17 real DSH compatibility
+tests.
+
+Before a future model request, run the repository preflight:
+
+```bash
+python3 scripts/check_modus_dsh_runtime.py \
+  --dsh-root /absolute/path/to/deepseek-harness \
+  --plugin-root /absolute/path/to/dsh-personal-plugins \
+  --expected-plugin-commit <full-plugin-commit> \
+  --report /absolute/path/to/run/preflight.json
+```
+
+It fails closed unless both repositories are clean and pinned, the plugin
+declares the auxiliary-tool-confinement contract, the DSH lockfile passes a
+frozen offline check, and the real DSH compatibility suite passes. The repair
+preflight made zero model requests and passed. This closes the known apparatus
+defects but does not repair or reinterpret the provider `429`; a new paired
+Profile run remains pending a representative provider preflight.
+
+See
+[`agentic-artifacts/modus-swe-dsh-preflight-repair-v1.json`](../agentic-artifacts/modus-swe-dsh-preflight-repair-v1.json).

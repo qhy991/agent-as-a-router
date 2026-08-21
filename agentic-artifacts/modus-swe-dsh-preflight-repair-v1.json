@@ -1,0 +1,43 @@
+{
+  "schema": "acrouter-modus-swe-dsh-preflight-repair-v1",
+  "captured_at": "2026-08-21",
+  "scientific_evidence": false,
+  "evidence_kind": "apparatus-repair-and-model-free-preflight",
+  "repaired_defects": [
+    "fixed Worker model-visible catalog exposed web_search",
+    "fixed Worker execution boundary did not explicitly regress web_search denial",
+    "experiment startup did not fail closed on old plugin provenance",
+    "experiment startup did not require frozen offline DSH lockfile validation"
+  ],
+  "provenance": {
+    "dsh_commit": "71705c7ff0d47cc7823b240e4d3f2be1dd7d52bb",
+    "plugin_commit": "15fb98d2c98767dfdba748d6e79aa2b11ec2aa6e",
+    "plugin_compatibility_manifest_sha256": "0a248d6e019bbb6a0f5c58fdd7a95173533856b432c872adc019660a06f13221",
+    "pnpm_lock_sha256": "3a9e228c3dcf30d73ce03b60903a194d5d0fc24aa91c8364c6d50890801fc5d0"
+  },
+  "preflight": {
+    "status": "pass",
+    "model_requests": 0,
+    "plugin_clean": true,
+    "dsh_clean": true,
+    "required_contract": "fixed-worker-auxiliary-tool-confinement",
+    "frozen_offline_lockfile_returncode": 0,
+    "real_dsh_compatibility_returncode": 0
+  },
+  "tests": {
+    "plugin_node_passed": 35,
+    "plugin_python_passed": 33,
+    "real_dsh_compatibility_passed": 17,
+    "agent_router_preflight_passed": 3
+  },
+  "provider": {
+    "status": "not_retried",
+    "reason": "The previous 429 quota failure is external to the apparatus repair; no live request was authorized until the model-free preflight passed."
+  },
+  "result": {
+    "known_apparatus_defects_closed": true,
+    "paired_profile_comparison_available": false,
+    "profile_claim_status": "still-unmeasured-under-repaired-dsh-apparatus"
+  },
+  "claim_boundary": "This record proves only that the known fixed-Worker tool-confinement, source-custody, lockfile, and real-DSH compatibility gates now pass without a model request. It contains no neutral/p000 outcome comparison and cannot enter Profile quality, cost, or Oracle conclusions."
+}
