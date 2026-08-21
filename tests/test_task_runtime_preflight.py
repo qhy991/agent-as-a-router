@@ -14,12 +14,14 @@ class TaskRuntimePreflightTest(unittest.TestCase):
         value = worker_environment(
             isolated_home=Path("/run/home"),
             mamba_root=Path("/runtime/mamba"),
+            workspace=Path("/workspace"),
             source={"PATH": "/bin", "UNRELATED_SECRET": "not-forwarded"},
         )
         self.assertEqual(value["HOME"], "/run/home")
         self.assertEqual(value["MAMBA_ROOT_PREFIX"], "/runtime/mamba")
         self.assertEqual(value["PIP_NO_INDEX"], "1")
         self.assertEqual(value["PIP_REQUIRE_VIRTUALENV"], "1")
+        self.assertEqual(value["PYTHONPATH"], "/workspace")
         self.assertNotIn("UNRELATED_SECRET", value)
 
     def test_existing_environment_and_successful_command_pass(self):

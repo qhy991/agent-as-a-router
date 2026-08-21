@@ -33,6 +33,7 @@ def worker_environment(
     *,
     isolated_home: Path,
     mamba_root: Path,
+    workspace: Path | None = None,
     source: dict[str, str] | None = None,
 ) -> dict[str, str]:
     """Return the bounded environment shared by preflight and the Worker host."""
@@ -45,6 +46,8 @@ def worker_environment(
         "PIP_REQUIRE_VIRTUALENV": "1",
         "PYTHONDONTWRITEBYTECODE": "1",
     })
+    if workspace is not None:
+        result["PYTHONPATH"] = str(workspace.expanduser().resolve())
     return result
 
 
@@ -116,6 +119,7 @@ def run_task_runtime_preflight(
         environment = worker_environment(
             isolated_home=isolated_home,
             mamba_root=mamba_root,
+            workspace=workspace,
         )
         command = [
             micromamba,
