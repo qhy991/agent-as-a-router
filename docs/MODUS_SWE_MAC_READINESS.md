@@ -181,3 +181,17 @@ binding and disable package installation before dispatch.
 
 The redacted record is
 [`agentic-artifacts/modus-swe-dsh-repaired-paired-canary-v2-v3.json`](../agentic-artifacts/modus-swe-dsh-repaired-paired-canary-v2-v3.json).
+
+### Frozen task-runtime preflight
+
+`scripts/check_modus_task_runtime.py` closes the isolated-HOME environment gap
+before another model request. It requires the declared existing micromamba
+environment, runs the task's Python acceptance command with `HOME` isolated and
+`MAMBA_ROOT_PREFIX` bound, disables index-backed pip installation, requires pip
+to be inside a virtual environment, and disables bytecode writes. The pass or
+failure is written before dispatch and always reports zero model requests.
+
+The same environment mapping must be injected into the DSH Worker process; a
+host-only passing probe is not sufficient. A missing environment or failing
+task command stops the cell before the prompt. This is development apparatus
+qualification, not outcome evidence.
