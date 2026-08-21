@@ -235,3 +235,18 @@ five hidden failures. Thus the expected early T1 manipulation direction
 did not improve and the provider failure still prevents a valid paired cost or
 outcome comparison. See
 [`agentic-artifacts/modus-swe-t-axis-development-v2.json`](../agentic-artifacts/modus-swe-t-axis-development-v2.json).
+
+### A-axis visible-feedback task
+
+`django__django-11087` is selected for the first p000/p001 development matrix.
+Its official SWE-bench test patch is promoted into the visible workspace before
+dispatch, so the seed fails `test_only_referenced_fields_selected` and the gold
+implementation passes it on the existing Mac-native environment. This makes
+post-edit feedback informative, unlike the duration task whose visible tests
+did not expose the hidden semantic error. The promotion changes the task from
+an official hidden SWE-bench score into a visible-feedback mechanism probe.
+
+The frozen task contract is
+[`configs/modus_swe_a_axis_v1.json`](../configs/modus_swe_a_axis_v1.json). It
+plans two counterbalanced repetitions of p000/p001 but remains
+`run_authorized=false` until a stable provider window is available.

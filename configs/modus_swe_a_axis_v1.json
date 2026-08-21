@@ -1,0 +1,83 @@
+{
+  "schema": "acrouter-modus-swe-a-axis-task-v1",
+  "status": "qualified-awaiting-stable-provider",
+  "run_authorized": false,
+  "source": {
+    "dataset": "princeton-nlp/SWE-bench_Verified",
+    "instance_id": "django__django-11087",
+    "repository": "django/django",
+    "base_commit": "8180ffba21bf10f4be905cb0d4890dc2bcff2788",
+    "archive_sha256": "f790fb16e5166a3f9e9b3a7058989aabd819bc86224edf68e8c61ea0889ba210",
+    "metadata_sha256": "230d4e6f63d9f3d3f4a259a08c96063bcdcaf38af040ed814b14bcfb462a4a9c",
+    "visible_test_patch_sha256": "b22e32d45884b7b3ee149c72eecfc01c6856a6b5b1ebeaff586831bce372f7d4",
+    "gold_patch_sha256": "fc0d2e4c7d3d12e96a9675ab08511955aa9e8759cdf0cd746ad71e661642588f"
+  },
+  "task": {
+    "prompt": "examples/modus_profile_router/django-11087-a-axis-task.md",
+    "prompt_sha256": "538b3e7d6bcdf3c74a5866e56ee88e9fb7d966a75cb097606b0d58887394d13f",
+    "target_implementation_modules": [
+      "django/db/models/deletion.py"
+    ],
+    "visible_feedback_test": "delete.tests.DeletionTests.test_only_referenced_fields_selected",
+    "environment": "acrouter-swe-django30-py38",
+    "test_command": [
+      "tests/runtests.py",
+      "delete.tests.DeletionTests.test_only_referenced_fields_selected",
+      "--verbosity",
+      "1"
+    ]
+  },
+  "qualification": {
+    "model_requests": 0,
+    "baseline_status": "fail-as-required",
+    "baseline_preflight_sha256": "0d2244c125fa1e25b844ff3087bc8dac5b0b1f8daa74443dcb74bd3fa4ae6e36",
+    "baseline_test_returncode": 1,
+    "gold_status": "pass",
+    "gold_preflight_sha256": "937f48fc80b673baa08b6baa6bbac159af7cbc7acd143938c1768cb36a227d0f",
+    "gold_test_returncode": 0,
+    "visible_feedback_informative": true,
+    "mac_native_ready": true
+  },
+  "treatments": {
+    "p000": {
+      "bits": "E0/T0/A0",
+      "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282",
+      "fixed_preset": "modus-fixed-p000"
+    },
+    "p001": {
+      "bits": "E0/T0/A1",
+      "profile_sha256": "708dd24963f9ee44afaba3b0e0c7222e3e4bc61666b63b1e74a9ec38a8246242",
+      "candidate_id": "a1-v1",
+      "fixed_preset": "modus-fixed-p001-a1-v1"
+    }
+  },
+  "single_axis_contract": {
+    "changed_axis": "A",
+    "unchanged_segments": [
+      "envelope",
+      "E0",
+      "T0"
+    ],
+    "shared_pre_edit_information_policy": "three-attempt lock",
+    "profile_word_count": 224,
+    "router_involved": false
+  },
+  "planned_matrix": {
+    "schedule": [
+      ["p000", "p001"],
+      ["p001", "p000"]
+    ],
+    "repetitions_per_arm": 2,
+    "root_cells": 4,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "provider_failure": "retain cell and stop matrix"
+  },
+  "acceptance": {
+    "correctness": "visible feedback test passes and source changes are confined to the named implementation module",
+    "manipulation": "compare focused verification attempts after typed edits",
+    "cost": "compare complete finalized total tokens only among correct cells",
+    "promotion": "p001 remains unqualified after one task regardless of outcome"
+  },
+  "claim_boundary": "This is a visible-feedback A-axis development task derived from a frozen SWE-bench Verified instance. Promoting the official test patch into the visible workspace changes the feedback treatment context and is not an official hidden SWE-bench score."
+}
