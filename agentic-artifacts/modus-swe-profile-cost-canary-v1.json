@@ -1,0 +1,110 @@
+{
+  "schema": "acrouter-modus-swe-profile-cost-canary-v1",
+  "captured_at": "2026-08-21",
+  "scientific_evidence": false,
+  "evidence_kind": "single-task-single-repetition-prompt-only-development-canary",
+  "task": {
+    "instance_id": "django__django-10999",
+    "base_commit": "36300ef336e3f130a0dadc1143163ff3d23dc843",
+    "task_prompt_sha256": "71ecaec9b9e1aa4662406e81368e0ad2541baf9e6573f21389b7202eafeb6484",
+    "hidden_test_patch_sha256": "8b92484ff17c87020c687e58f1559df3a5e02d41599a7afe7af0868304fe368f",
+    "named_target_module": "django/utils/dateparse.py"
+  },
+  "runtime": {
+    "agent": "pi-coding-agent",
+    "agent_version": "0.84.2",
+    "provider": "infini-ai",
+    "model": "deepseek-v4-flash",
+    "thinking": "high",
+    "profile_runtime_gate": false,
+    "router_calls": 0,
+    "automatic_redispatches": 0,
+    "model_config_sha256": "5046e861e9a55a7544e3080d2d5320b8c729184d1b9d48a8d1c337a471091440"
+  },
+  "arms": {
+    "neutral": {
+      "profile_sha256": null,
+      "agent_exit_code": 0,
+      "assistant_messages": 9,
+      "tool_calls": 9,
+      "tool_counts": {
+        "read": 5,
+        "bash": 3,
+        "edit": 1
+      },
+      "first_edit_assistant_message": 5,
+      "new_tokens": 41788,
+      "cache_read_tokens": 113664,
+      "cache_write_tokens": 0,
+      "observed_total_tokens": 155452,
+      "visible_tests": {
+        "passed": true,
+        "tests": 9,
+        "log_sha256": "0e7f1a87b4e871f14aadaddf19dd089b2a51919cfaf4e33a87d11bf022427df7"
+      },
+      "hidden_verifier": {
+        "passed": false,
+        "test_methods": 2,
+        "failing_subtests": 4,
+        "log_sha256": "4db000e919affd0a5c32795e4a953536cfb5e743e61d5a775077fb94193a4fcb"
+      },
+      "changed_implementation_modules": [
+        "django/utils/dateparse.py"
+      ],
+      "final_target_sha256": "8fd525747ce5848f19618fd0555832674abbdbca0863b276f29296aba15487d7",
+      "session_sha256": "1d4b175c2002c76fee346c3c720a83dbdcf9f4b564577dafbc9af59ae659426b",
+      "raw_event_log_sha256": "60da05ffc48ea247c5bcbc7299f7196330fa0092cd9a64436e4e26dec3cd2ae6"
+    },
+    "p000": {
+      "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282",
+      "agent_exit_code": 0,
+      "assistant_messages": 19,
+      "tool_calls": 19,
+      "tool_counts": {
+        "read": 5,
+        "bash": 13,
+        "edit": 1
+      },
+      "first_edit_assistant_message": 12,
+      "new_tokens": 80418,
+      "cache_read_tokens": 384000,
+      "cache_write_tokens": 0,
+      "observed_total_tokens": 464418,
+      "visible_tests": {
+        "passed": true,
+        "tests": 9,
+        "log_sha256": "296075ef00b4b3c145873b9cced7c70a0516d73c4e3bdbe642e323ce315e38a8"
+      },
+      "hidden_verifier": {
+        "passed": false,
+        "test_methods": 2,
+        "failing_subtests": 4,
+        "log_sha256": "5c4e430d52b087d9f70f13613f3bba66024e8c2411ad3cd09f0ce3d8a22e90d5"
+      },
+      "changed_implementation_modules": [
+        "django/utils/dateparse.py"
+      ],
+      "final_target_sha256": "7298a690805a8e1b217e48b68c41ef87157025a7719d7a2b317725b32e30fe85",
+      "session_sha256": "1a519b2483610b5245fc5f17f73ff2c555788117ce6fdd4178743100d179aca7",
+      "raw_event_log_sha256": "24b63b9848713ea4358118ec4540f874793cd6ab6181ee49b85a78460b50b8b9"
+    }
+  },
+  "descriptive_ratios_p000_over_neutral": {
+    "new_tokens": 1.9244280654733417,
+    "cache_read_tokens": 3.3783783783783785,
+    "observed_total_tokens": 2.987533129197437
+  },
+  "result": {
+    "quality_comparison_eligible": false,
+    "cost_winner": null,
+    "profile_behavior_fidelity_supported": false,
+    "claim_status": "negative-canary-both-hidden-incorrect"
+  },
+  "interpretation": [
+    "Both arms preserved the visible nine-test family but failed the same four hidden subtests, so token differences cannot be promoted to a cost-efficiency advantage.",
+    "The p000 prompt-only arm used about 2.99 times the observed total tokens, edited later, and ran more bash evaluations than neutral; this is opposite to the prior DSH local-task direction.",
+    "The result supports behavioral and cost sensitivity to Profile treatment, but one repetition cannot distinguish Profile effect from trajectory variance and the missing runtime gate changes the treatment bundle."
+  ],
+  "raw_artifacts_committed": false,
+  "claim_boundary": "One selected SWE-bench task, two prompt-only Pi arms, one repetition, no DSH gate, and no correct hidden outcome. Development evidence only; not a Profile cost winner, Router label, held-out generalization result, or scientific comparison."
+}

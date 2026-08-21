@@ -21,6 +21,11 @@ that need to decide what to inspect before loading the full repository.
 8. Read `modus-profile-router-mac-replay.json` and
    `../docs/MODUS_PROFILE_ROUTER.md` for the optional same-model behavioral
    Profile action adapter and its Apple Silicon offline replay.
+9. Read `modus-swe-mac-readiness-v1.json` and
+   `../docs/MODUS_SWE_MAC_READINESS.md` for the model-free OOD176 task
+   materialization and baseline/gold verifier gate.
+10. Read `modus-swe-profile-cost-canary-v1.json` for the first prompt-only
+    neutral/p000 trajectory and token comparison on a reconstructed SWE task.
 
 ## Scope
 

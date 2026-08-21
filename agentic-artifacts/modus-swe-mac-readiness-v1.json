@@ -1,0 +1,128 @@
+{
+  "schema": "acrouter-modus-swe-mac-readiness-v1",
+  "captured_at": "2026-08-21",
+  "scientific_evidence": false,
+  "model_calls": 0,
+  "source": {
+    "agent_as_router_upstream_commit": "e43839edb0d5d0a9feec2f7078019406ab4d64bd",
+    "agent_as_router_profile_extension_commit": "56a2b134abd9ee0e79acdb7684384ed4c9498a55",
+    "dataset": "princeton-nlp/SWE-bench_Verified",
+    "agent_as_router_split": "OOD176 old112",
+    "selection_sha256": "975e2ffa8539223b4e24afacb6620c9d602e8d607528c9c6b6dac84a0a399986"
+  },
+  "environment": {
+    "platform": "macOS",
+    "platform_version": "15.7.3",
+    "architecture": "arm64",
+    "docker_available": false,
+    "django_environment": {
+      "python": "3.8.20",
+      "environment": "acrouter-swe-django30-py38",
+      "required_packages": ["pytz", "sqlparse", "asgiref"]
+    },
+    "astropy_environment": {
+      "python": "3.9.23",
+      "environment": "acrouter-swe-astropy-py39",
+      "official_pins_applied": {
+        "numpy": "1.25.2",
+        "pyerfa": "2.0.0.3",
+        "pytest": "7.4.0",
+        "setuptools": "68.0.0"
+      },
+      "native_build_adjustment": "CFLAGS=-Wno-error=incompatible-function-pointer-types"
+    }
+  },
+  "coverage": {
+    "selected_tasks": 6,
+    "local_stratum": 3,
+    "system_stratum": 3,
+    "source_archives_downloaded": 6,
+    "test_patches_applied": 6,
+    "gold_patches_applied": 6,
+    "baseline_failed_as_expected": 6,
+    "gold_passed": 5,
+    "mac_native_ready": 5,
+    "blocked": 1
+  },
+  "tasks": [
+    {
+      "instance_id": "astropy__astropy-13033",
+      "stratum": "local",
+      "base_commit": "298ccb478e6bf092953bca67a3d29dc6c35f6752",
+      "archive_sha256": "a5bab553799dade3acf5ad4797ca8a42327fc155dbd6052139fae6f07d4f3c82",
+      "metadata_sha256": "1f42452fb7d2d7c1893809bfd1519b755d145adc998bf50a42639200a953b005",
+      "baseline": "failed-as-expected",
+      "gold": "passed",
+      "baseline_log_sha256": "2104c773bf78da328338242c25c1b13bbc8c41ada627fd9de5e654e5912f7c3e",
+      "gold_log_sha256": "07a678a9a4322a4fa61b02519432e21685cc4662a1c04559b7f6b98ed08694b5",
+      "status": "mac-native-ready"
+    },
+    {
+      "instance_id": "astropy__astropy-13398",
+      "stratum": "system",
+      "base_commit": "6500928dc0e57be8f06d1162eacc3ba5e2eff692",
+      "archive_sha256": "40e0109031eb10372d56e36cec87e7172462cfd870e537051f2fc6c6494733bc",
+      "metadata_sha256": "5b18ca48f5a1cbd5ad393ad7a20867f2c53828ecca53fe15e8b40dad50f2b72a",
+      "baseline": "four-tests-failed-as-expected",
+      "gold": "three-passed-one-failed",
+      "baseline_log_sha256": "97077eee73596d78194b497f643a090dde8be46875ad249695eebab5575e9107",
+      "gold_log_sha256": "6933c3fa51999bc519eea4fa8f7eaf2854e2d4f639f92391e11f5b3ad37c0489",
+      "status": "blocked-native-gold-mismatch"
+    },
+    {
+      "instance_id": "astropy__astropy-14309",
+      "stratum": "local",
+      "base_commit": "cdb66059a2feb44ee49021874605ba90801f9986",
+      "archive_sha256": "d4636ea153ac42621f942bbf2d80ebacb01dcfea13eec07bc68b9c816bdae02a",
+      "metadata_sha256": "85e2965b8fc060971b847b16984078af4442f453b8df6e87680661facb60d6b9",
+      "baseline": "failed-as-expected",
+      "gold": "passed",
+      "baseline_log_sha256": "2e72680ae63482e9dd857ab33a16ab030745b6184af93f9dc1f426e8050d7ad4",
+      "gold_log_sha256": "1abdf899844f4776286513e9a277b17fd20b5f1abd114ee5292772a29399ac09",
+      "status": "mac-native-ready"
+    },
+    {
+      "instance_id": "django__django-10999",
+      "stratum": "local",
+      "base_commit": "36300ef336e3f130a0dadc1143163ff3d23dc843",
+      "archive_sha256": "fe8d9dca697aaecad09e3bc981a032010e2dbd4c8b6e342a106996d0009ec2f2",
+      "metadata_sha256": "cf18ba05da661f7c738713708bf820bba526f93760e2ced09068a2a0503c879b",
+      "baseline": "failed-as-expected",
+      "gold": "passed",
+      "baseline_log_sha256": "1999e1f47fe72c1f02db1ba906898f4b91fe0c035e7925b460eb2c8e3b7db2d3",
+      "gold_log_sha256": "503fb79a8640685832c6ed1355e78e7ce4a7ef2cf924ee9fdffc8ce7f4ae29d7",
+      "status": "mac-native-ready"
+    },
+    {
+      "instance_id": "django__django-11087",
+      "stratum": "system",
+      "base_commit": "8180ffba21bf10f4be905cb0d4890dc2bcff2788",
+      "archive_sha256": "f790fb16e5166a3f9e9b3a7058989aabd819bc86224edf68e8c61ea0889ba210",
+      "metadata_sha256": "230d4e6f63d9f3d3f4a259a08c96063bcdcaf38af040ed814b14bcfb462a4a9c",
+      "baseline": "failed-as-expected",
+      "gold": "passed",
+      "baseline_log_sha256": "512b0239f3d219c675ff5c11bc9b3fae306f75a455c8afe3011d91480283a9db",
+      "gold_log_sha256": "905719fb984b4616e70f609437a5645eb50e3717174db94a9300d26d624ec563",
+      "status": "mac-native-ready"
+    },
+    {
+      "instance_id": "django__django-11333",
+      "stratum": "system",
+      "base_commit": "55b68de643b5c2d5f0a8ea7587ab3b2966021ccc",
+      "archive_sha256": "d2b7e1725aec4d3f8a5781409188f993c9683a4851c4a36b1f65a005c556c6b7",
+      "metadata_sha256": "ea49c799f190efa6c03c0fe7f1a636e21e182c22c34441ddea83c8e3c94f8eda",
+      "baseline": "failed-as-expected",
+      "gold": "passed",
+      "baseline_log_sha256": "8b245d5e5840a8eb3edde63b1ac3cf286f966bb3e27e089374a5ee3824c7c413",
+      "gold_log_sha256": "62fde2ebf302885a465cf2f39fb78953b4545197af2f0011450ebf0c3da5e511",
+      "status": "mac-native-ready"
+    }
+  ],
+  "profile_eligibility": {
+    "neutral": "eligible for a fixed-Worker cost canary",
+    "p000": "eligible after the visible task contract names one target implementation module",
+    "p100_e1_v2": "not eligible: the Profile requires exactly three named target/shared/observer modules and is a categorysum-specific development candidate"
+  },
+  "next_authorized_scope": "A separately frozen neutral-versus-p000 canary on the five Mac-native-ready tasks; no p100-e1-v2, no dynamic Router, and no scientific claim until an official-container replication exists.",
+  "claim_boundary": "This is zero-model Mac-native apparatus evidence. Baseline-fail/gold-pass proves five tasks are usable for local development, but the absence of Docker means it is not an official SWE-bench environment equivalence claim."
+}

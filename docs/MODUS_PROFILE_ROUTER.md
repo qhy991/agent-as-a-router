@@ -91,3 +91,23 @@ at least two Profiles and saves at least 15% total tokens versus the best fixed
 Profile without correctness or performance loss. Until that crossover exists,
 ACRouter training or live Profile dispatch would have no positive target to
 learn.
+
+## OOD176 executable-task readiness
+
+A six-task SWE-bench Verified subset was also materialized and tested natively
+on the Apple Silicon Mac. Five tasks satisfy baseline-fail/gold-pass readiness;
+one Astropy system task is blocked by a native gold/environment mismatch. See
+[`MODUS_SWE_MAC_READINESS.md`](MODUS_SWE_MAC_READINESS.md).
+
+This readiness pass also shows that p100-e1-v2 is not a generic held-out action:
+its exact-three-named-module contract is specific to the categorysum sentinel.
+The five ready SWE tasks can support a neutral-versus-p000 cost-generalization
+pilot, but a new frozen generic multi-module Profile is needed before they can
+support Profile routing crossover.
+
+A first prompt-only neutral/p000 canary on `django__django-10999` made the
+boundary concrete: both arms failed the same hidden verifier cases, while p000
+used 2.99× the total tokens and edited later. This cannot supply an Oracle
+label, but it confirms that the Profile treatment changes trajectory and cost
+outside the original two tasks. See
+[`MODUS_SWE_MAC_READINESS.md`](MODUS_SWE_MAC_READINESS.md).
