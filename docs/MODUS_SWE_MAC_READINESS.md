@@ -195,3 +195,31 @@ The same environment mapping must be injected into the DSH Worker process; a
 host-only passing probe is not sufficient. A missing environment or failing
 task command stops the cell before the prompt. This is development apparatus
 qualification, not outcome evidence.
+
+### First fixed-only T-axis attempt
+
+The current M1 `p010` (`E0/T1/A0`, SHA-256 `8b0e10fb...`) was added as the
+explicit fixed-only `t1-v1` candidate. It is mechanically identical to p000 in
+the envelope, E0, and A0 segments and differs only by T0 to T1. It is absent
+from the Router action space. The real DSH test proves that p010 retains broad
+pre-edit information access after a fourth attempt while keeping the same
+auxiliary-tool confinement; p000 still activates its three-attempt T0 lock.
+
+A one-task p010/p000 development pair was frozen after both fresh workspaces
+passed the repaired task-runtime preflight with zero model requests. The first
+preflight correctly failed because workspace `PYTHONPATH` was missing; a
+before-dispatch amendment bound it in both the host probe and Worker process,
+after which both arms passed the nine visible tests. No treatment, budget,
+schedule, or verifier field changed.
+
+The scheduled first p010 cell completed 15 finalized assistant steps, made its
+first typed edit at step 8, ran the declared environment directly, and made no
+environment-creation or package-install call. It then received provider `429
+QUOTA` during the sixteenth proposed step. Its finalized usage fold is
+incomplete and the numeric counters are only lower bounds, never cost. The
+partial workspace passes 9/9 visible tests but still fails four hidden cases,
+fixing only the negative-zero subcase. The frozen provider-failure rule stopped
+the pair, so p000 was not started and no T-axis comparison exists.
+
+See
+[`agentic-artifacts/modus-swe-t-axis-development-v1.json`](../agentic-artifacts/modus-swe-t-axis-development-v1.json).

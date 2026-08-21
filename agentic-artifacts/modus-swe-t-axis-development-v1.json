@@ -1,0 +1,108 @@
+{
+  "schema": "acrouter-modus-swe-t-axis-development-v1",
+  "captured_at": "2026-08-21",
+  "scientific_evidence": false,
+  "evidence_kind": "stopped-single-arm-development-attempt",
+  "estimand": "p010 minus p000 on django__django-10999",
+  "task": {
+    "instance_id": "django__django-10999",
+    "prompt_sha256": "71ecaec9b9e1aa4662406e81368e0ad2541baf9e6573f21389b7202eafeb6484",
+    "target_seed_sha256": "d4a35e4e0a013e765814cae3eb43f44ea95714a5111b94e4f72a6f119a242d58",
+    "hidden_verifier_sha256": "0fc7e869dc8d7f1244228dcc4489044d2efad0bdf9f711bfcd7581e86efc2415"
+  },
+  "provenance": {
+    "dsh_commit": "71705c7ff0d47cc7823b240e4d3f2be1dd7d52bb",
+    "plugin_commit": "5907af92c89f3227e8894f867f0d2ef5b12973d1",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e",
+    "agent_router_commit_at_dispatch": "5a8bdf6c7b9af5d8d2ddb7f07a7923e4f554579b",
+    "runner_sha256": "3b7917b1653f23b0f70abc449574f1d4439439cc98cdca6b2e4362dc8cd017d3",
+    "model": "deepseek-v4-flash",
+    "reasoning_effort": "high"
+  },
+  "treatments": {
+    "p000": {
+      "bits": {"E": 0, "T": 0, "A": 0},
+      "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282",
+      "runtime_policy": "three-attempt pre-edit information lock"
+    },
+    "p010": {
+      "bits": {"E": 0, "T": 1, "A": 0},
+      "candidate_id": "t1-v1",
+      "status": "unqualified-development-candidate",
+      "profile_sha256": "8b0e10fb396407cce7c1d190aafa98c446115b68763a1f3a42222f2df7b53d48",
+      "runtime_policy": "broad pre-edit information access; no T0 lock"
+    }
+  },
+  "frozen_inputs": {
+    "run_plan_sha256": "0129dfacc3661242917ac9f0fca5de0bb23fe2b48be35798239b8072f37c2c38",
+    "before_dispatch_amendment_sha256": "151294800224abe6d653c178bf9d01138e9f0463f7a9b673393b3430c2a2750d",
+    "request_max_tokens": 16384,
+    "max_new_tokens_before_next_request": 200000,
+    "max_cache_read_tokens_before_next_request": 2000000,
+    "schedule": ["p010", "p000"],
+    "automatic_redispatch": false
+  },
+  "preflight": {
+    "apparatus_status": "pass",
+    "apparatus_sha256": "270c303e8246d7ef09bbc60ca37b52b1806390b2199e36c548de4179950250ef",
+    "p010_task_runtime_status": "pass",
+    "p010_task_runtime_sha256": "64c603c76ab1736eed1ad6f8fd853c7cedf2c3e972df8df42467b228956e758d",
+    "p000_task_runtime_status": "pass",
+    "p000_task_runtime_sha256": "46467d4afa532dd49db8cb7b9731973675a2a21f848e8feb2cb14211fd463753",
+    "visible_tests_passed_per_arm": 9,
+    "model_requests": 0,
+    "isolated_home": true,
+    "existing_mamba_root_bound": true,
+    "workspace_pythonpath_bound": true,
+    "dependency_download_disabled": true
+  },
+  "request_surface": {
+    "p010_profile_occurrences_per_recorded_header": 1,
+    "forbidden_tools_observed": [],
+    "router_involved": false,
+    "package_install_attempts": 0,
+    "environment_creation_attempts": 0
+  },
+  "execution": {
+    "p010": {
+      "started": true,
+      "terminal": "provider-quota-429",
+      "automatic_redispatch": false,
+      "assistant_steps_finalized": 15,
+      "proposed_steps": 16,
+      "first_typed_edit_step": 8,
+      "typed_edit_calls": 1,
+      "pre_edit_information_attempts": 4,
+      "workspace_edited": true,
+      "changed_implementation_files": ["django/utils/dateparse.py"],
+      "final_target_sha256": "e6ee6156eb7769f5c4db3cca17a5229ac3d0466f1ebc6c5402cd91cdd6f3a78c",
+      "visible_tests_passed": 9,
+      "hidden_failures": 4,
+      "correct": false,
+      "finalized_usage_lower_bound": {
+        "uncached_input_tokens": 47090,
+        "output_tokens": 30310,
+        "cache_read_tokens": 397312,
+        "total_tokens": 474712,
+        "complete": false
+      },
+      "session_jsonl_sha256": "29d219cad6d07846e87e2c3404a520b8a747d014cfb70287d4b97e81bff72fa4",
+      "visible_verifier_log_sha256": "2bd41aeadc15c983a2922ee9924d8cf3c31f038ab4b10ef83cbf550b099ddf45",
+      "hidden_verifier_log_sha256": "59557ea7f2e7ddc2889ae25012921b62983809d5327d4b8a627afe328c267480"
+    },
+    "p000": {
+      "started": false,
+      "reason": "The frozen provider-failure stopping rule stopped the pair after p010 returned 429."
+    }
+  },
+  "result": {
+    "p010_treatment_executable": true,
+    "task_runtime_repair_effective": true,
+    "paired_comparison_valid": false,
+    "t_axis_manipulation_comparable": false,
+    "cost_comparison_valid": false,
+    "profile_preference_evaluable": false,
+    "next_action": "After provider quota is representative, freeze a new counterbalanced p000/p010 pair from fresh seeds; do not fill the missing arm of this stopped pair."
+  },
+  "claim_boundary": "The run proves only that the fixed-only p010 treatment and repaired task runtime can execute without environment recovery. The partial p010 patch remained incorrect, its usage is incomplete after provider 429, and p000 was not started. No T-axis quality, behavior, or cost preference may be inferred."
+}
