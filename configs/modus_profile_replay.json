@@ -1,0 +1,48 @@
+{
+  "schema": "acrouter-profile-replay-config-v1",
+  "name": "modus_fixed_behavior_pilot_v2_replay",
+  "scientific_evidence": false,
+  "claim_boundary": "Two selected old development tasks; validates the Profile-routing replay and may reveal absence of routing space, but cannot establish held-out generalization or Router net benefit.",
+  "source": {
+    "repository": "qhy991/Modus",
+    "result": "results/modus30/dsh-fixed-behavior-pilot-v2/cells.json",
+    "schema": "modus-dsh-fixed-behavior-curated-cells-v2",
+    "cells_sha256": "8c6eca781f0fd23c92779d3f83b101a4cbb8dc2f193d20e76dee28c55be948de"
+  },
+  "tasks": [
+    "degree-h01-perf-p1c",
+    "timeslice-h01-perf-p1c"
+  ],
+  "actions": [
+    "neutral",
+    "p000",
+    "p100"
+  ],
+  "action_tie_order": [
+    "neutral",
+    "p000",
+    "p100"
+  ],
+  "repetitions": 3,
+  "profiles": {
+    "neutral": {
+      "required_topology": null,
+      "minimum_fidelity_fraction": 1.0
+    },
+    "p000": {
+      "required_topology": "local",
+      "minimum_fidelity_fraction": 1.0
+    },
+    "p100": {
+      "required_topology": "coordinated",
+      "minimum_fidelity_fraction": 1.0
+    }
+  },
+  "performance": {
+    "metric": "steady_seconds",
+    "lower_is_better": true,
+    "eligible_ratio_over_fastest": 0.25
+  },
+  "token_equivalence_fraction": 0.02,
+  "minimum_oracle_saving_fraction": 0.15
+}

@@ -2,7 +2,7 @@
   "schema_version": "agentic-artifact-v1",
   "artifact": "ACRouter",
   "status": "open-source-ready",
-  "updated": "2026-06-22",
+  "updated": "2026-08-21",
   "purpose": "Agent-readable map for offline ACRouter reproduction and OOD176 baseline inspection.",
   "entrypoints": {
     "human_readme": "../README.md",
@@ -26,6 +26,9 @@
     ],
     "custom_pipeline": [
       "python scripts/run_pipeline.py --config configs/eval_pipeline.example.json"
+    ],
+    "profile_pipeline": [
+      "python scripts/run_profile_pipeline.py --config configs/modus_profile_replay.json --cells examples/modus_profile_router/modus-fixed-behavior-pilot-v2-cells.json --output-dir outputs/tmp/modus_profile_replay"
     ],
     "inference_demo": [
       "python examples/inference_demo.py"
@@ -68,6 +71,10 @@
     "id_data": "../data/id/",
     "custom_pipeline_config": "../configs/eval_pipeline.example.json",
     "custom_pipeline_examples": "../examples/custom_benchmark/",
+    "profile_pipeline_config": "../configs/modus_profile_replay.json",
+    "profile_pipeline_example": "../examples/modus_profile_router/",
+    "profile_pipeline_source": "../src/acrouter_repro/profile_pipeline.py",
+    "profile_pipeline_mac_replay": "modus-profile-router-mac-replay.json",
     "inference_demo": "../examples/inference_demo.py",
     "ood176_matrix": "../data/matrices/phase2_ood/unified/matrix_acrouter_ood176.json",
     "ood176_long_results": "../data/matrices/phase2_ood/unified/results_long.csv",

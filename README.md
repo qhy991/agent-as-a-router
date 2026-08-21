@@ -211,6 +211,25 @@ print(decision.chosen_model, decision.final_response)
 
 See `examples/inference_demo.py` for a complete mock workflow.
 
+## Behavioral Profile Routing Extension
+
+The optional Modus adapter treats same-model behavioral Profiles as routing
+actions while keeping behavior fidelity, correctness, benchmark availability,
+and performance as hard gates before token cost. It performs one action per
+task and does not use the model cascade's verify-and-escalate redispatch.
+
+```bash
+python scripts/run_profile_pipeline.py \
+  --config configs/modus_profile_replay.json \
+  --cells examples/modus_profile_router/modus-fixed-behavior-pilot-v2-cells.json \
+  --output-dir outputs/tmp/modus_profile_replay
+```
+
+The included development fixture intentionally reports no routing space: p000
+is both the best fixed Profile and the Oracle action for both tasks. See
+[`docs/MODUS_PROFILE_ROUTER.md`](docs/MODUS_PROFILE_ROUTER.md) for the action,
+eligibility, Oracle, Mac reproduction, and next-experiment contracts.
+
 ## Data And Pricing
 
 CodeRouterBench is a task-by-model benchmark release:

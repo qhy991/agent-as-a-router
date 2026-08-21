@@ -1,0 +1,78 @@
+{
+  "schema": "acrouter-modus-profile-mac-replay-v1",
+  "captured_at": "2026-08-21T07:15:52Z",
+  "scientific_evidence": false,
+  "live_model_calls": 0,
+  "upstream": {
+    "repository": "LanceZPF/agent-as-a-router",
+    "commit": "e43839edb0d5d0a9feec2f7078019406ab4d64bd",
+    "license": "MIT"
+  },
+  "environment": {
+    "platform": "macOS",
+    "platform_version": "15.7.3",
+    "architecture": "arm64",
+    "python": "3.11.15",
+    "environment_manager": "micromamba",
+    "gpu_required": false
+  },
+  "upstream_reproduction": {
+    "tests": {
+      "passed": 28,
+      "failed": 0
+    },
+    "id": {
+      "n": 2919,
+      "avg_perf": 50.14,
+      "cum_regret": 202.0,
+      "total_cost_usd": 22.31,
+      "wall_seconds": 0.42,
+      "metrics_sha256": "bdb3a808e1a013ded431972a8acf8743872b5bc6f72128a7b2f1b11ad7e31654",
+      "decisions_sha256": "420767134fe0e5c6df40accc774d1d6a20867bf3598d50bf02bffe9da4d02bbe"
+    },
+    "acrouter_ood176": {
+      "n": 176,
+      "avg_perf": 73.3,
+      "cum_regret": 15.9,
+      "total_cost_usd": 86.72,
+      "wall_seconds": 0.11,
+      "metrics_sha256": "576180a93abab36a44ff5110c2112ec2896c3684a97b71883bfee7fef2cc6fed",
+      "decisions_sha256": "e8ce2a09101ab64aacf500fbfbf78bc423293eabd59ae105bb82e4d22414ca5b"
+    },
+    "ood176_baselines": {
+      "methods": 15,
+      "complete": true,
+      "wall_seconds": 23.05,
+      "metrics_sha256": "d70860a9b682c6920de6aa65c3cf062f4c3aa1d981610d45b8aa4a4b1cb335d2"
+    }
+  },
+  "profile_extension": {
+    "tests_after_extension": {
+      "passed": 35,
+      "failed": 0
+    },
+    "source_cells_sha256": "8c6eca781f0fd23c92779d3f83b101a4cbb8dc2f193d20e76dee28c55be948de",
+    "tasks": 2,
+    "actions": [
+      "neutral",
+      "p000",
+      "p100"
+    ],
+    "best_fixed_profile": "p000",
+    "oracle_actions_by_task": {
+      "degree-h01-perf-p1c": "p000",
+      "timeslice-h01-perf-p1c": "p000"
+    },
+    "oracle_saving_fraction_vs_best_fixed": 0.0,
+    "routing_space_observed": false,
+    "claim_status": "no-profile-routing-space-observed",
+    "result_sha256": "ca0f2a4edae1c83e95b5cbd5f936e8db36725c798cb0a6084cbeb345ba1d8a65"
+  },
+  "implementation_hashes": {
+    "profile_pipeline_py": "035808800fdf37aaa9cc7e71a179a7d52279fe6c80af0bdccfdf703d1171978c",
+    "run_profile_pipeline_py": "db0836349cf7634d71f9203eebb155681d6aaa43a3ca4b471c29897443bd18f6",
+    "profile_config_json": "0b0ca25eb7a51611fb76794b879e39d0980fdf07d5dcf9de5e56ef4eb8d83cce",
+    "profile_tests_py": "f2e51218ae452c305f23584a8560af5afaecc39afe66be47b102bc9230ea6cd8"
+  },
+  "claim_boundary": "Offline reproduction and adapter validation only. The source Modus tasks are selected old development tasks, the Oracle uses only p000, and no dynamic Profile Router or held-out Worker was executed."
+}

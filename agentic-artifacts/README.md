@@ -18,6 +18,9 @@ that need to decide what to inspect before loading the full repository.
    workflow.
 7. Run the commands in the repository `README.md` if executable verification is
    needed.
+8. Read `modus-profile-router-mac-replay.json` and
+   `../docs/MODUS_PROFILE_ROUTER.md` for the optional same-model behavioral
+   Profile action adapter and its Apple Silicon offline replay.
 
 ## Scope
 
