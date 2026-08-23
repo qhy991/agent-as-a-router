@@ -98,6 +98,15 @@ automatic live Agent Router. Live dispatch must additionally show that Router
 tokens do not erase the Worker benefit. When neither target exists, the Router
 must abstain to the qualified fixed Profile.
 
+The bounded Agent Router also supports a fail-closed Profile-plus-mechanism
+response contract. Each stage must choose `dispatch` or `abstain`. Dispatch
+names an allowed Profile and may name a mechanism; a named mechanism requires
+an evidence reference. Abstention requires all action fields to be null. The
+manifest freezes stage order and allowed values, and an invalid or incomplete
+response cannot dispatch a Worker. This contract exists because held-out
+RangeSum showed that transmitting only `p100` omitted the verified mechanism
+that made the action executable.
+
 ## OOD176 executable-task readiness
 
 A six-task SWE-bench Verified subset was also materialized and tested natively

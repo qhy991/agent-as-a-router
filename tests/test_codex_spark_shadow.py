@@ -5,7 +5,11 @@ import stat
 import tempfile
 import unittest
 
-from acrouter_repro.codex_spark_shadow import SparkShadowError, run_shadow
+from acrouter_repro.codex_spark_shadow import (
+    SparkShadowError,
+    run_shadow,
+    validate_profile_mechanism_response,
+)
 
 
 def digest(path: Path) -> str:
@@ -97,6 +101,58 @@ class CodexSparkShadowTest(unittest.TestCase):
             (Path(temporary) / "workspace-a" / "extra.txt").write_text("x")
             with self.assertRaisesRegex(SparkShadowError, "initial files differ"):
                 run_shadow(manifest, output, codex=str(fake))
+
+    def test_profile_mechanism_response_supports_dispatch_and_abstain(self):
+        contract = {
+            "schema": "modus-profile-mechanism-route-v1",
+            "stages": ["known", "unknown"],
+            "allowed_profiles": ["neutral", "p000", "p100"],
+            "allowed_mechanism_ids": ["shared-prefix-sum-v1"],
+            "require_evidence_ref_for_mechanism": True,
+        }
+        response = {
+            "schema": "modus-profile-mechanism-route-v1",
+            "routes": [
+                {
+                    "stage": "known",
+                    "decision": "dispatch",
+                    "profile": "p100",
+                    "mechanism_id": "shared-prefix-sum-v1",
+                    "evidence_ref": "case:rankcount-system",
+                },
+                {
+                    "stage": "unknown",
+                    "decision": "abstain",
+                    "profile": None,
+                    "mechanism_id": None,
+                    "evidence_ref": None,
+                },
+            ],
+        }
+        self.assertIsNone(validate_profile_mechanism_response(response, contract))
+
+    def test_profile_mechanism_response_fails_closed_without_evidence(self):
+        contract = {
+            "schema": "modus-profile-mechanism-route-v1",
+            "stages": ["stage"],
+            "allowed_profiles": ["neutral", "p000", "p100"],
+            "allowed_mechanism_ids": ["shared-prefix-sum-v1"],
+            "require_evidence_ref_for_mechanism": True,
+        }
+        response = {
+            "schema": "modus-profile-mechanism-route-v1",
+            "routes": [{
+                "stage": "stage",
+                "decision": "dispatch",
+                "profile": "p100",
+                "mechanism_id": "shared-prefix-sum-v1",
+                "evidence_ref": None,
+            }],
+        }
+        self.assertEqual(
+            validate_profile_mechanism_response(response, contract),
+            "routes[0].evidence_ref is required for a mechanism",
+        )
 
 
 if __name__ == "__main__":

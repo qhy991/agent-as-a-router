@@ -20,6 +20,20 @@ MANIFEST_SCHEMAS = {
 RESULT_SCHEMA = "acrouter-codex-shadow-result-v1"
 ALLOWED_INITIAL_FILES = {"inbox/task.md"}
 ALLOWED_FINAL_FILES = {"inbox/task.md", "outbox/route-response.json"}
+PROFILE_MECHANISM_CONTRACT_KEYS = {
+    "schema",
+    "stages",
+    "allowed_profiles",
+    "allowed_mechanism_ids",
+    "require_evidence_ref_for_mechanism",
+}
+PROFILE_MECHANISM_ROUTE_KEYS = {
+    "stage",
+    "decision",
+    "profile",
+    "mechanism_id",
+    "evidence_ref",
+}
 
 
 class SparkShadowError(RuntimeError):
@@ -51,6 +65,79 @@ def _workspace_files(workspace: Path) -> set[str]:
     }
 
 
+def _validate_profile_mechanism_contract(value: Any) -> dict[str, Any]:
+    if not isinstance(value, dict) or set(value) != PROFILE_MECHANISM_CONTRACT_KEYS:
+        raise SparkShadowError("response_contract fields differ")
+    schema = value["schema"]
+    if not isinstance(schema, str) or not schema:
+        raise SparkShadowError("response_contract.schema is invalid")
+    for field, allow_empty in (
+        ("stages", False),
+        ("allowed_profiles", False),
+        ("allowed_mechanism_ids", True),
+    ):
+        items = value[field]
+        if (
+            not isinstance(items, list)
+            or (not allow_empty and not items)
+            or not all(isinstance(item, str) and item for item in items)
+            or len(set(items)) != len(items)
+        ):
+            raise SparkShadowError(f"response_contract.{field} is invalid")
+    if not isinstance(value["require_evidence_ref_for_mechanism"], bool):
+        raise SparkShadowError(
+            "response_contract.require_evidence_ref_for_mechanism is invalid"
+        )
+    return value
+
+
+def validate_profile_mechanism_response(
+    response: Any,
+    contract: dict[str, Any],
+) -> str | None:
+    """Return a bounded validation error, or None for an exact route response."""
+    if not isinstance(response, dict) or set(response) != {"schema", "routes"}:
+        return "response fields differ"
+    if response["schema"] != contract["schema"]:
+        return "response schema differs"
+    routes = response["routes"]
+    stages = contract["stages"]
+    if not isinstance(routes, list) or len(routes) != len(stages):
+        return "response routes differ"
+    for index, (route, stage) in enumerate(zip(routes, stages, strict=True)):
+        if not isinstance(route, dict) or set(route) != PROFILE_MECHANISM_ROUTE_KEYS:
+            return f"routes[{index}] fields differ"
+        if route["stage"] != stage:
+            return f"routes[{index}].stage differs"
+        decision = route["decision"]
+        if decision == "abstain":
+            if any(
+                route[field] is not None
+                for field in ("profile", "mechanism_id", "evidence_ref")
+            ):
+                return f"routes[{index}] abstain payload differs"
+            continue
+        if decision != "dispatch":
+            return f"routes[{index}].decision is invalid"
+        if route["profile"] not in contract["allowed_profiles"]:
+            return f"routes[{index}].profile is invalid"
+        mechanism = route["mechanism_id"]
+        if mechanism is not None and mechanism not in contract["allowed_mechanism_ids"]:
+            return f"routes[{index}].mechanism_id is invalid"
+        evidence_ref = route["evidence_ref"]
+        if evidence_ref is not None and (
+            not isinstance(evidence_ref, str) or not evidence_ref
+        ):
+            return f"routes[{index}].evidence_ref is invalid"
+        if (
+            mechanism is not None
+            and contract["require_evidence_ref_for_mechanism"]
+            and evidence_ref is None
+        ):
+            return f"routes[{index}].evidence_ref is required for a mechanism"
+    return None
+
+
 def validate_manifest(path: Path) -> dict[str, Any]:
     value = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(value, dict) or value.get("schema") not in MANIFEST_SCHEMAS:
@@ -71,6 +158,9 @@ def validate_manifest(path: Path) -> dict[str, Any]:
         value.get("system_prompt_sha256", ""),
         "system_prompt",
     )
+    response_contract = value.get("response_contract")
+    if response_contract is not None:
+        response_contract = _validate_profile_mechanism_contract(response_contract)
     raw_cells = value.get("cells")
     if not isinstance(raw_cells, list) or not raw_cells:
         raise SparkShadowError("cells must be non-empty")
@@ -101,6 +191,7 @@ def validate_manifest(path: Path) -> dict[str, Any]:
         "timeout_seconds": timeout,
         "system_prompt": system_prompt,
         "system_prompt_sha256": value["system_prompt_sha256"],
+        "response_contract": response_contract,
         "manifest_sha256": _sha256(path.read_bytes()),
         "cells": cells,
     }
@@ -155,7 +246,12 @@ def _run_cell(cell: dict[str, Any], plan: dict[str, Any], output_root: Path, cod
     elif response_path.is_file():
         response_error = "response-too-large"
     else:
-        response_error = "response-missing"
+            response_error = "response-missing"
+    if response is not None and plan["response_contract"] is not None:
+        response_error = validate_profile_mechanism_response(
+            response,
+            plan["response_contract"],
+        )
     files = _workspace_files(cell["workspace"])
     custody_passed = files == ALLOWED_FINAL_FILES
     valid = (
@@ -166,6 +262,7 @@ def _run_cell(cell: dict[str, Any], plan: dict[str, Any], output_root: Path, cod
         and event_summary["web_search_items"] == 0
         and custody_passed
         and response is not None
+        and response_error is None
     )
     return {
         "cell": cell["cell"],
