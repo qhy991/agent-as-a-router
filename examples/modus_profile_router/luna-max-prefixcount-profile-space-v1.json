@@ -1,0 +1,34 @@
+{
+  "schema": "acrouter-luna-max-profile-space-trial-v1",
+  "frozen_at": "2026-08-23",
+  "run_authorized": true,
+  "purpose": "prospectively estimate Profile routing space on the sixth algorithm family without assuming the winning action",
+  "scoring_contract": {
+    "path": "examples/modus_profile_router/luna-max-profile-space-scoring-v1.json",
+    "sha256": "cebba3a6b68f49fa7761d2d92d69a5a115cb96f0d20999c8b8a7f7ab2218a56f"
+  },
+  "task_family": "prefixcount",
+  "tasks": {
+    "local": {
+      "task_id": "prefixcount-h01-perf-p1b",
+      "task_sha256": "1b8d2773e441fc842db866cbd5916955240f2d3669cd5cd0ce65a4de454d86e8"
+    },
+    "system": {
+      "task_id": "prefixcount-h02-perf-p1b",
+      "task_sha256": "0e6fbf8e64c186cf67461badc4e1de287d758603cf524b6090819b36d75bd858"
+    }
+  },
+  "winner_assumed_before_outcome": false,
+  "prior_stable_family_results": {
+    "rankcount": "routing space observed",
+    "membership": "routing space not observed",
+    "categorysum": "routing space not observed",
+    "anagram": "initial crossover not independently replicated"
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "d2ef7e55d5699a6c4dbfde10e95c99ae4e510b95",
+    "modus_task_lock_sha256": "9c129f14a59a6635a1a452c52f3d5bd60fecf363fdfc69556bf777cf0ef43f97",
+    "modus_projects_sha256": "3f978f5f2ffbeecc876a38659fd68b51be18d32bbd91fa71b5ce3684d0f30a88",
+    "modus_verifier_sha256": "644eb7be12ef8c34ed8ed8e0355b97d84e01ce37da343ba838e3a795a98ad19b"
+  }
+}
