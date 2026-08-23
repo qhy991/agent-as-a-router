@@ -8,6 +8,8 @@
       "evidence_ref": "case:rankcount-prefixcount-n3",
       "verified_profile": "p100",
       "router_eligible": false,
+      "agent_router_eligible": false,
+      "typed_matcher_eligible": true,
       "verification_status": "known_state_replicated_but_outcome_blind_semantic_matching_failed",
       "semantic_predicate": {
         "kind": "ordered_search",
@@ -41,6 +43,8 @@
       "evidence_ref": "case:rangesum-binding-2of2",
       "verified_profile": "p100",
       "router_eligible": false,
+      "agent_router_eligible": false,
+      "typed_matcher_eligible": false,
       "verification_status": "known_state_execution_verified_applicability_unreplicated",
       "semantic_predicate": {
         "kind": "additive_range_sum",
@@ -60,6 +64,6 @@
       ]
     }
   ],
-  "dispatch_rule": "A mechanism may enter an outcome-blind Router catalog only when router_eligible is true; every dispatch must satisfy typed semantic and applicability predicates and cite the exact evidence_ref. No current mechanism is eligible for outcome-blind Agent matching.",
+  "dispatch_rule": "No mechanism is eligible for outcome-blind Agent matching. A trusted typed matcher may return only typed_matcher_eligible mechanisms whose worker model, semantic kind, performance objective, and minimum reuse predicates match exactly; Agent reasoning may run only after that filter.",
   "claim_boundary": "This registry is the policy input for GPT-5.6 Luna only. Evidence from other models or Profiles requires a separate qualified entry."
 }

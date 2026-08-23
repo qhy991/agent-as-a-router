@@ -121,6 +121,14 @@ currently exposes no mechanism to outcome-blind Agent dispatch. Known-state
 deterministic retrieval remains allowed; future eligibility requires a typed
 task-feature matcher to qualify candidates before Agent reasoning.
 
+`acrouter_repro.modus_mechanism_registry` implements that zero-token boundary.
+It verifies the registry schema and every evidence artifact hash, then matches
+only the exact Worker model, closed semantic kind, performance objective, and
+minimum reuse count. Wrong models, unknown semantic kinds, insufficient reuse,
+objective mismatch, invalid descriptors, and evidence drift return no
+candidate or fail closed. The Agent is not asked to choose a mechanism when
+zero or one typed candidate exists.
+
 ## OOD176 executable-task readiness
 
 A six-task SWE-bench Verified subset was also materialized and tested natively

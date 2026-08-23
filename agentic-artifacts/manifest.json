@@ -75,6 +75,7 @@
     "profile_pipeline_example": "../examples/modus_profile_router/",
     "profile_pipeline_source": "../src/acrouter_repro/profile_pipeline.py",
     "profile_mechanism_evidence": "../configs/modus_mechanism_evidence.json",
+    "profile_mechanism_matcher": "../src/acrouter_repro/modus_mechanism_registry.py",
     "profile_pipeline_mac_replay": "modus-profile-router-mac-replay.json",
     "profile_swe_mac_readiness": "modus-swe-mac-readiness-v1.json",
     "profile_swe_cost_canary": "modus-swe-profile-cost-canary-v1.json",
