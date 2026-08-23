@@ -127,6 +127,66 @@ class ProfilePipelineTest(unittest.TestCase):
         self.assertEqual(result["oracle"]["saving_fraction_vs_best_fixed"], 0.5)
         self.assertTrue(result["routing_space"]["observed"])
 
+    def test_selective_routing_can_be_required_when_no_fixed_profile_is_feasible(self):
+        config = {
+            "name": "synthetic-feasibility-crossover",
+            "tasks": ["local", "system"],
+            "actions": ["neutral", "p000", "p100"],
+            "action_tie_order": ["neutral", "p000", "p100"],
+            "repetitions": 1,
+            "profiles": {
+                "neutral": {"required_topology": None},
+                "p000": {"required_topology": "local"},
+                "p100": {"required_topology": "coordinated"},
+            },
+            "performance": {
+                "metric": "steady_seconds",
+                "lower_is_better": True,
+                "eligible_ratio_over_fastest": 0.25,
+            },
+            "minimum_oracle_saving_fraction": 0.15,
+        }
+        performance = {
+            "local": {"neutral": 2.0, "p000": 1.0, "p100": 1.1},
+            "system": {"neutral": 1.0, "p000": 10.0, "p100": 8.0},
+        }
+        tokens = {
+            "local": {"neutral": 100, "p000": 60, "p100": 50},
+            "system": {"neutral": 100, "p000": 60, "p100": 50},
+        }
+        topology = {"neutral": "other", "p000": "local", "p100": "coordinated"}
+        cells = []
+        for task in config["tasks"]:
+            for action in config["actions"]:
+                total = tokens[task][action]
+                cells.append({
+                    "cell_id": f"{task}-{action}",
+                    "task": task,
+                    "action": action,
+                    "repetition": 1,
+                    "terminal": "completed",
+                    "correct": True,
+                    "topology": topology[action],
+                    "steady_seconds": performance[task][action],
+                    "new_tokens": total,
+                    "cache_read_tokens": 0,
+                    "total_tokens": total,
+                })
+        result = analyze_profile_matrix(config, cells)
+        self.assertIsNone(result["best_fixed_profile"])
+        self.assertEqual(
+            result["oracle"]["actions_by_task"],
+            {"local": "p100", "system": "neutral"},
+        )
+        self.assertIsNone(result["oracle"]["saving_fraction_vs_best_fixed"])
+        self.assertFalse(result["routing_space"]["observed"])
+        self.assertTrue(result["routing_space"]["performance_feasibility_observed"])
+        self.assertTrue(result["routing_space"]["selective_observed"])
+        self.assertEqual(
+            result["claim_status"],
+            "profile-routing-required-for-feasibility",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

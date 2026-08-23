@@ -201,12 +201,20 @@ def analyze_profile_matrix(
     saving = None
     if best_fixed and oracle_total is not None and best_fixed["total_median_tokens"]:
         saving = 1.0 - oracle_total / best_fixed["total_median_tokens"]
-    routing_space = bool(
+    economic_routing_space = bool(
         oracle_complete
         and best_fixed
         and len(distinct_oracle_actions) >= 2
         and saving is not None
         and saving >= minimum_saving
+    )
+    performance_feasibility_routing = bool(
+        oracle_complete
+        and best_fixed is None
+        and len(distinct_oracle_actions) >= 2
+    )
+    selective_routing_space = bool(
+        economic_routing_space or performance_feasibility_routing
     )
 
     return {
@@ -223,15 +231,22 @@ def analyze_profile_matrix(
             "saving_fraction_vs_best_fixed": saving,
         },
         "routing_space": {
-            "observed": routing_space,
+            "observed": economic_routing_space,
+            "economic_observed": economic_routing_space,
+            "performance_feasibility_observed": performance_feasibility_routing,
+            "selective_observed": selective_routing_space,
             "minimum_saving_fraction": minimum_saving,
             "requires_at_least_two_oracle_actions": True,
             "token_equivalence_fraction": token_equivalence,
         },
         "claim_status": (
             "profile-routing-space-observed"
-            if routing_space
-            else "no-profile-routing-space-observed"
+            if economic_routing_space
+            else (
+                "profile-routing-required-for-feasibility"
+                if performance_feasibility_routing
+                else "no-profile-routing-space-observed"
+            )
         ),
         "claim_boundary": config.get("claim_boundary", "offline fixed-Profile replay only"),
     }
@@ -247,7 +262,11 @@ def render_summary(result: dict[str, Any]) -> str:
         f"- scientific evidence: `{str(result['scientific_evidence']).lower()}`",
         f"- best fixed Profile: `{(result['best_fixed_profile'] or {}).get('profile')}`",
         f"- Oracle actions: `{result['oracle']['actions_by_task']}`",
-        f"- routing space observed: `{str(result['routing_space']['observed']).lower()}`",
+        f"- economic routing space observed: `{str(result['routing_space']['observed']).lower()}`",
+        f"- performance-feasibility routing observed: "
+        f"`{str(result['routing_space']['performance_feasibility_observed']).lower()}`",
+        f"- selective routing space observed: "
+        f"`{str(result['routing_space']['selective_observed']).lower()}`",
         "",
         "| task | Oracle | eligible Profiles |",
         "| --- | --- | --- |",

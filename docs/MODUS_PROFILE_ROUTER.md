@@ -86,11 +86,17 @@ does not validate a dynamic Router.
 
 The next Modus experiment must provide a fresh complete matrix over
 `neutral/p000/p100-e1-v2`, with the same task start and fixed runtime for every
-action. A Router experiment is authorized only if the constrained Oracle uses
-at least two Profiles and saves at least 15% total tokens versus the best fixed
-Profile without correctness or performance loss. Until that crossover exists,
-ACRouter training or live Profile dispatch would have no positive target to
-learn.
+action. The replay now distinguishes two selective-routing targets. An
+economic target requires at least two Oracle Profiles and at least 15% total
+token saving versus the best fixed performance-eligible Profile. A performance-
+feasibility target exists when the constrained Oracle is complete and uses at
+least two Profiles but no fixed Profile is eligible on every task. The latter
+does not imply token saving because its fixed comparator is absent.
+
+Both targets authorize a zero-token selective-policy evaluation, not an
+automatic live Agent Router. Live dispatch must additionally show that Router
+tokens do not erase the Worker benefit. When neither target exists, the Router
+must abstain to the qualified fixed Profile.
 
 ## OOD176 executable-task readiness
 
