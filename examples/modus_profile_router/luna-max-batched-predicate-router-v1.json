@@ -1,0 +1,88 @@
+{
+  "schema": "acrouter-luna-max-batched-predicate-router-protocol-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "classification": "known-state batching integration",
+  "purpose": "measure whether one four-stage Agent Router turn amortizes cost versus two separate known-state Router calls",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "router": {
+    "system_prompt_sha256": "1405d2a458ca5e6f6cb5885aa25580fed36765533d30651e565a03f663963e8f",
+    "task_sha256": "0c4432c42339d7f29ea23c9f850ebf711fb3f5f4eb00f68d0db87c675bb1e5b5",
+    "repetitions": 3,
+    "response_contract": {
+      "schema": "modus-profile-mechanism-route-v1",
+      "stages": ["frequency-p01", "frequency-p02", "nearest-p01", "nearest-p02"],
+      "allowed_profiles": ["neutral", "p000", "p100"],
+      "allowed_mechanism_ids": ["shared-ordered-search-v1", "shared-prefix-sum-v1"],
+      "allowed_evidence_refs": ["case:rankcount-prefixcount-n3", "case:rangesum-binding-2of2"],
+      "require_evidence_ref_for_mechanism": true,
+      "require_mechanism_for_dispatch": true
+    },
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "expected_routes": [
+    {
+      "stage": "frequency-p01",
+      "decision": "abstain",
+      "profile": null,
+      "mechanism_id": null,
+      "evidence_ref": null
+    },
+    {
+      "stage": "frequency-p02",
+      "decision": "abstain",
+      "profile": null,
+      "mechanism_id": null,
+      "evidence_ref": null
+    },
+    {
+      "stage": "nearest-p01",
+      "decision": "abstain",
+      "profile": null,
+      "mechanism_id": null,
+      "evidence_ref": null
+    },
+    {
+      "stage": "nearest-p02",
+      "decision": "dispatch",
+      "profile": "p100",
+      "mechanism_id": "shared-ordered-search-v1",
+      "evidence_ref": "case:rankcount-prefixcount-n3"
+    }
+  ],
+  "comparators": {
+    "frequency_separate_router_median_tokens": 72913,
+    "nearest_separate_router_median_tokens": 73827,
+    "two_separate_router_tokens": 146740,
+    "zero_token_predicate_table_tokens": 0
+  },
+  "gates": {
+    "valid_execution": "3/3",
+    "schema_and_allowlist": "3/3",
+    "exact_expected_routes": "3/3",
+    "stable": true,
+    "batch_median_tokens_below_two_separate_calls": true,
+    "usage_complete": "3/3"
+  },
+  "scoring": {
+    "batch_saving_tokens": "146740 minus batch median complete tokens",
+    "batch_saving_fraction": "batch saving divided by 146740",
+    "router_tokens_per_stage": "batch median divided by four",
+    "agent_beats_zero_token_table": false
+  },
+  "failure_policy": {
+    "invalid_or_wrong_response": "repetition failure",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch",
+    "post_hoc_expected_route_predicate_or_comparator_change": false
+  },
+  "provenance": {
+    "frequency_evidence_sha256": "d3342a7666dd6a70afd7da42d51d8b3d8a343b02938374c9510baf7e2b125d58",
+    "nearest_applicability_evidence_sha256": "d172132413d73f5b36f593c19f0821d539ace6b4c6f5e97317c222247771a114",
+    "agent_router_commit_before_freeze": "f866bd1b3f0b43f08ccc86628cdc1999ac5e987a",
+    "shadow_runner_sha256": "f1954784fcfcbb98e453e9cb6a3e07a75cb87f5b004269585d960218ed4947db"
+  },
+  "claim_boundary": "All stage labels and expected routes are known from prior outcomes. Success proves batched contract execution and cost amortization only, not held-out generalization or superiority to deterministic predicate evaluation."
+}
