@@ -27,6 +27,7 @@ PROFILE_MECHANISM_CONTRACT_KEYS = {
     "allowed_mechanism_ids",
     "require_evidence_ref_for_mechanism",
 }
+PROFILE_MECHANISM_OPTIONAL_CONTRACT_KEYS = {"allowed_evidence_refs"}
 PROFILE_MECHANISM_ROUTE_KEYS = {
     "stage",
     "decision",
@@ -66,7 +67,12 @@ def _workspace_files(workspace: Path) -> set[str]:
 
 
 def _validate_profile_mechanism_contract(value: Any) -> dict[str, Any]:
-    if not isinstance(value, dict) or set(value) != PROFILE_MECHANISM_CONTRACT_KEYS:
+    if (
+        not isinstance(value, dict)
+        or not PROFILE_MECHANISM_CONTRACT_KEYS <= set(value)
+        or set(value) - PROFILE_MECHANISM_CONTRACT_KEYS
+        > PROFILE_MECHANISM_OPTIONAL_CONTRACT_KEYS
+    ):
         raise SparkShadowError("response_contract fields differ")
     schema = value["schema"]
     if not isinstance(schema, str) or not schema:
@@ -87,6 +93,16 @@ def _validate_profile_mechanism_contract(value: Any) -> dict[str, Any]:
     if not isinstance(value["require_evidence_ref_for_mechanism"], bool):
         raise SparkShadowError(
             "response_contract.require_evidence_ref_for_mechanism is invalid"
+        )
+    allowed_evidence_refs = value.get("allowed_evidence_refs")
+    if allowed_evidence_refs is not None and (
+        not isinstance(allowed_evidence_refs, list)
+        or not allowed_evidence_refs
+        or not all(isinstance(item, str) and item for item in allowed_evidence_refs)
+        or len(set(allowed_evidence_refs)) != len(allowed_evidence_refs)
+    ):
+        raise SparkShadowError(
+            "response_contract.allowed_evidence_refs is invalid"
         )
     return value
 
@@ -129,6 +145,12 @@ def validate_profile_mechanism_response(
             not isinstance(evidence_ref, str) or not evidence_ref
         ):
             return f"routes[{index}].evidence_ref is invalid"
+        if (
+            evidence_ref is not None
+            and contract.get("allowed_evidence_refs") is not None
+            and evidence_ref not in contract["allowed_evidence_refs"]
+        ):
+            return f"routes[{index}].evidence_ref is not allowed"
         if (
             mechanism is not None
             and contract["require_evidence_ref_for_mechanism"]

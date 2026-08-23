@@ -154,6 +154,30 @@ class CodexSparkShadowTest(unittest.TestCase):
             "routes[0].evidence_ref is required for a mechanism",
         )
 
+    def test_profile_mechanism_response_rejects_unlisted_evidence(self):
+        contract = {
+            "schema": "modus-profile-mechanism-route-v1",
+            "stages": ["stage"],
+            "allowed_profiles": ["neutral", "p000", "p100"],
+            "allowed_mechanism_ids": ["shared-prefix-sum-v1"],
+            "allowed_evidence_refs": ["case:rangesum"],
+            "require_evidence_ref_for_mechanism": True,
+        }
+        response = {
+            "schema": "modus-profile-mechanism-route-v1",
+            "routes": [{
+                "stage": "stage",
+                "decision": "dispatch",
+                "profile": "p100",
+                "mechanism_id": "shared-prefix-sum-v1",
+                "evidence_ref": "invented:case",
+            }],
+        }
+        self.assertEqual(
+            validate_profile_mechanism_response(response, contract),
+            "routes[0].evidence_ref is not allowed",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

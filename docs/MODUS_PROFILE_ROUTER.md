@@ -107,6 +107,10 @@ response cannot dispatch a Worker. This contract exists because held-out
 RangeSum showed that transmitting only `p100` omitted the verified mechanism
 that made the action executable.
 
+When a manifest supplies `allowed_evidence_refs`, the runner also rejects any
+mechanism citation outside that allowlist. A nonempty but invented evidence
+string is not sufficient authorization.
+
 ## OOD176 executable-task readiness
 
 A six-task SWE-bench Verified subset was also materialized and tested natively
