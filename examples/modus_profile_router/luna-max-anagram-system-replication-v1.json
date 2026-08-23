@@ -1,0 +1,50 @@
+{
+  "schema": "acrouter-luna-max-anagram-system-replication-v1",
+  "frozen_at": "2026-08-23",
+  "run_authorized": true,
+  "purpose": "independently resolve whether the Anagram system p100 fast mode replicates after one fast and one slow frozen repetition",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "task_id": "anagram-h02-perf-p1b",
+  "task_sha256": "da09e9f0efff585165f476d987d5c85b9148bfa1fd7b5717b94e0e0265c3520f",
+  "actions": [
+    "p000",
+    "p100"
+  ],
+  "profiles": {
+    "p000": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282",
+    "p100": "ec850834450c09a0e6d736c606a8d2295b955206e00c0e7778f982809ca98bfe"
+  },
+  "matrix": {
+    "new_repetitions_per_action": 1,
+    "new_cells": 2,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "frozen_reference": {
+    "original_result_path": "agentic-artifacts/modus-codex-luna-max-anagram-e-axis-v1.json",
+    "original_system_p000_median_seconds": 0.05989432684327767,
+    "original_system_p100_seconds": [
+      0.05687182549991121,
+      0.00887755989060679
+    ],
+    "p100_fast_threshold_seconds": 0.04791546147462214
+  },
+  "decision": {
+    "fast_replication": "new p100 is correct and no slower than the frozen threshold",
+    "stable_crossover": "after appending the new cells, the three-run p100 median is at least 1.25x faster than the three-run p000 median",
+    "economic_verdict": "report descriptively; do not replace the original frozen two-wave 15% failure"
+  },
+  "failure_policy": {
+    "incorrect_or_incomplete_cell": "replication failure",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch"
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "e226651",
+    "runner_sha256": "4f73aee9371711752e30688584321b968f06597b25b792c1eafd762891fe5385",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e",
+    "plugin_commit": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f"
+  }
+}
