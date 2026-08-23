@@ -1,0 +1,103 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-reachability-feature-heldout-result-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-positive-new-family-feature-parsing-with-negative-abstention-utility",
+  "protocol": {
+    "path": "examples/modus_profile_router/luna-max-reachability-feature-heldout-v1.json",
+    "sha256": "582af8ddc38ccecc3ce101fdb003d617743087e3fb37719b8f17280fac866609",
+    "frozen_commit": "5669e32",
+    "current_luna_reachability_outcome_read_before_freeze": false
+  },
+  "feature_extractor": {
+    "planned_cells": 3,
+    "valid_execution_cells": 3,
+    "exact_feature_cells": 3,
+    "identical_features": "3/3",
+    "features": {
+      "reachability-p01": ["graph_reachability", 1],
+      "reachability-p02": ["graph_reachability", 70],
+      "performance_objective": "latency_subject_to_correctness_then_tokens"
+    },
+    "total_tokens": [43452, 43180, 43454],
+    "median_total_tokens": 43452,
+    "manifest_sha256": "0bb4213602ae4e01c8374633c7e1a96ce216373a8a5c1fd45f53ae5705257833",
+    "result_sha256": "c158335beb5b0062d729d0d1ee89686add66da2306e3824a39becd4d61d0ff66"
+  },
+  "typed_matcher": {
+    "matches": {
+      "reachability-p01": [],
+      "reachability-p02": []
+    },
+    "exact_safe_match_sets": "3/3",
+    "unsafe_candidates": 0,
+    "replay_sha256": "9990337001015eeec71b6e0f3c566f43c7daf2bc0a30c553adc46ce49c83a8af"
+  },
+  "worker_execution": {
+    "base_cells": 12,
+    "base_valid_correct_topology_cells": 12,
+    "replication_cells": 3,
+    "replication_valid_correct_topology_cells": 3,
+    "complete_usage_cells": 15,
+    "web_search_cells": 0,
+    "automatic_redispatches": 0,
+    "base_manifest_sha256": "12d6547e69fe3138eacc4a42118b0054486340ce2950bf7a7c57f554a366b683",
+    "base_result_sha256": "b732702f3d17eb71e688dc0173b6241159c3cde6ff6c526ebc93dd991a48dc1a",
+    "base_manager_sha256": "36b6349b02dd77eef7d60fc0d07c78723b662bcbf981d67372f58c36791ca40a",
+    "replication_protocol_sha256": "33300861264cece48cec9f82256eb993f0b98da66d77652a033d7517995636bb",
+    "replication_manifest_sha256": "e19b61796ea2739ae0e7cf94a56b804565ac992bb50e09135899087a9c6d07c7",
+    "replication_result_sha256": "c78bb6ab62411dce6b1615c9a095d631a612639d693409be9836ea36744b5c9b",
+    "replication_manager_sha256": "f3af71ef65142fd950d5aa6599e0bcfc35273ac2a6ca38494187c6f0d1f90c1b"
+  },
+  "reachability_p01": {
+    "neutral": {"median_seconds": 0.002111766439384155, "median_tokens": 186116.0, "eligible": true},
+    "p000": {"median_seconds": 0.0025757530937084994, "median_tokens": 81199.0, "eligible": true},
+    "p100": {"median_seconds": 0.0032061914862993035, "median_tokens": 101048.0, "eligible": false},
+    "selected_action": "p000"
+  },
+  "reachability_p02": {
+    "neutral": {"median_seconds": 0.004023766921818606, "median_tokens": 161146, "eligible": true},
+    "p000": {"median_seconds": 0.005020784836005987, "median_tokens": 83457, "eligible": true},
+    "p100": {"median_seconds": 0.004393025718627541, "median_tokens": 120183, "eligible": true},
+    "selected_action": "p000"
+  },
+  "worker_oracle": {
+    "actions": {
+      "reachability-p01": "p000",
+      "reachability-p02": "p000"
+    },
+    "best_fixed_profile": "p000",
+    "best_fixed_worker_tokens": 164656.0,
+    "neutral_worker_tokens": 347262.0,
+    "p000_saving_vs_neutral_fraction": 0.5258450391923102,
+    "frozen_15_percent_gate_passed": true,
+    "useful_profile_preference_observed": true,
+    "dynamic_routing_needed": false
+  },
+  "no_candidate_abstention": {
+    "resolved_profile": "neutral",
+    "performance_safe_tasks": "2/2",
+    "worker_tokens": 347262.0,
+    "cost_regret_vs_p000": 182606.0,
+    "cost_regret_fraction": 0.5258450391923102,
+    "family_promotion_decision_correct": false,
+    "interpretation": "safe fallback execution hides a large unqualified Profile cost opportunity"
+  },
+  "result": {
+    "new_family_feature_extraction_generalized": true,
+    "feature_exactness_and_stability": "3/3",
+    "typed_matcher_candidate_safety": true,
+    "no_candidate_means_no_profile_preference": false,
+    "neutral_fallback_is_economically_safe": false,
+    "agent_parser_net_benefit_vs_trusted_metadata": false,
+    "next_action": "change zero-candidate semantics from execute neutral to defer and schedule a bounded Profile qualification experiment"
+  },
+  "design_implication": {
+    "zero_candidate_state": "unqualified/defer, not evidence that neutral is optimal",
+    "online_safe_fallback": "neutral may preserve performance but must report cost regret as unknown",
+    "offline_next_action": "run a bounded Profile matrix and promote only replicated evidence",
+    "agent_role": "closed task parsing remains valid; evidence acquisition and promotion remain manager-owned"
+  },
+  "claim_boundary": "This result validates closed feature parsing on one new family and safe no-candidate matching. It also shows that executing neutral on no-candidate stages can miss large Profile cost advantages; no graph mechanism was discovered or evaluated."
+}

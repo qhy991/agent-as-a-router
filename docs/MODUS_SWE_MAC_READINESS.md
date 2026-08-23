@@ -679,3 +679,18 @@ Router but still strictly worse than trusted zero-token metadata. This supports
 Agent use as a bounded parser only when authoritative features are unavailable;
 mechanism compatibility remains deterministic. See
 [`agentic-artifacts/modus-codex-luna-max-task-feature-extraction-v1.json`](../agentic-artifacts/modus-codex-luna-max-task-feature-extraction-v1.json).
+
+### Outcome-blind Reachability feature result
+
+On the unused P0 Reachability family, three Luna extractors returned exact and
+stable `graph_reachability` features with reuse counts 1 and 70. The typed
+matcher safely produced no mechanism candidates in 3/3 replays. Median parser
+cost was 43,452 tokens.
+
+The complete Worker matrix and a third P02 replication selected fixed p000 on
+both tasks. p000 remained performance-eligible and used 52.6% fewer tokens than
+neutral. Thus feature parsing generalized and candidate filtering was safe, but
+resolving zero candidates directly to neutral missed a large Profile cost
+opportunity. Zero candidate must mean unqualified/defer and trigger bounded
+offline Profile qualification, not assert that neutral is optimal. See
+[`agentic-artifacts/modus-codex-luna-max-reachability-feature-heldout-v1.json`](../agentic-artifacts/modus-codex-luna-max-reachability-feature-heldout-v1.json).
