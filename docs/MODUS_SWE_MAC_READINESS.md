@@ -634,3 +634,16 @@ Router cost was 73,827 tokens. This validates predicate execution and decision
 stability, but not held-out generalization or cost benefit over a zero-token
 predicate table. See
 [`agentic-artifacts/modus-codex-luna-max-nearest-applicability-router-v1.json`](../agentic-artifacts/modus-codex-luna-max-nearest-applicability-router-v1.json).
+
+### Four-stage batched Router amortization
+
+Frequency abstention and Nearest applicability routing were combined into one
+known-state four-stage plan. Three independent Routers produced the exact plan:
+abstain on both Frequency stages and Nearest-P01, then dispatch p100 plus
+ordered-search on Nearest-P02. Median Router cost was 64,223 tokens.
+
+Two separate Router calls cost 146,740 median tokens, so batching saved 82,517
+tokens or 56.2%, reducing Router overhead from 26.1% to 11.4% of the known
+Worker plan. The zero-token predicate table remains cheaper. This validates
+longer-plan amortization but not held-out routing. See
+[`agentic-artifacts/modus-codex-luna-max-batched-predicate-router-v1.json`](../agentic-artifacts/modus-codex-luna-max-batched-predicate-router-v1.json).

@@ -1,0 +1,80 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-batched-predicate-router-result-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-positive-known-state-batched-router-amortization-result",
+  "protocol": {
+    "path": "examples/modus_profile_router/luna-max-batched-predicate-router-v1.json",
+    "sha256": "6016933a471de4da6de8071d521d440399a2b683e87d7dcddacd8095d9c7f642",
+    "frozen_commit": "0496daf",
+    "classification": "known-state batching integration"
+  },
+  "execution": {
+    "planned_cells": 3,
+    "valid_execution_cells": 3,
+    "schema_and_allowlist_valid_cells": 3,
+    "exact_expected_route_cells": 3,
+    "complete_usage_cells": 3,
+    "web_search_cells": 0,
+    "automatic_redispatches": 0,
+    "manifest_sha256": "2c18022229e95c01c3605d1a21e727f80dab76caad99d117cda17930abb951b1",
+    "result_sha256": "0b07d8c0fe610ba1f292cbbaaa65457f470ec822bdf45b1cd91953ee7940aaaa"
+  },
+  "plan": {
+    "frequency-p01": "abstain",
+    "frequency-p02": "abstain",
+    "nearest-p01": "abstain",
+    "nearest-p02": {
+      "decision": "dispatch",
+      "profile": "p100",
+      "mechanism_id": "shared-ordered-search-v1",
+      "evidence_ref": "case:rankcount-prefixcount-n3"
+    },
+    "identical_plans": "3/3"
+  },
+  "router_cost": {
+    "batched_total_tokens": [64223, 64743, 59017],
+    "batched_median_total_tokens": 64223,
+    "frequency_separate_median_tokens": 72913,
+    "nearest_separate_median_tokens": 73827,
+    "two_separate_router_tokens": 146740,
+    "batch_saving_tokens": 82517,
+    "batch_saving_fraction": 0.562334741720049,
+    "batched_tokens_per_stage": 16055.75,
+    "zero_token_predicate_table_tokens": 0
+  },
+  "known_worker_plan": {
+    "frequency_neutral_workers": 332882.0,
+    "nearest_p01_neutral_worker": 113345.0,
+    "nearest_p02_mechanism_worker": 116194.5,
+    "worker_tokens": 562421.5,
+    "worker_plus_batched_router_tokens": 626644.5,
+    "worker_plus_separate_routers_tokens": 709161.5,
+    "worker_plus_zero_token_table_tokens": 562421.5,
+    "batched_router_overhead_fraction_of_workers": 0.11419015809317389,
+    "separate_router_overhead_fraction_of_workers": 0.2609075222053211
+  },
+  "gates": {
+    "valid_execution_3_of_3": true,
+    "exact_routes_3_of_3": true,
+    "stable": true,
+    "batched_cost_below_separate_calls": true,
+    "agent_beats_zero_token_table": false,
+    "known_state_batching_passed": true
+  },
+  "result": {
+    "batched_agent_router_cost_amortization_observed": true,
+    "batching_saving_fraction": 0.562334741720049,
+    "profile_mechanism_and_abstain_plan_stable": true,
+    "heldout_generalization": "not evaluated",
+    "agent_router_net_benefit_vs_deterministic_table": false,
+    "next_action": "make applicability evidence a canonical registry and test one outcome-blind multi-stage plan that mixes catalog-covered and uncovered stages"
+  },
+  "design_implication": {
+    "router_granularity": "one plan for many stages rather than one Router turn per task",
+    "minimum_economic_control": "always compare batched Agent cost against both separate Agent calls and zero-token predicate evaluation",
+    "remaining_value_hypothesis": "Agent routing is useful only for unknown or dynamically composed stages where deterministic lookup cannot decide"
+  },
+  "claim_boundary": "All four stages and expected routes came from prior outcomes. This result proves 3/3 contract execution and 56.2% Router-call amortization, not held-out generalization or superiority to a deterministic predicate table."
+}

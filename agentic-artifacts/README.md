@@ -62,6 +62,8 @@ that need to decide what to inspect before loading the full repository.
     outcome-blind ordered-search dispatch and missing amortization predicate.
 28. Read `modus-codex-luna-max-nearest-applicability-router-v1.json` for the
     3/3 post-outcome stage-selective predicate contract result.
+29. Read `modus-codex-luna-max-batched-predicate-router-v1.json` for the
+    four-stage 56.2% Router-call amortization result.
 
 ## Scope
 
