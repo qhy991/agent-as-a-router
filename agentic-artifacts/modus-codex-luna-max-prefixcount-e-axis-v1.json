@@ -1,0 +1,159 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-profile-space-result-v1",
+  "captured_at": "2026-08-23",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-positive-performance-feasibility-profile-routing-result",
+  "protocol": {
+    "path": "examples/modus_profile_router/luna-max-prefixcount-profile-space-v1.json",
+    "sha256": "51999bdf07efef8c2e0da9e7d05fbd2af599b97f9a542d56da31aee2fc9609d0",
+    "scoring_contract_path": "examples/modus_profile_router/luna-max-profile-space-scoring-v1.json",
+    "scoring_contract_sha256": "cebba3a6b68f49fa7761d2d92d69a5a115cb96f0d20999c8b8a7f7ab2218a56f",
+    "frozen_commit": "c2b7827",
+    "winner_assumed_before_outcome": false
+  },
+  "harness": {
+    "model_slug": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "authentication": "ChatGPT login",
+    "profile_delivery": "canonical Profile text prepended to the task prompt",
+    "runner_sha256": "4f73aee9371711752e30688584321b968f06597b25b792c1eafd762891fe5385",
+    "plugin_commit": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e",
+    "modus_task_lock_sha256": "9c129f14a59a6635a1a452c52f3d5bd60fecf363fdfc69556bf777cf0ef43f97",
+    "modus_projects_sha256": "3f978f5f2ffbeecc876a38659fd68b51be18d32bbd91fa71b5ce3684d0f30a88",
+    "modus_verifier_sha256": "644eb7be12ef8c34ed8ed8e0355b97d84e01ce37da343ba838e3a795a98ad19b"
+  },
+  "task_family": {
+    "name": "prefixcount",
+    "local_task": "prefixcount-h01-perf-p1b",
+    "system_task": "prefixcount-h02-perf-p1b",
+    "local_task_sha256": "1b8d2773e441fc842db866cbd5916955240f2d3669cd5cd0ce65a4de454d86e8",
+    "system_task_sha256": "0e6fbf8e64c186cf67461badc4e1de287d758603cf524b6090819b36d75bd858"
+  },
+  "execution": {
+    "repetitions_per_action_and_task": 2,
+    "planned_cells": 12,
+    "valid_execution_cells": 12,
+    "correct_cells": 12,
+    "complete_usage_cells": 12,
+    "web_search_cells": 0,
+    "automatic_redispatches": 0,
+    "manifests": {
+      "v1": "23d1b354dfdcf15abcc76a8c3bc72cc3fb9359bd0f1621c444723feb901b1571",
+      "v2": "b0c7bf1a2a69d3941d6943f025cfdbc4f3f271ea9ec715e52c469c3785bbcffc"
+    },
+    "results": {
+      "v1": "99c30fe8edbea1ba80064c8489b06055d68c37054365e0a08df01597d9d97db5",
+      "v2": "46047aa225c8f1dc211078dcf5941faedaeed60e909f768c6c9553fdc9ba2b79"
+    },
+    "measurement": "canonical Modus hidden correctness, changed-path topology, seven-round steady median, and complete Codex input plus output tokens"
+  },
+  "local": {
+    "neutral": {
+      "correct": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [0.005170395507775538, 0.005094831054748283],
+      "total_tokens": [128487, 117031],
+      "median_steady_seconds": 0.005132613281261911,
+      "median_total_tokens": 122759.0,
+      "median_uncached_input_plus_output_tokens": 34695.0
+    },
+    "p000": {
+      "correct": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [0.0029705073242212165, 0.0030918333320641977],
+      "total_tokens": [105352, 96119],
+      "median_steady_seconds": 0.003031170328142707,
+      "median_total_tokens": 100735.5,
+      "median_uncached_input_plus_output_tokens": 26239.5
+    },
+    "p100": {
+      "correct": "2/2",
+      "topology": "coordinated 2/2",
+      "steady_seconds": [0.004473934570341953, 0.002966471355421163],
+      "total_tokens": [92142, 84874],
+      "median_steady_seconds": 0.003720202962881558,
+      "median_total_tokens": 88508.0,
+      "median_uncached_input_plus_output_tokens": 41148.0
+    },
+    "performance_eligible_actions": ["p000", "p100"],
+    "selected_action": "p100",
+    "p100_token_saving_vs_p000_fraction": 0.12138223367134726
+  },
+  "system": {
+    "neutral": {
+      "correct": "2/2",
+      "topology": "coordinated 1/2; local 1/2",
+      "steady_seconds": [0.0049718144530288555, 0.006855196289052401],
+      "total_tokens": [159687, 170121],
+      "median_steady_seconds": 0.005913505371040628,
+      "median_total_tokens": 164904.0,
+      "median_uncached_input_plus_output_tokens": 44328.0
+    },
+    "p000": {
+      "correct": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [0.10848074999739765, 0.07290300000022398],
+      "total_tokens": [101533, 96544],
+      "median_steady_seconds": 0.09069187499881082,
+      "median_total_tokens": 99038.5,
+      "median_uncached_input_plus_output_tokens": 34142.5
+    },
+    "p100": {
+      "correct": "2/2",
+      "topology": "coordinated 2/2",
+      "steady_seconds": [0.0710068281259737, 0.07248366662315675],
+      "total_tokens": [93896, 85586],
+      "median_steady_seconds": 0.07174524737456522,
+      "median_total_tokens": 89741.0,
+      "median_uncached_input_plus_output_tokens": 30861.0
+    },
+    "performance_eligible_actions": ["neutral"],
+    "selected_action": "neutral",
+    "p100_to_neutral_median_seconds_ratio": 12.132439707573964
+  },
+  "manipulation": {
+    "p000_local_topology": "4/4",
+    "p100_coordinated_topology": "4/4",
+    "passed": true,
+    "interpretation": "the Profile controls topology, while the constrained utility action crosses from p100 local to neutral system"
+  },
+  "policy_score": {
+    "observed_actions": {"local": "p100", "system": "neutral"},
+    "dynamic_worker_tokens": 253412.0,
+    "fixed_action_performance_eligibility": {
+      "neutral": ["system"],
+      "p000": ["local"],
+      "p100": ["local"]
+    },
+    "performance_eligible_fixed_action": null,
+    "performance_feasibility_routing_space_observed": true,
+    "economic_saving_gate_evaluable": false,
+    "frozen_15_percent_worker_saving_gate_status": "not_applicable_no_performance_eligible_fixed_action",
+    "routing_space_observed": true,
+    "routing_space_kind": "performance feasibility rather than measured token saving"
+  },
+  "cross_family_state": {
+    "rankcount": "stable useful token-saving routing space",
+    "membership": "no useful routing space",
+    "categorysum": "no useful routing space",
+    "anagram": "initial crossover not independently replicated",
+    "rangemin": "no useful routing space; neutral required for performance",
+    "prefixcount": "stable performance-feasibility routing space",
+    "families_with_stable_action_crossover": "2/6",
+    "families_with_token-saving_gate_pass": "1/6",
+    "families_with_no_eligible_fixed_action": "1/6"
+  },
+  "result": {
+    "profile_behavior_controllable": true,
+    "profile_cost_effect_observed": true,
+    "stable_profile_action_crossover_observed": true,
+    "profile_routing_space_observed": true,
+    "routing_improves_performance_feasibility": true,
+    "routing_token_saving_established": false,
+    "live_agent_router_justified": false,
+    "next_action": "aggregate the six-family evidence into a selective abstaining Router contract and evaluate it without live Router tokens"
+  },
+  "claim_boundary": "PrefixCount is a valid positive Profile-routing result for performance feasibility: local selects p100 and system selects neutral, while no fixed Profile satisfies both task-level performance gates. Because no eligible fixed action exists, the frozen 15% token-saving comparison is not evaluable and no token-saving claim is made."
+}

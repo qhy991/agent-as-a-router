@@ -452,3 +452,36 @@ first-run p100 signal did not replicate. RangeMin therefore has no action
 crossover or routing saving, but it supplies direct evidence that Profile cost
 and performance must be gated separately. See
 [`agentic-artifacts/modus-codex-luna-max-rangemin-e-axis-v1.json`](../agentic-artifacts/modus-codex-luna-max-rangemin-e-axis-v1.json).
+
+### Prospective PrefixCount Profile-space result
+
+PrefixCount completed the six-family Luna matrix with 12/12 valid and correct
+cells. Local selected p100: p000 and p100 were both within the performance
+limit, while p100 used 12.1% fewer median total tokens. System selected neutral,
+which was 12.1 times faster than p100; p000 and p100 were both ineligible.
+
+No fixed Profile was performance-eligible on both states: neutral qualified
+only on system, while p000 and p100 qualified only on local. The p100/neutral
+route is therefore required for portfolio performance feasibility. Its Worker
+cost is 253,412 median tokens, but the 15% saving gate cannot be evaluated
+because there is no eligible fixed baseline; no token-saving claim is made.
+This is the second stable action crossover and the first case where routing
+changes feasibility rather than merely reducing cost. See
+[`agentic-artifacts/modus-codex-luna-max-prefixcount-e-axis-v1.json`](../agentic-artifacts/modus-codex-luna-max-prefixcount-e-axis-v1.json).
+
+### Six-family Luna conclusion
+
+The completed matrix contains 79/79 valid, correct, usage-complete cells across
+six algorithm families and twelve local/system task states. p000 satisfied its
+local topology in 26/26 cells, p100 satisfied coordinated topology in 27/27,
+and p000 used fewer median tokens than neutral on all 12 task states. This is
+strong diagnostic evidence that Profile changes behavior and cost.
+
+Utility is selective. Rankcount has a stable 25.0% Worker-token saving route;
+PrefixCount has a stable route required for performance feasibility because no
+fixed Profile passes both states. Membership, CategorySum, Anagram, and
+RangeMin have no stable useful crossover. The resulting design must route only
+2/6 families and abstain to a fixed qualified Profile on 4/6. A universal
+Profile Router is rejected; a selective Router with an explicit abstain action
+is supported. See
+[`agentic-artifacts/modus-codex-luna-max-six-family-summary-v1.json`](../agentic-artifacts/modus-codex-luna-max-six-family-summary-v1.json).

@@ -38,6 +38,10 @@ that need to decide what to inspect before loading the full repository.
     fourth-family action crossover and failed economic gate.
 16. Read `modus-codex-luna-max-rangemin-e-axis-v1.json` for the fifth-family
     cost-versus-performance tradeoff and replicated no-routing result.
+17. Read `modus-codex-luna-max-prefixcount-e-axis-v1.json` for the sixth-family
+    performance-feasibility action crossover.
+18. Read `modus-codex-luna-max-six-family-summary-v1.json` for the aggregate
+    selective-routing and abstention conclusion.
 
 ## Scope
 

@@ -1,0 +1,138 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-six-family-summary-v1",
+  "captured_at": "2026-08-23",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "prospective-family-matrix-with-independent-instability-replications",
+  "scope": {
+    "model_slug": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "algorithm_families": 6,
+    "task_states": 12,
+    "valid_execution_cells": 79,
+    "correct_cells": 79,
+    "complete_usage_cells": 79,
+    "neutral_cells": 26,
+    "p000_cells": 26,
+    "p100_cells": 27,
+    "web_search_cells": 0,
+    "automatic_redispatches": 0
+  },
+  "common_scoring_contract": {
+    "path": "examples/modus_profile_router/luna-max-profile-space-scoring-v1.json",
+    "sha256": "cebba3a6b68f49fa7761d2d92d69a5a115cb96f0d20999c8b8a7f7ab2218a56f",
+    "correctness_first": true,
+    "performance_eligibility_ratio": 1.25,
+    "practical_token_tie_fraction": 0.05,
+    "minimum_worker_token_saving_fraction": 0.15
+  },
+  "manipulation": {
+    "p000_expected_local_topology": "26/26",
+    "p100_expected_coordinated_topology": "27/27",
+    "passed": true,
+    "interpretation": "the Profile treatment controls implementation topology across all measured cells"
+  },
+  "cost_effect": {
+    "task_states_where_p000_median_tokens_are_lower_than_neutral": "12/12",
+    "observed": true,
+    "interpretation": "p000 consistently reduces complete token consumption, but lower cost does not guarantee performance eligibility"
+  },
+  "families": {
+    "rankcount": {
+      "evidence": "modus-codex-luna-max-e-axis-v1.json",
+      "stable_actions": {"local": "p000", "system": "neutral"},
+      "stable_action_crossover": true,
+      "benefit_kind": "worker token saving at matched constrained performance",
+      "dynamic_worker_tokens": 258362.5,
+      "best_fixed_eligible_worker_tokens": 344423.0,
+      "worker_token_saving_fraction": 0.24986862085284667,
+      "frozen_15_percent_gate": "pass"
+    },
+    "membership": {
+      "evidence": "modus-codex-luna-max-membership-e-axis-v1.json",
+      "stable_actions": {"local": "p000", "system": "p000"},
+      "stable_action_crossover": false,
+      "benefit_kind": "none",
+      "best_fixed_action": "p000",
+      "exact_dynamic_saving_fraction": 0.013251191444844768,
+      "frozen_15_percent_gate": "fail"
+    },
+    "categorysum": {
+      "evidence": "modus-codex-luna-max-categorysum-e-axis-v1.json",
+      "stable_actions": {"local": "p000", "system": "p000_or_p100_tie"},
+      "stable_action_crossover": false,
+      "benefit_kind": "none",
+      "best_fixed_action": "p000",
+      "exact_dynamic_saving_fraction": 0.02526245726560372,
+      "frozen_15_percent_gate": "fail"
+    },
+    "anagram": {
+      "evidence": "modus-codex-luna-max-anagram-e-axis-v1.json",
+      "stable_actions": {"local": "p000", "system": "p000_or_p100_tie"},
+      "stable_action_crossover": false,
+      "initial_crossover_independently_replicated": false,
+      "benefit_kind": "none",
+      "frozen_15_percent_gate": "fail"
+    },
+    "rangemin": {
+      "evidence": "modus-codex-luna-max-rangemin-e-axis-v1.json",
+      "stable_actions": {"local": "neutral", "system": "neutral"},
+      "stable_action_crossover": false,
+      "initial_local_ordering_independently_resolved": true,
+      "benefit_kind": "none; neutral is required for performance",
+      "frozen_15_percent_gate": "fail"
+    },
+    "prefixcount": {
+      "evidence": "modus-codex-luna-max-prefixcount-e-axis-v1.json",
+      "stable_actions": {"local": "p100", "system": "neutral"},
+      "stable_action_crossover": true,
+      "benefit_kind": "performance feasibility",
+      "performance_eligible_fixed_action": null,
+      "dynamic_worker_tokens": 253412.0,
+      "frozen_15_percent_gate": "not_evaluable_without_an_eligible_fixed_action"
+    }
+  },
+  "prevalence": {
+    "families_with_stable_action_crossover": "2/6",
+    "families_with_no_stable_action_crossover": "4/6",
+    "families_with_evaluable_fixed_baseline": "5/6",
+    "families_passing_15_percent_token_gate_among_evaluable": "1/5",
+    "families_where_routing_is_required_for_performance_feasibility": "1/6"
+  },
+  "selective_policy": {
+    "rankcount": "route local p000; system neutral",
+    "membership": "abstain; fixed p000",
+    "categorysum": "abstain; fixed p000",
+    "anagram": "abstain; fixed p000",
+    "rangemin": "abstain; fixed neutral",
+    "prefixcount": "route local p100; system neutral",
+    "abstaining_families": "4/6",
+    "routing_families": "2/6",
+    "origin": "post-outcome descriptive policy over this matrix; not held-out Router evidence"
+  },
+  "claims": {
+    "profile_changes_agent_behavior": "supported within this diagnostic suite",
+    "profile_changes_agent_cost": "supported within this diagnostic suite",
+    "different_profiles_can_be_suitable_for_different_task_states": "supported in 2/6 families",
+    "every_family_benefits_from_profile_routing": "rejected",
+    "selective_router_with_abstention_is_required": "supported as the minimum design implied by the outcomes",
+    "live_agent_router_net_benefit": "not established"
+  },
+  "design_implication": {
+    "router_state": "worker model x algorithm family or measured bottleneck x task state x eligible Profile evidence",
+    "router_action": "select qualified Profile or abstain to the family fixed action",
+    "promotion_gate": "replicated correctness and performance eligibility before token optimization",
+    "router_cost_rule": "prefer a zero-token table until a long-horizon task can amortize live Agent Router cost"
+  },
+  "next_experiment": {
+    "name": "stage-selective long-horizon optimization pilot",
+    "goal": "test whether stage-specific Profile selection preserves end-to-end correctness and performance while reducing total Worker plus Router tokens",
+    "required_controls": [
+      "best fixed eligible Profile",
+      "zero-token selective table with abstention",
+      "live Agent Router plus stage-specific Workers"
+    ],
+    "claim_boundary": "the six-family policy is evaluated on the same diagnostic matrix and must be frozen before any new composite task outcome"
+  },
+  "claim_boundary": "This six-family result validates Profile manipulation and repeatable cost effects, and it identifies two forms of selective routing benefit. It rejects universal Profile routing: four of six families should abstain. The action table is derived from the measured families and is not held-out evidence or proof that a live Agent Router has positive net benefit."
+}
