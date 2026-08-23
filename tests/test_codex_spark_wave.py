@@ -82,6 +82,25 @@ class CodexSparkWaveTest(unittest.TestCase):
             result = run_wave(manifest, output, codex=str(fake))
             self.assertEqual(result["status"], "pass")
 
+    def test_luna_max_is_an_explicit_supported_route(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            manifest, fake, output = self.fixture(Path(temporary))
+            value = json.loads(manifest.read_text())
+            value["model"] = "gpt-5.6-luna"
+            value["reasoning_effort"] = "max"
+            manifest.write_text(json.dumps(value))
+            result = run_wave(manifest, output, codex=str(fake))
+            self.assertEqual(result["status"], "pass")
+
+    def test_max_effort_is_not_enabled_for_spark(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            manifest, fake, output = self.fixture(Path(temporary))
+            value = json.loads(manifest.read_text())
+            value["reasoning_effort"] = "max"
+            manifest.write_text(json.dumps(value))
+            with self.assertRaisesRegex(SparkWaveError, "reasoning effort"):
+                run_wave(manifest, output, codex=str(fake))
+
     def test_web_search_invalidates_wave_without_retry(self):
         with tempfile.TemporaryDirectory() as temporary:
             manifest, fake, output = self.fixture(Path(temporary), web=True)

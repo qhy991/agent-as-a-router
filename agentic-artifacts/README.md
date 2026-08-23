@@ -28,6 +28,8 @@ that need to decide what to inspect before loading the full repository.
     neutral/p000 trajectory and token comparison on a reconstructed SWE task.
 11. Read `modus-swe-dsh-gate-canary-v1.json` for the excluded fixed-Worker
     apparatus/provider failure and its no-redispatch evidence.
+12. Read `modus-codex-luna-max-e-axis-v1.json` for the local Luna Max
+    task-by-Profile cost/performance crossover and cross-model boundary.
 
 ## Scope
 

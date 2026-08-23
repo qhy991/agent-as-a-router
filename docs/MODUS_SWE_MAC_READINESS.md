@@ -344,3 +344,26 @@ not the optimization mechanism. A task-only Router is therefore insufficient;
 the routing context must bind Worker model and model-specific Profile response
 evidence. See
 [`agentic-artifacts/modus-codex-sol-e-axis-v1.json`](../agentic-artifacts/modus-codex-sol-e-axis-v1.json).
+
+### Codex-Luna Max Profile cost-effectiveness replication
+
+A local replication used `gpt-5.6-luna` at `max` reasoning with neutral,
+p000, and p100 on the same two rank-count workloads. All 15 cells were
+execution-valid, correctness-clean, usage-complete, and free of Web Search.
+On the local workload, the actions were performance-equivalent; p000 used
+53.3% fewer median total tokens than neutral and 26.5% fewer than p100.
+
+On the system workload, neutral moved shared preprocessing outside the repeated
+target call in two of three runs. Its median was 14.7 times faster than p100,
+but it used 103.5% more median total tokens. p100 changed all three named
+modules in every run but never moved preprocessing outside the per-batch
+target. Therefore topology compliance remains a manipulation check, not a
+performance mechanism or utility guarantee.
+
+The Luna action crossover is p000 for local low-cost work and neutral for
+system performance work. Together with the Spark and Sol results, this rules
+out a task-only Profile policy: the minimum Router state is Worker model x task
+state x eligible Profile. The next test is a zero-token model-aware lookup
+policy on held-out task families; paying an Agent Router is not yet justified.
+See
+[`agentic-artifacts/modus-codex-luna-max-e-axis-v1.json`](../agentic-artifacts/modus-codex-luna-max-e-axis-v1.json).
