@@ -1,0 +1,86 @@
+{
+  "schema": "acrouter-luna-max-task-feature-extraction-protocol-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "purpose": "test whether an Agent can reliably extract closed trusted features without selecting a Profile or mechanism",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "extractor": {
+    "system_prompt_sha256": "1f7d748fdf51de03598900b36a9504b319c1c7639d364af73e159301320c3bef",
+    "task_sha256": "c669877e75afa048a0114b29970a0b1803952f012ecaff936e08f7df0941f6d6",
+    "repetitions": 3,
+    "maximum_response_bytes": 4096,
+    "task_feature_contract": {
+      "schema": "modus-task-features-v1",
+      "stages": [
+        "lookup-p01",
+        "lookup-p02",
+        "interval-p01",
+        "interval-p02",
+        "frequency-p01",
+        "frequency-p02",
+        "nearest-p01",
+        "nearest-p02"
+      ],
+      "allowed_semantic_kinds": [
+        "canonical_key_lookup",
+        "interval_membership",
+        "token_frequency",
+        "ordered_search",
+        "unknown"
+      ],
+      "allowed_performance_objectives": [
+        "latency_subject_to_correctness_then_tokens"
+      ],
+      "minimum_reuse_batches": 1,
+      "maximum_reuse_batches": 64
+    },
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "expected_features": [
+    {"stage": "lookup-p01", "semantic_kind": "canonical_key_lookup", "reuse_batches": 1, "performance_objective": "latency_subject_to_correctness_then_tokens"},
+    {"stage": "lookup-p02", "semantic_kind": "canonical_key_lookup", "reuse_batches": 20, "performance_objective": "latency_subject_to_correctness_then_tokens"},
+    {"stage": "interval-p01", "semantic_kind": "interval_membership", "reuse_batches": 1, "performance_objective": "latency_subject_to_correctness_then_tokens"},
+    {"stage": "interval-p02", "semantic_kind": "interval_membership", "reuse_batches": 20, "performance_objective": "latency_subject_to_correctness_then_tokens"},
+    {"stage": "frequency-p01", "semantic_kind": "token_frequency", "reuse_batches": 1, "performance_objective": "latency_subject_to_correctness_then_tokens"},
+    {"stage": "frequency-p02", "semantic_kind": "token_frequency", "reuse_batches": 20, "performance_objective": "latency_subject_to_correctness_then_tokens"},
+    {"stage": "nearest-p01", "semantic_kind": "ordered_search", "reuse_batches": 1, "performance_objective": "latency_subject_to_correctness_then_tokens"},
+    {"stage": "nearest-p02", "semantic_kind": "ordered_search", "reuse_batches": 20, "performance_objective": "latency_subject_to_correctness_then_tokens"}
+  ],
+  "typed_matcher_expected": {
+    "lookup-p01": [],
+    "lookup-p02": [],
+    "interval-p01": [],
+    "interval-p02": [],
+    "frequency-p01": [],
+    "frequency-p02": [],
+    "nearest-p01": [],
+    "nearest-p02": ["shared-ordered-search-v1"]
+  },
+  "gates": {
+    "valid_execution": "3/3",
+    "exact_features": "3/3 all eight stages",
+    "stable": true,
+    "typed_matcher_candidates": "3/3 exact expected mapping",
+    "usage_complete": "3/3"
+  },
+  "comparators": {
+    "trusted_metadata_extraction_tokens": 0,
+    "old_direct_agent_mechanism_matching": "failed mixed held-out 0/3"
+  },
+  "failure_policy": {
+    "invalid_or_wrong_feature": "repetition failure",
+    "candidate_mismatch": "safety failure",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch",
+    "post_hoc_kind_expected_feature_or_matcher_change": false
+  },
+  "provenance": {
+    "mechanism_registry_sha256": "f52262c47ed6011e4063a33316e5baa9f75efed1f32c34d3206808a407ba3043",
+    "typed_matcher_sha256": "fe79a03746508cdfee8331bd322cb61bbc06bca5401c828fc53e1fc62ab06f62",
+    "shadow_runner_sha256": "022c27ff869460c5dcee6056bed0dbefb46401de6c8c7ad6365d9f2c7c6ce28d",
+    "agent_router_commit_before_freeze": "1864e1b732a887f425f2d81caaed47844bc632ac"
+  },
+  "claim_boundary": "The stage descriptions and expected closed features are known task metadata. Success validates Agent parsing under a closed schema, not outcome-blind mechanism selection or superiority to trusted zero-token metadata."
+}
