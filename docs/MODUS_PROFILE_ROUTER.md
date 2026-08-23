@@ -129,6 +129,13 @@ objective mismatch, invalid descriptors, and evidence drift return no
 candidate or fail closed. The Agent is not asked to choose a mechanism when
 zero or one typed candidate exists.
 
+Candidate cardinality is a lifecycle decision, not a neutral-Profile default:
+zero candidates return `defer/unqualified_task_state`, one candidate returns a
+deterministic dispatch, and multiple candidates return `compare`. Reachability
+showed why this matters: neutral was performance-safe when no mechanism matched,
+but cost 52.6% more than the still-unqualified p000 Profile. Defer schedules a
+bounded evidence experiment; it does not assert that neutral is optimal.
+
 The bounded shadow runner can separately validate `modus-task-features-v1`
 responses. A feature manifest freezes stage order, closed semantic kinds,
 allowed performance objectives, and reuse bounds; it is mutually exclusive

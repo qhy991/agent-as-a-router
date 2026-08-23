@@ -7,6 +7,7 @@ from acrouter_repro.modus_mechanism_registry import (
     MechanismRegistryError,
     load_mechanism_registry,
     match_typed_mechanisms,
+    resolve_typed_candidates,
 )
 
 
@@ -120,6 +121,33 @@ class ModusMechanismEvidenceTest(unittest.TestCase):
                     "latency_subject_to_correctness_then_tokens"
                 ),
             })
+
+    def test_candidate_cardinality_resolves_to_defer_dispatch_or_compare(self):
+        candidate = {
+            "mechanism_id": "shared-ordered-search-v1",
+            "profile": "p100",
+            "evidence_ref": "case:rankcount-prefixcount-n3",
+        }
+        self.assertEqual(resolve_typed_candidates([]), {
+            "decision": "defer",
+            "reason": "unqualified_task_state",
+            "candidates": [],
+        })
+        self.assertEqual(resolve_typed_candidates([candidate]), {
+            "decision": "dispatch",
+            "reason": "single_typed_candidate",
+            "action": candidate,
+        })
+        second = {
+            "mechanism_id": "another-mechanism",
+            "profile": "p000",
+            "evidence_ref": "case:another",
+        }
+        self.assertEqual(resolve_typed_candidates([candidate, second]), {
+            "decision": "compare",
+            "reason": "multiple_typed_candidates",
+            "candidates": [candidate, second],
+        })
 
 
 if __name__ == "__main__":

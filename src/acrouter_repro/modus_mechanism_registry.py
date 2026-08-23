@@ -166,3 +166,33 @@ def match_typed_mechanisms(
             "evidence_ref": mechanism["evidence_ref"],
         })
     return matches
+
+
+def resolve_typed_candidates(
+    candidates: list[dict[str, str]],
+) -> dict[str, Any]:
+    """Resolve candidate cardinality without inventing a neutral fallback."""
+    if not isinstance(candidates, list) or not all(
+        isinstance(candidate, dict)
+        and set(candidate) == {"mechanism_id", "profile", "evidence_ref"}
+        and all(isinstance(value, str) and value for value in candidate.values())
+        for candidate in candidates
+    ):
+        raise MechanismRegistryError("typed candidates are invalid")
+    if not candidates:
+        return {
+            "decision": "defer",
+            "reason": "unqualified_task_state",
+            "candidates": [],
+        }
+    if len(candidates) == 1:
+        return {
+            "decision": "dispatch",
+            "reason": "single_typed_candidate",
+            "action": candidates[0],
+        }
+    return {
+        "decision": "compare",
+        "reason": "multiple_typed_candidates",
+        "candidates": candidates,
+    }
