@@ -1,0 +1,72 @@
+{
+  "schema": "acrouter-luna-max-stage-router-shadow-protocol-v1",
+  "frozen_at": "2026-08-23",
+  "run_authorized": true,
+  "purpose": "separate task-structure inference from evidence application and measure one Agent Router turn amortized over twelve stages",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "system_prompt_sha256": "f00a2084b750ec141d6b6530b26a293b67c1f8aeea30c2e73c228ddc7611b515",
+  "conditions": {
+    "task_only": {
+      "task_sha256": "d34bf42c96bde7c50ab32fd5dd8d2ca4da61f99c8aa330bbf9e981e651f30afe",
+      "repetitions": 3,
+      "interpretation": "tests whether an Agent can infer model-specific Profile utility from task structure without outcome evidence"
+    },
+    "evidence_bound": {
+      "task_sha256": "2cba0cc18928f5f4d921d1a61e199866f3d00b80c6f07773af31e14792829c1e",
+      "repetitions": 3,
+      "interpretation": "tests exact application fidelity and token overhead when verified Profile evidence is supplied"
+    }
+  },
+  "matrix": {
+    "cells": 6,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false,
+    "workspace_final_files": [
+      "inbox/task.md",
+      "outbox/route-response.json"
+    ]
+  },
+  "expected_routes": [
+    {"stage": "rankcount-local", "action": "p000"},
+    {"stage": "rankcount-system", "action": "neutral"},
+    {"stage": "membership-local", "action": "p000"},
+    {"stage": "membership-system", "action": "p000"},
+    {"stage": "categorysum-local", "action": "p000"},
+    {"stage": "categorysum-system", "action": "p000"},
+    {"stage": "anagram-local", "action": "p000"},
+    {"stage": "anagram-system", "action": "p000"},
+    {"stage": "rangemin-local", "action": "neutral"},
+    {"stage": "rangemin-system", "action": "neutral"},
+    {"stage": "prefixcount-local", "action": "p100"},
+    {"stage": "prefixcount-system", "action": "neutral"}
+  ],
+  "response_gate": {
+    "schema": "modus-stage-profile-route-v1",
+    "exact_stage_order": true,
+    "allowed_actions": ["neutral", "p000", "p100"],
+    "extra_or_missing_keys": "invalid"
+  },
+  "scoring": {
+    "exact_plan_accuracy": "fraction of repetitions matching all twelve expected routes",
+    "stage_accuracy": "correct stage actions divided by twelve",
+    "stability": "identical valid plans divided by three within each condition",
+    "router_cost": "complete Codex input plus output tokens for one twelve-stage plan",
+    "zero_token_table_cost": 0,
+    "rankcount_worker_saving_available_for_amortization": 86060.5,
+    "cost_boundary": "a correct Agent plan is still more expensive than the zero-token evidence table; report whether its median cost also exceeds the measured Rankcount Worker saving"
+  },
+  "failure_policy": {
+    "invalid_execution_or_response": "condition repetition failure",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch",
+    "post_hoc_prompt_or_expected_route_change": false
+  },
+  "provenance": {
+    "six_family_summary_sha256": "9fe20ce1d8d276e1fad5c1d35036fead11d9fe48d36f2f508fe39168dc9d1dc1",
+    "agent_router_commit_before_freeze": "aff5b6c805c74e17f3ee62d466cfb518d02f2e74",
+    "shadow_runner_sha256": "4481102a10aa00142284442c87aae61b56f313eed69ac46e52c5ee41d80f73e6"
+  },
+  "claim_boundary": "The evidence-bound condition is evaluated on the same six-family outcomes and measures application fidelity plus overhead, not held-out generalization. The task-only condition tests structural inference but was designed after the family outcomes and remains development evidence."
+}
