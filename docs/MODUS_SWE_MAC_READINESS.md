@@ -502,3 +502,24 @@ token evidence table remains strictly cheaper on known states. The Agent Router
 should therefore be reserved for unknown states or batched long-horizon plans;
 known states should use deterministic evidence lookup. See
 [`agentic-artifacts/modus-codex-luna-max-stage-router-shadow-v1.json`](../agentic-artifacts/modus-codex-luna-max-stage-router-shadow-v1.json).
+
+### Router plus Worker end-to-end pilot
+
+A new evidence-bound Router parent matched all 12/12 frozen stage actions and
+cost 63,832 tokens. Its actual response generated one twelve-cell fresh Worker
+wave. All Workers were execution-valid and hidden-correct, and all eight
+selected non-neutral Profiles passed topology fidelity. Worker cost was
+1,411,290 tokens; Router plus Worker cost was 1,475,122, a 4.52% Router
+overhead. The Router remained below Rankcount's 86,060.5-token saving budget.
+
+The end-to-end gate nevertheless failed. Sequential manager measurement passed
+only 10/12 performance thresholds. Rankcount-system and PrefixCount-system both
+selected the correct evidence action, neutral, but produced local slow-path
+implementations rather than the historical fast mechanism. A prior concurrent
+manager measurement was explicitly excluded because CPU contention invalidated
+its performance values.
+
+Thus exact Profile routing, correctness, and topology are insufficient for
+end-to-end success. Modus requires a verifier-guided feedback stage after each
+Worker, with targeted repair rather than whole-run redispatch. See
+[`agentic-artifacts/modus-codex-luna-max-router-worker-e2e-v1.json`](../agentic-artifacts/modus-codex-luna-max-router-worker-e2e-v1.json).

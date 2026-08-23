@@ -86,6 +86,7 @@
     "profile_luna_max_prefixcount_space": "modus-codex-luna-max-prefixcount-e-axis-v1.json",
     "profile_luna_max_six_family_summary": "modus-codex-luna-max-six-family-summary-v1.json",
     "profile_luna_max_stage_router_shadow": "modus-codex-luna-max-stage-router-shadow-v1.json",
+    "profile_luna_max_router_worker_e2e": "modus-codex-luna-max-router-worker-e2e-v1.json",
     "inference_demo": "../examples/inference_demo.py",
     "ood176_matrix": "../data/matrices/phase2_ood/unified/matrix_acrouter_ood176.json",
     "ood176_long_results": "../data/matrices/phase2_ood/unified/results_long.csv",

@@ -44,6 +44,8 @@ that need to decide what to inspect before loading the full repository.
     selective-routing and abstention conclusion.
 19. Read `modus-codex-luna-max-stage-router-shadow-v1.json` for the task-only
     versus evidence-bound twelve-stage Agent Router comparison.
+20. Read `modus-codex-luna-max-router-worker-e2e-v1.json` for the actual
+    twelve-stage Router-plus-Worker integration failure and cost accounting.
 
 ## Scope
 
