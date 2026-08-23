@@ -581,3 +581,13 @@ analogy therefore did not transfer to held-out RangeSum. Standard p100 changed
 topology on P02 but did not produce the shared-prefix fast mechanism, confirming
 that the Router action must bind Profile and mechanism evidence. See
 [`agentic-artifacts/modus-codex-luna-max-rangesum-heldout-v1.json`](../agentic-artifacts/modus-codex-luna-max-rangesum-heldout-v1.json).
+
+A separately frozen post-outcome diagnostic then bound p100 to the analogous
+`shared-prefix-sum-v1` mechanism on two clean RangeSum-P02 starters. Both cells
+were correct, coordinated, and performance-eligible. Median cost was 100,636
+tokens, 57.9% below neutral, while performance matched neutral and was 5.53
+times faster than standard p100. Thus the mechanism itself transferred; the
+held-out failure came from transmitting only the Profile label. This does not
+change the negative held-out verdict because the exact mechanism prompt was
+authored after outcome. See
+[`agentic-artifacts/modus-codex-luna-max-rangesum-mechanism-binding-v1.json`](../agentic-artifacts/modus-codex-luna-max-rangesum-mechanism-binding-v1.json).

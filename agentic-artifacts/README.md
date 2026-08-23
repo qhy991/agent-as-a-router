@@ -54,6 +54,8 @@ that need to decide what to inspect before loading the full repository.
     3/3 reliability and 64.2% median cost result on both known mechanisms.
 24. Read `modus-codex-luna-max-rangesum-heldout-v1.json` for the negative
     outcome-blind Profile-action analogy test on a seventh family.
+25. Read `modus-codex-luna-max-rangesum-mechanism-binding-v1.json` for the
+    post-outcome proof that p100 succeeds when the analogous mechanism is bound.
 
 ## Scope
 

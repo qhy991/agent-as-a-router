@@ -148,6 +148,16 @@
     "profile_plus_mechanism_action_representation_needed": true,
     "next_action": "test a separately frozen RangeSum shared-prefix mechanism transfer to determine whether the failure is evidence retrieval or the Profile-only action representation"
   },
+  "post_outcome_mechanism_followup": {
+    "evidence": "modus-codex-luna-max-rangesum-mechanism-binding-v1.json",
+    "profile": "p100",
+    "mechanism_id": "shared-prefix-sum-v1",
+    "correctness_topology_performance": "2/2",
+    "median_total_tokens": 100636.0,
+    "saving_vs_neutral_fraction": 0.5788460492230689,
+    "representation_binding_supported": true,
+    "changes_heldout_router_verdict": false
+  },
   "interpretation": {
     "failure_mode": "the evidence Router chose p100 for the repeated-batch stage, but standard p100 changed topology without producing the fast shared-prefix implementation; it also chose costly neutral on P01",
     "design_change": "Router evidence must name a verified mechanism and bind it to the Worker prompt, not merely choose a Profile label"

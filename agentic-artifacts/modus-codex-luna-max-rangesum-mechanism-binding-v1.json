@@ -1,0 +1,91 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-rangesum-mechanism-binding-result-v1",
+  "captured_at": "2026-08-23",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-positive-post-outcome-action-representation-diagnostic",
+  "protocol": {
+    "path": "examples/modus_profile_router/luna-max-rangesum-mechanism-binding-v1.json",
+    "sha256": "c53b4f86b09ae156f16e83ffff4a1c1fbf3b1c94f1ec61d537d2f9288d719230",
+    "frozen_commit": "bf5154e",
+    "classification": "post-outcome representation diagnostic",
+    "heldout_router_success": false
+  },
+  "execution": {
+    "planned_cells": 2,
+    "valid_execution_cells": 2,
+    "hidden_correctness_passed_cells": 2,
+    "coordinated_topology_cells": 2,
+    "performance_passed_cells": 2,
+    "complete_usage_cells": 2,
+    "web_search_cells": 0,
+    "automatic_redispatches": 0,
+    "manifest_sha256": "14b20f53ab94f47b5ff3edae0abe801c419e0d6b1bcf032798f24a81a76a938c",
+    "result_sha256": "9bab64c0986bfc687354caccce8986bbb4f5f7ef2023770198b8ed8f4bcbc588",
+    "manager_verification_sha256": "7780e5688362225d476a9fb5aa1ca708eb701a8ef36d859de54f726eaacb5539"
+  },
+  "action": {
+    "profile": "p100",
+    "mechanism_id": "shared-prefix-sum-v1",
+    "mechanism_binding": "build one prefix sum in observer.prepare_input through shared.py and consume it without rebuilding in target.answer"
+  },
+  "outcomes": {
+    "steady_seconds": [
+      0.0005410103349561268,
+      0.0005986641025401696
+    ],
+    "total_tokens": [
+      109185,
+      92087
+    ],
+    "uncached_input_plus_output_tokens": [
+      29569,
+      28599
+    ],
+    "median_steady_seconds": 0.0005698372187481482,
+    "median_total_tokens": 100636.0,
+    "performance_threshold_seconds": 0.000646930402217194,
+    "correctness": "2/2",
+    "coordinated_topology": "2/2",
+    "performance": "2/2"
+  },
+  "comparators": {
+    "standard_p100": {
+      "median_steady_seconds": 0.0031510890293020566,
+      "median_total_tokens": 109606.5,
+      "mechanism_bound_speedup": 5.529805575396696,
+      "mechanism_bound_token_saving_fraction": 0.08184277392307937
+    },
+    "neutral": {
+      "median_steady_seconds": 0.0005175443217737552,
+      "median_total_tokens": 238953.0,
+      "mechanism_bound_token_saving_fraction": 0.5788460492230689
+    }
+  },
+  "counterfactual_profile_plus_mechanism_policy": {
+    "rangesum_p01_action": "p000",
+    "rangesum_p02_action": {
+      "profile": "p100",
+      "mechanism_id": "shared-prefix-sum-v1"
+    },
+    "worker_tokens": 185326.5,
+    "fixed_neutral_worker_tokens": 365817.5,
+    "saving_fraction": 0.4933908301270442,
+    "frozen_15_percent_gate_would_pass": true,
+    "used_for_heldout_router_verdict": false
+  },
+  "result": {
+    "profile_only_action_representation_sufficient": false,
+    "profile_plus_mechanism_action_representation_supported": true,
+    "shared_prefix_mechanism_executes_cross_family": true,
+    "cross_family_mechanism_execution_reliability": "2/2 on RangeSum P02",
+    "heldout_profile_router_generalized": false,
+    "post_outcome_mechanism_binding_closed_failure": true,
+    "next_action": "implement a bounded Router response containing profile, mechanism_id or abstain, and evidence_ref, then freeze it outcome-blind on another unused P0 family"
+  },
+  "interpretation": {
+    "isolated_failure": "the held-out evidence Router selected p100 but standard Profile dispatch omitted the mechanism payload; binding shared-prefix-sum-v1 restored neutral-level performance at much lower cost",
+    "router_contract_change": "a Profile label is not an executable optimization action unless the verified mechanism evidence is transmitted to the Worker"
+  },
+  "claim_boundary": "This result validates the action representation and cross-family execution of a known analogous mechanism. The RangeSum-specific mechanism prompt was authored after observing the held-out failure, so it does not convert the negative Router result into held-out success or prove outcome-blind mechanism retrieval."
+}
