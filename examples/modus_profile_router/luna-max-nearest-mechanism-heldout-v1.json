@@ -1,0 +1,114 @@
+{
+  "schema": "acrouter-luna-max-nearest-mechanism-heldout-protocol-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "purpose": "test outcome-blind positive Profile-plus-mechanism dispatch on an unused family whose semantics directly match an allowlisted mechanism",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "task_source": {
+    "suite": "Modus performance P0",
+    "task_ids": ["nearest-p01-perf-p0", "nearest-p02-perf-p0"],
+    "manifest_lock_sha256": "c377de7da1da37d113e7859bbee2d730d53603b4c30c6fdb4a878170f9ce4f43",
+    "projects_sha256": "b3bf0936197358954895c952bc3d77102870d64be90e48882e1e2d3f87a6d0d5",
+    "runner_sha256": "784cf134e612367a7140daedabcb28a60f866aab00b3c05d7825f6249b468ff8",
+    "current_luna_nearest_outcome_read_before_freeze": false
+  },
+  "worker_tasks": {
+    "nearest-p01": {
+      "standard_task_sha256": "e98ac113fe9f259f13de63e24ada6ccf5c5793907f9300c32c07aad4de636df1",
+      "mechanism_task_sha256": "e1284e7c4e5fb8463af5a0a0056bcf559dd53b6da496c8826e3a8a938273d1da"
+    },
+    "nearest-p02": {
+      "standard_task_sha256": "dbea7b98cceef090b792aaa18962c1f1ecca9aa1c31390d6715b12b33de73239",
+      "mechanism_task_sha256": "48fb19caeaeeda0992392ba9eef6f08922a486adcbe031fd58f50d449a1030f0"
+    }
+  },
+  "profiles": {
+    "neutral": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "p000": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282",
+    "p100": "ec850834450c09a0e6d736c606a8d2295b955206e00c0e7778f982809ca98bfe"
+  },
+  "mechanism_catalog": {
+    "shared-ordered-search-v1": {
+      "evidence_ref": "case:rankcount-prefixcount-n3",
+      "verified_profile": "p100"
+    },
+    "shared-prefix-sum-v1": {
+      "evidence_ref": "case:rangesum-binding-2of2",
+      "verified_profile": "p100"
+    }
+  },
+  "router_shadow": {
+    "system_prompt_sha256": "1405d2a458ca5e6f6cb5885aa25580fed36765533d30651e565a03f663963e8f",
+    "task_sha256": "0fcf3131569481769070ff78f7052c1b9e4493f84b3c2e33abddd513236eb440",
+    "repetitions": 3,
+    "expected_routes_before_worker_outcome": null,
+    "response_contract": {
+      "schema": "modus-profile-mechanism-route-v1",
+      "stages": ["nearest-p01", "nearest-p02"],
+      "allowed_profiles": ["neutral", "p000", "p100"],
+      "allowed_mechanism_ids": ["shared-ordered-search-v1", "shared-prefix-sum-v1"],
+      "allowed_evidence_refs": ["case:rankcount-prefixcount-n3", "case:rangesum-binding-2of2"],
+      "require_evidence_ref_for_mechanism": true,
+      "require_mechanism_for_dispatch": true
+    },
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "standard_worker_matrix": {
+    "actions": ["neutral", "p000", "p100"],
+    "repetitions": 2,
+    "cells": 12,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "mechanism_worker_matrix": {
+    "profile": "p100",
+    "mechanism_id": "shared-ordered-search-v1",
+    "evidence_ref": "case:rankcount-prefixcount-n3",
+    "tasks": ["nearest-p01", "nearest-p02"],
+    "repetitions": 2,
+    "cells": 4,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "outcome_scoring": {
+    "correctness_first": "an action must pass hidden correctness in both repetitions",
+    "topology_fidelity": "p000 local 2/2 and p100 coordinated 2/2",
+    "performance_eligibility": "task median no more than 1.25x the fastest correct standard action",
+    "cost_choice": "lowest median complete input plus output tokens among eligible standard actions",
+    "token_tie_fraction": 0.05,
+    "routing_space": "different task actions and at least 15% Worker saving versus the best fixed eligible Profile, or no fixed Profile eligible on both tasks"
+  },
+  "router_scoring": {
+    "reveal_time": "after Router and both Worker matrices are immutable",
+    "schema_and_allowlist": "runner fail-closed",
+    "positive_dispatch": "p100 plus shared-ordered-search-v1 plus case:rankcount-prefixcount-n3",
+    "mechanism_execution": "corresponding mechanism Worker passes correctness, coordinated topology, and the revealed performance gate",
+    "profile_utility": "compare Router profile against the revealed standard constrained Oracle",
+    "zero_token_unknown_policy": "abstain to neutral",
+    "router_cost": "complete input plus output tokens"
+  },
+  "decision": {
+    "positive_mechanism_generalization": "Router dispatch is allowlisted and corresponding mechanism Workers pass 2/2 on each dispatched stage",
+    "profile_action_generalization": "Router profile is an acceptable constrained action on the revealed standard matrix",
+    "cost_generalization": "Router action is not materially more expensive than the revealed task action under the 5% tie rule",
+    "heldout_success_requires": "positive mechanism and profile action generalization; cost is reported separately"
+  },
+  "failure_policy": {
+    "invalid_router_response": "Router repetition failure",
+    "incorrect_or_incomplete_worker": "cell failure",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch",
+    "post_hoc_catalog_contract_scoring_or_task_change": false
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "e21cb6e7554ebf771c505c1833d2c6cab5af45f7",
+    "shadow_runner_sha256": "f1954784fcfcbb98e453e9cb6a3e07a75cb87f5b004269585d960218ed4947db",
+    "worker_runner_sha256": "4f73aee9371711752e30688584321b968f06597b25b792c1eafd762891fe5385",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e"
+  },
+  "claim_boundary": "Nearest labels are absent from Router workspaces and expected routes remain null. The mechanism catalog predates this outcome. The result tests one directly matching mechanism on one unused family, not broad generalization."
+}
