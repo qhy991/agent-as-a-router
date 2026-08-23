@@ -40,14 +40,14 @@ class ModusMechanismEvidenceTest(unittest.TestCase):
                     evidence["path"],
                 )
 
-    def test_only_fully_qualified_mechanism_is_router_eligible(self):
+    def test_failed_outcome_blind_matching_revokes_router_eligibility(self):
         registry = json.loads(REGISTRY.read_text())
         eligible = [
             row["mechanism_id"]
             for row in registry["mechanisms"]
             if row["router_eligible"]
         ]
-        self.assertEqual(eligible, ["shared-ordered-search-v1"])
+        self.assertEqual(eligible, [])
 
 
 if __name__ == "__main__":

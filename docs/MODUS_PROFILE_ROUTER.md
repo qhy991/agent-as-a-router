@@ -115,9 +115,11 @@ string is not sufficient authorization.
 mechanism catalog. It owns the verified Profile, semantic predicate, minimum
 reuse count, performance objective, Router eligibility, and hash-bound evidence
 artifacts. Router prompts and manifests are snapshots of this registry; they do
-not independently promote a mechanism. The registry currently permits
-outcome-blind ordered-search routing and confines prefix-sum evidence to known
-states until its applicability is independently qualified.
+not independently promote a mechanism. Mixed held-out Lookup/Interval routing
+showed that natural-language semantic matching was unreliable, so the registry
+currently exposes no mechanism to outcome-blind Agent dispatch. Known-state
+deterministic retrieval remains allowed; future eligibility requires a typed
+task-feature matcher to qualify candidates before Agent reasoning.
 
 ## OOD176 executable-task readiness
 

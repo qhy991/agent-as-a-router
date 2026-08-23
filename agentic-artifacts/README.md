@@ -64,6 +64,8 @@ that need to decide what to inspect before loading the full repository.
     3/3 post-outcome stage-selective predicate contract result.
 29. Read `modus-codex-luna-max-batched-predicate-router-v1.json` for the
     four-stage 56.2% Router-call amortization result.
+30. Read `modus-codex-luna-max-lookup-interval-heldout-v1.json` for the
+    negative mixed held-out registry matching result and eligibility rollback.
 
 ## Scope
 

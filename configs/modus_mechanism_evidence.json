@@ -7,8 +7,8 @@
       "mechanism_id": "shared-ordered-search-v1",
       "evidence_ref": "case:rankcount-prefixcount-n3",
       "verified_profile": "p100",
-      "router_eligible": true,
-      "verification_status": "replicated_known_state_with_outcome_blind_stage_signal",
+      "router_eligible": false,
+      "verification_status": "known_state_replicated_but_outcome_blind_semantic_matching_failed",
       "semantic_predicate": {
         "kind": "ordered_search",
         "description": "Queries are answered from one reusable sorted representation without changing exact boundary or tie semantics."
@@ -28,6 +28,11 @@
           "kind": "applicability_contract",
           "path": "agentic-artifacts/modus-codex-luna-max-nearest-applicability-router-v1.json",
           "sha256": "d172132413d73f5b36f593c19f0821d539ace6b4c6f5e97317c222247771a114"
+        },
+        {
+          "kind": "outcome_blind_mixed_matching_failure",
+          "path": "agentic-artifacts/modus-codex-luna-max-lookup-interval-heldout-v1.json",
+          "sha256": "36a2ccf33a996111ec7c4adf4e47f6afc43e50f5f88d7b094f6146804c003a6d"
         }
       ]
     },
@@ -55,6 +60,6 @@
       ]
     }
   ],
-  "dispatch_rule": "A mechanism may enter an outcome-blind Router catalog only when router_eligible is true; every dispatch must satisfy semantic and applicability predicates and cite the exact evidence_ref.",
+  "dispatch_rule": "A mechanism may enter an outcome-blind Router catalog only when router_eligible is true; every dispatch must satisfy typed semantic and applicability predicates and cite the exact evidence_ref. No current mechanism is eligible for outcome-blind Agent matching.",
   "claim_boundary": "This registry is the policy input for GPT-5.6 Luna only. Evidence from other models or Profiles requires a separate qualified entry."
 }

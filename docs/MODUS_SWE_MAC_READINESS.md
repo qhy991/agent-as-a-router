@@ -647,3 +647,20 @@ tokens or 56.2%, reducing Router overhead from 26.1% to 11.4% of the known
 Worker plan. The zero-token predicate table remains cheaper. This validates
 longer-plan amortization but not held-out routing. See
 [`agentic-artifacts/modus-codex-luna-max-batched-predicate-router-v1.json`](../agentic-artifacts/modus-codex-luna-max-batched-predicate-router-v1.json).
+
+### Mixed outcome-blind Lookup and Interval result
+
+A registry-derived four-stage held-out plan mixed semantics with and without a
+plausible ordered-search match. All 31 Worker cells were valid, correct, and
+topology-clean. The standard Oracle routes p000 on both Lookup stages and
+Interval-P01, then neutral on Interval-P02; it saves 30.1% versus fixed neutral.
+
+The Router failed all three plans. It incorrectly dispatched ordered-search to
+Lookup-P02 in 3/3 responses despite incompatible canonical-hash semantics, and
+dispatched it to Interval-P02 only 1/3. Mechanism-bound Interval Workers were
+correct and coordinated but failed both task-level performance gates. Global
+identifier/evidence allowlists therefore do not make natural-language semantic
+matching reliable. Outcome-blind mechanism eligibility must be revoked until a
+deterministic typed feature matcher filters candidates before Agent reasoning.
+See
+[`agentic-artifacts/modus-codex-luna-max-lookup-interval-heldout-v1.json`](../agentic-artifacts/modus-codex-luna-max-lookup-interval-heldout-v1.json).

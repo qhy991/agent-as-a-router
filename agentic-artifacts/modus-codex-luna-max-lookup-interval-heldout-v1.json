@@ -1,0 +1,133 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-lookup-interval-heldout-result-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-negative-outcome-blind-mixed-registry-routing-result",
+  "protocol": {
+    "path": "examples/modus_profile_router/luna-max-lookup-interval-heldout-v1.json",
+    "sha256": "8da5e2d76b345ec233b359088a9365539c19394e23bb8c62fed2e8b0979bc40b",
+    "frozen_commit": "908993f",
+    "expected_routes_before_worker_outcome": null,
+    "mechanism_registry_sha256": "cd6eb93880827c68492752a2b807cc0c26f88c23075d3b5cc7d298a929e28764"
+  },
+  "execution": {
+    "router_cells": 3,
+    "router_valid_cells": 3,
+    "standard_worker_cells": 24,
+    "standard_valid_correct_topology_cells": 24,
+    "mechanism_worker_cells": 4,
+    "mechanism_valid_correct_coordinated_cells": 4,
+    "replication_cells": 3,
+    "replication_valid_correct_topology_cells": 3,
+    "complete_usage_cells": 34,
+    "web_search_cells": 0,
+    "automatic_redispatches": 0,
+    "router_manifest_sha256": "ea09dce08014ed4e669affc07896cc234aa18b4aaad8ab280c910dcc36926efd",
+    "router_result_sha256": "cded30f3f29e92d54202b78a14adb9af799e4166a9223d990d19d14e5ed5fa2c",
+    "standard_manifest_sha256": "aba9ca175eeefed4f5e12d5f47a9d86fc3e27988c4e6840b312b953314468146",
+    "standard_result_sha256": "f095e682776f6fbe1bc3b7c7f50f67ba1369929439a4b5480b69e72c308822ae",
+    "standard_manager_sha256": "d7ffa978af55e44fcebaeb6e5e31188c5e403c3775584e89e9f1532187b90b09",
+    "mechanism_manifest_sha256": "c2392c7544bc826d095a722d74039da566463e8560dbb257a1b262f6ca7fd3d8",
+    "mechanism_result_sha256": "85960c54fd668f797db16b5beb9ae359e89814c032a92885035fa6c39277e08d",
+    "mechanism_manager_sha256": "38c132f182727ef06e0014f784d39501d79fdcb121fd39d500e4a63318bb8477",
+    "replication_protocol_sha256": "8531edc311174493888e022a04f8151eea38adec214ed1bb086247fa179f95b6",
+    "replication_manifest_sha256": "4643756373f44946946ad16e572af612568ae3ae2f56b3c4c5ea8c00fc28bef4",
+    "replication_result_sha256": "6bca03e09bd6cfb25c1da65963b173a2ef0dbecbf6807ca6083ec26ca5d3f7e8",
+    "replication_manager_sha256": "6f72a25b938ca05704a446780deaabc36b374eed9df6b70073ee61daf3cba351"
+  },
+  "router": {
+    "responses": [
+      "abstain Lookup-P01; dispatch ordered-search Lookup-P02; abstain Interval-P01/P02",
+      "abstain Lookup-P01; dispatch ordered-search Lookup-P02; abstain Interval-P01; dispatch ordered-search Interval-P02",
+      "abstain Lookup-P01; dispatch ordered-search Lookup-P02; abstain Interval-P01/P02"
+    ],
+    "schema_and_allowlist_valid": "3/3",
+    "unsupported_lookup_dispatches": "3/3",
+    "interval_p02_dispatches": "1/3",
+    "stable": false,
+    "total_tokens": [79115, 85997, 91788],
+    "median_total_tokens": 85997
+  },
+  "standard_actions": {
+    "lookup-p01": {
+      "neutral": {"median_seconds": 0.0003267667031252586, "median_tokens": 120079, "eligible": true},
+      "p000": {"median_seconds": 0.0003272631430633055, "median_tokens": 73287, "eligible": true},
+      "p100": {"median_seconds": 0.00027066676805986845, "median_tokens": 91829, "eligible": true},
+      "selected": "p000"
+    },
+    "lookup-p02": {
+      "neutral": {"median_seconds": 0.004960509117154288, "median_tokens": 146566.0, "eligible": true},
+      "p000": {"median_seconds": 0.005043854820200977, "median_tokens": 81244.0, "eligible": true},
+      "p100": {"median_seconds": 0.005098481445315883, "median_tokens": 89486.0, "eligible": true},
+      "selected": "p000"
+    },
+    "interval-p01": {
+      "neutral": {"median_seconds": 0.000366190470458605, "median_tokens": 159695.5, "eligible": true},
+      "p000": {"median_seconds": 0.0004040276081553884, "median_tokens": 84714.5, "eligible": true},
+      "p100": {"median_seconds": 0.00037939770532346984, "median_tokens": 89983.5, "eligible": true},
+      "selected": "p000"
+    },
+    "interval-p02": {
+      "neutral": {"median_seconds": 0.00036938476561942934, "median_tokens": 194887.5, "eligible": true},
+      "p000": {"median_seconds": 0.0039046276034468974, "median_tokens": 86679.5, "eligible": false},
+      "p100": {"median_seconds": 0.00394389851953747, "median_tokens": 90893.0, "eligible": false},
+      "selected": "neutral"
+    }
+  },
+  "standard_oracle": {
+    "actions": {
+      "lookup-p01": "p000",
+      "lookup-p02": "p000",
+      "interval-p01": "p000",
+      "interval-p02": "neutral"
+    },
+    "dynamic_worker_tokens": 434133.0,
+    "best_fixed_profile": "neutral",
+    "best_fixed_worker_tokens": 621228.0,
+    "dynamic_saving_fraction": 0.30116961888388805,
+    "frozen_15_percent_gate_passed": true,
+    "useful_routing_space_observed": true
+  },
+  "interval_mechanism_workers": {
+    "profile": "p100",
+    "mechanism_id": "shared-ordered-search-v1",
+    "interval-p01": {
+      "correctness_and_topology": "2/2",
+      "median_seconds": 0.0006793474121167264,
+      "median_tokens": 82258.5,
+      "performance_passed": "1/2",
+      "task_gate_passed": false
+    },
+    "interval-p02": {
+      "correctness_and_topology": "2/2",
+      "median_seconds": 0.0009649552822423857,
+      "median_tokens": 85689.5,
+      "performance_passed": "0/2",
+      "task_gate_passed": false
+    }
+  },
+  "router_score": {
+    "exact_standard_oracle_plans": "0/3",
+    "fully_safe_and_useful_mixed_plans": "0/3",
+    "semantic_precision": "failed: Lookup-P02 received ordered-search in 3/3 despite incompatible canonical-hash semantics",
+    "interval_mechanism_execution": "failed both task gates",
+    "abstention_only_zero_table_performance_safe": "4/4",
+    "abstention_only_zero_table_misses_promoted_saving": true,
+    "agent_router_net_benefit": false
+  },
+  "result": {
+    "registry_driven_mixed_heldout_plan_generalized": false,
+    "natural_language_semantic_predicate_reliable": false,
+    "shared_ordered_search_transfers_to_interval": false,
+    "useful_standard_profile_routing_space_exists": true,
+    "router_discovers_useful_routing_space": false,
+    "ordered_search_router_eligibility_should_be_revoked": true,
+    "next_action": "demote ordered-search from outcome-blind eligibility and require deterministic typed task features before any mechanism enters an Agent catalog"
+  },
+  "interpretation": {
+    "failure_mode": "global allowlists validate identifiers but cannot prove that an Agent mapped task semantics to the correct mechanism; Lookup was misclassified and Interval required an unverified merge transformation",
+    "design_change": "mechanism selection needs typed applicability features or a deterministic matcher owned outside the Agent, with Agent reasoning limited to already compatible candidates"
+  },
+  "claim_boundary": "This is a valid negative mixed held-out result. Lookup and Interval outcomes were absent from Router workspaces and all inputs were frozen. It rejects current natural-language registry matching for outcome-blind mechanism dispatch, not the underlying known-state mechanisms."
+}
