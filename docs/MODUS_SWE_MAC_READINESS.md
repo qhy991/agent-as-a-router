@@ -269,3 +269,21 @@ uncached-input-plus-output tokens. This is a clean task-level negative result:
 no manipulation, quality, or cost advantage for p001. The task branch stops;
 p001 remains unqualified. See
 [`agentic-artifacts/modus-codex-spark-a-axis-v1.json`](../agentic-artifacts/modus-codex-spark-a-axis-v1.json).
+
+### Codex-Spark T-axis task interaction
+
+A clean prompt-only Spark matrix compared p000/p010 on one simple Astropy FITS
+repair and one relation-heavy Django deletion repair, two repetitions each.
+Eight cells were admitted in two four-cell waves after a successful Spark
+probe. All eight had complete usage, zero Web Search, one allowed implementation
+file, and a passing independent host verifier.
+
+The manipulation succeeded: p010 used 11.5 versus p000's 3.0 median pre-edit
+commands on the simple task, and 20.5 versus 10.5 on the complex task. The
+outcome did not improve: every profile was 2/2 correct on both tasks. p010 used
+2.10 times p000 median total tokens on the simple task and 2.21 times on the
+complex task. The pre-edit command effect differed by only 1.5 commands between
+task types, so broader investigation was not selectively useful on the complex
+task. This supports controllable Profile behavior but not T1 suitability or
+cost efficiency; the T branch stops for this screen. See
+[`agentic-artifacts/modus-codex-spark-t-axis-v1.json`](../agentic-artifacts/modus-codex-spark-t-axis-v1.json).

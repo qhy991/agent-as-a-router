@@ -1,0 +1,188 @@
+{
+  "schema": "acrouter-modus-codex-spark-t-axis-result-v1",
+  "captured_at": "2026-08-23",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-preliminary-codex-spark-task-interaction-result",
+  "harness": {
+    "model_slug": "gpt-5.3-codex-spark",
+    "reasoning_effort": "high",
+    "authentication": "ChatGPT login",
+    "supported_in_api": false,
+    "profile_delivery": "canonical Profile text prepended to the user task prompt",
+    "dsh_runtime_gate_present": false,
+    "agent_router_commit_at_dispatch": "86819dc319f19cb2e91f4f1d573c6d2deaf54dc0",
+    "plugin_commit_at_dispatch": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f"
+  },
+  "admission": {
+    "probe_status": "pass",
+    "probe_text": "SPARK_OK",
+    "probe_events_sha256": "1fb9b05c2a78c4690b9d08a14efbdbcb31222aa716a97589cf74905fe179f479",
+    "probe_usage": {
+      "input_tokens": 13281,
+      "cached_input_tokens": 4224,
+      "output_tokens": 78,
+      "reasoning_output_tokens": 69
+    }
+  },
+  "profiles": {
+    "p000": {
+      "bits": "E0/T0/A0",
+      "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282"
+    },
+    "p010": {
+      "bits": "E0/T1/A0",
+      "profile_sha256": "8b0e10fb396407cce7c1d190aafa98c446115b68763a1f3a42222f2df7b53d48"
+    }
+  },
+  "tasks": {
+    "simple": {
+      "instance_id": "astropy__astropy-14309-visible-feedback",
+      "allowed_file": "astropy/io/fits/connect.py",
+      "baseline": "fail-as-required",
+      "gold": "pass"
+    },
+    "complex": {
+      "instance_id": "django__django-11087-visible-feedback",
+      "allowed_file": "django/db/models/deletion.py",
+      "baseline": "fail-as-required",
+      "gold": "pass"
+    }
+  },
+  "execution": {
+    "wave_1_manifest_sha256": "41fde752aaa2833b8cdb04981d47a4fdbc686704db8ca2e14135d48c530c2498",
+    "wave_2_manifest_sha256": "945880b354a1f60b00cdc5d41a2b4865215e89929d7f0bba6b3743778222c6ec",
+    "wave_1_result_sha256": "14ff0b0e48d855bd0e3809ce5b8b6275fd8ef7e64bc191654a1beb741adc9586",
+    "wave_2_result_sha256": "92da0debe177a68fb2ec218bbd7f904e7f578395ac88c7a6761d9f33c078d4bf",
+    "automatic_redispatches": 0,
+    "valid_execution_cells": 8,
+    "complete_usage_cells": 8,
+    "web_search_items": 0,
+    "custody_passed_cells": 8,
+    "correct_cells": 8
+  },
+  "cells": {
+    "simple-p000-r1": {
+      "correct": true,
+      "pre_edit_commands": 4,
+      "total_commands": 5,
+      "file_change_items": 1,
+      "total_tokens": 116063,
+      "uncached_input_plus_output_tokens": 18911,
+      "events_sha256": "cd05ec4a15d3ccdba9c89870f2a57e94f462b1f945aa9c362adddf3c2927ce67",
+      "verifier_sha256": "1de27d65392d5246702b848bcbedb12290f4892fbd3a33c9dfd4738f3118ccc2",
+      "target_sha256": "509c181cbdb8458b23b0194c0254112553e7524b3248f6bfbc655366284c07a8"
+    },
+    "simple-p000-r2": {
+      "correct": true,
+      "pre_edit_commands": 2,
+      "total_commands": 3,
+      "file_change_items": 1,
+      "total_tokens": 80294,
+      "uncached_input_plus_output_tokens": 14502,
+      "events_sha256": "d607560aeba83d46cd51ad703d7d65b74bc1377a124f0ea02ec8cae86ab2b042",
+      "verifier_sha256": "327fca0645e3d17a54d10cc0673153bd8fa47eccb5d3814f63b4cd0d7d3a7505",
+      "target_sha256": "08c92e2abf11164e5b4f8a306df31e3c1bf7016a03ff3ae57292010d0b507daa"
+    },
+    "simple-p010-r1": {
+      "correct": true,
+      "pre_edit_commands": 14,
+      "total_commands": 15,
+      "file_change_items": 1,
+      "total_tokens": 230905,
+      "uncached_input_plus_output_tokens": 25081,
+      "events_sha256": "828c87e5b592de0a9b9df8466d79ec4d7f64d462e9d84708b6750f7c15b236e6",
+      "verifier_sha256": "1de27d65392d5246702b848bcbedb12290f4892fbd3a33c9dfd4738f3118ccc2",
+      "target_sha256": "509c181cbdb8458b23b0194c0254112553e7524b3248f6bfbc655366284c07a8"
+    },
+    "simple-p010-r2": {
+      "correct": true,
+      "pre_edit_commands": 9,
+      "total_commands": 10,
+      "file_change_items": 1,
+      "total_tokens": 181065,
+      "uncached_input_plus_output_tokens": 17225,
+      "events_sha256": "3f77a5501877926f6bb1589b339fe3801cb124bb32da5bbed8cff523051b3f32",
+      "verifier_sha256": "41acc21d92352ff900a3149d468836a51002e506372e7c2e90cc28f4f69f809e",
+      "target_sha256": "bd84e10e7eb60a1c40b71c7436e2d2e5e2d432e63be7de1191e7d66c751e315e"
+    },
+    "complex-p000-r1": {
+      "correct": true,
+      "pre_edit_commands": 13,
+      "total_commands": 14,
+      "file_change_items": 1,
+      "total_tokens": 421194,
+      "uncached_input_plus_output_tokens": 59082,
+      "events_sha256": "f04cff044a34518cfd98dea4dbc9ab7f364c65fa4e1d3a981a60d8875511f61d",
+      "verifier_sha256": "67717d7af9f46ff8d50ae1fd8085052d8a95e671b1beb3f52000aac1d06edfbc",
+      "target_sha256": "05c0b8f48851eb60e7c17c6cb80570d075d708dfb3280eaa6e36e7ec5b55de98"
+    },
+    "complex-p000-r2": {
+      "correct": true,
+      "pre_edit_commands": 8,
+      "total_commands": 12,
+      "file_change_items": 2,
+      "total_tokens": 315021,
+      "uncached_input_plus_output_tokens": 34061,
+      "events_sha256": "37dda119d72149735714ad20904dc361bbb5bfe6588e7cd9625998a0a14f6e1f",
+      "verifier_sha256": "af411aa191e0c8c598d2fecbafe063d1f9f0839741cbdc285eade305252af666",
+      "target_sha256": "7046bb831f2d9cba91661d2bd99fc22d7fd535822fe7cf18e65e5849a320399c"
+    },
+    "complex-p010-r1": {
+      "correct": true,
+      "pre_edit_commands": 18,
+      "total_commands": 20,
+      "file_change_items": 2,
+      "total_tokens": 851014,
+      "uncached_input_plus_output_tokens": 59462,
+      "events_sha256": "9c6efe53cd1d7ef8f03af33375ec0fdc4aeeba96e142309ebc6a2f9742d06fd4",
+      "verifier_sha256": "a43d68a0a46a8af4d6a28ff243382341d8bb8d642f57d83163232231d5aa0c21",
+      "target_sha256": "d2facafea8ee503a5d346676ad26c252eb019bc7045da20be20fa15ae9bd5508"
+    },
+    "complex-p010-r2": {
+      "correct": true,
+      "pre_edit_commands": 23,
+      "total_commands": 24,
+      "file_change_items": 1,
+      "total_tokens": 773484,
+      "uncached_input_plus_output_tokens": 46316,
+      "events_sha256": "4c8a64d5918f21ad233da53c0e3a50b81295216d2818440148bf3abbc897595f",
+      "verifier_sha256": "84358109792479aa99208f279bd6fb12872068cda4e44bcfcb327d5d108fe025",
+      "target_sha256": "0266844ebe94d0a2a906ff82f63c902842e3dfdacdb46d24747ff97c5330f1c6"
+    }
+  },
+  "summary": {
+    "simple": {
+      "p000_correct": "2/2",
+      "p010_correct": "2/2",
+      "p000_median_pre_edit_commands": 3.0,
+      "p010_median_pre_edit_commands": 11.5,
+      "p010_minus_p000_pre_edit_commands": 8.5,
+      "p010_to_p000_median_total_token_ratio": 2.0980662772399254,
+      "p010_to_p000_uncached_input_plus_output_ratio": 1.2661538921976476
+    },
+    "complex": {
+      "p000_correct": "2/2",
+      "p010_correct": "2/2",
+      "p000_median_pre_edit_commands": 10.5,
+      "p010_median_pre_edit_commands": 20.5,
+      "p010_minus_p000_pre_edit_commands": 10.0,
+      "p010_to_p000_median_total_token_ratio": 2.2065537920308604,
+      "p010_to_p000_uncached_input_plus_output_ratio": 1.1356516324361465
+    },
+    "task_interaction": {
+      "difference_in_pre_edit_command_effect": 1.5,
+      "quality_interaction": 0.0,
+      "interpretation": "T1 increased investigation similarly on both tasks; the complex task did not convert it into a quality or cost advantage."
+    }
+  },
+  "result": {
+    "t_axis_manipulation_passed": true,
+    "task_specific_preference_observed": false,
+    "quality_improvement_observed": false,
+    "token_efficiency_improvement_observed": false,
+    "task_branch_decision": "stop",
+    "contribution_to_modus_claim": "supports controllable behavior, does not support T1 task suitability or cost efficiency"
+  },
+  "claim_boundary": "This is a clean preliminary negative outcome result for two visible-feedback tasks under the local Codex-Spark prompt-only harness. It does not prove T1 is globally ineffective, cannot qualify p010, and is not pooled with DSH or Pi evidence."
+}
