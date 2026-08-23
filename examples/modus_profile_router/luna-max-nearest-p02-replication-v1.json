@@ -1,0 +1,54 @@
+{
+  "schema": "acrouter-luna-max-nearest-p02-replication-protocol-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "purpose": "resolve the bimodal Nearest-P02 neutral result before scoring outcome-blind mechanism dispatch",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "task_id": "nearest-p02-perf-p0",
+  "task_sha256": "dbea7b98cceef090b792aaa18962c1f1ecca9aa1c31390d6715b12b33de73239",
+  "actions": ["neutral", "p000", "p100"],
+  "profiles": {
+    "neutral": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "p000": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282",
+    "p100": "ec850834450c09a0e6d736c606a8d2295b955206e00c0e7778f982809ca98bfe"
+  },
+  "matrix": {
+    "new_repetitions_per_action": 1,
+    "new_cells": 3,
+    "resulting_repetitions_per_action": 3,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "frozen_reference": {
+    "neutral_steady_seconds": [0.0019649916991966165, 0.00037617527294742104],
+    "p000_steady_seconds": [0.0019505110683439852, 0.001952886070284876],
+    "p100_steady_seconds": [0.0019505996093585054, 0.0019230716132483394],
+    "neutral_median_total_tokens": 220252.5,
+    "p000_median_total_tokens": 73218.5,
+    "p100_median_total_tokens": 81132.0
+  },
+  "decision": {
+    "performance_eligibility": "after appending new cells, n=3 median no more than 1.25x fastest correct action",
+    "cost_choice": "lowest n=3 median complete tokens among eligible actions with 5% tie band",
+    "router_responses_immutable": true,
+    "mechanism_worker_responses_immutable": true
+  },
+  "failure_policy": {
+    "incorrect_or_incomplete_cell": "replication failure",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch",
+    "post_hoc_threshold_action_or_router_change": false
+  },
+  "provenance": {
+    "parent_protocol_sha256": "7fd29a5b51eff1aa2cb6ac64dbded465789a2e5d2f9d7fd6b611b71e82990798",
+    "parent_router_result_sha256": "18e7b3c53b79c57f4101a5ab7c280cae2a47031a4d10e62c70b0473ce1510dcd",
+    "parent_standard_result_sha256": "2884d387e2f31291f76e38df25aa5aed69de59384ba53b171e2531fa62595ae4",
+    "parent_mechanism_result_sha256": "8336358887bcfd9ebe303369a1493f5ff662873557d6074f431d486c88576186",
+    "parent_standard_manager_sha256": "775bc170119c3ba442f9f16bbeea02433a9b4cc7b1912a41ec7cadd2fbfd98d8",
+    "parent_mechanism_manager_sha256": "d239d86ba2654fda2cd45aff002aba612c8df963075d87abc25634e5b71ec83c",
+    "agent_router_commit_before_freeze": "4b10bf8"
+  },
+  "claim_boundary": "This replication resolves standard Profile eligibility only. It does not alter the already frozen Router or mechanism-bound Worker outcomes."
+}
