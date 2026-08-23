@@ -1,4 +1,4 @@
-"""Concurrent, no-retry execution of one frozen local Codex-Spark wave."""
+"""Concurrent, no-retry execution of one frozen local Codex wave."""
 
 from __future__ import annotations
 
@@ -13,6 +13,7 @@ from typing import Any
 
 MANIFEST_SCHEMA = "acrouter-codex-spark-wave-v1"
 RESULT_SCHEMA = "acrouter-codex-spark-wave-result-v1"
+SUPPORTED_MODELS = {"gpt-5.3-codex-spark", "gpt-5.6-sol"}
 
 
 class SparkWaveError(RuntimeError):
@@ -56,8 +57,8 @@ def validate_manifest(path: Path) -> dict[str, Any]:
     if value.get("automatic_redispatch") is not False:
         raise SparkWaveError("automatic_redispatch must be false")
     model = value.get("model")
-    if model != "gpt-5.3-codex-spark":
-        raise SparkWaveError("wave model must be gpt-5.3-codex-spark")
+    if model not in SUPPORTED_MODELS:
+        raise SparkWaveError("unsupported local Codex wave model")
     effort = value.get("reasoning_effort")
     if effort not in {"low", "medium", "high", "xhigh"}:
         raise SparkWaveError("unsupported Spark reasoning effort")

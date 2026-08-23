@@ -59,6 +59,15 @@
     "agent_router_net_benefit_observed": false,
     "zero_token_rule_required": true
   },
+  "post_shadow_matched_sol_worker_scoring": {
+    "worker_evidence": "agentic-artifacts/modus-codex-sol-e-axis-v1.json",
+    "local_selected_action": "neutral",
+    "local_observed_preferred_action": "p000",
+    "system_selected_action": "p100",
+    "system_observed_preferred_action": "neutral",
+    "scored_correct_actions": "0/2",
+    "prior_interpretation_superseded": "system selection matched Spark crossover but did not match the subsequently measured Sol Worker response"
+  },
   "result": {
     "router_contract_executable": true,
     "router_decisions_stable": true,

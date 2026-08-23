@@ -330,3 +330,17 @@ frozen 15% saving ceiling. Therefore a correct high-reasoning Agent Router does
 not establish net benefit on these obvious states; the zero-token batch-count
 rule is the required baseline. See
 [`agentic-artifacts/modus-codex-sol-router-shadow-v1.json`](../agentic-artifacts/modus-codex-sol-router-shadow-v1.json).
+
+Matched Sol Worker evidence later invalidated both shadow choices. On the local
+workload, neutral and p000 were performance-equivalent but p000 used 41.4% fewer
+tokens. On the system workload, neutral found shared preprocessing in two of
+three runs and its median was 24.1 times faster than p100; p100 satisfied the
+three-module topology in all three runs but never moved preprocessing out of
+the per-batch target. Thus the Sol Router scored 0/2 against Sol Worker outcomes.
+
+This is a model-by-Profile interaction: Spark p100 converted coordinated
+topology into a 17.63x system speedup, while Sol p100 controlled topology but
+not the optimization mechanism. A task-only Router is therefore insufficient;
+the routing context must bind Worker model and model-specific Profile response
+evidence. See
+[`agentic-artifacts/modus-codex-sol-e-axis-v1.json`](../agentic-artifacts/modus-codex-sol-e-axis-v1.json).

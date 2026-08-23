@@ -1,0 +1,89 @@
+{
+  "schema": "acrouter-modus-codex-sol-e-axis-result-v1",
+  "captured_at": "2026-08-23",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "preliminary-cross-model-profile-response-result",
+  "harness": {
+    "model_slug": "gpt-5.6-sol",
+    "reasoning_effort": "high",
+    "authentication": "ChatGPT login",
+    "profile_delivery": "canonical Profile text prepended to the task prompt",
+    "dsh_runtime_gate_present": false
+  },
+  "execution": {
+    "local_repetitions_per_action": 2,
+    "system_repetitions_per_action": 3,
+    "valid_execution_cells": 15,
+    "correct_cells": 15,
+    "automatic_redispatches": 0,
+    "manifests": {
+      "v1": "e0c2f4611d040e9373b75c42e9f06c3bc1efca1f05fed81cf484853de3efaddc",
+      "v2": "6308f08162753997316c5eccdccc4fc81e6e5ef2a4bb8181457c120f1a86f9fa",
+      "v3_system_only": "bb062f5e431b32a661b7fa52a88757385a9c963a40e2f0fdc68c6630326c0978"
+    },
+    "results": {
+      "v1": "4351320e18f7bf6464adcf2e898436341de08dd3b662906e6680eab476acda47",
+      "v2": "5805b3b6b78040f84a063952a06668a1ef0f9d74e59334b9fc64959dcaa1bdf2",
+      "v3_system_only": "af195f95ebed540562e405810a01208249a0e5d24a35fbf4c08d497264341022"
+    }
+  },
+  "local": {
+    "neutral": {"correct":"2/2","median_steady_seconds":0.0006119780883789062,"median_total_tokens":147543.5},
+    "p000": {"correct":"2/2","topology":"local 2/2","median_steady_seconds":0.0006095061245117183,"median_total_tokens":86393.0},
+    "p100": {"correct":"2/2","topology":"coordinated 2/2","median_steady_seconds":0.0006138023681640627,"median_total_tokens":88978.0},
+    "preferred_action": "p000",
+    "reason": "all actions are performance-equivalent; p000 uses 41.4% fewer tokens than neutral",
+    "neutral_to_p000_seconds_ratio": 1.0040556833931213,
+    "p000_to_neutral_total_token_ratio": 0.5855425688017433
+  },
+  "system": {
+    "neutral": {
+      "correct":"3/3",
+      "steady_seconds":[0.015839036468749998,0.0006428397626953124,0.0005951177978515622],
+      "median_steady_seconds":0.0006428397626953124,
+      "median_total_tokens":151330,
+      "fast_shared_preprocessing_runs":"2/3"
+    },
+    "p000": {
+      "correct":"3/3",
+      "topology":"local 3/3",
+      "steady_seconds":[0.015964138000000003,0.015553910156250003,0.010827087249999999],
+      "median_steady_seconds":0.015553910156250003,
+      "median_total_tokens":86891
+    },
+    "p100": {
+      "correct":"3/3",
+      "topology":"coordinated 3/3",
+      "steady_seconds":[0.015943664062499995,0.01549345703124999,0.010830276687500001],
+      "median_steady_seconds":0.01549345703124999,
+      "median_total_tokens":90178,
+      "shared_preprocessing_runs":"0/3"
+    },
+    "preferred_action": "neutral",
+    "reason": "neutral median performance is 24.1x faster than p100 despite 67.8% higher token cost",
+    "p100_to_neutral_seconds_ratio": 24.101584765523356,
+    "neutral_to_p100_total_token_ratio": 1.678125485151589
+  },
+  "cross_model_interaction": {
+    "spark_p100_system_speedup_observed": true,
+    "sol_p100_system_speedup_observed": false,
+    "sol_p100_topology_manipulation_passed": true,
+    "interpretation": "the same Profile reliably controls file topology but does not portably control the performance mechanism across Worker models"
+  },
+  "router_implication": {
+    "sol_shadow_selected_local": "neutral",
+    "observed_local_preferred": "p000",
+    "sol_shadow_selected_system": "p100",
+    "observed_system_preferred": "neutral",
+    "scored_correct_actions": "0/2",
+    "required_state_extension": "bind Worker model and model-specific Profile response evidence; task structure alone is insufficient"
+  },
+  "result": {
+    "profile_topology_controllable": true,
+    "profile_utility_portable_across_models": false,
+    "task_only_router_supported": false,
+    "next_action": "treat model x task x Profile as the routing context and evaluate a zero-token model-aware table before another Agent Router"
+  },
+  "claim_boundary": "This is preliminary gpt-5.6-sol evidence. It demonstrates model-by-Profile interaction on one algorithm family and two workloads; it does not retract the separate Spark action crossover or establish a general model-aware Router."
+}

@@ -73,6 +73,15 @@ class CodexSparkWaveTest(unittest.TestCase):
                 cell["prompt_sha256"] == expected_prompt for cell in result["cells"]
             ))
 
+    def test_sol_model_is_an_explicit_supported_route(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            manifest, fake, output = self.fixture(Path(temporary))
+            value = json.loads(manifest.read_text())
+            value["model"] = "gpt-5.6-sol"
+            manifest.write_text(json.dumps(value))
+            result = run_wave(manifest, output, codex=str(fake))
+            self.assertEqual(result["status"], "pass")
+
     def test_web_search_invalidates_wave_without_retry(self):
         with tempfile.TemporaryDirectory() as temporary:
             manifest, fake, output = self.fixture(Path(temporary), web=True)

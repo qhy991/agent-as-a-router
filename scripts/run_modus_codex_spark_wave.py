@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run one frozen local Codex-Spark wave exactly once."""
+"""Run one frozen local Codex wave exactly once."""
 
 from __future__ import annotations
 
