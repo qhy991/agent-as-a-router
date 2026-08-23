@@ -1,0 +1,64 @@
+{
+  "schema": "acrouter-luna-max-nearest-applicability-router-protocol-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "classification": "post-outcome applicability-predicate contract test",
+  "purpose": "test whether the bounded Agent Router applies mechanism semantic and minimum-reuse predicates stage-selectively",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "router": {
+    "system_prompt_sha256": "1405d2a458ca5e6f6cb5885aa25580fed36765533d30651e565a03f663963e8f",
+    "task_sha256": "7c805bd05379c61f964c4f121529655d26946ed4db6319143dc3e3319242c93d",
+    "repetitions": 3,
+    "response_contract": {
+      "schema": "modus-profile-mechanism-route-v1",
+      "stages": ["nearest-p01", "nearest-p02"],
+      "allowed_profiles": ["neutral", "p000", "p100"],
+      "allowed_mechanism_ids": ["shared-ordered-search-v1", "shared-prefix-sum-v1"],
+      "allowed_evidence_refs": ["case:rankcount-prefixcount-n3", "case:rangesum-binding-2of2"],
+      "require_evidence_ref_for_mechanism": true,
+      "require_mechanism_for_dispatch": true
+    },
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "expected_routes": [
+    {
+      "stage": "nearest-p01",
+      "decision": "abstain",
+      "profile": null,
+      "mechanism_id": null,
+      "evidence_ref": null
+    },
+    {
+      "stage": "nearest-p02",
+      "decision": "dispatch",
+      "profile": "p100",
+      "mechanism_id": "shared-ordered-search-v1",
+      "evidence_ref": "case:rankcount-prefixcount-n3"
+    }
+  ],
+  "gates": {
+    "valid_execution": "3/3",
+    "schema_and_allowlist": "3/3",
+    "exact_expected_routes": "3/3",
+    "stable": true,
+    "usage_complete": "3/3"
+  },
+  "cost": {
+    "metric": "complete input plus output tokens",
+    "zero_token_predicate_table": 0
+  },
+  "failure_policy": {
+    "invalid_or_wrong_response": "repetition failure",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch",
+    "post_hoc_predicate_expected_route_or_prompt_change": false
+  },
+  "provenance": {
+    "nearest_heldout_evidence": "agentic-artifacts/modus-codex-luna-max-nearest-heldout-v1.json",
+    "agent_router_commit_before_freeze": "6fede8e551bc08a93ce57abe3b330b618ecbc091",
+    "shadow_runner_sha256": "f1954784fcfcbb98e453e9cb6a3e07a75cb87f5b004269585d960218ed4947db"
+  },
+  "claim_boundary": "The expected answer and applicability predicate were defined after Nearest outcomes. Success validates contract execution only, not held-out mechanism generalization or cost benefit over a deterministic predicate table."
+}
