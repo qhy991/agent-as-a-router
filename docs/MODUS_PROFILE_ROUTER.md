@@ -136,6 +136,14 @@ showed why this matters: neutral was performance-safe when no mechanism matched,
 but cost 52.6% more than the still-unqualified p000 Profile. Defer schedules a
 bounded evidence experiment; it does not assert that neutral is optimal.
 
+`acrouter_repro.qualification_economics` owns evidence-acquisition and
+promotion arithmetic. It evaluates correctness, performance, and evidence
+stability before saving or break-even. Only a quality-qualified candidate with
+at least the frozen saving fraction and enough expected future deployments may
+be promoted. A cheaper candidate cannot override a failed quality gate, and a
+qualified candidate may remain economically deferred when the evidence cost
+will not amortize.
+
 The bounded shadow runner can separately validate `modus-task-features-v1`
 responses. A feature manifest freezes stage order, closed semantic kinds,
 allowed performance objectives, and reuse bounds; it is mutually exclusive
