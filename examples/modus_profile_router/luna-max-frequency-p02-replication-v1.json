@@ -1,0 +1,53 @@
+{
+  "schema": "acrouter-luna-max-frequency-p02-replication-protocol-v1",
+  "frozen_at": "2026-08-23",
+  "run_authorized": true,
+  "purpose": "resolve the bimodal Frequency-P02 neutral result before scoring conservative Router abstention",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "task_id": "frequency-p02-perf-p0",
+  "task_sha256": "fe69b03f6c8ab284ac422d46db1bd13fa3a525c03dad052cbc50ae26c4696c5f",
+  "actions": ["neutral", "p000", "p100"],
+  "profiles": {
+    "neutral": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "p000": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282",
+    "p100": "ec850834450c09a0e6d736c606a8d2295b955206e00c0e7778f982809ca98bfe"
+  },
+  "matrix": {
+    "new_repetitions_per_action": 1,
+    "new_cells": 3,
+    "resulting_repetitions_per_action": 3,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "frozen_reference": {
+    "neutral_steady_seconds": [0.0006902337245833223, 0.009589128249899659],
+    "p000_steady_seconds": [0.009732395843457198, 0.009605621094124217],
+    "p100_steady_seconds": [0.009877443359528115, 0.009625653000057355],
+    "neutral_median_total_tokens": 196715.0,
+    "p000_median_total_tokens": 74584.0,
+    "p100_median_total_tokens": 86051.0
+  },
+  "decision": {
+    "performance_eligibility": "after appending the new cells, an action's n=3 median must be no more than 1.25x the fastest correct action",
+    "cost_choice": "choose the eligible action with the lowest n=3 median complete tokens; 5% remains the tie band",
+    "abstention_safety": "neutral remains performance-eligible",
+    "family_routing_gate": "recompute P01/P02 dynamic saving versus the best fixed eligible action without changing Router responses"
+  },
+  "failure_policy": {
+    "incorrect_or_incomplete_cell": "replication failure",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch",
+    "post_hoc_threshold_action_or_router_change": false
+  },
+  "provenance": {
+    "parent_protocol_sha256": "5eba02512f01660c505b8ab37853e1ff863df20b3291f525e544cc2d5b8e1fcf",
+    "parent_worker_result_sha256": "ebe50a3d1fae5752634db99a542871c54e30a20008cebe91f082bef578ea88d6",
+    "parent_manager_sha256": "8edd5b659c403a179ceb235fe6694ecf32100848f0250c2a856d3f19330196e9",
+    "agent_router_commit_before_freeze": "a3f1644",
+    "worker_runner_sha256": "4f73aee9371711752e30688584321b968f06597b25b792c1eafd762891fe5385",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e"
+  },
+  "claim_boundary": "This replication resolves Worker action eligibility only. It does not alter the already frozen Router abstention responses or make the mechanism catalog contain a Frequency-specific mechanism."
+}
