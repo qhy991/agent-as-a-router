@@ -1,0 +1,93 @@
+{
+  "schema": "acrouter-modus-codex-spark-t-axis-v1",
+  "status": "authorized-awaiting-admission-probe",
+  "run_authorized": true,
+  "scientific_role": "Codex-Spark prompt-only T-axis task-interaction screen",
+  "model": {
+    "local_slug": "gpt-5.3-codex-spark",
+    "reasoning_effort": "high",
+    "authentication": "ChatGPT login",
+    "supported_in_api": false
+  },
+  "harness": {
+    "codex_cli_version": "0.146.0",
+    "profile_delivery": "canonical Profile text prepended to the task prompt",
+    "ignore_user_config": true,
+    "ignore_rules": true,
+    "browser_features_disabled": true,
+    "web_search_event_policy": "invalidate cell",
+    "sandbox": "workspace-write",
+    "dsh_runtime_gate_present": false
+  },
+  "profiles": {
+    "p000": {
+      "bits": "E0/T0/A0",
+      "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6d708296d304c76c7161f67282"
+    },
+    "p010": {
+      "bits": "E0/T1/A0",
+      "profile_sha256": "8b0e10fb396407cce7c1d190aafa98c446115b68763a1f3a42222f2df7b53d48"
+    }
+  },
+  "tasks": {
+    "simple": {
+      "instance_id": "astropy__astropy-14309-visible-feedback",
+      "base_commit": "cdb66059a2feb44ee49021874605ba90801f9986",
+      "prompt": "examples/modus_profile_router/astropy-14309-t-axis-task.md",
+      "prompt_sha256": "f330501f4d9b5719079816a25420241ce35a2a1a1894652e7b93285187819640",
+      "implementation_seed_sha256": "76590403e445d506aedd3ba5e10f2144d7659a54efbf19924429755883eaa6f8",
+      "visible_test_sha256": "afadf118f3113ed7a417ac515a56fb42ac49b2ffde11cb1304cca7541e5daf5e",
+      "allowed_file": "astropy/io/fits/connect.py",
+      "environment": "acrouter-swe-astropy-py39",
+      "baseline": "fail-as-required",
+      "gold": "pass"
+    },
+    "complex": {
+      "instance_id": "django__django-11087-visible-feedback",
+      "base_commit": "8180ffba21bf10f4be905cb0d4890dc2bcff2788",
+      "prompt": "examples/modus_profile_router/django-11087-t-axis-task.md",
+      "prompt_sha256": "95468be4f1768df317f8d08713a1e8ee1a28980a34b961dc0d9cf7ba38a38747",
+      "implementation_seed_sha256": "a2d2b7f0aa1e0a69b54a0bb7e801e15476dd6444b54b700890d713cc6be5c3c0",
+      "visible_test_sha256": "b95470a36eba620f2d1e59a4eb4d375134e0e185679a0a73e9a612bb0b1e669e",
+      "allowed_file": "django/db/models/deletion.py",
+      "environment": "acrouter-swe-django30-py38",
+      "baseline": "fail-as-required",
+      "gold": "pass"
+    }
+  },
+  "dispatch": {
+    "wave_1": [
+      "simple-p000-r1",
+      "simple-p010-r1",
+      "complex-p000-r1",
+      "complex-p010-r1"
+    ],
+    "wave_2": [
+      "simple-p010-r2",
+      "simple-p000-r2",
+      "complex-p010-r2",
+      "complex-p000-r2"
+    ],
+    "wave_2_admission": "only after wave 1 completes without provider or usage-limit failure",
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "wall_timeout_seconds_per_cell": 1800
+  },
+  "measurement": {
+    "behavior": "command executions before the first file change",
+    "correctness": "task-specific independent host verifier",
+    "cost": "complete turn.completed usage among correct cells",
+    "interaction": "compare p010 minus p000 between simple and complex tasks"
+  },
+  "acceptance": {
+    "custody": "only the named implementation file differs",
+    "external_information": "zero web_search items",
+    "usage": "one complete turn.completed event per valid cell"
+  },
+  "failure_policy": {
+    "usage_limit": "retain every admitted cell, stop later waves, and resume only after an explicit successful probe in a new run",
+    "provider_error": "same as usage limit",
+    "no_model_substitution": true
+  },
+  "claim_boundary": "This is a preliminary Codex-Spark-specific screen. It cannot qualify p010 globally or be pooled directly with DSH/Pi results."
+}
