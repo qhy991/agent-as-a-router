@@ -58,6 +58,8 @@ that need to decide what to inspect before loading the full repository.
     post-outcome proof that p100 succeeds when the analogous mechanism is bound.
 26. Read `modus-codex-luna-max-frequency-heldout-v1.json` for the positive
     outcome-blind conservative-abstention result under a bounded catalog.
+27. Read `modus-codex-luna-max-nearest-heldout-v1.json` for the partial
+    outcome-blind ordered-search dispatch and missing amortization predicate.
 
 ## Scope
 

@@ -1,0 +1,172 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-nearest-heldout-result-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-negative-outcome-blind-positive-dispatch-with-partial-stage-transfer",
+  "protocol": {
+    "path": "examples/modus_profile_router/luna-max-nearest-mechanism-heldout-v1.json",
+    "sha256": "7fd29a5b51eff1aa2cb6ac64dbded465789a2e5d2f9d7fd6b611b71e82990798",
+    "frozen_commit": "4b10bf8",
+    "expected_routes_before_worker_outcome": null,
+    "automatic_redispatch": false
+  },
+  "router": {
+    "planned_cells": 3,
+    "valid_execution_cells": 3,
+    "schema_and_allowlist_valid_cells": 3,
+    "responses": [
+      {
+        "nearest-p01": "dispatch p100 shared-ordered-search-v1",
+        "nearest-p02": "dispatch p100 shared-ordered-search-v1"
+      },
+      {
+        "nearest-p01": "abstain",
+        "nearest-p02": "abstain"
+      },
+      {
+        "nearest-p01": "dispatch p100 shared-ordered-search-v1",
+        "nearest-p02": "dispatch p100 shared-ordered-search-v1"
+      }
+    ],
+    "dispatch_plans": "2/3",
+    "abstain_plans": "1/3",
+    "stable": false,
+    "total_tokens": [67867, 44421, 60635],
+    "median_total_tokens": 60635,
+    "manifest_sha256": "fa11dcc43d77e0a4b488c864d3b78157b5b9c6b61d412f8a2d714ddb1627db8a",
+    "result_sha256": "18e7b3c53b79c57f4101a5ab7c280cae2a47031a4d10e62c70b0473ce1510dcd"
+  },
+  "worker_execution": {
+    "standard_valid_cells": 12,
+    "standard_correct_cells": 12,
+    "standard_topology_fidelity_cells": 12,
+    "mechanism_valid_cells": 4,
+    "mechanism_correct_cells": 4,
+    "mechanism_coordinated_cells": 4,
+    "replication_valid_cells": 3,
+    "replication_correct_cells": 3,
+    "replication_topology_fidelity_cells": 3,
+    "complete_usage_cells": 19,
+    "web_search_cells": 0,
+    "automatic_redispatches": 0,
+    "standard_manifest_sha256": "60f0e5d29c22a89c7d7807aa672ada933d6e4351c9a1fa742fd5f9b8dc7bc1bf",
+    "standard_result_sha256": "2884d387e2f31291f76e38df25aa5aed69de59384ba53b171e2531fa62595ae4",
+    "standard_manager_sha256": "775bc170119c3ba442f9f16bbeea02433a9b4cc7b1912a41ec7cadd2fbfd98d8",
+    "mechanism_manifest_sha256": "aaa2de00718a952a0952416907354284c14c63238fd0115285913f01e3f10e63",
+    "mechanism_result_sha256": "8336358887bcfd9ebe303369a1493f5ff662873557d6074f431d486c88576186",
+    "mechanism_manager_sha256": "d239d86ba2654fda2cd45aff002aba612c8df963075d87abc25634e5b71ec83c",
+    "replication_protocol_sha256": "5e3927abf815ebc0de92f6376a2538a527940e5780bc288a28e676f433e77ae4",
+    "replication_manifest_sha256": "e4c6c73754e120ec1e9ba659e37989feb85ad2de68d68c5b696abf241b65d875",
+    "replication_result_sha256": "c8fe2117f83c7d800bdca7027c1f55e6a924fb948af1899f8c8ecc2696a8c50f",
+    "replication_manager_sha256": "c0ac23f531acaf5b998ded49f2656380a7b671e862108602c176d028165174a0"
+  },
+  "nearest_p01_standard": {
+    "neutral": {
+      "median_steady_seconds": 0.00032990012621780807,
+      "median_total_tokens": 113345.0,
+      "performance_eligible": true
+    },
+    "p000": {
+      "median_steady_seconds": 0.0003205253803670871,
+      "median_total_tokens": 88054.0,
+      "performance_eligible": true
+    },
+    "p100": {
+      "median_steady_seconds": 0.0004620619101629586,
+      "median_total_tokens": 123584.0,
+      "performance_eligible": false
+    },
+    "selected_action": "p000",
+    "performance_threshold_seconds": 0.0004006567254588589
+  },
+  "nearest_p02_standard": {
+    "neutral": {
+      "correctness": "3/3",
+      "median_steady_seconds": 0.0019649916991966165,
+      "median_total_tokens": 168784,
+      "performance_eligible": true
+    },
+    "p000": {
+      "correctness": "3/3",
+      "topology": "local 3/3",
+      "median_steady_seconds": 0.001952886070284876,
+      "median_total_tokens": 74115,
+      "performance_eligible": true
+    },
+    "p100": {
+      "correctness": "3/3",
+      "topology": "coordinated 3/3",
+      "median_steady_seconds": 0.001933908771491133,
+      "median_total_tokens": 82156,
+      "performance_eligible": true
+    },
+    "selected_action": "p000",
+    "performance_threshold_seconds": 0.002417385964363916
+  },
+  "standard_worker_oracle": {
+    "actions_by_task": {
+      "nearest-p01": "p000",
+      "nearest-p02": "p000"
+    },
+    "best_fixed_profile": "p000",
+    "best_fixed_worker_tokens": 162169.0,
+    "routing_space_observed": false
+  },
+  "mechanism_bound_p100": {
+    "nearest-p01": {
+      "correctness": "2/2",
+      "coordinated_topology": "2/2",
+      "median_steady_seconds": 0.001092628335925383,
+      "median_total_tokens": 109594.5,
+      "performance_passed": "0/2",
+      "slowdown_vs_fastest_standard": 3.408866825691095,
+      "interpretation": "single-batch setup cost is not amortized"
+    },
+    "nearest-p02": {
+      "correctness": "2/2",
+      "coordinated_topology": "2/2",
+      "median_steady_seconds": 0.00066614595507275,
+      "median_total_tokens": 116194.5,
+      "performance_passed": "2/2",
+      "speedup_vs_standard_p000": 2.9316188973505075,
+      "token_increase_vs_standard_p000_fraction": 0.56775956284153,
+      "interpretation": "mechanism improves system performance but is not the constrained cost action"
+    }
+  },
+  "router_score": {
+    "positive_dispatch_mechanism_execution": "nearest-p01 fail; nearest-p02 pass",
+    "positive_dispatch_stage_accuracy": 0.5,
+    "positive_dispatch_full_plan_matches": "0/2",
+    "abstain_plan_performance_safe": "2/2",
+    "abstain_plan_cost_optimal": "0/2",
+    "standard_profile_action_matches": "0/3 Router plans",
+    "positive_mechanism_generalization_passed": false,
+    "profile_action_generalization_passed": false,
+    "cost_generalization_passed": false
+  },
+  "economics": {
+    "standard_fixed_p000_worker_tokens": 162169.0,
+    "fixed_neutral_worker_tokens": 282129.0,
+    "p000_saving_vs_neutral_fraction": 0.4251955665670668,
+    "mechanism_bound_p100_worker_tokens": 225789.0,
+    "mechanism_cost_increase_vs_fixed_p000_fraction": 0.3923067910636435,
+    "mechanism_plus_median_router_tokens": 286424.0,
+    "zero_token_fixed_p000_tokens": 162169.0
+  },
+  "result": {
+    "outcome_blind_positive_mechanism_dispatch_generalized": false,
+    "mechanism_semantics_match_is_sufficient": false,
+    "mechanism_amortization_state_is_required": true,
+    "p02_stage_mechanism_transfer_observed": true,
+    "p01_stage_mechanism_transfer_observed": false,
+    "router_decision_stable": false,
+    "agent_router_net_benefit": false,
+    "next_action": "extend evidence and Router state with mechanism setup cost and reuse count, then test stage-selective dispatch on an unseen multi-stage plan"
+  },
+  "interpretation": {
+    "failure_mode": "the ordered-search mechanism preserves Nearest semantics but is useful only when preprocessing is amortized; the Router dispatched it to both one-batch and many-batch stages in two repetitions",
+    "design_change": "mechanism evidence must include applicability predicates such as reuse count, setup cost, and performance objective, not only semantic compatibility"
+  },
+  "claim_boundary": "This is a valid negative full-plan positive-dispatch result with a positive P02 stage sub-result. Nearest outcomes were absent from Router workspaces, but one family and two stages do not establish broad mechanism dispatch generalization."
+}

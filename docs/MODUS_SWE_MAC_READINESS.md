@@ -608,3 +608,20 @@ therefore outcome-blind and correct: neutral is performance-safe on both tasks,
 and no unsupported mechanism is dispatched. The Agent adds no value over the
 zero-token abstention rule and misses a smaller P01 cost opportunity. See
 [`agentic-artifacts/modus-codex-luna-max-frequency-heldout-v1.json`](../agentic-artifacts/modus-codex-luna-max-frequency-heldout-v1.json).
+
+### Outcome-blind Nearest positive-dispatch result
+
+Nearest directly matched the allowlisted ordered-search mechanism. Two of three
+Routers dispatched p100 plus that mechanism to both stages; one abstained on
+both. All responses were schema- and evidence-valid, but the decision was not
+stable.
+
+The full standard matrix selects fixed p000 on both stages after a third P02
+replication. Mechanism-bound p100 is correct and coordinated 2/2 on each task.
+It fails the P01 performance gate because one-batch setup cost is not amortized,
+but passes P02 and is 2.93 times faster than standard p000 at 56.8% higher
+token cost. Thus semantic mechanism matching alone is insufficient: the Router
+must model setup cost, reuse count, and performance objective. Positive
+mechanism transfer occurred on the system stage only, so the full held-out
+dispatch gate failed. See
+[`agentic-artifacts/modus-codex-luna-max-nearest-heldout-v1.json`](../agentic-artifacts/modus-codex-luna-max-nearest-heldout-v1.json).

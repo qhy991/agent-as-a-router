@@ -93,6 +93,7 @@
     "profile_luna_max_rangesum_heldout": "modus-codex-luna-max-rangesum-heldout-v1.json",
     "profile_luna_max_rangesum_mechanism_binding": "modus-codex-luna-max-rangesum-mechanism-binding-v1.json",
     "profile_luna_max_frequency_heldout": "modus-codex-luna-max-frequency-heldout-v1.json",
+    "profile_luna_max_nearest_heldout": "modus-codex-luna-max-nearest-heldout-v1.json",
     "inference_demo": "../examples/inference_demo.py",
     "ood176_matrix": "../data/matrices/phase2_ood/unified/matrix_acrouter_ood176.json",
     "ood176_long_results": "../data/matrices/phase2_ood/unified/results_long.csv",
