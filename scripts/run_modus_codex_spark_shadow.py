@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run one frozen bounded Codex-Spark Router shadow batch exactly once."""
+"""Run one frozen bounded local Codex Router shadow batch exactly once."""
 
 from __future__ import annotations
 

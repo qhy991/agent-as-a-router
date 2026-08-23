@@ -35,7 +35,7 @@ class CodexSparkShadowTest(unittest.TestCase):
             cells.append({"cell": name, "workspace": str(workspace), "task_sha256": digest(task)})
         manifest = root / "manifest.json"
         manifest.write_text(json.dumps({
-            "schema": "acrouter-codex-spark-shadow-v1",
+            "schema": "acrouter-codex-shadow-v1",
             "model": "gpt-5.3-codex-spark",
             "reasoning_effort": "high",
             "timeout_seconds": 10,
@@ -45,6 +45,15 @@ class CodexSparkShadowTest(unittest.TestCase):
             "cells": cells,
         }), encoding="utf-8")
         return manifest, fake, root / "output"
+
+    def test_sol_model_is_an_explicit_supported_route(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            manifest, fake, output = self.fixture(Path(temporary))
+            value = json.loads(manifest.read_text())
+            value["model"] = "gpt-5.6-sol"
+            manifest.write_text(json.dumps(value))
+            result = run_shadow(manifest, output, codex=str(fake))
+            self.assertEqual(result["status"], "pass")
 
     def test_valid_shadow_preserves_exact_workspace_boundary(self):
         with tempfile.TemporaryDirectory() as temporary:

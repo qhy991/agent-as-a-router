@@ -1,4 +1,4 @@
-"""No-retry local Codex-Spark execution for bounded Router shadow cells."""
+"""No-retry local Codex execution for bounded Router shadow cells."""
 
 from __future__ import annotations
 
@@ -13,8 +13,12 @@ from typing import Any
 from .codex_spark_wave import _event_summary
 
 
-MANIFEST_SCHEMA = "acrouter-codex-spark-shadow-v1"
-RESULT_SCHEMA = "acrouter-codex-spark-shadow-result-v1"
+MANIFEST_SCHEMAS = {
+    "acrouter-codex-shadow-v1",
+    "acrouter-codex-spark-shadow-v1",
+}
+RESULT_SCHEMA = "acrouter-codex-shadow-result-v1"
+SUPPORTED_MODELS = {"gpt-5.3-codex-spark", "gpt-5.6-sol"}
 ALLOWED_INITIAL_FILES = {"inbox/task.md"}
 ALLOWED_FINAL_FILES = {"inbox/task.md", "outbox/route-response.json"}
 
@@ -50,10 +54,10 @@ def _workspace_files(workspace: Path) -> set[str]:
 
 def validate_manifest(path: Path) -> dict[str, Any]:
     value = json.loads(path.read_text(encoding="utf-8"))
-    if not isinstance(value, dict) or value.get("schema") != MANIFEST_SCHEMA:
+    if not isinstance(value, dict) or value.get("schema") not in MANIFEST_SCHEMAS:
         raise SparkShadowError("unsupported shadow manifest")
-    if value.get("model") != "gpt-5.3-codex-spark":
-        raise SparkShadowError("shadow model must be gpt-5.3-codex-spark")
+    if value.get("model") not in SUPPORTED_MODELS:
+        raise SparkShadowError("unsupported local Codex shadow model")
     if value.get("automatic_redispatch") is not False:
         raise SparkShadowError("automatic_redispatch must be false")
     effort = value.get("reasoning_effort")

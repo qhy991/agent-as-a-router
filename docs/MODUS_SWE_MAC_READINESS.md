@@ -313,3 +313,20 @@ allows at most 92,334.5 Router tokens in total. The existing 15% saving gate is
 stricter: at most 9,551.975 total, or 4,775.9875 per decision. A correct Agent
 Router above that ceiling is not a net-benefit result; for these obvious states,
 the zero-token batch-count rule remains the required ablation.
+
+### Codex-Sol Router shadow
+
+The Spark-specific quota blocked an immediate Router run, and `gpt-5.3-codex`
+is unavailable through ChatGPT authentication. A separate cross-model shadow
+used `gpt-5.6-sol` with the canonical Router v3 system contract. Six independent
+responses were execution-valid, custody-clean, schema-valid, and stable: local
+selected neutral 3/3; system selected p100 3/3. The system action matches the
+observed E-axis crossover. The local action is not yet scoreable because the
+current Spark E matrix did not include neutral.
+
+Median Router cost was 52,941 tokens for local and 53,284 for system, 106,225
+combined. This exceeds both the 92,334.5 any-saving ceiling and the 9,551.975
+frozen 15% saving ceiling. Therefore a correct high-reasoning Agent Router does
+not establish net benefit on these obvious states; the zero-token batch-count
+rule is the required baseline. See
+[`agentic-artifacts/modus-codex-sol-router-shadow-v1.json`](../agentic-artifacts/modus-codex-sol-router-shadow-v1.json).
