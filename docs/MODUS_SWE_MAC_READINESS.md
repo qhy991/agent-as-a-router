@@ -250,3 +250,22 @@ The frozen task contract is
 [`configs/modus_swe_a_axis_v1.json`](../configs/modus_swe_a_axis_v1.json). It
 plans two counterbalanced repetitions of p000/p001 but remains
 `run_authorized=false` until a stable provider window is available.
+
+### Codex-Spark A-axis result
+
+The visible-feedback task was replicated with the local
+`gpt-5.3-codex-spark` Codex CLI route at high reasoning. This is a prompt-only
+Codex harness, not DSH: canonical p000/p001 text was prepended to the task and
+no DSH behavior gate was present. Two apparatus pilots were excluded before
+the final matrix: parallel micromamba lock contention in v1 and one unpinned
+Web Search call in v2. The final v3 used the frozen environment Python directly,
+forbade external information, and produced four complete, custody-clean,
+web-free cells.
+
+Both profiles were 2/2 correct. Both had a median of one focused verifier after
+the first edit, so A1 did not produce its expected feedback-frequency
+signature. p001 used 1.46 times p000 median total tokens and 1.04 times median
+uncached-input-plus-output tokens. This is a clean task-level negative result:
+no manipulation, quality, or cost advantage for p001. The task branch stops;
+p001 remains unqualified. See
+[`agentic-artifacts/modus-codex-spark-a-axis-v1.json`](../agentic-artifacts/modus-codex-spark-a-axis-v1.json).

@@ -1,0 +1,171 @@
+{
+  "schema": "acrouter-modus-codex-spark-a-axis-v1",
+  "captured_at": "2026-08-23",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-preliminary-codex-spark-harness-result",
+  "harness": {
+    "requested_model_slug": "gpt-5.3-codex-spark",
+    "local_display_name": "GPT-5.3-Codex-Spark",
+    "local_description": "Ultra-fast coding model.",
+    "supported_in_api": false,
+    "reasoning_effort": "high",
+    "authentication": "ChatGPT login",
+    "codex_cli_version": "0.146.0",
+    "model_identity_in_json_events": false,
+    "profile_delivery": "canonical Profile text prepended to the user task prompt",
+    "dsh_runtime_gate_present": false
+  },
+  "task": {
+    "instance_id": "django__django-11087-visible-feedback",
+    "base_commit": "8180ffba21bf10f4be905cb0d4890dc2bcff2788",
+    "implementation_seed_sha256": "a2d2b7f0aa1e0a69b54a0bb7e801e15476dd6444b54b700890d713cc6be5c3c0",
+    "visible_test": "delete.tests.DeletionTests.test_only_referenced_fields_selected",
+    "baseline": "fail-as-required",
+    "gold": "pass",
+    "allowed_implementation_files": [
+      "django/db/models/deletion.py"
+    ]
+  },
+  "treatments": {
+    "p000": {
+      "bits": "E0/T0/A0",
+      "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6d708296d304c76c7161f67282"
+    },
+    "p001": {
+      "bits": "E0/T0/A1",
+      "profile_sha256": "708dd24963f9ee44afaba3b0e0c7222e3e4bc61666b63b1e74a9ec38a8246242"
+    }
+  },
+  "apparatus_iterations": {
+    "v1": {
+      "run_plan_sha256": "251f658c6eb40fec42135eb4a8248a12df10d993deb36c0ac1676c4b10c3b64f",
+      "status": "excluded-apparatus-confounded",
+      "reason": "parallel micromamba commands contended on a shared lock, making visible feedback availability unequal"
+    },
+    "v2": {
+      "run_plan_sha256": "c1c9805273196abc31ed7f721f0c13b4a6d419ec67e7940de5135ed3cbda0c7e",
+      "status": "excluded-external-information",
+      "reason": "one p000 cell used unpinned Web Search"
+    },
+    "v3": {
+      "run_plan_sha256": "a1a214f01c6da2a8341b46eb52599cc28f504de871fdcd9c3b645b257e9216bf",
+      "status": "valid-preliminary",
+      "task_prompt_sha256": "6ee9b9177556530ef374ff8265d462231b0084ce49ad09d3cff32425a842ca29",
+      "parallel_cells": 4,
+      "automatic_redispatches": 0,
+      "web_search_items": 0,
+      "complete_usage_cells": 4,
+      "custody_passed_cells": 4,
+      "correct_cells": 4
+    }
+  },
+  "valid_cells": {
+    "p000-r1": {
+      "correct": true,
+      "only_named_implementation_file_changed": true,
+      "final_target_sha256": "4a4a0d23bc40e96604528860daabc45550027f53e78caf263e7cea85a866bba0",
+      "file_change_items": 1,
+      "command_execution_items": 8,
+      "focused_tests_after_first_edit": 1,
+      "usage": {
+        "input_tokens": 304189,
+        "cached_input_tokens": 265856,
+        "output_tokens": 10892,
+        "reasoning_output_tokens": 9568,
+        "total_tokens": 315081,
+        "uncached_input_plus_output_tokens": 49225,
+        "complete": true
+      },
+      "events_sha256": "c920517a3de8f46cb4e263eda35b06c81a57fa49cfdc110e4cc4015a7592d394",
+      "verifier_sha256": "b321fd128a3a6110db526f6ce95db43f0a8f8dd5bdfc2b1eecc806f294c87127"
+    },
+    "p000-r2": {
+      "correct": true,
+      "only_named_implementation_file_changed": true,
+      "final_target_sha256": "6b1f34e925b43f0dee3963b63ab79b67bc12e0d9473a87483a0ca40a019cf57c",
+      "file_change_items": 1,
+      "command_execution_items": 13,
+      "focused_tests_after_first_edit": 1,
+      "usage": {
+        "input_tokens": 355106,
+        "cached_input_tokens": 323712,
+        "output_tokens": 9257,
+        "reasoning_output_tokens": 7901,
+        "total_tokens": 364363,
+        "uncached_input_plus_output_tokens": 40651,
+        "complete": true
+      },
+      "events_sha256": "fc2e68ecbf5fbec0e33f9480a71cc6250456d8147c6ee4747677110028d73644",
+      "verifier_sha256": "63baddfb7587584562711c226372bf8b5f73da7575e80fcdd8f9ef51b51aab22"
+    },
+    "p001-r1": {
+      "correct": true,
+      "only_named_implementation_file_changed": true,
+      "final_target_sha256": "6ef5e46f60b5d95a6e0a40ac73314baa65e76a7bf5c8ce894a6ae9f641f5cb0c",
+      "file_change_items": 1,
+      "command_execution_items": 21,
+      "focused_tests_after_first_edit": 1,
+      "usage": {
+        "input_tokens": 667807,
+        "cached_input_tokens": 619648,
+        "output_tokens": 11197,
+        "reasoning_output_tokens": 8902,
+        "total_tokens": 679004,
+        "uncached_input_plus_output_tokens": 59356,
+        "complete": true
+      },
+      "events_sha256": "3e409a2087a68934a0325430224f3c11153968acbde046dd322b09e32fae1a66",
+      "verifier_sha256": "271f18ca0cfd18d0fce3d09c458d921bfb6ad53a61bddab626dc69e33d0795c6"
+    },
+    "p001-r2": {
+      "correct": true,
+      "only_named_implementation_file_changed": true,
+      "final_target_sha256": "da15f3a3750cc314f8e7e3098758c7f00065bd85a01cd2d034207373745e405d",
+      "file_change_items": 2,
+      "command_execution_items": 12,
+      "focused_tests_after_first_edit": 1,
+      "usage": {
+        "input_tokens": 304237,
+        "cached_input_tokens": 279296,
+        "output_tokens": 9305,
+        "reasoning_output_tokens": 7823,
+        "total_tokens": 313542,
+        "uncached_input_plus_output_tokens": 34246,
+        "complete": true
+      },
+      "events_sha256": "71299dbf96f5d2a63c11dc532e0c67d12944a78225aa644a87ee05c11eb6c9b5",
+      "verifier_sha256": "254916d336da4ed53edd2589a7126a4f6fdebdb6c75cfcc41ad3f91e7267b7f4"
+    }
+  },
+  "profile_summary": {
+    "p000": {
+      "correct": "2/2",
+      "median_total_tokens": 339722.0,
+      "median_uncached_input_plus_output_tokens": 44938.0,
+      "median_focused_tests_after_first_edit": 1.0,
+      "median_file_change_items": 1.0
+    },
+    "p001": {
+      "correct": "2/2",
+      "median_total_tokens": 496273.0,
+      "median_uncached_input_plus_output_tokens": 46801.0,
+      "median_focused_tests_after_first_edit": 1.0,
+      "median_file_change_items": 1.5
+    },
+    "p001_vs_p000": {
+      "correctness_delta": 0.0,
+      "median_total_token_ratio": 1.4608209065059077,
+      "median_uncached_input_plus_output_token_ratio": 1.0414571186968713,
+      "post_edit_focused_test_delta": 0.0
+    }
+  },
+  "result": {
+    "a_axis_manipulation_passed": false,
+    "quality_improvement_observed": false,
+    "token_efficiency_improvement_observed": false,
+    "task_branch_decision": "stop",
+    "interpretation": "A1 did not increase post-edit focused verification, both profiles were 2/2 correct, and p001 used more median tokens."
+  },
+  "claim_boundary": "This is a clean negative result for one visible-feedback task under the local Codex-Spark prompt-only harness. It does not prove A1 is globally ineffective and is not pooled with DSH or Pi results. The requested Spark slug is recorded by the invocation plan and local catalog, but Codex JSON events do not repeat the model identity."
+}
