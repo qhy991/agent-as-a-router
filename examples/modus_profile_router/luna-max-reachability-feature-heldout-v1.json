@@ -1,0 +1,70 @@
+{
+  "schema": "acrouter-luna-max-reachability-feature-heldout-protocol-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "purpose": "test closed Agent feature extraction and typed no-candidate abstention on an unused P0 family before Luna outcomes",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "extractor": {
+    "system_prompt_sha256": "1f7d748fdf51de03598900b36a9504b319c1c7639d364af73e159301320c3bef",
+    "task_sha256": "0609c8040c85080818b3dcb879f6fa9f6ca05038297c094fe438313bdc5f92f4",
+    "repetitions": 3,
+    "maximum_response_bytes": 2048,
+    "task_feature_contract": {
+      "schema": "modus-task-features-v1",
+      "stages": ["reachability-p01", "reachability-p02"],
+      "allowed_semantic_kinds": ["graph_reachability", "unknown"],
+      "allowed_performance_objectives": ["latency_subject_to_correctness_then_tokens"],
+      "minimum_reuse_batches": 1,
+      "maximum_reuse_batches": 128
+    },
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "expected_features": [
+    {"stage": "reachability-p01", "semantic_kind": "graph_reachability", "reuse_batches": 1, "performance_objective": "latency_subject_to_correctness_then_tokens"},
+    {"stage": "reachability-p02", "semantic_kind": "graph_reachability", "reuse_batches": 70, "performance_objective": "latency_subject_to_correctness_then_tokens"}
+  ],
+  "typed_matcher_expected": {
+    "reachability-p01": [],
+    "reachability-p02": []
+  },
+  "worker_tasks": {
+    "reachability-p01": "82d9b04795812376af2c262d46aa7fa0fddb5f5b657020197d5ba57d2531105a",
+    "reachability-p02": "ebe7506f0825456638f4f8e84bb63e74459c804d6d373138ed31bf31fc916723"
+  },
+  "worker_matrix": {
+    "actions": ["neutral", "p000", "p100"],
+    "repetitions": 2,
+    "cells": 12,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "scoring": {
+    "feature_gate": "3/3 exact and stable",
+    "typed_matcher_gate": "3/3 no candidates on both stages",
+    "correctness_first": "both Worker repetitions correct",
+    "performance_eligibility": "task median no more than 1.25x fastest correct action",
+    "cost_choice": "lowest eligible median complete tokens with 5% tie",
+    "routing_gate": "15% saving versus best fixed eligible or no fixed eligible action",
+    "zero_candidate_resolution": "neutral fixed action",
+    "abstention_safety": "neutral performance-eligible on both tasks"
+  },
+  "failure_policy": {
+    "invalid_or_wrong_feature": "extractor repetition failure",
+    "candidate_mismatch": "typed matcher safety failure",
+    "incorrect_or_incomplete_worker": "action-task failure",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch",
+    "post_hoc_feature_outcome_scoring_or_task_change": false
+  },
+  "provenance": {
+    "mechanism_registry_sha256": "f52262c47ed6011e4063a33316e5baa9f75efed1f32c34d3206808a407ba3043",
+    "typed_matcher_sha256": "fe79a03746508cdfee8331bd322cb61bbc06bca5401c828fc53e1fc62ab06f62",
+    "shadow_runner_sha256": "022c27ff869460c5dcee6056bed0dbefb46401de6c8c7ad6365d9f2c7c6ce28d",
+    "agent_router_commit_before_freeze": "e364ef76f06cc3147e82521e970396a15ee1762e",
+    "modus_p0_manifest_lock_sha256": "c377de7da1da37d113e7859bbee2d730d53603b4c30c6fdb4a878170f9ce4f43"
+  },
+  "claim_boundary": "Expected features come from the pre-existing task contract and Reachability outcomes are absent from extractor workspaces. One new family tests parser generalization and abstention safety, not mechanism discovery."
+}
