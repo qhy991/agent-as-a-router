@@ -1,0 +1,112 @@
+{
+  "schema": "acrouter-modus-codex-spark-e-axis-result-v1",
+  "captured_at": "2026-08-23",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-preliminary-codex-spark-topology-interaction-result",
+  "harness": {
+    "model_slug": "gpt-5.3-codex-spark",
+    "reasoning_effort": "high",
+    "authentication": "ChatGPT login",
+    "supported_in_api": false,
+    "profile_delivery": "canonical Profile text prepended to the user task prompt",
+    "dsh_runtime_gate_present": false,
+    "agent_router_commit_at_dispatch": "86819dc319f19cb2e91f4f1d573c6d2deaf54dc0",
+    "plugin_commit_at_dispatch": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f"
+  },
+  "profiles": {
+    "p000": {
+      "bits": "E0/T0/A0",
+      "expected_topology": "local",
+      "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282"
+    },
+    "p100": {
+      "bits": "E1/T0/A0",
+      "expected_topology": "coordinated",
+      "profile_sha256": "ec850834450c09a0e6d736c606a8d2295b955206e00c0e7778f982809ca98bfe"
+    }
+  },
+  "tasks": {
+    "local": {
+      "task_id": "rankcount-h01-perf-p1b",
+      "bottleneck": "one large query batch",
+      "prompt_sha256": "b10fe132cc3d396c2c23697b4e9347d1aa4233030c46fcb9f5361ba230f64081"
+    },
+    "system": {
+      "task_id": "rankcount-h02-perf-p1b",
+      "bottleneck": "twenty-five small query batches sharing one input",
+      "prompt_sha256": "2ca6dc2df2f4fadc684b5ab6e5f2eb7dce770ebe6a283a7f52b05e68fcdd0ebe"
+    }
+  },
+  "measurement": {
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e",
+    "task_lock_sha256": "9c129f14a59a6635a1a452c52f3d5bd60fecf363fdfc69556bf777cf0ef43f97",
+    "runner_sha256": "644eb7be12ef8c34ed8ed8e0355b97d84e01ce37da343ba838e3a795a98ad19b",
+    "correctness": "independent public plus manager-hidden tests",
+    "topology": "changed implementation paths relative to the starter",
+    "performance": "manager-side seven-round steady median",
+    "cost": "complete Codex turn input plus output tokens"
+  },
+  "execution": {
+    "wave_1_manifest_sha256": "31c67ae34edbc2869a6e30d177e7553bbf1f7cd48b4ec88d856a3cb1d2cd26a5",
+    "wave_2_manifest_sha256": "011a6509f6977c07971c5225bc0d4f25b8abc8a4d3f2ae8c54656e6e5d423846",
+    "wave_1_result_sha256": "935c4726f0bbe5e15d638e494573efe216329b2b58f5ea3281239bf9e67a03cb",
+    "wave_2_result_sha256": "d0c383ed2134de7f5668efa1ffce5d5de9d00c49373610a54a588771863af6db",
+    "automatic_redispatches": 0,
+    "complete_usage_cells": 8,
+    "correct_cells": 8,
+    "topology_compliant_cells": 8,
+    "valid_cells": 7,
+    "invalid_cells": {
+      "system-p000-r2": "unplanned Web Search item"
+    }
+  },
+  "cells": {
+    "local-p000-r1": {"valid":true,"correct":true,"topology":"local","steady_seconds":0.00079564151953125,"relative_mad":0.014198807949927315,"total_tokens":169115,"uncached_input_plus_output_tokens":9883},
+    "local-p000-r2": {"valid":true,"correct":true,"topology":"local","steady_seconds":0.0007885922451171875,"relative_mad":0.004387928177379676,"total_tokens":133757,"uncached_input_plus_output_tokens":14077},
+    "local-p100-r1": {"valid":true,"correct":true,"topology":"coordinated","steady_seconds":0.0008261061201171875,"relative_mad":0.009754666443209634,"total_tokens":337868,"uncached_input_plus_output_tokens":16204},
+    "local-p100-r2": {"valid":true,"correct":true,"topology":"coordinated","steady_seconds":0.0008168903408203127,"relative_mad":0.00504216573333262,"total_tokens":149673,"uncached_input_plus_output_tokens":19113},
+    "system-p000-r1": {"valid":true,"correct":true,"topology":"local","steady_seconds":0.014159560546874998,"relative_mad":0.02392946682584554,"total_tokens":329946,"uncached_input_plus_output_tokens":28634},
+    "system-p000-r2": {"valid":false,"correct":true,"topology":"local","steady_seconds":0.014526948562499996,"relative_mad":0.003505025704878061,"total_tokens":151987,"uncached_input_plus_output_tokens":19123,"invalid_reason":"unplanned Web Search item"},
+    "system-p100-r1": {"valid":true,"correct":true,"topology":"coordinated","steady_seconds":0.0008032917480468747,"relative_mad":0.006586059618579746,"total_tokens":419336,"uncached_input_plus_output_tokens":35336},
+    "system-p100-r2": {"valid":true,"correct":true,"topology":"coordinated","steady_seconds":0.000829313435546875,"relative_mad":0.013786131906235436,"total_tokens":196890,"uncached_input_plus_output_tokens":23578}
+  },
+  "summary": {
+    "manipulation": {
+      "p000_local_topology": "4/4",
+      "p100_coordinated_topology": "4/4",
+      "passed": true
+    },
+    "local_path": {
+      "valid_repetitions_per_profile": 2,
+      "correctness": "p000 2/2; p100 2/2",
+      "p000_to_p100_median_seconds_ratio": 0.9642344352613319,
+      "p000_to_p100_median_total_token_ratio": 0.6212236509339727,
+      "frozen_path_passed": true,
+      "interpretation": "p000 preserved performance and used 37.9% fewer median total tokens"
+    },
+    "system_path": {
+      "valid_paired_repetitions": 1,
+      "correctness": "valid p000 1/1; valid p100 2/2",
+      "valid_pair_p000_to_p100_seconds_ratio": 17.626921453261016,
+      "valid_pair_p000_to_p100_total_token_ratio": 0.7868296545014022,
+      "frozen_performance_path_passed_preliminarily": true,
+      "interpretation": "p100 cost 27.1% more total tokens in the valid pair but improved steady performance by 17.63x"
+    },
+    "interaction": {
+      "observed": true,
+      "preferred_action_local": "p000",
+      "preferred_action_system": "p100",
+      "reason": "local chooses lower cost at matched performance; system chooses large performance gain at modest extra cost"
+    }
+  },
+  "result": {
+    "profile_behavior_controllable": true,
+    "task_profile_suitability_observed": true,
+    "cost_or_performance_advantage_observed": true,
+    "router_action_crossover_observed": true,
+    "system_replication_complete": false,
+    "next_action": "freeze a Profile-blind shadow Router over the local/system state and compare its selections with the observed action crossover before paying live Router cost"
+  },
+  "claim_boundary": "This is preliminary positive evidence under a Codex-Spark prompt-only harness. The local result has two valid repetitions; the system result has one valid paired repetition because the second p000 cell used Web Search and is excluded. It justifies Router shadow evaluation but not a final Router net-benefit claim or direct pooling with DSH/Pi."
+}

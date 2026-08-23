@@ -287,3 +287,21 @@ task types, so broader investigation was not selectively useful on the complex
 task. This supports controllable Profile behavior but not T1 suitability or
 cost efficiency; the T branch stops for this screen. See
 [`agentic-artifacts/modus-codex-spark-t-axis-v1.json`](../agentic-artifacts/modus-codex-spark-t-axis-v1.json).
+
+### Codex-Spark E-axis topology interaction
+
+The canonical p000/p100 pair was tested on the same rank-count algorithm under
+two workloads: one large query batch and twenty-five small batches sharing one
+input. All eight cells passed correctness and the manipulation check: p000
+changed only `target.py`, while p100 changed `target.py`, `shared.py`, and
+`observer.py` exactly.
+
+On the local workload, both actions were effectively equal in steady time
+(p000/p100 median ratio 0.964), while p000 used 37.9% fewer median total tokens.
+On the system workload, the valid paired repetition made p100 17.63 times
+faster while costing 27.1% more total tokens. A second p100 replication had
+the same performance, but its paired p000 cell used Web Search and was excluded.
+This is the first clean Spark action crossover: choose p000 for local low-cost
+work and p100 for shared multi-batch performance. It supports moving to a
+Profile-blind shadow Router; it does not yet establish Router net benefit. See
+[`agentic-artifacts/modus-codex-spark-e-axis-v1.json`](../agentic-artifacts/modus-codex-spark-e-axis-v1.json).
