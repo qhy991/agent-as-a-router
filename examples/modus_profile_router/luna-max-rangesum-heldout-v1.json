@@ -1,0 +1,92 @@
+{
+  "schema": "acrouter-luna-max-rangesum-heldout-protocol-v1",
+  "frozen_at": "2026-08-23",
+  "run_authorized": true,
+  "purpose": "test Profile action and evidence-analogy routing on a pre-existing family unseen by the current Luna outcome matrix",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "task_source": {
+    "suite": "Modus performance P0",
+    "task_ids": [
+      "rangesum-p01-perf-p0",
+      "rangesum-p02-perf-p0"
+    ],
+    "manifest_lock_sha256": "c377de7da1da37d113e7859bbee2d730d53603b4c30c6fdb4a878170f9ce4f43",
+    "projects_sha256": "b3bf0936197358954895c952bc3d77102870d64be90e48882e1e2d3f87a6d0d5",
+    "runner_sha256": "784cf134e612367a7140daedabcb28a60f866aab00b3c05d7825f6249b468ff8",
+    "current_luna_outcome_read_before_freeze": false
+  },
+  "worker_tasks": {
+    "rangesum-p01": {
+      "task_sha256": "e77e8942dfbae6d9aa48ab9ac6852dbcef510487530a7a0ea0beb75548218ef8"
+    },
+    "rangesum-p02": {
+      "task_sha256": "958533aa95125b4905f28047c37c87184ac49d264d98f94d33aacf6735fe13b1"
+    }
+  },
+  "profiles": {
+    "neutral": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "p000": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282",
+    "p100": "ec850834450c09a0e6d736c606a8d2295b955206e00c0e7778f982809ca98bfe"
+  },
+  "router_shadow": {
+    "system_prompt_sha256": "f00a2084b750ec141d6b6530b26a293b67c1f8aeea30c2e73c228ddc7611b515",
+    "conditions": {
+      "task_only": {
+        "task_sha256": "015c87f82f3c07ce07df05e05e9ef8fafe45ef9de78807ecb2dc2b13d33629a6",
+        "repetitions": 3
+      },
+      "evidence_analogy": {
+        "task_sha256": "89ddeeb9163215fc7ef3372718ffc6f52a798ee2b0d458e1fe1b45376c02cea5",
+        "repetitions": 3
+      }
+    },
+    "expected_routes_before_worker_outcome": null,
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "worker_matrix": {
+    "actions": [
+      "neutral",
+      "p000",
+      "p100"
+    ],
+    "repetitions": 2,
+    "cells": 12,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "outcome_scoring": {
+    "correctness_first": "an action must pass hidden correctness in both repetitions",
+    "topology_fidelity": "p000 local 2/2 and p100 coordinated 2/2",
+    "performance_eligibility": "task median no more than 1.25x the fastest correct action",
+    "cost_choice": "lowest median complete input plus output tokens among eligible actions",
+    "token_tie_fraction": 0.05,
+    "routing_space": "different task actions and at least 15% Worker saving versus the best fixed eligible Profile, or no fixed Profile eligible on both tasks"
+  },
+  "router_scoring": {
+    "reveal_time": "after all Router responses and Worker outcomes are immutable",
+    "exact_plan_accuracy": "condition repetitions exactly matching the revealed constrained Oracle",
+    "stage_accuracy": "matched stage actions divided by two",
+    "stability": "identical plans within each condition",
+    "router_cost": "complete input plus output tokens",
+    "zero_token_unknown_policy": "abstain to neutral on both tasks",
+    "analogy_success": "evidence-analogy accuracy exceeds task-only and zero-token abstention without access to RangeSum outcome labels"
+  },
+  "failure_policy": {
+    "incorrect_or_incomplete_worker": "action-task failure",
+    "invalid_router_response": "Router repetition failure",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch",
+    "post_hoc_prompt_scoring_or_task_change": false
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "e1bb7c806f6a3f7e889a3c68485e67be0605f0d2",
+    "worker_runner_sha256": "4f73aee9371711752e30688584321b968f06597b25b792c1eafd762891fe5385",
+    "shadow_runner_sha256": "4481102a10aa00142284442c87aae61b56f313eed69ac46e52c5ee41d80f73e6",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e",
+    "plugin_commit": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f"
+  },
+  "claim_boundary": "RangeSum is held out from the current Luna outcome matrix and its labels are absent from Router workspaces. It is structurally analogous to known repeated-input tasks, so the result tests development-level evidence analogy, not broad benchmark generalization."
+}
