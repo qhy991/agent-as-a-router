@@ -1,0 +1,81 @@
+{
+  "schema": "acrouter-luna-max-e2e-feedback-repair-protocol-v1",
+  "frozen_at": "2026-08-23",
+  "run_authorized": true,
+  "purpose": "test whether targeted manager feedback closes the two actual end-to-end performance failures and whether repair Profile choice changes added cost",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "parent_e2e_evidence_sha256": "d0b01ca4c472d874bf0a00627ce6b3d99abe5c44091032ed7f41dd2cee289afa",
+  "source_states": {
+    "rankcount-system": {
+      "task_id": "rankcount-h02-perf-p1b",
+      "feedback_sha256": "4cf3e4a7b4769397b757597706c8bfc81977ed9982027f1074d6e9e7546a6919",
+      "observed_seconds": 0.009943615890733781,
+      "threshold_seconds": 0.0013448025500000002,
+      "implementation_sha256": {
+        "observer.py": "9f53a6f322c7743bbf3f0cb134f9d4b205983afa13ea6494df84e08d765dd226",
+        "shared.py": "907cf29485630abdef6a1cf4626d956ae3430cb45b1d410ff12ec6f0097b766c",
+        "target.py": "6c17bc9443f8b1ad77325dc13dcc19bfc5514c6d65091937cb78efdbde5c46db"
+      }
+    },
+    "prefixcount-system": {
+      "task_id": "prefixcount-h02-perf-p1b",
+      "feedback_sha256": "38ec99a3275941362edf8956e8e910df3eda85a9a1c3d0830f9a32b53dc67f03",
+      "observed_seconds": 0.008650136718642898,
+      "threshold_seconds": 0.007391881713800785,
+      "implementation_sha256": {
+        "observer.py": "9f53a6f322c7743bbf3f0cb134f9d4b205983afa13ea6494df84e08d765dd226",
+        "shared.py": "907cf29485630abdef6a1cf4626d956ae3430cb45b1d410ff12ec6f0097b766c",
+        "target.py": "f39d13adf8f64d0526fb397b07cddf91ab022e54e322baa64f9cbac34cc91b8d"
+      }
+    }
+  },
+  "repair_actions": [
+    "neutral",
+    "p100"
+  ],
+  "profiles": {
+    "neutral": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "p100": "ec850834450c09a0e6d736c606a8d2295b955206e00c0e7778f982809ca98bfe"
+  },
+  "matrix": {
+    "cells": 4,
+    "one_identical_clone_per_task_and_action": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false,
+    "parent_router_and_successful_workers_rerun": false
+  },
+  "gates": {
+    "execution_valid": true,
+    "hidden_correctness": true,
+    "mechanism_topology": "coordinated observer.py plus shared.py plus target.py",
+    "performance": "no slower than the frozen task threshold",
+    "usage_complete": true
+  },
+  "selection": {
+    "eligible_repair": "passes every gate",
+    "task_repair_action": "eligible action with lower complete added input plus output tokens",
+    "token_tie_fraction": 0.05,
+    "no_eligible_action": "feedback repair failure"
+  },
+  "end_to_end_accounting": {
+    "parent_router_plus_workers_tokens": 1475122,
+    "rankcount_saving_remaining_before_repair": 22228.5,
+    "repaired_total": "parent total plus selected repair tokens for each failed task",
+    "cost_boundary": "report whether selected repairs erase the remaining Rankcount saving; PrefixCount has no eligible fixed comparator"
+  },
+  "failure_policy": {
+    "incorrect_or_incomplete_cell": "repair arm failure",
+    "performance_miss": "repair arm failure",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch",
+    "post_hoc_feedback_threshold_or_action_change": false
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "b9838bb84c2f0d6012a9c041c969edf812161a75",
+    "worker_runner_sha256": "4f73aee9371711752e30688584321b968f06597b25b792c1eafd762891fe5385",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e",
+    "plugin_commit": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f"
+  },
+  "claim_boundary": "This is one development repair pair per failed task. A positive cell shows feedback closure from the actual slow state, not replicated repair reliability or held-out generalization."
+}
