@@ -1,0 +1,65 @@
+{
+  "schema": "acrouter-luna-max-profile-space-protocol-v1",
+  "frozen_at": "2026-08-23",
+  "run_authorized": true,
+  "purpose": "prospectively estimate whether a third algorithm family has useful same-model Profile routing space without assuming the winning action",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "actions": [
+    "neutral",
+    "p000",
+    "p100"
+  ],
+  "profiles": {
+    "neutral": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "p000": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282",
+    "p100": "ec850834450c09a0e6d736c606a8d2295b955206e00c0e7778f982809ca98bfe"
+  },
+  "tasks": {
+    "local": {
+      "task_id": "categorysum-h01-perf-p1b",
+      "task_sha256": "1cc503585d775a2a07817d2de29b8a83e54f09cb070e58b1297f20d76492343a"
+    },
+    "system": {
+      "task_id": "categorysum-h02-perf-p1b",
+      "task_sha256": "3237b46cea25bb3f5fdeab84552122cce70a3152f7865306de39f60eb3e7c0e2"
+    }
+  },
+  "matrix": {
+    "repetitions": 2,
+    "cells": 12,
+    "waves": 2,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "action_selection": {
+    "correctness_first": "an action must pass manager-hidden correctness in both repetitions",
+    "performance_eligibility": "task-level median steady time must be no more than 1.25x the fastest correct action",
+    "cost_choice": "choose the performance-eligible action with the lowest median complete input plus output tokens",
+    "tie_policy": "report actions within 5% token cost as practically tied; do not manufacture a preference"
+  },
+  "routing_space_gate": {
+    "actions_must_differ_by_task": true,
+    "best_fixed_action": "lowest two-task token total among actions performance-eligible on both tasks",
+    "minimum_dynamic_worker_token_saving_fraction": 0.15,
+    "live_router_tokens_admitted": 0
+  },
+  "manipulation_checks": {
+    "p000_expected_topology": "local 2/2 per task",
+    "p100_expected_topology": "coordinated 2/2 per task",
+    "topology_is_not_utility": true
+  },
+  "failure_policy": {
+    "incorrect_or_incomplete_cell": "action-task gate failure",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch",
+    "post_hoc_action_task_or_threshold_change": false
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "88a744550140653e5088f7548d4370acc4292818",
+    "runner_sha256": "4f73aee9371711752e30688584321b968f06597b25b792c1eafd762891fe5385",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e",
+    "plugin_commit": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f"
+  }
+}
