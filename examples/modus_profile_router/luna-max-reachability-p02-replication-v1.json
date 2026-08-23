@@ -1,0 +1,42 @@
+{
+  "schema": "acrouter-luna-max-reachability-p02-replication-protocol-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "purpose": "resolve bimodal Reachability-P02 neutral performance before scoring zero-candidate abstention",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "task_id": "reachability-p02-perf-p0",
+  "task_sha256": "ebe7506f0825456638f4f8e84bb63e74459c804d6d373138ed31bf31fc916723",
+  "actions": ["neutral", "p000", "p100"],
+  "matrix": {
+    "new_repetitions_per_action": 1,
+    "new_cells": 3,
+    "resulting_repetitions_per_action": 3,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "frozen_reference": {
+    "neutral_steady_seconds": [0.002115747394555001, 0.004023766921818606],
+    "p000_steady_seconds": [0.004045642898518054, 0.005020784836005987],
+    "p100_steady_seconds": [0.004988002929621871, 0.004148449867216186],
+    "median_tokens": {"neutral": 204124.5, "p000": 79699.0, "p100": 101223.0}
+  },
+  "decision": {
+    "performance_eligibility": "n=3 median no more than 1.25x fastest correct action",
+    "cost_choice": "lowest eligible n=3 median tokens with 5% tie",
+    "extractor_and_matcher_outputs_immutable": true
+  },
+  "failure_policy": {
+    "incorrect_or_incomplete_cell": "replication failure",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch"
+  },
+  "provenance": {
+    "parent_protocol_sha256": "582af8ddc38ccecc3ce101fdb003d617743087e3fb37719b8f17280fac866609",
+    "parent_worker_result_sha256": "b732702f3d17eb71e688dc0173b6241159c3cde6ff6c526ebc93dd991a48dc1a",
+    "parent_manager_sha256": "36b6349b02dd77eef7d60fc0d07c78723b662bcbf981d67372f58c36791ca40a",
+    "agent_router_commit_before_freeze": "5669e32"
+  },
+  "claim_boundary": "This replication resolves Worker eligibility only and cannot alter frozen Agent feature or typed matcher outputs."
+}
