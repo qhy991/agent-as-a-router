@@ -1,0 +1,156 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-rangesum-heldout-result-v1",
+  "captured_at": "2026-08-23",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-negative-heldout-profile-action-analogy-result",
+  "protocol": {
+    "path": "examples/modus_profile_router/luna-max-rangesum-heldout-v1.json",
+    "sha256": "4c90711c176e58da067b86b3dc05d515266fa88ae05cc5a05fb8da508a4d9352",
+    "frozen_commit": "84c6699",
+    "expected_routes_before_worker_outcome": null,
+    "automatic_redispatch": false
+  },
+  "task_source": {
+    "suite": "pre-existing Modus performance P0",
+    "family": "rangesum",
+    "current_luna_outcome_read_before_freeze": false,
+    "router_workspace_contains_rangesum_outcome": false
+  },
+  "execution": {
+    "router_planned_cells": 6,
+    "router_valid_execution_cells": 6,
+    "router_schema_valid_cells": 6,
+    "worker_planned_cells": 12,
+    "worker_valid_execution_cells": 12,
+    "worker_hidden_correctness_passed_cells": 12,
+    "worker_topology_fidelity_cells": 12,
+    "complete_usage_cells": 18,
+    "web_search_cells": 0,
+    "automatic_redispatches": 0,
+    "router_manifest_sha256": "1ec15a70f19b14d04c0a9e6e604f0603c0950792d360012ab0eae2189195a383",
+    "router_result_sha256": "2681582e873fb4f1c6c1a2786a64ef611695db5b2a80b08907776b4cde917ea1",
+    "worker_manifest_sha256": "37fb692a45b83d6a56c7545e3a7cbd896a0fd8b4f781346e01c4b7a1429f6e85",
+    "worker_result_sha256": "8879f099c3778d4d4b12f1e7e71f63bb822e642160694b79490969cf42edf602",
+    "manager_verification_sha256": "1acd51e146c0b82dd6317bffcefb76bec14b7226390e977e74a49481237d49e6"
+  },
+  "rangesum_p01": {
+    "neutral": {
+      "correctness": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [0.000521216349596898, 0.0005824014892539253],
+      "total_tokens": [126064, 127665],
+      "median_steady_seconds": 0.0005518089194254117,
+      "median_total_tokens": 126864.5,
+      "performance_eligible": true
+    },
+    "p000": {
+      "correctness": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [0.0004957336425945869, 0.0004952422275437129],
+      "total_tokens": [92094, 77287],
+      "median_steady_seconds": 0.0004954879350691499,
+      "median_total_tokens": 84690.5,
+      "performance_eligible": true
+    },
+    "p100": {
+      "correctness": "2/2",
+      "topology": "coordinated 2/2",
+      "steady_seconds": [0.0005255957031238268, 0.0005823706865157874],
+      "total_tokens": [86927, 83175],
+      "median_steady_seconds": 0.0005539831948198071,
+      "median_total_tokens": 85051.0,
+      "performance_eligible": true
+    },
+    "acceptable_actions": ["p000", "p100"],
+    "reason": "p000 and p100 are within the frozen 5% token tie band; neutral is eligible but materially more expensive"
+  },
+  "rangesum_p02": {
+    "neutral": {
+      "correctness": "2/2",
+      "topology": "coordinated 2/2",
+      "steady_seconds": [0.0004762846884744931, 0.0005588039550730173],
+      "total_tokens": [168157, 309749],
+      "median_steady_seconds": 0.0005175443217737552,
+      "median_total_tokens": 238953.0,
+      "performance_eligible": true
+    },
+    "p000": {
+      "correctness": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [0.0048991656874477485, 0.0033144187813149983],
+      "total_tokens": [77582, 73165],
+      "median_steady_seconds": 0.004106792234381373,
+      "median_total_tokens": 75373.5,
+      "performance_eligible": false
+    },
+    "p100": {
+      "correctness": "2/2",
+      "topology": "coordinated 2/2",
+      "steady_seconds": [0.003118133624980146, 0.003184044433623967],
+      "total_tokens": [101127, 118086],
+      "median_steady_seconds": 0.0031510890293020566,
+      "median_total_tokens": 109606.5,
+      "performance_eligible": false
+    },
+    "acceptable_actions": ["neutral"],
+    "reason": "neutral is the only action within 1.25x of the fastest correct median"
+  },
+  "worker_oracle": {
+    "acceptable_actions_by_stage": {
+      "rangesum-p01": ["p000", "p100"],
+      "rangesum-p02": ["neutral"]
+    },
+    "exact_lowest_cost_actions": {
+      "rangesum-p01": "p000",
+      "rangesum-p02": "neutral"
+    },
+    "best_fixed_eligible_profile": "neutral",
+    "best_fixed_worker_tokens": 365817.5,
+    "exact_dynamic_worker_tokens": 323643.5,
+    "exact_dynamic_saving_fraction": 0.11528699419792654,
+    "frozen_15_percent_gate_passed": false,
+    "useful_routing_space_observed": false
+  },
+  "task_only_router": {
+    "repetitions": 3,
+    "plans": [
+      {"rangesum-p01": "p000", "rangesum-p02": "p100"},
+      {"rangesum-p01": "neutral", "rangesum-p02": "neutral"},
+      {"rangesum-p01": "p000", "rangesum-p02": "p100"}
+    ],
+    "exact_plan_matches": "0/3",
+    "stage_accuracy": [0.5, 0.5, 0.5],
+    "stable": false,
+    "median_total_tokens": 47906
+  },
+  "evidence_analogy_router": {
+    "repetitions": 3,
+    "plan": {"rangesum-p01": "neutral", "rangesum-p02": "p100"},
+    "identical_plans": "3/3",
+    "exact_plan_matches": "0/3",
+    "stage_accuracy": [0.0, 0.0, 0.0],
+    "stable": true,
+    "median_total_tokens": 43802
+  },
+  "zero_token_unknown_policy": {
+    "plan": {"rangesum-p01": "neutral", "rangesum-p02": "neutral"},
+    "exact_plan_matches": "0/1",
+    "stage_accuracy": 0.5,
+    "router_tokens": 0
+  },
+  "result": {
+    "task_only_router_generalized": false,
+    "profile_level_evidence_analogy_generalized": false,
+    "evidence_analogy_outperformed_task_only": false,
+    "evidence_analogy_outperformed_zero_token_abstention": false,
+    "heldout_useful_profile_routing_space_observed": false,
+    "profile_plus_mechanism_action_representation_needed": true,
+    "next_action": "test a separately frozen RangeSum shared-prefix mechanism transfer to determine whether the failure is evidence retrieval or the Profile-only action representation"
+  },
+  "interpretation": {
+    "failure_mode": "the evidence Router chose p100 for the repeated-batch stage, but standard p100 changed topology without producing the fast shared-prefix implementation; it also chose costly neutral on P01",
+    "design_change": "Router evidence must name a verified mechanism and bind it to the Worker prompt, not merely choose a Profile label"
+  },
+  "claim_boundary": "This is a valid negative held-out analogy result for one pre-existing family. RangeSum outcomes were absent from Router workspaces and expected routes were not frozen. It shows that Profile-only analogy does not transfer, but does not yet test an action containing both p100 and an analogous shared-prefix mechanism."
+}

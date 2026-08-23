@@ -563,3 +563,21 @@ replicated proactive Router-plus-Worker estimate of 1,365,627 tokens. Known-
 state Profile-plus-mechanism dispatch is now reliable within this diagnostic;
 unseen mechanism transfer remains untested. See
 [`agentic-artifacts/modus-codex-luna-max-mechanism-aware-replication-v1.json`](../agentic-artifacts/modus-codex-luna-max-mechanism-aware-replication-v1.json).
+
+### Held-out RangeSum analogy result
+
+The pre-existing Modus P0 RangeSum pair was frozen before any current Luna
+outcome and omitted all action labels from Router workspaces. A complete
+neutral/p000/p100, two-task, two-repetition matrix passed 12/12 correctness and
+topology. P01 accepts p000 or p100 under the 5% token tie; P02 accepts only
+neutral. Its exact dynamic saving versus fixed neutral is 11.5%, below the 15%
+gate.
+
+Task-only Router plans were unstable and matched one of two stages in every
+repetition. More importantly, the evidence-analogy Router was stable but wrong:
+all three plans selected neutral/p100 and matched 0/2 constrained actions. The
+zero-token neutral/neutral abstention matched 1/2. Profile-level evidence
+analogy therefore did not transfer to held-out RangeSum. Standard p100 changed
+topology on P02 but did not produce the shared-prefix fast mechanism, confirming
+that the Router action must bind Profile and mechanism evidence. See
+[`agentic-artifacts/modus-codex-luna-max-rangesum-heldout-v1.json`](../agentic-artifacts/modus-codex-luna-max-rangesum-heldout-v1.json).

@@ -90,6 +90,7 @@
     "profile_luna_max_e2e_feedback_repair": "modus-codex-luna-max-e2e-feedback-repair-v1.json",
     "profile_luna_max_mechanism_aware_one_shot": "modus-codex-luna-max-mechanism-aware-one-shot-v1.json",
     "profile_luna_max_mechanism_aware_replication": "modus-codex-luna-max-mechanism-aware-replication-v1.json",
+    "profile_luna_max_rangesum_heldout": "modus-codex-luna-max-rangesum-heldout-v1.json",
     "inference_demo": "../examples/inference_demo.py",
     "ood176_matrix": "../data/matrices/phase2_ood/unified/matrix_acrouter_ood176.json",
     "ood176_long_results": "../data/matrices/phase2_ood/unified/results_long.csv",
