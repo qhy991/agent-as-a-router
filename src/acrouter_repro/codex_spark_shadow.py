@@ -10,7 +10,7 @@ from pathlib import Path
 import subprocess
 from typing import Any
 
-from .codex_spark_wave import _event_summary
+from .codex_spark_wave import SUPPORTED_REASONING_EFFORTS, _event_summary
 
 
 MANIFEST_SCHEMAS = {
@@ -18,7 +18,6 @@ MANIFEST_SCHEMAS = {
     "acrouter-codex-spark-shadow-v1",
 }
 RESULT_SCHEMA = "acrouter-codex-shadow-result-v1"
-SUPPORTED_MODELS = {"gpt-5.3-codex-spark", "gpt-5.6-sol"}
 ALLOWED_INITIAL_FILES = {"inbox/task.md"}
 ALLOWED_FINAL_FILES = {"inbox/task.md", "outbox/route-response.json"}
 
@@ -56,13 +55,14 @@ def validate_manifest(path: Path) -> dict[str, Any]:
     value = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(value, dict) or value.get("schema") not in MANIFEST_SCHEMAS:
         raise SparkShadowError("unsupported shadow manifest")
-    if value.get("model") not in SUPPORTED_MODELS:
+    model = value.get("model")
+    if model not in SUPPORTED_REASONING_EFFORTS:
         raise SparkShadowError("unsupported local Codex shadow model")
     if value.get("automatic_redispatch") is not False:
         raise SparkShadowError("automatic_redispatch must be false")
     effort = value.get("reasoning_effort")
-    if effort not in {"low", "medium", "high", "xhigh"}:
-        raise SparkShadowError("unsupported reasoning effort")
+    if effort not in SUPPORTED_REASONING_EFFORTS[model]:
+        raise SparkShadowError("unsupported local Codex shadow reasoning effort")
     timeout = value.get("timeout_seconds")
     if not isinstance(timeout, int) or isinstance(timeout, bool) or timeout < 1:
         raise SparkShadowError("timeout_seconds must be positive")
