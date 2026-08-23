@@ -42,6 +42,8 @@ that need to decide what to inspect before loading the full repository.
     performance-feasibility action crossover.
 18. Read `modus-codex-luna-max-six-family-summary-v1.json` for the aggregate
     selective-routing and abstention conclusion.
+19. Read `modus-codex-luna-max-stage-router-shadow-v1.json` for the task-only
+    versus evidence-bound twelve-stage Agent Router comparison.
 
 ## Scope
 

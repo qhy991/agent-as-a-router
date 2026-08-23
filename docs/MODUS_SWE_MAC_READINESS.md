@@ -485,3 +485,20 @@ RangeMin have no stable useful crossover. The resulting design must route only
 Profile Router is rejected; a selective Router with an explicit abstain action
 is supported. See
 [`agentic-artifacts/modus-codex-luna-max-six-family-summary-v1.json`](../agentic-artifacts/modus-codex-luna-max-six-family-summary-v1.json).
+
+### Twelve-stage Agent Router shadow
+
+A bounded Luna Max Router planned all twelve family/state stages in one turn.
+Three task-only repetitions were execution-valid and perfectly stable, but
+they all applied the same generic rule—p000 local and p100 system—and matched
+only 4/12 verified actions. Task structure alone is therefore not a sufficient
+Router state.
+
+Three evidence-bound repetitions matched all 12/12 actions exactly. Their
+median Router cost was 43,703 tokens, or 3.08% of the 1,418,863-token selective
+Worker plan. One batched Router plan costs less than Rankcount's 86,060.5
+Worker-token saving and leaves 42,357.5 tokens of that saving, but the zero-
+token evidence table remains strictly cheaper on known states. The Agent Router
+should therefore be reserved for unknown states or batched long-horizon plans;
+known states should use deterministic evidence lookup. See
+[`agentic-artifacts/modus-codex-luna-max-stage-router-shadow-v1.json`](../agentic-artifacts/modus-codex-luna-max-stage-router-shadow-v1.json).

@@ -1,0 +1,117 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-stage-router-shadow-result-v1",
+  "captured_at": "2026-08-23",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-task-only-versus-evidence-bound-agent-router-shadow",
+  "protocol": {
+    "path": "examples/modus_profile_router/luna-max-six-family-stage-router-shadow-v1.json",
+    "sha256": "b4d288a9fbc6e299046f2ab478329fa28dd61e5df969fbff5c28443b540478d1",
+    "frozen_commit": "1376b7d",
+    "winner_assumed_before_outcome": false
+  },
+  "harness": {
+    "model_slug": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "authentication": "ChatGPT login",
+    "bounded_shadow_runner_commit": "aff5b6c805c74e17f3ee62d466cfb518d02f2e74",
+    "bounded_shadow_runner_sha256": "4481102a10aa00142284442c87aae61b56f313eed69ac46e52c5ee41d80f73e6",
+    "automatic_redispatch": false,
+    "web_search_allowed": false,
+    "maximum_response_bytes": 1024
+  },
+  "execution": {
+    "planned_cells": 6,
+    "valid_execution_cells": 6,
+    "custody_clean_cells": 6,
+    "schema_valid_cells": 6,
+    "complete_usage_cells": 6,
+    "web_search_cells": 0,
+    "automatic_redispatches": 0,
+    "manifest_sha256": "720d8daea2acc45db5bcf429ee6360492ab97bbad2e559f52751f14b75009564",
+    "result_sha256": "af6e14f9e0544896405821e8cdfd9ca59985bb9e5bf4894593ac078b1b2286f0"
+  },
+  "expected_routes": {
+    "rankcount-local": "p000",
+    "rankcount-system": "neutral",
+    "membership-local": "p000",
+    "membership-system": "p000",
+    "categorysum-local": "p000",
+    "categorysum-system": "p000",
+    "anagram-local": "p000",
+    "anagram-system": "p000",
+    "rangemin-local": "neutral",
+    "rangemin-system": "neutral",
+    "prefixcount-local": "p100",
+    "prefixcount-system": "neutral"
+  },
+  "task_only": {
+    "repetitions": 3,
+    "exact_plan_matches": "0/3",
+    "stage_accuracy": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ],
+    "stable_identical_plans": "3/3",
+    "observed_rule": "p000 for every local stage and p100 for every system stage",
+    "total_tokens": [
+      44856,
+      45333,
+      44354
+    ],
+    "median_total_tokens": 44856,
+    "median_uncached_input_plus_output_tokens": 17720,
+    "interpretation": "task shape alone produced a stable but systematically wrong Profile heuristic"
+  },
+  "evidence_bound": {
+    "repetitions": 3,
+    "exact_plan_matches": "3/3",
+    "stage_accuracy": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "stable_identical_plans": "3/3",
+    "total_tokens": [
+      47351,
+      43623,
+      43703
+    ],
+    "median_total_tokens": 43703,
+    "median_uncached_input_plus_output_tokens": 18167,
+    "interpretation": "the Agent applies verified Profile evidence exactly when it is supplied"
+  },
+  "zero_token_table": {
+    "exact_plan_matches": "1/1",
+    "stage_accuracy": 1.0,
+    "router_tokens": 0,
+    "interpretation": "for already known task states, the deterministic evidence table dominates the Agent Router on cost"
+  },
+  "economics": {
+    "selective_worker_tokens_over_twelve_stages": 1418863.0,
+    "evidence_bound_router_median_tokens": 43703,
+    "router_overhead_fraction_of_selective_workers": 0.030801423393238107,
+    "rankcount_worker_saving": 86060.5,
+    "rankcount_saving_remaining_after_one_batched_router_plan": 42357.5,
+    "rankcount_saving_retained_fraction": 0.49218282487319964,
+    "one_plan_cost_below_rankcount_worker_saving": true,
+    "zero_token_table_still_cheaper": true
+  },
+  "result": {
+    "task_structure_only_router_supported": false,
+    "evidence_bound_agent_router_application_fidelity": true,
+    "evidence_is_required_for_model_specific_profile_routing": true,
+    "batched_agent_router_cost_can_be_amortized": true,
+    "agent_router_beats_zero_token_table_on_known_states": false,
+    "live_agent_router_net_benefit_on_unseen_states": "not evaluated",
+    "next_action": "freeze a new composite or held-out long-horizon task where the zero-token table lacks a label, then compare abstention, evidence retrieval, and Agent inference"
+  },
+  "design_implication": {
+    "router_memory": "verified model x family x state x Profile evidence, not task-shape intuition",
+    "decision_granularity": "batch many stages into one Router turn to amortize cost",
+    "known_state_behavior": "use the zero-token table",
+    "unknown_state_behavior": "abstain or invoke the Agent Router under an explicit cost budget"
+  },
+  "claim_boundary": "The task-only prompt and evidence-bound prompt were designed after the six-family outcomes. The result proves that generic local/system reasoning is insufficient and that Luna can faithfully apply supplied evidence, while measuring a 43,703-token batched planning overhead. It does not establish held-out Router generalization or superiority to a zero-token table."
+}
