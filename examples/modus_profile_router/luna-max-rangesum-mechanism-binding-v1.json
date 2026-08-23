@@ -1,0 +1,64 @@
+{
+  "schema": "acrouter-luna-max-rangesum-mechanism-binding-protocol-v1",
+  "frozen_at": "2026-08-23",
+  "run_authorized": true,
+  "purpose": "isolate whether held-out RangeSum analogy failed because the Router emitted p100 without binding the analogous shared-prefix mechanism",
+  "classification": "post-outcome representation diagnostic",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "profile": "p100",
+  "profile_sha256": "ec850834450c09a0e6d736c606a8d2295b955206e00c0e7778f982809ca98bfe",
+  "task": {
+    "task_id": "rangesum-p02-perf-p0",
+    "task_sha256": "38e40d5062d023c00ead32250602d5857854dcdb044ec70f6df75e2da8b0856a",
+    "mechanism_id": "shared-prefix-sum-v1",
+    "mechanism_binding": "build prefix sum once in observer.prepare_input through shared.py and consume without rebuilding in target.answer"
+  },
+  "matrix": {
+    "repetitions": 2,
+    "cells": 2,
+    "clean_starter_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "frozen_comparators": {
+    "neutral": {
+      "median_steady_seconds": 0.0005175443217737552,
+      "median_total_tokens": 238953.0
+    },
+    "standard_p100_without_bound_mechanism": {
+      "median_steady_seconds": 0.0031510890293020566,
+      "median_total_tokens": 109606.5
+    },
+    "performance_threshold_seconds": 0.000646930402217194
+  },
+  "gates": {
+    "hidden_correctness": "2/2",
+    "coordinated_topology": "2/2",
+    "performance": "2/2 no slower than 0.000646930402217194 seconds",
+    "usage_complete": "2/2",
+    "cost": "median total tokens lower than neutral median 238953"
+  },
+  "decision": {
+    "representation_binding_supported": "all gates pass and bound-mechanism p100 is faster than standard p100",
+    "cross_family_mechanism_transfer_supported": "shared-prefix-sum-v1 passes 2/2 on RangeSum after being derived from other repeated-input families",
+    "heldout_router_success": false,
+    "reason": "the exact RangeSum mechanism prompt was authored after the held-out outcome"
+  },
+  "failure_policy": {
+    "incorrect_or_incomplete_cell": "binding failure",
+    "performance_miss": "binding failure",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch",
+    "post_hoc_threshold_comparator_or_mechanism_change": false
+  },
+  "provenance": {
+    "heldout_rangesum_evidence_sha256": "4f4d46d4d03e31a2a9a8e274ad199e82e941472474bc68389aeede21d7dee30a",
+    "agent_router_commit_before_freeze": "52b478be2a9460605187015fe594b473fb0afc88",
+    "worker_runner_sha256": "4f73aee9371711752e30688584321b968f06597b25b792c1eafd762891fe5385",
+    "modus_p0_manifest_lock_sha256": "c377de7da1da37d113e7859bbee2d730d53603b4c30c6fdb4a878170f9ce4f43",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e",
+    "plugin_commit": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f"
+  },
+  "claim_boundary": "This diagnostic can validate the Profile-plus-mechanism action representation and cross-family mechanism execution, but cannot repair the failed outcome-blind Router generalization claim."
+}
