@@ -36,6 +36,8 @@ that need to decide what to inspect before loading the full repository.
     Profile-agnostic prospective routing-space test on a third family.
 15. Read `modus-codex-luna-max-anagram-e-axis-v1.json` for the preliminary
     fourth-family action crossover and failed economic gate.
+16. Read `modus-codex-luna-max-rangemin-e-axis-v1.json` for the fifth-family
+    cost-versus-performance tradeoff and replicated no-routing result.
 
 ## Scope
 

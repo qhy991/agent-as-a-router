@@ -1,0 +1,171 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-profile-space-result-v1",
+  "captured_at": "2026-08-23",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-negative-profile-routing-space-with-independent-action-replication",
+  "protocol": {
+    "path": "examples/modus_profile_router/luna-max-rangemin-profile-space-v1.json",
+    "sha256": "2212c1005622b81d53d648ad370c2763c5344549c0104d18125b515d5764996a",
+    "scoring_contract_path": "examples/modus_profile_router/luna-max-profile-space-scoring-v1.json",
+    "scoring_contract_sha256": "cebba3a6b68f49fa7761d2d92d69a5a115cb96f0d20999c8b8a7f7ab2218a56f",
+    "frozen_commit": "c2b7827",
+    "winner_assumed_before_outcome": false
+  },
+  "harness": {
+    "model_slug": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "authentication": "ChatGPT login",
+    "profile_delivery": "canonical Profile text prepended to the task prompt",
+    "runner_sha256": "4f73aee9371711752e30688584321b968f06597b25b792c1eafd762891fe5385",
+    "plugin_commit": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e",
+    "modus_task_lock_sha256": "9c129f14a59a6635a1a452c52f3d5bd60fecf363fdfc69556bf777cf0ef43f97",
+    "modus_projects_sha256": "3f978f5f2ffbeecc876a38659fd68b51be18d32bbd91fa71b5ce3684d0f30a88",
+    "modus_verifier_sha256": "644eb7be12ef8c34ed8ed8e0355b97d84e01ce37da343ba838e3a795a98ad19b"
+  },
+  "task_family": {
+    "name": "rangemin",
+    "local_task": "rangemin-h01-perf-p1b",
+    "system_task": "rangemin-h02-perf-p1b",
+    "local_task_sha256": "6328b2e2becf50d53513d6dff8f1762fea8a1b3508125c30b86e4a493f06f4d5",
+    "system_task_sha256": "ebbd3810675ffc06b18dabac1db60de87c605cb23a61d0e8f0208be196543997"
+  },
+  "execution": {
+    "repetitions_per_action_and_task": 2,
+    "planned_cells": 12,
+    "valid_execution_cells": 12,
+    "correct_cells": 12,
+    "complete_usage_cells": 12,
+    "web_search_cells": 0,
+    "automatic_redispatches": 0,
+    "manifests": {
+      "v1": "2be5f7cb7b4d1e1ff4f90340790bace2b6a4c4b8b1e1f1b42ab4956a05a08ffb",
+      "v2": "e35730523b9bf80b5f908746fda8d89adc0213bd1049aa70b7a63c1543de9e2d"
+    },
+    "results": {
+      "v1": "ac39f0851924a96b8234b1fa4c9db38a4e84adcfe54f3f65a4505b1466b92398",
+      "v2": "a599e42a3858edb78090a0ed8ec3cf50d31bd4474a3917d65b4ea3e88bc43bf2"
+    },
+    "measurement": "canonical Modus hidden correctness, changed-path topology, seven-round steady median, and complete Codex input plus output tokens"
+  },
+  "local": {
+    "neutral": {
+      "correct": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [0.005475045578123172, 0.0022811692696222963],
+      "total_tokens": [173365, 302569],
+      "median_steady_seconds": 0.003878107423872734,
+      "median_total_tokens": 237967.0,
+      "median_uncached_input_plus_output_tokens": 56079.0
+    },
+    "p000": {
+      "correct": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [0.006296513351571775, 0.006126419593783794],
+      "total_tokens": [82923, 80657],
+      "median_steady_seconds": 0.006211466472677785,
+      "median_total_tokens": 81790.0,
+      "median_uncached_input_plus_output_tokens": 26494.0
+    },
+    "p100": {
+      "correct": "2/2",
+      "topology": "coordinated 2/2",
+      "steady_seconds": [0.004774439124958008, 0.006386602867223701],
+      "total_tokens": [79230, 109766],
+      "median_steady_seconds": 0.005580520996090854,
+      "median_total_tokens": 94498.0,
+      "median_uncached_input_plus_output_tokens": 46114.0
+    },
+    "performance_eligible_actions": ["neutral"],
+    "selected_action": "neutral",
+    "ordering_unstable_across_two_runs": true
+  },
+  "system": {
+    "neutral": {
+      "correct": "2/2",
+      "topology": "coordinated 1/2; local 1/2",
+      "steady_seconds": [0.0032805346679651848, 0.0032434238281666694],
+      "total_tokens": [326151, 177467],
+      "median_steady_seconds": 0.003261979248065927,
+      "median_total_tokens": 251809.0,
+      "median_uncached_input_plus_output_tokens": 66337.0
+    },
+    "p000": {
+      "correct": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [0.0190809570312922, 0.0166120690309981],
+      "total_tokens": [87553, 90856],
+      "median_steady_seconds": 0.01784651303114515,
+      "median_total_tokens": 89204.5,
+      "median_uncached_input_plus_output_tokens": 35828.5
+    },
+    "p100": {
+      "correct": "2/2",
+      "topology": "coordinated 2/2",
+      "steady_seconds": [0.028329406249213207, 0.14869969800201943],
+      "total_tokens": [181632, 106145],
+      "median_steady_seconds": 0.08851455212561632,
+      "median_total_tokens": 143888.5,
+      "median_uncached_input_plus_output_tokens": 46480.5
+    },
+    "performance_eligible_actions": ["neutral"],
+    "selected_action": "neutral",
+    "neutral_to_p000_median_speedup": 5.470991576611689
+  },
+  "manipulation": {
+    "p000_local_topology": "4/4",
+    "p100_coordinated_topology": "4/4",
+    "passed": true,
+    "interpretation": "topology remained controllable, but only neutral consistently found a performance-eligible RangeMin mechanism"
+  },
+  "policy_score": {
+    "observed_actions": {"local": "neutral", "system": "neutral"},
+    "fixed_neutral_worker_tokens": 489776.0,
+    "dynamic_worker_tokens": 489776.0,
+    "dynamic_saving_vs_fixed_fraction": 0.0,
+    "frozen_15_percent_worker_saving_gate_passed": false,
+    "routing_space_observed": false
+  },
+  "independent_local_replication": {
+    "protocol_path": "examples/modus_profile_router/luna-max-rangemin-local-replication-v1.json",
+    "protocol_sha256": "c580ce57b0f4ce00fc9e6ec24fd4b53bd03563958048497d987d17f8953dfbfb",
+    "manifest_sha256": "159d06a94c0ff0853a65fed12e10f436665050dc4ad26a1a0eea1a1dbe2b3421",
+    "result_sha256": "c75a0986f29bdf0690ab10a49ef969b5057bec99c4016bf77aab582121bafa97",
+    "valid_execution_cells": 2,
+    "correct_cells": 2,
+    "neutral": {
+      "new_steady_seconds": 0.0023770123710846747,
+      "new_total_tokens": 161907,
+      "three_run_median_steady_seconds": 0.0023770123710846747,
+      "three_run_median_total_tokens": 173365
+    },
+    "p100": {
+      "new_steady_seconds": 0.007250562828176044,
+      "new_total_tokens": 100336,
+      "three_run_median_steady_seconds": 0.006386602867223701,
+      "three_run_median_total_tokens": 100336
+    },
+    "three_run_p100_to_neutral_seconds_ratio": 2.686819364052942,
+    "stable_local_action": "neutral",
+    "stable_action_crossover_passed": false
+  },
+  "cross_family_state": {
+    "rankcount": "stable useful routing space",
+    "membership": "no useful routing space",
+    "categorysum": "no useful routing space",
+    "anagram": "initial crossover not independently replicated",
+    "rangemin": "no useful routing space; neutral required for performance",
+    "families_with_stable_useful_routing_space": "1/5"
+  },
+  "result": {
+    "profile_behavior_controllable": true,
+    "profile_cost_effect_observed": true,
+    "lowest_token_profile_performance_eligible": false,
+    "profile_routing_space_observed": false,
+    "stable_profile_action_crossover_observed": false,
+    "live_agent_router_justified": false,
+    "next_action": "complete prefixcount under the same scoring contract, then aggregate the six-family prevalence and abstention policy"
+  },
+  "claim_boundary": "RangeMin is a valid negative routing-space result and a positive cost-versus-performance tradeoff result. p000 used fewer tokens but was performance-ineligible; neutral was the only stable eligible action on both task states. A separately frozen third local replication confirmed neutral rather than the first-run p100 signal."
+}

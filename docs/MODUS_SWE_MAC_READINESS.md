@@ -436,3 +436,19 @@ p000 differ by only 5.2% steady time and 1.9% tokens. The initial Anagram
 crossover therefore did not independently replicate and is not a Router
 action label. After replication, only rankcount has a stable and economically
 useful action crossover among the four measured Luna families.
+
+### Prospective RangeMin Profile-space result
+
+RangeMin increased task difficulty and completed 12/12 valid and correct cells
+under the same scoring contract. Although p000 used much fewer tokens, its
+two-run local and system medians were 6.21 ms and 17.85 ms. Neutral was the only
+performance-eligible action on both states, at 3.88 ms local and 3.26 ms
+system. Thus the cheapest Profile was not the best constrained action.
+
+The local neutral/p100 ordering reversed between the two original runs, so a
+separately frozen third repetition was added. Neutral measured 2.38 ms and p100
+7.25 ms; their three-run medians differ by 2.69 times in neutral's favor. The
+first-run p100 signal did not replicate. RangeMin therefore has no action
+crossover or routing saving, but it supplies direct evidence that Profile cost
+and performance must be gated separately. See
+[`agentic-artifacts/modus-codex-luna-max-rangemin-e-axis-v1.json`](../agentic-artifacts/modus-codex-luna-max-rangemin-e-axis-v1.json).
