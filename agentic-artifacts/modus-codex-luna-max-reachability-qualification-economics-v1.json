@@ -1,0 +1,85 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-reachability-qualification-economics-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "post-outcome-evidence-acquisition-economic-replay",
+  "source": {
+    "reachability_evidence_path": "agentic-artifacts/modus-codex-luna-max-reachability-feature-heldout-v1.json",
+    "reachability_evidence_sha256": "06b2b8e3cc38da9e58fdf55cc0605763c350c69993a2a9b864ca3916518cb526",
+    "base_protocol_sha256": "582af8ddc38ccecc3ce101fdb003d617743087e3fb37719b8f17280fac866609",
+    "replication_protocol_sha256": "33300861264cece48cec9f82256eb993f0b98da66d77652a033d7517995636bb",
+    "accounting": "actual complete input plus output tokens from every source cell"
+  },
+  "deployment": {
+    "neutral_two_stage_tokens": 347262,
+    "promoted_p000_two_stage_tokens": 164656,
+    "saving_per_future_deployment_tokens": 182606,
+    "saving_per_future_deployment_fraction": 0.5258450391923102,
+    "correctness_and_performance": "both neutral and promoted p000 satisfy frozen task gates after replication"
+  },
+  "full_qualification": {
+    "agent_feature_parser_tokens": 43452,
+    "base_twelve_cell_worker_tokens": 1506819,
+    "three_cell_p02_replication_tokens": 425776,
+    "worker_qualification_tokens": 1932595,
+    "parser_plus_qualification_tokens": 1976047,
+    "profiles": ["neutral", "p000", "p100"],
+    "break_even_future_deployments": 11,
+    "net_tokens_after_10_deployments": -149987,
+    "net_tokens_after_11_deployments": 32619
+  },
+  "staged_neutral_p000_replay": {
+    "classification": "post-outcome counterfactual policy replay",
+    "first_stage_profiles": ["neutral", "p000"],
+    "base_eight_cell_tokens": 1102277,
+    "ambiguous_p02_neutral_p000_replication_tokens": 282104,
+    "worker_qualification_tokens": 1384381,
+    "agent_feature_parser_tokens": 43452,
+    "parser_plus_qualification_tokens": 1427833,
+    "excluded_p100_cell_tokens": 548214,
+    "qualification_token_reduction_fraction": 0.28366729707983307,
+    "total_acquisition_token_reduction_fraction": 0.27742963603598497,
+    "break_even_future_deployments": 8,
+    "net_tokens_after_10_deployments": 398227,
+    "net_tokens_after_11_deployments": 580833
+  },
+  "staged_evidence_gates": {
+    "reachability_p01": {
+      "neutral_correctness": "2/2",
+      "p000_correctness": "2/2",
+      "p000_performance_eligible": true,
+      "p000_token_saving_fraction": 0.5637183262051624
+    },
+    "reachability_p02": {
+      "neutral_correctness": "3/3",
+      "p000_correctness": "3/3",
+      "p000_performance_eligible_after_ambiguity_replication": true,
+      "p000_token_saving_fraction": 0.48210318593077084
+    },
+    "family_p000_saving_fraction": 0.5258450391923102,
+    "frozen_15_percent_gate_would_pass": true
+  },
+  "proposed_prospective_policy": {
+    "step_1": "use trusted features or one bounded parser only when metadata is absent",
+    "step_2": "run neutral and lowest-cost qualified candidate p000 with two repetitions per task",
+    "step_3": "require correctness first, then candidate median performance within 1.25x of the fastest baseline, then at least 15% token saving",
+    "step_4": "when performance ordering is ambiguous or crosses the eligibility boundary across repetitions, add one paired neutral/candidate replication",
+    "step_5": "promote p000 and stop if all gates pass; test p100 only when p000 fails or a stricter performance objective requires another action",
+    "zero_candidate_online_state": "defer/unqualified; neutral may be a temporary safe fallback but not a cost verdict"
+  },
+  "result": {
+    "one_off_full_qualification_token_efficient": false,
+    "full_qualification_requires_repeated_deployment_to_amortize": true,
+    "full_break_even_deployments": 11,
+    "staged_replay_reduces_evidence_cost": true,
+    "staged_break_even_deployments": 8,
+    "staged_policy_prospectively_validated": false,
+    "next_action": "freeze the staged neutral-p000-first policy before outcomes on a new family or repeated-task simulation"
+  },
+  "interpretation": {
+    "why": "finding a 52.6% cheaper Profile consumed far more tokens than one deployment saves; evidence acquisition is rational only when the task family will recur enough times",
+    "minimum_design_change": "Router policy must account for expected future reuse of the evidence itself, not only reuse inside the optimized program"
+  },
+  "claim_boundary": "All staged-policy choices were evaluated after observing Reachability outcomes. The arithmetic uses actual source-cell tokens, but the reduced policy is a counterfactual replay and must be frozen prospectively before promotion claims."
+}

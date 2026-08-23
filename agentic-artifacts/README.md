@@ -70,6 +70,8 @@ that need to decide what to inspect before loading the full repository.
     closed feature parser and safe typed-matcher replay.
 32. Read `modus-codex-luna-max-reachability-feature-heldout-v1.json` for new-
     family parsing and the no-candidate neutral-fallback cost failure.
+33. Read `modus-codex-luna-max-reachability-qualification-economics-v1.json`
+    for full-versus-staged evidence cost and deployment break-even.
 
 ## Scope
 

@@ -101,6 +101,7 @@
     "profile_luna_max_lookup_interval_heldout": "modus-codex-luna-max-lookup-interval-heldout-v1.json",
     "profile_luna_max_task_feature_extraction": "modus-codex-luna-max-task-feature-extraction-v1.json",
     "profile_luna_max_reachability_feature_heldout": "modus-codex-luna-max-reachability-feature-heldout-v1.json",
+    "profile_luna_max_reachability_qualification_economics": "modus-codex-luna-max-reachability-qualification-economics-v1.json",
     "inference_demo": "../examples/inference_demo.py",
     "ood176_matrix": "../data/matrices/phase2_ood/unified/matrix_acrouter_ood176.json",
     "ood176_long_results": "../data/matrices/phase2_ood/unified/results_long.csv",

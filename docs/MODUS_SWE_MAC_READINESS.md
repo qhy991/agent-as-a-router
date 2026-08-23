@@ -694,3 +694,18 @@ resolving zero candidates directly to neutral missed a large Profile cost
 opportunity. Zero candidate must mean unqualified/defer and trigger bounded
 offline Profile qualification, not assert that neutral is optimal. See
 [`agentic-artifacts/modus-codex-luna-max-reachability-feature-heldout-v1.json`](../agentic-artifacts/modus-codex-luna-max-reachability-feature-heldout-v1.json).
+
+### Reachability evidence-acquisition economics
+
+The complete Parser plus 15-cell qualification path consumed 1,976,047 actual
+tokens. Promoting p000 saves 182,606 tokens per future two-stage deployment, so
+the full evidence investment breaks even only on deployment 11. At ten
+deployments it remains 149,987 tokens negative.
+
+A post-outcome neutral/p000-first replay excludes 548,214 p100 tokens, retains
+the paired P02 ambiguity replication, and reduces acquisition cost to
+1,427,833 tokens. Its break-even is deployment 8 and its net saving after ten
+deployments is 398,227 tokens. This staged policy has not been prospectively
+validated; it defines the next experiment. Evidence acquisition must be gated
+by expected future family reuse, not only by per-deployment savings. See
+[`agentic-artifacts/modus-codex-luna-max-reachability-qualification-economics-v1.json`](../agentic-artifacts/modus-codex-luna-max-reachability-qualification-economics-v1.json).
