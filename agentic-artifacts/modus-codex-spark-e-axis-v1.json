@@ -98,6 +98,17 @@
       "preferred_action_local": "p000",
       "preferred_action_system": "p100",
       "reason": "local chooses lower cost at matched performance; system chooses large performance gain at modest extra cost"
+    },
+    "router_economic_gate_frozen_before_shadow_outcome": {
+      "best_fixed_performance_eligible_action": "p100",
+      "two_task_fixed_p100_worker_tokens": 551883.5,
+      "two_task_routed_worker_tokens_before_router": 459549.0,
+      "worker_only_saving_fraction": 0.16730795539275953,
+      "router_total_tokens_for_any_net_saving_maximum": 92334.5,
+      "router_tokens_per_decision_for_any_net_saving_maximum": 46167.25,
+      "router_total_tokens_for_frozen_15_percent_saving_maximum": 9551.975,
+      "router_tokens_per_decision_for_frozen_15_percent_saving_maximum": 4775.9875,
+      "decision_rule": "a correct Router exceeding the applicable token ceiling does not establish net benefit"
     }
   },
   "result": {

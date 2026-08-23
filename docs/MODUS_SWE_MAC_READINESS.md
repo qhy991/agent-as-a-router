@@ -305,3 +305,11 @@ This is the first clean Spark action crossover: choose p000 for local low-cost
 work and p100 for shared multi-batch performance. It supports moving to a
 Profile-blind shadow Router; it does not yet establish Router net benefit. See
 [`agentic-artifacts/modus-codex-spark-e-axis-v1.json`](../agentic-artifacts/modus-codex-spark-e-axis-v1.json).
+
+Before reading the shadow Router outcome, the economic gate is fixed. The
+worker-only routed policy costs 459,549 tokens across the two tasks versus
+551,883.5 for the best performance-eligible fixed action, p100. Any net saving
+allows at most 92,334.5 Router tokens in total. The existing 15% saving gate is
+stricter: at most 9,551.975 total, or 4,775.9875 per decision. A correct Agent
+Router above that ceiling is not a net-benefit result; for these obvious states,
+the zero-token batch-count rule remains the required ablation.
