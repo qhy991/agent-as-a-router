@@ -388,3 +388,23 @@ useful Profile routing space, and the rankcount-derived local/system policy did
 not transfer. Router state must include algorithm family or an observed
 bottleneck mechanism, not only Worker model and batch structure. See
 [`agentic-artifacts/modus-codex-luna-max-membership-e-axis-v1.json`](../agentic-artifacts/modus-codex-luna-max-membership-e-axis-v1.json).
+
+### Prospective CategorySum Profile-space result
+
+A third Luna family was frozen without assuming the winning action. Every
+correct action within 1.25 times the fastest median remained eligible, and
+actions within 5% token cost were treated as tied. The two-wave matrix again
+completed 12/12 valid and correct cells without Web Search or redispatch.
+
+All actions were performance-eligible on both task states. Local selected p000,
+which used 30.3% fewer median total tokens than neutral. On system, p100 used
+4.7% fewer tokens than p000, so the two were a pre-registered practical tie.
+p100 changed all three modules in both system runs but never moved aggregation
+outside the repeated target call.
+
+Even the exact, non-robust local-p000/system-p100 Oracle saved only 2.5% against
+fixed p000, failing the 15% gate. CategorySum therefore has no useful Profile
+routing space. Across the three Luna families measured so far, Profile cost
+effects repeat, but only rankcount has shown an action crossover; membership
+and CategorySum both favor a near-fixed low-cost policy. See
+[`agentic-artifacts/modus-codex-luna-max-categorysum-e-axis-v1.json`](../agentic-artifacts/modus-codex-luna-max-categorysum-e-axis-v1.json).

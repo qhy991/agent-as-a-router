@@ -1,0 +1,209 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-profile-space-result-v1",
+  "captured_at": "2026-08-23",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-negative-prospective-profile-routing-space-result",
+  "protocol": {
+    "path": "examples/modus_profile_router/luna-max-categorysum-profile-space-v1.json",
+    "sha256": "1cbd778ebd28734fccf3439d5b41a8e7a9d8e3d4c0dc213704dd7a26136298e7",
+    "frozen_commit": "9d7c4eb",
+    "winner_assumed_before_outcome": false,
+    "performance_eligibility_ratio": 1.25,
+    "practical_token_tie_fraction": 0.05,
+    "minimum_routing_saving_fraction": 0.15
+  },
+  "harness": {
+    "model_slug": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "authentication": "ChatGPT login",
+    "profile_delivery": "canonical Profile text prepended to the task prompt",
+    "runner_sha256": "4f73aee9371711752e30688584321b968f06597b25b792c1eafd762891fe5385",
+    "plugin_commit": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e",
+    "modus_task_lock_sha256": "9c129f14a59a6635a1a452c52f3d5bd60fecf363fdfc69556bf777cf0ef43f97",
+    "modus_projects_sha256": "3f978f5f2ffbeecc876a38659fd68b51be18d32bbd91fa71b5ce3684d0f30a88",
+    "modus_verifier_sha256": "644eb7be12ef8c34ed8ed8e0355b97d84e01ce37da343ba838e3a795a98ad19b"
+  },
+  "task_family": {
+    "name": "categorysum",
+    "local_task": "categorysum-h01-perf-p1b",
+    "system_task": "categorysum-h02-perf-p1b",
+    "local_task_sha256": "1cc503585d775a2a07817d2de29b8a83e54f09cb070e58b1297f20d76492343a",
+    "system_task_sha256": "3237b46cea25bb3f5fdeab84552122cce70a3152f7865306de39f60eb3e7c0e2"
+  },
+  "execution": {
+    "repetitions_per_action_and_task": 2,
+    "planned_cells": 12,
+    "valid_execution_cells": 12,
+    "correct_cells": 12,
+    "complete_usage_cells": 12,
+    "web_search_cells": 0,
+    "automatic_redispatches": 0,
+    "manifests": {
+      "v1": "fc062d2e0dd139ba3447b90c8a921c86c0d44c5000afd063fc87a83a97466eff",
+      "v2": "2f7c91d2012db40bc959f845a1c0101e7310e21fd2dc0ddd949adb2a928c6dd7"
+    },
+    "results": {
+      "v1": "879a5f010be810a9dec1d17258ac0a53b477950f59410ae9a9526ecfa165deea",
+      "v2": "249f24fc5d24c8d49dd6399b641e9fd1802a69ecafcbd2110ab577cc07cf7479"
+    },
+    "correctness": "canonical Modus public plus manager-hidden verifier",
+    "topology": "canonical Modus changed-path classifier",
+    "performance": "canonical Modus seven-round steady median",
+    "cost": "complete Codex turn input plus output tokens"
+  },
+  "local": {
+    "neutral": {
+      "correct": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [
+        0.0006307832441621031,
+        0.0006317930507577785
+      ],
+      "total_tokens": [
+        126502,
+        93219
+      ],
+      "median_steady_seconds": 0.0006312881474599408,
+      "median_total_tokens": 109860.5,
+      "median_uncached_input_plus_output_tokens": 32420.5
+    },
+    "p000": {
+      "correct": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [
+        0.0006244061279403468,
+        0.0006300650224773108
+      ],
+      "total_tokens": [
+        75458,
+        77743
+      ],
+      "median_steady_seconds": 0.0006272355752088288,
+      "median_total_tokens": 76600.5,
+      "median_uncached_input_plus_output_tokens": 18360.5
+    },
+    "p100": {
+      "correct": "2/2",
+      "topology": "coordinated 2/2",
+      "steady_seconds": [
+        0.0006235141191268667,
+        0.0006387211913931878
+      ],
+      "total_tokens": [
+        89134,
+        101187
+      ],
+      "median_steady_seconds": 0.0006311176552600273,
+      "median_total_tokens": 95160.5,
+      "median_uncached_input_plus_output_tokens": 32184.5
+    },
+    "performance_eligible_actions": [
+      "neutral",
+      "p000",
+      "p100"
+    ],
+    "selected_action": "p000",
+    "p000_token_saving_vs_neutral_fraction": 0.30274757533417385
+  },
+  "system": {
+    "neutral": {
+      "correct": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [
+        0.014632882172008976,
+        0.01503184049988704
+      ],
+      "total_tokens": [
+        154090,
+        150286
+      ],
+      "median_steady_seconds": 0.014832361335948008,
+      "median_total_tokens": 152188.0,
+      "median_uncached_input_plus_output_tokens": 34812.0
+    },
+    "p000": {
+      "correct": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [
+        0.014820779296769615,
+        0.01507769531235681
+      ],
+      "total_tokens": [
+        84082,
+        93247
+      ],
+      "median_steady_seconds": 0.014949237304563212,
+      "median_total_tokens": 88664.5,
+      "median_uncached_input_plus_output_tokens": 19800.5
+    },
+    "p100": {
+      "correct": "2/2",
+      "topology": "coordinated 2/2",
+      "steady_seconds": [
+        0.01519940493744798,
+        0.015094829421741451
+      ],
+      "total_tokens": [
+        86566,
+        82413
+      ],
+      "median_steady_seconds": 0.015147117179594716,
+      "median_total_tokens": 84489.5,
+      "median_uncached_input_plus_output_tokens": 35209.5,
+      "shared_preprocessing_runs": "0/2"
+    },
+    "performance_eligible_actions": [
+      "neutral",
+      "p000",
+      "p100"
+    ],
+    "lowest_exact_cost_action": "p100",
+    "practical_tie_actions": [
+      "p000",
+      "p100"
+    ],
+    "p100_token_saving_vs_p000_fraction": 0.047087616802666266,
+    "selected_action": null
+  },
+  "manipulation": {
+    "p000_local_topology": "4/4",
+    "p100_coordinated_topology": "4/4",
+    "passed": true,
+    "p100_system_shared_preprocessing": "0/2",
+    "interpretation": "the Profile controls changed-file topology but does not reliably activate the shared preprocessing mechanism"
+  },
+  "policy_score": {
+    "fixed_profiles": {
+      "neutral_worker_tokens": 262048.5,
+      "p000_worker_tokens": 165265.0,
+      "p100_worker_tokens": 179650.0
+    },
+    "exact_cost_oracle": {
+      "local": "p000",
+      "system": "p100",
+      "worker_tokens": 161090.0,
+      "saving_vs_fixed_p000_fraction": 0.02526245726560372
+    },
+    "robust_action_crossover_observed": false,
+    "frozen_15_percent_worker_saving_gate_passed": false,
+    "routing_space_observed": false
+  },
+  "cross_family_state": {
+    "rankcount": "action crossover observed",
+    "membership": "no useful routing space",
+    "categorysum": "no useful routing space",
+    "families_with_useful_routing_space": "1/3",
+    "interpretation": "Profile cost effects repeat, but task-specific action crossover has not generalized across families"
+  },
+  "result": {
+    "profile_behavior_controllable": true,
+    "profile_cost_effect_observed": true,
+    "profile_routing_space_observed": false,
+    "task_family_required_in_router_context": true,
+    "live_agent_router_justified": false,
+    "next_action": "complete the same prospective matrix on additional pre-existing P1b families before estimating family-level crossover prevalence"
+  },
+  "claim_boundary": "This is a valid negative prospective result for one additional Luna Max algorithm family. It supports controllable behavior and cost, but does not support a useful within-family Router because the exact dynamic Oracle saves only 2.5% and the robust system action is tied."
+}

@@ -32,6 +32,8 @@ that need to decide what to inspect before loading the full repository.
     task-by-Profile cost/performance crossover and cross-model boundary.
 13. Read `modus-codex-luna-max-membership-e-axis-v1.json` for the negative
     prospective transfer test on a second algorithm family.
+14. Read `modus-codex-luna-max-categorysum-e-axis-v1.json` for the
+    Profile-agnostic prospective routing-space test on a third family.
 
 ## Scope
 
