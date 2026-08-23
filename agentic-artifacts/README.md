@@ -56,6 +56,8 @@ that need to decide what to inspect before loading the full repository.
     outcome-blind Profile-action analogy test on a seventh family.
 25. Read `modus-codex-luna-max-rangesum-mechanism-binding-v1.json` for the
     post-outcome proof that p100 succeeds when the analogous mechanism is bound.
+26. Read `modus-codex-luna-max-frequency-heldout-v1.json` for the positive
+    outcome-blind conservative-abstention result under a bounded catalog.
 
 ## Scope
 

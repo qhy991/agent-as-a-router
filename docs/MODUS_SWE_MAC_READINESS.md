@@ -591,3 +591,20 @@ held-out failure came from transmitting only the Profile label. This does not
 change the negative held-out verdict because the exact mechanism prompt was
 authored after outcome. See
 [`agentic-artifacts/modus-codex-luna-max-rangesum-mechanism-binding-v1.json`](../agentic-artifacts/modus-codex-luna-max-rangesum-mechanism-binding-v1.json).
+
+### Outcome-blind Frequency abstention result
+
+A second unused P0 family tested the new Profile-plus-mechanism contract. The
+allowlist contained only ordered-search and prefix-sum mechanisms, neither of
+which preserves exact token-frequency semantics. Three independent Luna
+Routers therefore abstained on both stages, with no invented mechanism or
+evidence reference. Median Router cost was 72,913 tokens.
+
+The complete Worker matrix passed all correctness and topology checks. P01
+selects p000 for cost; P02 selects neutral for performance after a third
+replication resolved neutral's bimodality. Dynamic p000/neutral saves 12.9%
+versus fixed neutral, below the 15% promotion gate. Family-level abstention is
+therefore outcome-blind and correct: neutral is performance-safe on both tasks,
+and no unsupported mechanism is dispatched. The Agent adds no value over the
+zero-token abstention rule and misses a smaller P01 cost opportunity. See
+[`agentic-artifacts/modus-codex-luna-max-frequency-heldout-v1.json`](../agentic-artifacts/modus-codex-luna-max-frequency-heldout-v1.json).

@@ -1,0 +1,156 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-frequency-heldout-result-v1",
+  "captured_at": "2026-08-23",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-positive-outcome-blind-conservative-abstention-result",
+  "protocol": {
+    "path": "examples/modus_profile_router/luna-max-frequency-mechanism-heldout-v1.json",
+    "sha256": "5eba02512f01660c505b8ab37853e1ff863df20b3291f525e544cc2d5b8e1fcf",
+    "frozen_commit": "a3f1644",
+    "expected_routes_before_worker_outcome": null,
+    "require_mechanism_for_dispatch": true,
+    "automatic_redispatch": false
+  },
+  "router": {
+    "planned_cells": 3,
+    "valid_execution_cells": 3,
+    "schema_valid_cells": 3,
+    "allowlisted_evidence_cells": 3,
+    "identical_responses": "3/3",
+    "response": {
+      "frequency-p01": "abstain",
+      "frequency-p02": "abstain"
+    },
+    "total_tokens": [72957, 72913, 58840],
+    "median_total_tokens": 72913,
+    "manifest_sha256": "b8ad510aae5c4c590c6e0ca7122f63b9595cec3aeb1d429db3b6f30b8fbad1ae",
+    "result_sha256": "2a23864e5761811af0a55827d5b911326e1184a44a3fcef8958627c6a9de3fa7"
+  },
+  "worker_execution": {
+    "base_planned_cells": 12,
+    "base_valid_execution_cells": 12,
+    "base_hidden_correctness_passed_cells": 12,
+    "base_topology_fidelity_cells": 12,
+    "replication_planned_cells": 3,
+    "replication_valid_execution_cells": 3,
+    "replication_hidden_correctness_passed_cells": 3,
+    "replication_topology_fidelity_cells": 3,
+    "complete_usage_cells": 15,
+    "web_search_cells": 0,
+    "automatic_redispatches": 0,
+    "base_manifest_sha256": "f7e15882ea04ff8f261871662621ee20ee19dc50a2dcff494cabf44425d2974d",
+    "base_result_sha256": "ebe50a3d1fae5752634db99a542871c54e30a20008cebe91f082bef578ea88d6",
+    "base_manager_sha256": "8edd5b659c403a179ceb235fe6694ecf32100848f0250c2a856d3f19330196e9",
+    "replication_protocol_sha256": "c8067497e9483be58a9782f60bb362ea19430310b22b71e67caefb02245b2f7c",
+    "replication_manifest_sha256": "9b6eb97ac3f6daedbe5c35fd566771d00fcd7e13f66d0bb3b1761f939e3db75d",
+    "replication_result_sha256": "dda9f4af84ab26922e809c984f2f04d811ff6c5e1dea2da0f4782ac5a33c116f",
+    "replication_manager_sha256": "951b24978e24a664b3b1ac8b815d33c8d838f74cce73a547ad77dc8ea7e66434"
+  },
+  "frequency_p01": {
+    "neutral": {
+      "correctness": "2/2",
+      "topology": "local 2/2",
+      "median_steady_seconds": 0.0005049821777305397,
+      "median_total_tokens": 126116.0,
+      "performance_eligible": true
+    },
+    "p000": {
+      "correctness": "2/2",
+      "topology": "local 2/2",
+      "median_steady_seconds": 0.0005069783325097887,
+      "median_total_tokens": 83254.5,
+      "performance_eligible": true
+    },
+    "p100": {
+      "correctness": "2/2",
+      "topology": "coordinated 2/2",
+      "median_steady_seconds": 0.0004321854147946169,
+      "median_total_tokens": 99328.5,
+      "performance_eligible": true
+    },
+    "selected_action": "p000",
+    "abstain_neutral_performance_safe": true,
+    "abstain_token_regret": 42861.5
+  },
+  "frequency_p02": {
+    "neutral": {
+      "correctness": "3/3",
+      "steady_seconds": [
+        0.0006902337245833223,
+        0.009589128249899659,
+        0.006604772788932678
+      ],
+      "total_tokens": [206766, 186664, 257765],
+      "median_steady_seconds": 0.006604772788932678,
+      "median_total_tokens": 206766,
+      "performance_eligible": true
+    },
+    "p000": {
+      "correctness": "3/3",
+      "topology": "local 3/3",
+      "steady_seconds": [
+        0.009732395843457198,
+        0.009605621094124217,
+        0.009820948578180833
+      ],
+      "total_tokens": [76259, 72909, 82054],
+      "median_steady_seconds": 0.009732395843457198,
+      "median_total_tokens": 76259,
+      "performance_eligible": false
+    },
+    "p100": {
+      "correctness": "3/3",
+      "topology": "coordinated 3/3",
+      "steady_seconds": [
+        0.009877443359528115,
+        0.009625653000057355,
+        0.009583061203102261
+      ],
+      "total_tokens": [103218, 68884, 106985],
+      "median_steady_seconds": 0.009625653000057355,
+      "median_total_tokens": 103218,
+      "performance_eligible": false
+    },
+    "selected_action": "neutral",
+    "abstain_neutral_performance_safe": true,
+    "bimodal_neutral_resolved_by_n3": true
+  },
+  "worker_oracle": {
+    "actions_by_task": {
+      "frequency-p01": "p000",
+      "frequency-p02": "neutral"
+    },
+    "best_fixed_eligible_profile": "neutral",
+    "best_fixed_worker_tokens": 332882.0,
+    "dynamic_worker_tokens": 290020.5,
+    "dynamic_saving_fraction": 0.12875883946864053,
+    "frozen_15_percent_gate_passed": false,
+    "useful_routing_space_observed": false
+  },
+  "abstention_score": {
+    "neutral_performance_safe_tasks": "2/2",
+    "unsupported_mechanism_dispatches": 0,
+    "invented_evidence_refs": 0,
+    "family_promotion_decision": "abstain",
+    "family_promotion_correct_under_15_percent_gate": true,
+    "stage_level_cost_opportunity_missed": "frequency-p01 p000 saves 42861.5 tokens versus neutral",
+    "router_median_tokens": 72913,
+    "zero_token_abstention_tokens": 0,
+    "agent_router_beats_zero_token_abstention": false
+  },
+  "result": {
+    "outcome_blind_conservative_abstention_generalized": true,
+    "bounded_mechanism_contract_prevented_unsupported_dispatch": true,
+    "abstention_preserved_performance_feasibility": true,
+    "abstention_preserved_15_percent_promotion_rule": true,
+    "agent_router_net_benefit": false,
+    "positive_mechanism_dispatch_generalization": "not evaluated",
+    "next_action": "freeze an unused P0 family whose semantics directly match one allowlisted mechanism and test outcome-blind positive dispatch"
+  },
+  "interpretation": {
+    "validated_behavior": "when no allowlisted mechanism directly matched Frequency semantics, the Router abstained consistently rather than inventing a Profile mechanism",
+    "remaining_problem": "the Agent spent 72913 median tokens to reproduce a zero-token abstention policy and missed sub-threshold stage-level cost savings"
+  },
+  "claim_boundary": "This is a valid positive outcome-blind abstention result for one family. It validates conservative mechanism gating and family-level promotion under the 15% rule, not positive mechanism dispatch, Agent cost benefit, or broad generalization."
+}
