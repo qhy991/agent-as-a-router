@@ -30,6 +30,8 @@ that need to decide what to inspect before loading the full repository.
     apparatus/provider failure and its no-redispatch evidence.
 12. Read `modus-codex-luna-max-e-axis-v1.json` for the local Luna Max
     task-by-Profile cost/performance crossover and cross-model boundary.
+13. Read `modus-codex-luna-max-membership-e-axis-v1.json` for the negative
+    prospective transfer test on a second algorithm family.
 
 ## Scope
 

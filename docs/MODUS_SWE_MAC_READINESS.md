@@ -367,3 +367,24 @@ state x eligible Profile. The next test is a zero-token model-aware lookup
 policy on held-out task families; paying an Agent Router is not yet justified.
 See
 [`agentic-artifacts/modus-codex-luna-max-e-axis-v1.json`](../agentic-artifacts/modus-codex-luna-max-e-axis-v1.json).
+
+### Held-out membership transfer result
+
+The Luna policy was then frozen before outcome as local p000 and system
+neutral, and tested on the pre-existing Modus P1b membership family. The
+two-repetition neutral/p000/p100 matrix completed 12/12 execution-valid and
+correct cells without Web Search or redispatch.
+
+The local prediction passed: p000 remained within the performance threshold
+and used 47.6% fewer median total tokens than neutral. The system prediction
+failed: all three actions were performance-equivalent near 2.45 ms, while
+neutral used 3.20 times p000's median total tokens. p100 changed all three
+modules in both runs but never moved set construction outside the repeated
+target call.
+
+The observed dynamic minimum, local p000 plus system p100, saved only 1.3%
+against fixed p000 and failed the frozen 15% gate. Therefore this family has no
+useful Profile routing space, and the rankcount-derived local/system policy did
+not transfer. Router state must include algorithm family or an observed
+bottleneck mechanism, not only Worker model and batch structure. See
+[`agentic-artifacts/modus-codex-luna-max-membership-e-axis-v1.json`](../agentic-artifacts/modus-codex-luna-max-membership-e-axis-v1.json).

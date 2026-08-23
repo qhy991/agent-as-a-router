@@ -1,0 +1,190 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-heldout-transfer-result-v1",
+  "captured_at": "2026-08-23",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-negative-prospective-profile-policy-transfer-result",
+  "protocol": {
+    "path": "examples/modus_profile_router/luna-max-heldout-membership-e-axis-v1.json",
+    "sha256": "f21337e347f5bfb114be02b07f4fefd4e25ec5748e9f9dc84f4bb04d78e88e70",
+    "frozen_commit": "4f4806bfaf07f595f4bf9d4429aca3e725c72385",
+    "predicted_local_action": "p000",
+    "predicted_system_action": "neutral"
+  },
+  "harness": {
+    "model_slug": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "authentication": "ChatGPT login",
+    "profile_delivery": "canonical Profile text prepended to the task prompt",
+    "agent_router_commit_at_dispatch": "4f4806bfaf07f595f4bf9d4429aca3e725c72385",
+    "runner_sha256": "4f73aee9371711752e30688584321b968f06597b25b792c1eafd762891fe5385",
+    "plugin_commit": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e",
+    "modus_task_lock_sha256": "9c129f14a59a6635a1a452c52f3d5bd60fecf363fdfc69556bf777cf0ef43f97",
+    "modus_projects_sha256": "3f978f5f2ffbeecc876a38659fd68b51be18d32bbd91fa71b5ce3684d0f30a88",
+    "modus_verifier_sha256": "644eb7be12ef8c34ed8ed8e0355b97d84e01ce37da343ba838e3a795a98ad19b"
+  },
+  "task_family": {
+    "name": "membership",
+    "relationship_to_policy_formation": "not used in the preceding Luna rankcount policy formation",
+    "local_task": "membership-h01-perf-p1b",
+    "system_task": "membership-h02-perf-p1b",
+    "local_task_sha256": "e8a36bbd88cd06b673031e30e33a9240919a4a3aaf8696173a42687ee32f090c",
+    "system_task_sha256": "33acfd71660b753eb856acf5493c8b7903b88c5b689cef1d655ef521307ef72b"
+  },
+  "execution": {
+    "repetitions_per_action_and_task": 2,
+    "planned_cells": 12,
+    "valid_execution_cells": 12,
+    "correct_cells": 12,
+    "complete_usage_cells": 12,
+    "web_search_cells": 0,
+    "automatic_redispatches": 0,
+    "manifests": {
+      "v1": "a5703b30bd38ae64dac33157db156b8e94233101233e13ffe304f03e28b5e925",
+      "v2": "30eb7dd3d40eea48e14e07de7dda4aa2121e630cd9831bbeb9baf3f064a1ac9e"
+    },
+    "results": {
+      "v1": "a34cc319d971676e582a03777533ac2992b808d61e7445ad09bb090e5914f4ac",
+      "v2": "2f9aa32eedba164f3b757348a425a5d94ab0ff503349de3e607dad31eca04457"
+    },
+    "correctness": "canonical Modus public plus manager-hidden verifier",
+    "topology": "canonical Modus changed-path classifier",
+    "performance": "canonical Modus seven-round steady median",
+    "cost": "complete Codex turn input plus output tokens"
+  },
+  "local": {
+    "neutral": {
+      "correct": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [
+        0.00012513415526882454,
+        0.00012372684764727637
+      ],
+      "total_tokens": [
+        158204,
+        165556
+      ],
+      "median_steady_seconds": 0.00012443050145805046,
+      "median_total_tokens": 161880.0,
+      "median_uncached_input_plus_output_tokens": 34264.0
+    },
+    "p000": {
+      "correct": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [
+        0.00011840873193591506,
+        0.00012260276268705184
+      ],
+      "total_tokens": [
+        99697,
+        70096
+      ],
+      "median_steady_seconds": 0.00012050574731148345,
+      "median_total_tokens": 84896.5,
+      "median_uncached_input_plus_output_tokens": 22944.5
+    },
+    "p100": {
+      "correct": "2/2",
+      "topology": "coordinated 2/2",
+      "steady_seconds": [
+        0.000119864949695625,
+        0.00011683107518933866
+      ],
+      "total_tokens": [
+        76617,
+        115712
+      ],
+      "median_steady_seconds": 0.00011834801244248183,
+      "median_total_tokens": 96164.5,
+      "median_uncached_input_plus_output_tokens": 19620.5
+    },
+    "predicted_action": "p000",
+    "gate_passed": true,
+    "reason": "p000 is within 1.25x of the fastest correct action and uses 47.6% fewer median total tokens than neutral"
+  },
+  "system": {
+    "neutral": {
+      "correct": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [
+        0.002492703613370395,
+        0.0024340097655795034
+      ],
+      "total_tokens": [
+        287976,
+        215391
+      ],
+      "median_steady_seconds": 0.0024633566894749492,
+      "median_total_tokens": 251683.5,
+      "median_uncached_input_plus_output_tokens": 43171.5
+    },
+    "p000": {
+      "correct": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [
+        0.002453774738228276,
+        0.0024492848281170154
+      ],
+      "total_tokens": [
+        88077,
+        69044
+      ],
+      "median_steady_seconds": 0.0024515297831726457,
+      "median_total_tokens": 78560.5,
+      "median_uncached_input_plus_output_tokens": 18144.5
+    },
+    "p100": {
+      "correct": "2/2",
+      "topology": "coordinated 2/2",
+      "steady_seconds": [
+        0.002453490234415767,
+        0.0024494907225971474
+      ],
+      "total_tokens": [
+        76664,
+        76125
+      ],
+      "median_steady_seconds": 0.0024514904785064573,
+      "median_total_tokens": 76394.5,
+      "median_uncached_input_plus_output_tokens": 26986.5,
+      "shared_preprocessing_runs": "0/2"
+    },
+    "predicted_action": "neutral",
+    "gate_passed": false,
+    "reason": "neutral is not 1.25x faster; all actions are performance-equivalent and neutral uses 3.20x p000 median total tokens",
+    "neutral_to_p100_seconds_ratio": 1.0048404067127854,
+    "neutral_to_p000_total_token_ratio": 3.203690149629903
+  },
+  "policy_score": {
+    "predicted_policy": {
+      "local": "p000",
+      "system": "neutral",
+      "median_worker_tokens_over_two_tasks": 336580.0,
+      "gates_passed": "1/2"
+    },
+    "fixed_profiles": {
+      "neutral_worker_tokens": 413563.5,
+      "p000_worker_tokens": 163457.0,
+      "p100_worker_tokens": 172559.0
+    },
+    "observed_cost_minimizing_policy": {
+      "local": "p000",
+      "system": "p100",
+      "median_worker_tokens_over_two_tasks": 161291.0,
+      "saving_vs_fixed_p000_fraction": 0.013251191444844768
+    },
+    "frozen_15_percent_worker_saving_gate_passed": false,
+    "routing_space_observed": false
+  },
+  "result": {
+    "rankcount_policy_transferred": false,
+    "profile_cost_effect_observed": true,
+    "p100_topology_manipulation_passed": true,
+    "p100_shared_preprocessing_mechanism_passed": false,
+    "task_state_alone_sufficient_for_routing": false,
+    "router_context_required": "worker model x algorithm family or bottleneck mechanism x task state x eligible Profile",
+    "next_action": "repeat the prospective transfer test on additional pre-existing P1b families and estimate family-level generalization before training or paying an Agent Router"
+  },
+  "claim_boundary": "This is a valid negative prospective transfer result on one held-out algorithm family. It strengthens the claim that Profiles control behavior and cost, while rejecting the stronger claim that a rankcount-derived local/system policy generalizes across task families. It does not establish the final Router state representation or generalize beyond GPT-5.6 Luna Max."
+}
