@@ -1,0 +1,44 @@
+{
+  "schema": "acrouter-luna-max-lookup-p01-replication-protocol-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "purpose": "resolve the Lookup-P01 p000 performance boundary before fixing the standard constrained Oracle",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "task_id": "lookup-p01-perf-p0",
+  "task_sha256": "f47278b18f89e19ee1b3defbbf6d4de91710e5bef62dda2fdec1b5b688c0530a",
+  "actions": ["neutral", "p000", "p100"],
+  "matrix": {
+    "new_repetitions_per_action": 1,
+    "new_cells": 3,
+    "resulting_repetitions_per_action": 3,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "frozen_reference": {
+    "neutral_median_steady_seconds": 0.00032833292627287847,
+    "p000_median_steady_seconds": 0.000335800537108355,
+    "p100_median_steady_seconds": 0.0002684772133747515,
+    "p000_ratio_to_fastest": 1.2507599169678167,
+    "performance_ratio_limit": 1.25,
+    "median_tokens": {"neutral": 117858.5, "p000": 73021.0, "p100": 88136.0}
+  },
+  "decision": {
+    "performance_eligibility": "n=3 median no more than 1.25x fastest correct action",
+    "cost_choice": "lowest eligible n=3 median tokens with 5% tie",
+    "router_and_other_worker_outcomes_immutable": true
+  },
+  "failure_policy": {
+    "incorrect_or_incomplete_cell": "replication failure",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch"
+  },
+  "provenance": {
+    "parent_protocol_sha256": "8da5e2d76b345ec233b359088a9365539c19394e23bb8c62fed2e8b0979bc40b",
+    "parent_standard_result_sha256": "f095e682776f6fbe1bc3b7c7f50f67ba1369929439a4b5480b69e72c308822ae",
+    "parent_standard_manager_sha256": "d7ffa978af55e44fcebaeb6e5e31188c5e403c3775584e89e9f1532187b90b09",
+    "agent_router_commit_before_freeze": "908993f"
+  },
+  "claim_boundary": "This replication resolves one standard action boundary only and cannot alter frozen Router or mechanism Worker outputs."
+}
