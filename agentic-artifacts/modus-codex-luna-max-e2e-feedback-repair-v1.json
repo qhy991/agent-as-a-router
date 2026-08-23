@@ -106,6 +106,16 @@
     "end_to_end_quality_cost_tradeoff_observed": true,
     "next_action": "replicate the p100 repair preference and test a cheaper deterministic mechanism check before invoking a second model turn"
   },
+  "proactive_followup": {
+    "evidence": "modus-codex-luna-max-mechanism-aware-one-shot-v1.json",
+    "profile": "p100",
+    "mechanism_evidence_supplied_before_first_worker": true,
+    "one_shot_two_stage_tokens": 207013,
+    "two_turn_two_stage_tokens": 526964,
+    "saving_fraction": 0.6071591228243296,
+    "proactive_router_plus_workers_tokens": 1384031,
+    "final_correctness_and_performance": "12/12"
+  },
   "design_implication": {
     "validated_loop": "evidence-bound route -> Worker -> manager verifier -> targeted p100 repair -> final verifier",
     "cost_problem": "the two extra repair turns restore performance but erase the remaining Worker saving",

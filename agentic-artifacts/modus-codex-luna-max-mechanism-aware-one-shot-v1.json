@@ -1,0 +1,91 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-mechanism-aware-one-shot-result-v1",
+  "captured_at": "2026-08-23",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-positive-known-mechanism-one-shot-cost-result",
+  "protocol": {
+    "path": "examples/modus_profile_router/luna-max-mechanism-aware-one-shot-v1.json",
+    "sha256": "e3e608397ccf59bd046758f0d5c6c1ee6c9dc352c9529f3d2c22ab1162d32b38",
+    "frozen_commit": "08160d3",
+    "profile": "p100",
+    "automatic_redispatch": false
+  },
+  "execution": {
+    "planned_cells": 2,
+    "valid_execution_cells": 2,
+    "hidden_correctness_passed_cells": 2,
+    "coordinated_topology_cells": 2,
+    "performance_passed_cells": 2,
+    "complete_usage_cells": 2,
+    "web_search_cells": 0,
+    "automatic_redispatches": 0,
+    "manifest_sha256": "647f7533beec9ab76cee9300c13bc52957d92f8a80a04ef657f73c86a730d51d",
+    "result_sha256": "5609e6dafd5e5b0948cf62399ee081eb2c74f5f8501e80ccf62369062194a747",
+    "manager_verification_sha256": "95bccf320e16a4f99b3c787a5c1ae5a584cea284da3e3697a9b0ac4eca009f91"
+  },
+  "rankcount_system": {
+    "profile": "p100",
+    "correct": true,
+    "topology": "coordinated",
+    "steady_seconds": 0.0005657169189419164,
+    "threshold_seconds": 0.0013448025500000002,
+    "performance_passed": true,
+    "one_shot_tokens": 90889,
+    "uncached_input_plus_output_tokens": 30473,
+    "two_turn_implementation_plus_repair_tokens": 238068,
+    "one_shot_saving_fraction": 0.6182225246568207
+  },
+  "prefixcount_system": {
+    "profile": "p100",
+    "correct": true,
+    "topology": "coordinated",
+    "steady_seconds": 0.000740384115232473,
+    "threshold_seconds": 0.007391881713800785,
+    "performance_passed": true,
+    "one_shot_tokens": 116124,
+    "uncached_input_plus_output_tokens": 47516,
+    "two_turn_implementation_plus_repair_tokens": 288896,
+    "one_shot_saving_fraction": 0.5980422020381037
+  },
+  "cost": {
+    "one_shot_two_stage_tokens": 207013,
+    "two_turn_two_stage_tokens": 526964,
+    "one_shot_saving_tokens": 319951,
+    "one_shot_saving_fraction": 0.6071591228243296,
+    "unchanged_router_plus_ten_workers_tokens": 1177018,
+    "proactive_router_plus_workers_tokens": 1384031,
+    "proactive_worker_only_tokens": 1320199,
+    "router_overhead_fraction_of_proactive_workers": 0.04835028658558293,
+    "initial_failed_router_plus_workers_tokens": 1475122,
+    "saving_vs_initial_failed_total_tokens": 91091,
+    "saving_vs_initial_failed_total_fraction": 0.06175150258758255,
+    "feedback_closed_total_tokens": 1703982,
+    "saving_vs_feedback_closed_tokens": 319951,
+    "saving_vs_feedback_closed_fraction": 0.18776665481208132
+  },
+  "final_gates": {
+    "router_exact": true,
+    "stage_correctness": "12/12",
+    "stage_performance": "12/12",
+    "usage_complete": true,
+    "proactive_known_mechanism_integration_passed": true,
+    "one_shot_cost_gate_passed": true
+  },
+  "result": {
+    "profile_only_route_sufficient": false,
+    "profile_plus_verified_mechanism_sufficient_on_known_failures": true,
+    "one_shot_is_cheaper_than_feedback_repair": true,
+    "closed_loop_quality_performance_and_relative_cost_passed": true,
+    "p100_mechanism_aware_reliability_replicated": false,
+    "heldout_mechanism_discovery": "not evaluated",
+    "next_action": "replicate both one-shot cells and then freeze an unseen task where Router retrieval must select an analogous mechanism rather than receive the exact answer"
+  },
+  "design_implication": {
+    "router_action_unit": "Profile plus verified mechanism evidence, not Profile alone",
+    "known_state_path": "retrieve mechanism evidence and dispatch one p100 Worker",
+    "fallback_path": "manager verifier followed by targeted repair only when proactive dispatch fails",
+    "remaining_baseline": "zero-token retrieval still avoids the 63,832-token Agent Router overhead on known states"
+  },
+  "claim_boundary": "This is a positive cost and performance result on two known prior failures using mechanism evidence derived from those outcomes. Each cell ran once. It validates proactive integration on known states, not replicated reliability, unseen-task analogy, or superiority to deterministic evidence retrieval."
+}

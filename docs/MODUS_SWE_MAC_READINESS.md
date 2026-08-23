@@ -538,3 +538,18 @@ The selected repairs close final correctness and performance to 12/12, but add
 the repair cost erases Rankcount's remaining saving. Modus has now demonstrated
 a working route/execute/verify/repair loop, but not an efficient one. See
 [`agentic-artifacts/modus-codex-luna-max-e2e-feedback-repair-v1.json`](../agentic-artifacts/modus-codex-luna-max-e2e-feedback-repair-v1.json).
+
+### Proactive mechanism-aware one-shot result
+
+The verified shared-preprocessing mechanism was then supplied before the first
+Worker turn in clean Rankcount-system and PrefixCount-system workspaces, with
+p100 as the implementation Profile. Both one-shot cells were correct,
+coordinated, and performance-eligible. They cost 90,889 and 116,124 tokens.
+
+Together the one-shot Workers used 207,013 tokens, 60.7% less than the 526,964
+tokens consumed by initial implementation plus selected repair. Replacing the
+two failed Workers yields a 12/12-correct, 12/12-performance Router-plus-Worker
+path costing 1,384,031 tokens, 18.8% below the feedback-closed path. The minimum
+Modus action is therefore Profile plus verified mechanism evidence, not Profile
+alone. This positive result remains single-run and known-state. See
+[`agentic-artifacts/modus-codex-luna-max-mechanism-aware-one-shot-v1.json`](../agentic-artifacts/modus-codex-luna-max-mechanism-aware-one-shot-v1.json).

@@ -118,6 +118,14 @@
     "quality_and_performance_passed": true,
     "token_saving_passed": false
   },
+  "proactive_mechanism_followup": {
+    "evidence": "modus-codex-luna-max-mechanism-aware-one-shot-v1.json",
+    "replacement_profile": "p100 for the two known slow system stages",
+    "replacement_worker_tokens": 207013,
+    "proactive_router_plus_workers_tokens": 1384031,
+    "final_correctness_and_performance": "12/12",
+    "saving_vs_feedback_closed_fraction": 0.18776665481208132
+  },
   "design_implication": {
     "required_loop": "evidence-bound route -> Worker -> correctness and performance verifier -> targeted feedback repair or fail",
     "why": "the Router selected the verified action exactly, but two neutral Workers did not enter the historical fast mechanism in a single run",
