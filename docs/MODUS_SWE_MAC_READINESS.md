@@ -428,3 +428,11 @@ The local-p000/system-p100 action crossover is therefore preliminary. It saved
 and failed the frozen 15% economic gate. Across four Luna families, two show an
 action crossover, but only rankcount has useful worker-only routing space. See
 [`agentic-artifacts/modus-codex-luna-max-anagram-e-axis-v1.json`](../agentic-artifacts/modus-codex-luna-max-anagram-e-axis-v1.json).
+
+A separately frozen third system repetition then tested the unstable p100 fast
+mode. Both p000 and p100 were correct, but p100 measured 57.0 ms and failed the
+pre-registered 47.9 ms fast threshold. Across all three repetitions, p100 and
+p000 differ by only 5.2% steady time and 1.9% tokens. The initial Anagram
+crossover therefore did not independently replicate and is not a Router
+action label. After replication, only rankcount has a stable and economically
+useful action crossover among the four measured Luna families.

@@ -178,22 +178,51 @@
     "frozen_15_percent_worker_saving_gate_passed": false,
     "routing_space_observed": false
   },
+  "independent_system_replication": {
+    "protocol_path": "examples/modus_profile_router/luna-max-anagram-system-replication-v1.json",
+    "protocol_sha256": "2c384ccbe36440316222def446e8d368dc7205b144f831a94b2f65f25ad72825",
+    "manifest_sha256": "5ece64f9d3fc516fa79d57f249c672a0ed2eea3417949d0cc9d6c6bd21ffae3e",
+    "result_sha256": "fd31d555d2fd1d8c6d97266378d810b32d64dd46dcd64746993e608de22bc64e",
+    "valid_execution_cells": 2,
+    "correct_cells": 2,
+    "p000": {
+      "new_steady_seconds": 0.05703609893862449,
+      "new_total_tokens": 79877,
+      "three_run_median_steady_seconds": 0.05983970574925479,
+      "three_run_median_total_tokens": 91868
+    },
+    "p100": {
+      "new_steady_seconds": 0.057021762999283965,
+      "new_total_tokens": 74836,
+      "fast_threshold_seconds": 0.04791546147462214,
+      "fast_replication_passed": false,
+      "three_run_median_steady_seconds": 0.05687182549991121,
+      "three_run_median_total_tokens": 90141
+    },
+    "three_run_p000_to_p100_seconds_ratio": 1.0521854226280851,
+    "three_run_p100_token_saving_vs_p000_fraction": 0.018798711194322304,
+    "stable_action_crossover_passed": false,
+    "interpretation": "the original p100 fast mode did not replicate; after three runs p000 and p100 are performance-equivalent and within the 5% token tie band"
+  },
   "cross_family_state": {
     "rankcount": "action crossover and useful worker-only routing space observed",
     "membership": "no useful routing space",
     "categorysum": "no useful routing space",
-    "anagram": "action crossover observed but 15% economic gate failed",
-    "families_with_action_crossover": "2/4",
+    "anagram": "initial action crossover did not independently replicate",
+    "families_with_initial_two-run_action_crossover": "2/4",
+    "families_with_stable_action_crossover_after_replication": "1/4",
     "families_with_useful_routing_space": "1/4"
   },
   "result": {
     "profile_behavior_controllable": true,
     "profile_cost_effect_observed": true,
-    "profile_action_crossover_observed": true,
+    "original_two_wave_action_crossover_observed": true,
+    "profile_action_crossover_independently_replicated": false,
+    "stable_profile_action_crossover_observed": false,
     "profile_routing_space_observed": false,
     "system_mechanism_stable": false,
     "live_agent_router_justified": false,
-    "next_action": "pre-register one independent system-only replication to resolve the p100 fast-mode instability, without changing this frozen two-wave verdict"
+    "next_action": "continue the same frozen scoring contract on rangemin and prefixcount to estimate family-level stable-crossover prevalence"
   },
-  "claim_boundary": "This valid prospective result shows task-dependent Profile action selection on Anagram, but not an economically useful Router under the frozen 15% gate. The system p100 performance is bimodal because the fast signature-memoization mechanism occurred in only one of two repetitions, so the action crossover remains preliminary until independently replicated."
+  "claim_boundary": "The original valid prospective two-wave result showed a preliminary Anagram action crossover but failed the 15% economic gate. A separately frozen third system replication did not reproduce the p100 fast mode; the combined three-run comparison is performance-equivalent and token-tied. Anagram therefore supplies Profile behavior and cost evidence, not a stable routing action crossover."
 }
