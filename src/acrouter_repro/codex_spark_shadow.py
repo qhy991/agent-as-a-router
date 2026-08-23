@@ -27,7 +27,10 @@ PROFILE_MECHANISM_CONTRACT_KEYS = {
     "allowed_mechanism_ids",
     "require_evidence_ref_for_mechanism",
 }
-PROFILE_MECHANISM_OPTIONAL_CONTRACT_KEYS = {"allowed_evidence_refs"}
+PROFILE_MECHANISM_OPTIONAL_CONTRACT_KEYS = {
+    "allowed_evidence_refs",
+    "require_mechanism_for_dispatch",
+}
 PROFILE_MECHANISM_ROUTE_KEYS = {
     "stage",
     "decision",
@@ -104,6 +107,10 @@ def _validate_profile_mechanism_contract(value: Any) -> dict[str, Any]:
         raise SparkShadowError(
             "response_contract.allowed_evidence_refs is invalid"
         )
+    if not isinstance(value.get("require_mechanism_for_dispatch", False), bool):
+        raise SparkShadowError(
+            "response_contract.require_mechanism_for_dispatch is invalid"
+        )
     return value
 
 
@@ -140,6 +147,8 @@ def validate_profile_mechanism_response(
         mechanism = route["mechanism_id"]
         if mechanism is not None and mechanism not in contract["allowed_mechanism_ids"]:
             return f"routes[{index}].mechanism_id is invalid"
+        if mechanism is None and contract.get("require_mechanism_for_dispatch", False):
+            return f"routes[{index}].mechanism_id is required for dispatch"
         evidence_ref = route["evidence_ref"]
         if evidence_ref is not None and (
             not isinstance(evidence_ref, str) or not evidence_ref
