@@ -1,0 +1,115 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-e2e-feedback-repair-result-v1",
+  "captured_at": "2026-08-23",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-positive-feedback-closure-with-negative-cost-verdict",
+  "protocol": {
+    "path": "examples/modus_profile_router/luna-max-e2e-feedback-repair-v1.json",
+    "sha256": "b1e61d8b440326f326639cc96f421d048d523b3912fb055ecdac4ab7a2c7f3e4",
+    "frozen_commit": "5648d60",
+    "parent_e2e_evidence_sha256": "d0b01ca4c472d874bf0a00627ce6b3d99abe5c44091032ed7f41dd2cee289afa",
+    "automatic_redispatch": false
+  },
+  "execution": {
+    "planned_cells": 4,
+    "valid_execution_cells": 4,
+    "hidden_correctness_passed_cells": 4,
+    "coordinated_mechanism_topology_cells": 4,
+    "performance_passed_cells": 4,
+    "eligible_cells": 4,
+    "complete_usage_cells": 4,
+    "web_search_cells": 0,
+    "automatic_redispatches": 0,
+    "manifest_sha256": "58132996e8abfd91c0e7e27190564ef8f1b23a29510326e799956f0d5e79551f",
+    "result_sha256": "672ffb3fa9284951bbbb8d78d00160a1e28083a0fd0c078c2fbc6325c0cb95e8",
+    "manager_verification_sha256": "95b59ded4f1cea3c5eda73680e94a3e74340255014d8050c85d8e80bf1abc46b"
+  },
+  "rankcount_system": {
+    "source_steady_seconds": 0.009943615890733781,
+    "threshold_seconds": 0.0013448025500000002,
+    "neutral": {
+      "correct": true,
+      "topology": "coordinated",
+      "steady_seconds": 0.0009122080078327599,
+      "total_tokens": 114614,
+      "uncached_input_plus_output_tokens": 40118,
+      "eligible": true
+    },
+    "p100": {
+      "correct": true,
+      "topology": "coordinated",
+      "steady_seconds": 0.0009108380937448146,
+      "total_tokens": 108028,
+      "uncached_input_plus_output_tokens": 43516,
+      "eligible": true
+    },
+    "selected_repair_action": "p100",
+    "p100_token_saving_vs_neutral_fraction": 0.057462439143560085
+  },
+  "prefixcount_system": {
+    "source_steady_seconds": 0.008650136718642898,
+    "threshold_seconds": 0.007391881713800785,
+    "neutral": {
+      "correct": true,
+      "topology": "coordinated",
+      "steady_seconds": 0.0006680164384817999,
+      "total_tokens": 173870,
+      "uncached_input_plus_output_tokens": 44846,
+      "eligible": true
+    },
+    "p100": {
+      "correct": true,
+      "topology": "coordinated",
+      "steady_seconds": 0.000668149169911203,
+      "total_tokens": 120832,
+      "uncached_input_plus_output_tokens": 32000,
+      "eligible": true
+    },
+    "selected_repair_action": "p100",
+    "p100_token_saving_vs_neutral_fraction": 0.3050439983896014
+  },
+  "stage_profile_interaction": {
+    "initial_implementation_action": "neutral for both failed system stages",
+    "feedback_repair_action": "p100 for both stages",
+    "observed": true,
+    "interpretation": "the Profile suited to initial unconstrained implementation differed from the lower-cost Profile for an explicit coordinated repair after manager feedback"
+  },
+  "closed_loop_gates": {
+    "parent_router_exact": true,
+    "initial_worker_correctness": "12/12",
+    "initial_worker_performance": "10/12",
+    "selected_repairs_correctness": "2/2",
+    "selected_repairs_performance": "2/2",
+    "final_stage_correctness": "12/12",
+    "final_stage_performance": "12/12",
+    "feedback_closure_passed": true
+  },
+  "cost": {
+    "parent_router_plus_workers_tokens": 1475122,
+    "selected_rankcount_repair_tokens": 108028,
+    "selected_prefixcount_repair_tokens": 120832,
+    "selected_repairs_tokens": 228860,
+    "closed_loop_router_worker_repair_tokens": 1703982,
+    "selected_repair_fraction_of_initial_worker_tokens": 0.16216369420884438,
+    "router_plus_repair_overhead_tokens": 292692,
+    "router_plus_repair_overhead_fraction_of_initial_workers": 0.2073932359755968,
+    "rankcount_worker_saving_remaining_after_router_and_rank_repair": -85799.5,
+    "rankcount_token_saving_preserved": false
+  },
+  "result": {
+    "verifier_guided_feedback_closes_performance": true,
+    "feedback_stage_profile_preference_observed": true,
+    "p100_repair_preference_replicated": false,
+    "closed_loop_correctness_and_performance_passed": true,
+    "closed_loop_token_saving_passed": false,
+    "end_to_end_quality_cost_tradeoff_observed": true,
+    "next_action": "replicate the p100 repair preference and test a cheaper deterministic mechanism check before invoking a second model turn"
+  },
+  "design_implication": {
+    "validated_loop": "evidence-bound route -> Worker -> manager verifier -> targeted p100 repair -> final verifier",
+    "cost_problem": "the two extra repair turns restore performance but erase the remaining Worker saving",
+    "required_optimization": "predict or cheaply detect the slow mechanism before paying full repair turns, and batch feedback when possible"
+  },
+  "claim_boundary": "This development experiment proves closure from two actual slow states under explicit manager feedback. Each neutral/p100 repair arm ran once; p100 was lower-cost under the frozen rule but that preference is not replicated. Final quality and performance pass, while the total-token saving claim fails."
+}

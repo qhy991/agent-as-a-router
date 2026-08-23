@@ -523,3 +523,18 @@ Thus exact Profile routing, correctness, and topology are insufficient for
 end-to-end success. Modus requires a verifier-guided feedback stage after each
 Worker, with targeted repair rather than whole-run redispatch. See
 [`agentic-artifacts/modus-codex-luna-max-router-worker-e2e-v1.json`](../agentic-artifacts/modus-codex-luna-max-router-worker-e2e-v1.json).
+
+### Targeted feedback repair closure
+
+The two actual slow-path workspaces were cloned into neutral/p100 repair pairs
+and received identical manager feedback. All four repairs were correct,
+coordinated, and performance-eligible. p100 was the lower-token repair for both
+tasks: 108,028 tokens for Rankcount and 120,832 for PrefixCount. Initial system
+implementation therefore selected neutral, while the explicit feedback-repair
+stage selected p100.
+
+The selected repairs close final correctness and performance to 12/12, but add
+228,860 tokens. Router plus Workers plus repairs totals 1,703,982 tokens, and
+the repair cost erases Rankcount's remaining saving. Modus has now demonstrated
+a working route/execute/verify/repair loop, but not an efficient one. See
+[`agentic-artifacts/modus-codex-luna-max-e2e-feedback-repair-v1.json`](../agentic-artifacts/modus-codex-luna-max-e2e-feedback-repair-v1.json).

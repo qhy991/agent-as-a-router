@@ -46,6 +46,8 @@ that need to decide what to inspect before loading the full repository.
     versus evidence-bound twelve-stage Agent Router comparison.
 20. Read `modus-codex-luna-max-router-worker-e2e-v1.json` for the actual
     twelve-stage Router-plus-Worker integration failure and cost accounting.
+21. Read `modus-codex-luna-max-e2e-feedback-repair-v1.json` for the targeted
+    feedback closure, stage-specific p100 repair choice, and failed cost gate.
 
 ## Scope
 

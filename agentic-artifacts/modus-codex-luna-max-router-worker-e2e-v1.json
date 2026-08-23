@@ -109,6 +109,15 @@
     "end_to_end_modus_claim_established": false,
     "next_action": "freeze targeted feedback-repair arms for the two failed stages and measure whether a verifier-guided repair closes performance without erasing token amortization"
   },
+  "feedback_followup": {
+    "evidence": "modus-codex-luna-max-e2e-feedback-repair-v1.json",
+    "performance_closed_to": "12/12",
+    "selected_repair_action": "p100 for both failed stages",
+    "selected_repair_tokens": 228860,
+    "closed_loop_total_tokens": 1703982,
+    "quality_and_performance_passed": true,
+    "token_saving_passed": false
+  },
   "design_implication": {
     "required_loop": "evidence-bound route -> Worker -> correctness and performance verifier -> targeted feedback repair or fail",
     "why": "the Router selected the verified action exactly, but two neutral Workers did not enter the historical fast mechanism in a single run",
