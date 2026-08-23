@@ -111,7 +111,7 @@
     },
     "performance_eligible_actions": ["neutral"],
     "selected_action": "neutral",
-    "neutral_to_p000_median_speedup": 5.470991576611689
+    "neutral_to_p000_median_speedup": 5.4710688431652645
   },
   "manipulation": {
     "p000_local_topology": "4/4",
