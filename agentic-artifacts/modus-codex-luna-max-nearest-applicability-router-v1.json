@@ -1,0 +1,86 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-nearest-applicability-router-result-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-positive-post-outcome-applicability-predicate-contract-result",
+  "protocol": {
+    "path": "examples/modus_profile_router/luna-max-nearest-applicability-router-v1.json",
+    "sha256": "ffa51417f2fcb4d9f66f0e5141a1381f02a1447dbe2753bec32901a78033a178",
+    "frozen_commit": "1459439",
+    "classification": "post-outcome applicability-predicate contract test"
+  },
+  "execution": {
+    "planned_cells": 3,
+    "valid_execution_cells": 3,
+    "schema_and_allowlist_valid_cells": 3,
+    "exact_expected_route_cells": 3,
+    "complete_usage_cells": 3,
+    "web_search_cells": 0,
+    "automatic_redispatches": 0,
+    "manifest_sha256": "2367ba98fe967b3d3af87591ba837334731473daf9530ec601aad159b325c462",
+    "result_sha256": "6d4cdc318ea28c419ea111893c7ab92bb33d8788426bcb73e13a61b4d44e2513"
+  },
+  "applicability_evidence": {
+    "mechanism_id": "shared-ordered-search-v1",
+    "evidence_ref": "case:rankcount-prefixcount-n3",
+    "verified_profile": "p100",
+    "semantic_predicate": "ordered-search semantics over one reusable sorted representation",
+    "minimum_reuse_batches": 2
+  },
+  "expected_and_observed_routes": {
+    "nearest-p01": {
+      "reuse_batches": 1,
+      "decision": "abstain",
+      "reason": "amortization predicate fails"
+    },
+    "nearest-p02": {
+      "reuse_batches": 20,
+      "decision": "dispatch",
+      "profile": "p100",
+      "mechanism_id": "shared-ordered-search-v1",
+      "evidence_ref": "case:rankcount-prefixcount-n3",
+      "reason": "semantic and amortization predicates pass"
+    },
+    "identical_plans": "3/3"
+  },
+  "cost": {
+    "router_total_tokens": [58740, 73827, 74472],
+    "median_router_total_tokens": 73827,
+    "zero_token_predicate_table_tokens": 0,
+    "agent_router_beats_zero_token_table": false,
+    "nearest_p01_abstain_neutral_worker_tokens": 113345.0,
+    "nearest_p02_mechanism_worker_tokens": 116194.5,
+    "predicate_plan_worker_tokens": 229539.5,
+    "router_plus_predicate_plan_tokens": 303366.5,
+    "standard_fixed_p000_worker_tokens": 162169.0
+  },
+  "gates": {
+    "valid_execution_3_of_3": true,
+    "exact_routes_3_of_3": true,
+    "stable": true,
+    "applicability_predicates_applied": true,
+    "known_outcome_contract_execution_passed": true
+  },
+  "result": {
+    "semantic_match_alone_sufficient": false,
+    "semantic_plus_amortization_predicates_sufficient_on_known_nearest": true,
+    "stage_selective_dispatch_stable": true,
+    "heldout_generalization": "not evaluated",
+    "agent_router_net_benefit": false,
+    "next_action": "encode applicability predicates in durable mechanism evidence and test them outcome-blind on a new family or multi-stage composite"
+  },
+  "design_implication": {
+    "mechanism_evidence_fields": [
+      "mechanism_id",
+      "evidence_ref",
+      "verified_profile",
+      "semantic_predicate",
+      "minimum_reuse_batches",
+      "setup_cost_or_threshold",
+      "performance_objective"
+    ],
+    "why": "the same correct mechanism was harmful for one batch and useful for twenty batches"
+  },
+  "claim_boundary": "The expected plan and reuse predicate were defined after Nearest outcomes. This proves that Luna can apply an explicit applicability contract 3/3; it does not establish outcome-blind transfer or cost benefit over deterministic predicate evaluation."
+}

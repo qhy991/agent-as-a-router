@@ -625,3 +625,12 @@ must model setup cost, reuse count, and performance objective. Positive
 mechanism transfer occurred on the system stage only, so the full held-out
 dispatch gate failed. See
 [`agentic-artifacts/modus-codex-luna-max-nearest-heldout-v1.json`](../agentic-artifacts/modus-codex-luna-max-nearest-heldout-v1.json).
+
+A post-outcome contract test added the missing applicability predicate:
+`shared-ordered-search-v1` requires at least two reuse batches. Three
+independent Routers then produced the exact stage-selective plan—abstain on
+one-batch P01 and dispatch p100 plus ordered-search on twenty-batch P02. Median
+Router cost was 73,827 tokens. This validates predicate execution and decision
+stability, but not held-out generalization or cost benefit over a zero-token
+predicate table. See
+[`agentic-artifacts/modus-codex-luna-max-nearest-applicability-router-v1.json`](../agentic-artifacts/modus-codex-luna-max-nearest-applicability-router-v1.json).

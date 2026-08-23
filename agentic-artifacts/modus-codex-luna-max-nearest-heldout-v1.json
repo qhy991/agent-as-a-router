@@ -164,6 +164,14 @@
     "agent_router_net_benefit": false,
     "next_action": "extend evidence and Router state with mechanism setup cost and reuse count, then test stage-selective dispatch on an unseen multi-stage plan"
   },
+  "post_outcome_applicability_followup": {
+    "evidence": "modus-codex-luna-max-nearest-applicability-router-v1.json",
+    "predicate": "shared-ordered-search-v1 minimum_reuse_batches=2",
+    "expected_plan": "P01 abstain; P02 p100 mechanism dispatch",
+    "exact_and_stable": "3/3",
+    "median_router_tokens": 73827,
+    "changes_heldout_verdict": false
+  },
   "interpretation": {
     "failure_mode": "the ordered-search mechanism preserves Nearest semantics but is useful only when preprocessing is amortized; the Router dispatched it to both one-batch and many-batch stages in two repetitions",
     "design_change": "mechanism evidence must include applicability predicates such as reuse count, setup cost, and performance objective, not only semantic compatibility"

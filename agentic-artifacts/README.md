@@ -60,6 +60,8 @@ that need to decide what to inspect before loading the full repository.
     outcome-blind conservative-abstention result under a bounded catalog.
 27. Read `modus-codex-luna-max-nearest-heldout-v1.json` for the partial
     outcome-blind ordered-search dispatch and missing amortization predicate.
+28. Read `modus-codex-luna-max-nearest-applicability-router-v1.json` for the
+    3/3 post-outcome stage-selective predicate contract result.
 
 ## Scope
 
