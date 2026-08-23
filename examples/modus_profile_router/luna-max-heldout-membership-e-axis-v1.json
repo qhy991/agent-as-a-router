@@ -1,0 +1,56 @@
+{
+  "schema": "acrouter-luna-max-heldout-profile-transfer-v1",
+  "frozen_at": "2026-08-23",
+  "run_authorized": true,
+  "purpose": "prospectively test whether the model-aware Profile policy learned on rankcount transfers to a second algorithm family",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "actions": [
+    "neutral",
+    "p000",
+    "p100"
+  ],
+  "profiles": {
+    "neutral": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "p000": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282",
+    "p100": "ec850834450c09a0e6d736c606a8d2295b955206e00c0e7778f982809ca98bfe"
+  },
+  "tasks": {
+    "local": {
+      "task_id": "membership-h01-perf-p1b",
+      "task_sha256": "e8a36bbd88cd06b673031e30e33a9240919a4a3aaf8696173a42687ee32f090c",
+      "predicted_action": "p000"
+    },
+    "system": {
+      "task_id": "membership-h02-perf-p1b",
+      "task_sha256": "33acfd71660b753eb856acf5493c8b7903b88c5b689cef1d655ef521307ef72b",
+      "predicted_action": "neutral"
+    }
+  },
+  "matrix": {
+    "repetitions": 2,
+    "cells": 12,
+    "waves": 2,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "gates": {
+    "correctness": "2/2 manager-hidden correctness for every action and task",
+    "local_policy": "p000 median time no more than 1.25x the fastest correct action and at least 15% fewer total tokens than neutral",
+    "system_policy": "neutral median time at least 1.25x faster than both p000 and p100",
+    "end_to_end_worker_cost": "predicted policy uses at least 15% fewer total Worker tokens than the best fixed performance-eligible action",
+    "router_cost": "zero-token lookup only; no live Agent Router cost is admitted"
+  },
+  "failure_policy": {
+    "incorrect_or_incomplete_cell": "gate failure",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch",
+    "post_hoc_task_or_threshold_change": false
+  },
+  "provenance": {
+    "agent_router_commit": "740a31b13b3bbae035cc351fb892bf586b64358d",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e",
+    "plugin_commit": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f"
+  }
+}
