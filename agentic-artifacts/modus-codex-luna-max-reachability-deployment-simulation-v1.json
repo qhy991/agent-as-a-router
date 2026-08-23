@@ -1,0 +1,65 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-reachability-deployment-simulation-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "post-outcome-qualification-deployment-horizon-simulation",
+  "source": {
+    "qualification_economics_path": "src/acrouter_repro/qualification_economics.py",
+    "qualification_economics_sha256": "f10a152823eedf751c6e422385aeee87a89bccd7940a9a5e889f5012f7d80a0f",
+    "reachability_economics_path": "agentic-artifacts/modus-codex-luna-max-reachability-qualification-economics-v1.json",
+    "reachability_economics_sha256": "1819aa96c573fcf3e6393dee77ef180a497ddd5e62bceaf596831b0a7e8ab8dd"
+  },
+  "deployment": {
+    "baseline_tokens": 347262,
+    "candidate_tokens": 164656,
+    "saving_per_deployment_tokens": 182606,
+    "saving_fraction": 0.5258450391923102,
+    "correctness_passed": true,
+    "performance_passed": true,
+    "evidence_stable": true,
+    "minimum_saving_fraction": 0.15
+  },
+  "horizons": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+  "variants": {
+    "full_parser_plus_three_profile_qualification": {
+      "acquisition_tokens": 1976047,
+      "break_even_deployments": 11,
+      "decision_before_break_even": "qualified_but_not_economic",
+      "decision_at_and_after_break_even": "promote",
+      "net_tokens": [-1793441, -1610835, -1428229, -1245623, -1063017, -880411, -697805, -515199, -332593, -149987, 32619, 215225, 397831, 580437, 763043, 945649, 1128255, 1310861, 1493467, 1676073]
+    },
+    "staged_parser_plus_neutral_p000_qualification": {
+      "acquisition_tokens": 1427833,
+      "break_even_deployments": 8,
+      "decision_before_break_even": "qualified_but_not_economic",
+      "decision_at_and_after_break_even": "promote",
+      "net_tokens": [-1245227, -1062621, -880015, -697409, -514803, -332197, -149591, 33015, 215621, 398227, 580833, 763439, 946045, 1128651, 1311257, 1493863, 1676469, 1859075, 2041681, 2224287]
+    },
+    "trusted_metadata_plus_staged_qualification": {
+      "acquisition_tokens": 1384381,
+      "break_even_deployments": 8,
+      "decision_before_break_even": "qualified_but_not_economic",
+      "decision_at_and_after_break_even": "promote",
+      "net_tokens": [-1201775, -1019169, -836563, -653957, -471351, -288745, -106139, 76467, 259073, 441679, 624285, 806891, 989497, 1172103, 1354709, 1537315, 1719921, 1902527, 2085133, 2267739]
+    }
+  },
+  "comparisons": {
+    "staged_break_even_improvement_deployments": 3,
+    "parser_removal_changes_staged_break_even": false,
+    "parser_removal_extra_net_tokens_after_10_deployments": 43452,
+    "full_net_after_10": -149987,
+    "staged_net_after_10": 398227,
+    "trusted_staged_net_after_10": 441679
+  },
+  "result": {
+    "quality_gates_precede_economics": true,
+    "full_qualification_promotable_at_deployment": 11,
+    "staged_qualification_promotable_at_deployment": 8,
+    "trusted_metadata_is_always_cheaper_than_agent_parsing": true,
+    "one_off_or_low_reuse_qualification_economic": false,
+    "staged_policy_prospectively_validated": false,
+    "next_action": "freeze the staged policy and expected deployment horizon before outcomes on a repeated workload"
+  },
+  "claim_boundary": "The curve is deterministic output from a tested decision function and actual Reachability token evidence. The underlying staged acquisition path was chosen after outcomes, so deployment break-even arithmetic is valid but policy effectiveness is not prospective evidence."
+}

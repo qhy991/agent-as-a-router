@@ -709,3 +709,11 @@ deployments is 398,227 tokens. This staged policy has not been prospectively
 validated; it defines the next experiment. Evidence acquisition must be gated
 by expected future family reuse, not only by per-deployment savings. See
 [`agentic-artifacts/modus-codex-luna-max-reachability-qualification-economics-v1.json`](../agentic-artifacts/modus-codex-luna-max-reachability-qualification-economics-v1.json).
+
+A tested qualification economics function then simulated deployment horizons
+1–20. It always evaluates correctness, performance, and evidence stability
+before saving. Full qualification remains `qualified_but_not_economic` through
+deployment 10 and promotes at 11. Staged qualification promotes at deployment
+8. Removing the Agent parser does not change the staged break-even, but saves
+43,452 additional tokens at every horizon. See
+[`agentic-artifacts/modus-codex-luna-max-reachability-deployment-simulation-v1.json`](../agentic-artifacts/modus-codex-luna-max-reachability-deployment-simulation-v1.json).

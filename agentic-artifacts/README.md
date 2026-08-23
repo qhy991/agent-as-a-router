@@ -72,6 +72,8 @@ that need to decide what to inspect before loading the full repository.
     family parsing and the no-candidate neutral-fallback cost failure.
 33. Read `modus-codex-luna-max-reachability-qualification-economics-v1.json`
     for full-versus-staged evidence cost and deployment break-even.
+34. Read `modus-codex-luna-max-reachability-deployment-simulation-v1.json` for
+    the tested 1–20 deployment decision and net-token curves.
 
 ## Scope
 
