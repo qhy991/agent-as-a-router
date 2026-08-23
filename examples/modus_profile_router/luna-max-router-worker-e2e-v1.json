@@ -1,0 +1,153 @@
+{
+  "schema": "acrouter-luna-max-router-worker-e2e-protocol-v1",
+  "frozen_at": "2026-08-23",
+  "run_authorized": true,
+  "purpose": "execute one fresh evidence-bound Router parent followed by twelve fresh selected Workers and measure actual end-to-end correctness, performance, and tokens",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "router": {
+    "repetitions": 1,
+    "system_prompt_sha256": "f00a2084b750ec141d6b6530b26a293b67c1f8aeea30c2e73c228ddc7611b515",
+    "task_sha256": "2cba0cc18928f5f4d921d1a61e199866f3d00b80c6f07773af31e14792829c1e",
+    "exact_route_gate": true,
+    "automatic_redispatch": false,
+    "worker_dispatch_on_route_mismatch": false
+  },
+  "profiles": {
+    "neutral": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "p000": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282",
+    "p100": "ec850834450c09a0e6d736c606a8d2295b955206e00c0e7778f982809ca98bfe"
+  },
+  "workers": [
+    {
+      "stage": "rankcount-local",
+      "task_id": "rankcount-h01-perf-p1b",
+      "task_sha256": "b10fe132cc3d396c2c23697b4e9347d1aa4233030c46fcb9f5361ba230f64081",
+      "expected_action": "p000",
+      "performance_threshold_seconds": 0.000758567225
+    },
+    {
+      "stage": "rankcount-system",
+      "task_id": "rankcount-h02-perf-p1b",
+      "task_sha256": "2ca6dc2df2f4fadc684b5ab6e5f2eb7dce770ebe6a283a7f52b05e68fcdd0ebe",
+      "expected_action": "neutral",
+      "performance_threshold_seconds": 0.0013448025500000002
+    },
+    {
+      "stage": "membership-local",
+      "task_id": "membership-h01-perf-p1b",
+      "task_sha256": "e8a36bbd88cd06b673031e30e33a9240919a4a3aaf8696173a42687ee32f090c",
+      "expected_action": "p000",
+      "performance_threshold_seconds": 0.00014793501555310229
+    },
+    {
+      "stage": "membership-system",
+      "task_id": "membership-h02-perf-p1b",
+      "task_sha256": "33acfd71660b753eb856acf5493c8b7903b88c5b689cef1d655ef521307ef72b",
+      "expected_action": "p000",
+      "performance_threshold_seconds": 0.0030643630981330716
+    },
+    {
+      "stage": "categorysum-local",
+      "task_id": "categorysum-h01-perf-p1b",
+      "task_sha256": "1cc503585d775a2a07817d2de29b8a83e54f09cb070e58b1297f20d76492343a",
+      "expected_action": "p000",
+      "performance_threshold_seconds": 0.000784044469011036
+    },
+    {
+      "stage": "categorysum-system",
+      "task_id": "categorysum-h02-perf-p1b",
+      "task_sha256": "3237b46cea25bb3f5fdeab84552122cce70a3152f7865306de39f60eb3e7c0e2",
+      "expected_action": "p000",
+      "performance_threshold_seconds": 0.01854045166993501
+    },
+    {
+      "stage": "anagram-local",
+      "task_id": "anagram-h01-perf-p1b",
+      "task_sha256": "b138159f84558886d13617ced398d0131bf44967b1649427cfbe2a12579922f9",
+      "expected_action": "p000",
+      "performance_threshold_seconds": 0.0030278945922646017
+    },
+    {
+      "stage": "anagram-system",
+      "task_id": "anagram-h02-perf-p1b",
+      "task_sha256": "da09e9f0efff585165f476d987d5c85b9148bfa1fd7b5717b94e0e0265c3520f",
+      "expected_action": "p000",
+      "performance_threshold_seconds": 0.07108978187488901
+    },
+    {
+      "stage": "rangemin-local",
+      "task_id": "rangemin-h01-perf-p1b",
+      "task_sha256": "6328b2e2becf50d53513d6dff8f1762fea8a1b3508125c30b86e4a493f06f4d5",
+      "expected_action": "neutral",
+      "performance_threshold_seconds": 0.0029712654638558433
+    },
+    {
+      "stage": "rangemin-system",
+      "task_id": "rangemin-h02-perf-p1b",
+      "task_sha256": "ebbd3810675ffc06b18dabac1db60de87c605cb23a61d0e8f0208be196543997",
+      "expected_action": "neutral",
+      "performance_threshold_seconds": 0.004077474060082409
+    },
+    {
+      "stage": "prefixcount-local",
+      "task_id": "prefixcount-h01-perf-p1b",
+      "task_sha256": "1b8d2773e441fc842db866cbd5916955240f2d3669cd5cd0ce65a4de454d86e8",
+      "expected_action": "p100",
+      "performance_threshold_seconds": 0.003788962910178384
+    },
+    {
+      "stage": "prefixcount-system",
+      "task_id": "prefixcount-h02-perf-p1b",
+      "task_sha256": "0e6fbf8e64c186cf67461badc4e1de287d758603cf524b6090819b36d75bd858",
+      "expected_action": "neutral",
+      "performance_threshold_seconds": 0.007391881713800785
+    }
+  ],
+  "worker_execution": {
+    "cells": 12,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false,
+    "dispatch_source": "actual validated Router response",
+    "concurrency": "one frozen twelve-cell wave"
+  },
+  "end_to_end_gates": {
+    "router_execution_valid": true,
+    "router_response_exact": true,
+    "worker_execution_valid": "12/12",
+    "worker_hidden_correctness": "12/12",
+    "worker_profile_topology_fidelity": "all non-neutral selected cells",
+    "worker_performance": "12/12 no slower than frozen stage threshold",
+    "usage_complete": "Router plus all Workers",
+    "total_tokens": "actual Router input plus output plus actual Worker input plus output"
+  },
+  "comparators": {
+    "zero_token_selective_table": "same actual Worker routes with zero Router tokens",
+    "historical_fixed_profiles": "no fixed Profile is performance-eligible over all twelve stages because PrefixCount crosses eligibility",
+    "rankcount_worker_saving_tokens": 86060.5
+  },
+  "decision": {
+    "integration_pass": "all end-to-end gates pass",
+    "router_amortization_pass": "actual Router tokens are below 86060.5",
+    "agent_beats_zero_token_table": "impossible on identical known-state routes; report exact overhead",
+    "heldout_generalization": "not evaluated"
+  },
+  "failure_policy": {
+    "invalid_or_wrong_router": "stop before Worker dispatch",
+    "invalid_or_incorrect_worker": "end-to-end failure",
+    "performance_threshold_miss": "end-to-end failure",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch",
+    "post_hoc_route_threshold_or_cost_change": false
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "f8122020438f99d467cafa54d2d44e18066dac82",
+    "shadow_runner_sha256": "4481102a10aa00142284442c87aae61b56f313eed69ac46e52c5ee41d80f73e6",
+    "worker_runner_sha256": "4f73aee9371711752e30688584321b968f06597b25b792c1eafd762891fe5385",
+    "six_family_summary_sha256": "9fe20ce1d8d276e1fad5c1d35036fead11d9fe48d36f2f508fe39168dc9d1dc1",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e",
+    "plugin_commit": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f"
+  },
+  "claim_boundary": "This experiment tests known-state Router-plus-Worker integration and cost amortization. It does not test whether the Agent Router generalizes to an unseen task family or beats deterministic evidence lookup."
+}
