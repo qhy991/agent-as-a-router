@@ -1,0 +1,101 @@
+{
+  "schema": "acrouter-luna-max-lookup-interval-heldout-protocol-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "purpose": "test registry-derived dispatch and abstention in one outcome-blind mixed four-stage plan",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "mechanism_registry": {
+    "path": "configs/modus_mechanism_evidence.json",
+    "sha256": "cd6eb93880827c68492752a2b807cc0c26f88c23075d3b5cc7d298a929e28764"
+  },
+  "task_source": {
+    "suite": "Modus performance P0",
+    "task_ids": [
+      "lookup-p01-perf-p0",
+      "lookup-p02-perf-p0",
+      "interval-p01-perf-p0",
+      "interval-p02-perf-p0"
+    ],
+    "current_luna_outcome_read_before_freeze": false,
+    "manifest_lock_sha256": "c377de7da1da37d113e7859bbee2d730d53603b4c30c6fdb4a878170f9ce4f43"
+  },
+  "task_hashes": {
+    "lookup-p01": "f47278b18f89e19ee1b3defbbf6d4de91710e5bef62dda2fdec1b5b688c0530a",
+    "lookup-p02": "c623164662d5450faa5d17d98240a2c8123488ed26305043fa73b98f2518d4fa",
+    "interval-p01": "09c41334c99e60d9a5b53b1353860fec7a90f1dd4b537e679e57e5b2d7294424",
+    "interval-p02": "7429848a8e716a1177e6d44c3babc5279e33c78ee743ffc0c6bacdf6a719a880"
+  },
+  "router": {
+    "system_prompt_sha256": "1405d2a458ca5e6f6cb5885aa25580fed36765533d30651e565a03f663963e8f",
+    "task_sha256": "7f8bb1e38151adcc6669a2377ae9c714d8e681158f17fe4484b9b2c0134c2c70",
+    "repetitions": 3,
+    "expected_routes_before_worker_outcome": null,
+    "response_contract": {
+      "schema": "modus-profile-mechanism-route-v1",
+      "stages": ["lookup-p01", "lookup-p02", "interval-p01", "interval-p02"],
+      "allowed_profiles": ["neutral", "p000", "p100"],
+      "allowed_mechanism_ids": ["shared-ordered-search-v1"],
+      "allowed_evidence_refs": ["case:rankcount-prefixcount-n3"],
+      "require_evidence_ref_for_mechanism": true,
+      "require_mechanism_for_dispatch": true
+    },
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "standard_worker_matrix": {
+    "families": ["lookup", "interval"],
+    "tasks_per_family": 2,
+    "actions": ["neutral", "p000", "p100"],
+    "repetitions": 2,
+    "cells": 24,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "mechanism_worker_matrix": {
+    "family": "interval",
+    "tasks": ["interval-p01", "interval-p02"],
+    "profile": "p100",
+    "mechanism_id": "shared-ordered-search-v1",
+    "evidence_ref": "case:rankcount-prefixcount-n3",
+    "task_hashes": {
+      "interval-p01": "0c0c526e20f0d757204855e4afb09823f7db3f5a300e2fa84b8046878e16fe93",
+      "interval-p02": "8a47e7c67d7e9f0910153fd50027bf3218fb2f5a4fd63c8fd87696c32b1ca50e"
+    },
+    "repetitions": 2,
+    "cells": 4,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "scoring": {
+    "correctness_first": "both standard repetitions correct",
+    "performance_eligibility": "task median no more than 1.25x fastest correct action",
+    "cost_choice": "lowest eligible median complete tokens with 5% tie",
+    "routing_gate": "15% saving versus best fixed eligible or no fixed eligible action",
+    "abstention_safety": "neutral is performance-eligible",
+    "dispatch_precision": "dispatched mechanism preserves semantics, satisfies minimum reuse, and mechanism Workers pass 2/2",
+    "reveal_time": "after Router and both Worker matrices are immutable"
+  },
+  "decision": {
+    "mixed_plan_success": "all Router repetitions are schema-valid and each stage dispatch or abstention is safe under revealed outcomes",
+    "positive_interval_dispatch": "allowlisted ordered-search dispatch and mechanism Workers pass both correctness and revealed performance gate",
+    "lookup_abstention": "no unsupported mechanism dispatch and neutral is safe",
+    "cost_and_profile_utility": "reported separately from mechanism correctness"
+  },
+  "failure_policy": {
+    "invalid_router_response": "Router repetition failure",
+    "incorrect_or_incomplete_worker": "cell failure",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch",
+    "post_hoc_registry_prompt_scoring_or_task_change": false
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "237fc11f61262f8e6d7488615a1f5a68324d555d",
+    "shadow_runner_sha256": "f1954784fcfcbb98e453e9cb6a3e07a75cb87f5b004269585d960218ed4947db",
+    "worker_runner_sha256": "4f73aee9371711752e30688584321b968f06597b25b792c1eafd762891fe5385",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e"
+  },
+  "claim_boundary": "Lookup and Interval outcomes are absent from Router workspaces. The interval mechanism prompt is derived from registry semantics and task contract before outcomes. One mixed plan is development-level evidence, not broad generalization."
+}
