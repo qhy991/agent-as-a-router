@@ -50,6 +50,8 @@ that need to decide what to inspect before loading the full repository.
     feedback closure, stage-specific p100 repair choice, and failed cost gate.
 22. Read `modus-codex-luna-max-mechanism-aware-one-shot-v1.json` for the
     proactive p100 mechanism path and 60.7% two-stage cost reduction.
+23. Read `modus-codex-luna-max-mechanism-aware-replication-v1.json` for the
+    3/3 reliability and 64.2% median cost result on both known mechanisms.
 
 ## Scope
 

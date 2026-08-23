@@ -77,9 +77,17 @@
     "profile_plus_verified_mechanism_sufficient_on_known_failures": true,
     "one_shot_is_cheaper_than_feedback_repair": true,
     "closed_loop_quality_performance_and_relative_cost_passed": true,
-    "p100_mechanism_aware_reliability_replicated": false,
+    "p100_mechanism_aware_reliability_replicated": true,
     "heldout_mechanism_discovery": "not evaluated",
-    "next_action": "replicate both one-shot cells and then freeze an unseen task where Router retrieval must select an analogous mechanism rather than receive the exact answer"
+    "next_action": "freeze an unseen task where Router retrieval must select an analogous mechanism rather than receive the exact answer"
+  },
+  "replication_followup": {
+    "evidence": "modus-codex-luna-max-mechanism-aware-replication-v1.json",
+    "rankcount_reliability": "3/3",
+    "prefixcount_reliability": "3/3",
+    "combined_n3_median_tokens": 188609,
+    "saving_vs_two_turn_fraction": 0.6420837097031296,
+    "replicated_proactive_router_plus_workers_tokens": 1365627
   },
   "design_implication": {
     "router_action_unit": "Profile plus verified mechanism evidence, not Profile alone",
@@ -87,5 +95,5 @@
     "fallback_path": "manager verifier followed by targeted repair only when proactive dispatch fails",
     "remaining_baseline": "zero-token retrieval still avoids the 63,832-token Agent Router overhead on known states"
   },
-  "claim_boundary": "This is a positive cost and performance result on two known prior failures using mechanism evidence derived from those outcomes. Each cell ran once. It validates proactive integration on known states, not replicated reliability, unseen-task analogy, or superiority to deterministic evidence retrieval."
+  "claim_boundary": "This original one-shot result used mechanism evidence derived from known outcomes. A separately frozen replication now establishes 3/3 reliability and median cost on both tasks, but unseen-task analogy and superiority to deterministic evidence retrieval remain untested."
 }

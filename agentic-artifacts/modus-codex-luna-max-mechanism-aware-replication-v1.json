@@ -1,0 +1,94 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-mechanism-aware-replication-result-v1",
+  "captured_at": "2026-08-23",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-positive-known-mechanism-three-repetition-result",
+  "protocol": {
+    "path": "examples/modus_profile_router/luna-max-mechanism-aware-replication-v1.json",
+    "sha256": "d7c1f2ccc607ab822e92fc97f03495de64c08030179f3513f86abd81b8c5327a",
+    "frozen_commit": "444798e",
+    "profile": "p100",
+    "automatic_redispatch": false
+  },
+  "execution": {
+    "new_planned_cells": 4,
+    "new_valid_execution_cells": 4,
+    "new_hidden_correctness_passed_cells": 4,
+    "new_coordinated_topology_cells": 4,
+    "new_performance_passed_cells": 4,
+    "new_complete_usage_cells": 4,
+    "new_web_search_cells": 0,
+    "new_automatic_redispatches": 0,
+    "manifest_sha256": "c7bbbcd4544b4a94b60ef2e5e83560de7acc9b8abfd9f666264014eb89902878",
+    "result_sha256": "b4f6a39460116d3bf1e19e611cdb561b579d2e58cbaca96ba2c69fe18e180b50",
+    "manager_verification_sha256": "bcea78e7d4f213ab77ecd9cbbe91f23482db62b6985c28abef963afc1f8b83da"
+  },
+  "rankcount_system": {
+    "correctness": "3/3",
+    "coordinated_topology": "3/3",
+    "performance_passed": "3/3",
+    "steady_seconds": [
+      0.0005657169189419164,
+      0.0009353795976494439,
+      0.0005525537519588397
+    ],
+    "total_tokens": [
+      90889,
+      96185,
+      84351
+    ],
+    "median_steady_seconds": 0.0005657169189419164,
+    "median_total_tokens": 90889,
+    "performance_threshold_seconds": 0.0013448025500000002,
+    "reliability_passed": true
+  },
+  "prefixcount_system": {
+    "correctness": "3/3",
+    "coordinated_topology": "3/3",
+    "performance_passed": "3/3",
+    "steady_seconds": [
+      0.000740384115232473,
+      0.0007194877519509646,
+      0.0007498367509981563
+    ],
+    "total_tokens": [
+      116124,
+      97720,
+      97100
+    ],
+    "median_steady_seconds": 0.000740384115232473,
+    "median_total_tokens": 97720,
+    "performance_threshold_seconds": 0.007391881713800785,
+    "reliability_passed": true
+  },
+  "cost": {
+    "combined_n3_median_one_shot_tokens": 188609,
+    "two_turn_implementation_plus_repair_tokens": 526964,
+    "combined_saving_tokens": 338355,
+    "combined_saving_fraction": 0.6420837097031296,
+    "unchanged_router_plus_ten_workers_tokens": 1177018,
+    "replicated_proactive_router_plus_workers_tokens": 1365627,
+    "replicated_proactive_worker_only_tokens": 1301795,
+    "router_overhead_fraction_of_proactive_workers": 0.049033834052212524,
+    "saving_vs_feedback_closed_tokens": 338355,
+    "saving_vs_feedback_closed_fraction": 0.19856723838632095,
+    "saving_vs_initial_failed_total_tokens": 109495,
+    "saving_vs_initial_failed_total_fraction": 0.07422775878876464
+  },
+  "gates": {
+    "correctness_3_of_3": true,
+    "coordinated_topology_3_of_3": true,
+    "performance_3_of_3": true,
+    "median_cost_below_two_turn_comparator": true,
+    "known_state_reliability_and_cost_passed": true
+  },
+  "result": {
+    "p100_plus_verified_mechanism_replicated": true,
+    "known_state_proactive_path_promoted": true,
+    "profile_plus_mechanism_action_unit_supported": true,
+    "heldout_mechanism_transfer": "not evaluated",
+    "next_action": "freeze an unseen family with a structurally analogous repeated-input bottleneck and compare abstention, task-only inference, evidence analogy, and measured Oracle outcomes"
+  },
+  "claim_boundary": "The two known system tasks now have three independent correct, coordinated, performance-eligible p100 mechanism-aware runs and a replicated median cost advantage. The mechanism labels were learned from prior outcomes, so this does not establish retrieval or analogy on an unseen task."
+}

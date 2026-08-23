@@ -553,3 +553,13 @@ path costing 1,384,031 tokens, 18.8% below the feedback-closed path. The minimum
 Modus action is therefore Profile plus verified mechanism evidence, not Profile
 alone. This positive result remains single-run and known-state. See
 [`agentic-artifacts/modus-codex-luna-max-mechanism-aware-one-shot-v1.json`](../agentic-artifacts/modus-codex-luna-max-mechanism-aware-one-shot-v1.json).
+
+Two additional fresh-starter repetitions per task then replicated the proactive
+path. Rankcount-system and PrefixCount-system each reached 3/3 hidden
+correctness, coordinated topology, and performance eligibility. Their n=3
+median costs are 90,889 and 97,720 tokens. The combined 188,609-token median is
+64.2% below the 526,964-token implementation-plus-repair path, giving a
+replicated proactive Router-plus-Worker estimate of 1,365,627 tokens. Known-
+state Profile-plus-mechanism dispatch is now reliable within this diagnostic;
+unseen mechanism transfer remains untested. See
+[`agentic-artifacts/modus-codex-luna-max-mechanism-aware-replication-v1.json`](../agentic-artifacts/modus-codex-luna-max-mechanism-aware-replication-v1.json).
