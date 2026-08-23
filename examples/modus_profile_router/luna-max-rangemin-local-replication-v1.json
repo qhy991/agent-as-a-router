@@ -1,0 +1,54 @@
+{
+  "schema": "acrouter-luna-max-rangemin-local-replication-v1",
+  "frozen_at": "2026-08-23",
+  "run_authorized": true,
+  "purpose": "independently resolve the reversed RangeMin local neutral/p100 ordering before assigning a stable action",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "task_id": "rangemin-h01-perf-p1b",
+  "task_sha256": "6328b2e2becf50d53513d6dff8f1762fea8a1b3508125c30b86e4a493f06f4d5",
+  "actions": [
+    "neutral",
+    "p100"
+  ],
+  "profiles": {
+    "neutral": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "p100": "ec850834450c09a0e6d736c606a8d2295b955206e00c0e7778f982809ca98bfe"
+  },
+  "matrix": {
+    "new_repetitions_per_action": 1,
+    "new_cells": 2,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "frozen_reference": {
+    "neutral_steady_seconds": [
+      0.005475045578123172,
+      0.0022811692696222963
+    ],
+    "p100_steady_seconds": [
+      0.004774439124958008,
+      0.006386602867223701
+    ],
+    "neutral_median_total_tokens": 237967.0,
+    "p100_median_total_tokens": 94498.0,
+    "system_selected_action": "neutral"
+  },
+  "decision": {
+    "performance_eligibility": "after appending the new cells, an action's three-run median must be no more than 1.25x the fastest correct action",
+    "local_cost_choice": "choose the eligible action with the lower three-run median complete tokens; 5% remains the tie band",
+    "routing_space": "if local selects p100 and system remains neutral, recompute descriptive Worker saving versus fixed neutral; do not replace the original two-wave verdict"
+  },
+  "failure_policy": {
+    "incorrect_or_incomplete_cell": "replication failure",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch"
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "c2b7827",
+    "runner_sha256": "4f73aee9371711752e30688584321b968f06597b25b792c1eafd762891fe5385",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e",
+    "plugin_commit": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f"
+  }
+}
