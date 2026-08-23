@@ -81,6 +81,7 @@
     "profile_luna_max_e_axis": "modus-codex-luna-max-e-axis-v1.json",
     "profile_luna_max_membership_transfer": "modus-codex-luna-max-membership-e-axis-v1.json",
     "profile_luna_max_categorysum_space": "modus-codex-luna-max-categorysum-e-axis-v1.json",
+    "profile_luna_max_anagram_space": "modus-codex-luna-max-anagram-e-axis-v1.json",
     "inference_demo": "../examples/inference_demo.py",
     "ood176_matrix": "../data/matrices/phase2_ood/unified/matrix_acrouter_ood176.json",
     "ood176_long_results": "../data/matrices/phase2_ood/unified/results_long.csv",

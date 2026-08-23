@@ -1,0 +1,199 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-profile-space-result-v1",
+  "captured_at": "2026-08-23",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-preliminary-action-crossover-with-negative-economic-gate",
+  "protocol": {
+    "path": "examples/modus_profile_router/luna-max-anagram-profile-space-v1.json",
+    "sha256": "c3d292dd0423b06ce9e2a9b5fd8bad94f251bb41a1bb4000aa83a9aae21a3384",
+    "scoring_contract_path": "examples/modus_profile_router/luna-max-profile-space-scoring-v1.json",
+    "scoring_contract_sha256": "cebba3a6b68f49fa7761d2d92d69a5a115cb96f0d20999c8b8a7f7ab2218a56f",
+    "frozen_commit": "553f470",
+    "winner_assumed_before_outcome": false
+  },
+  "harness": {
+    "model_slug": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "authentication": "ChatGPT login",
+    "profile_delivery": "canonical Profile text prepended to the task prompt",
+    "runner_sha256": "4f73aee9371711752e30688584321b968f06597b25b792c1eafd762891fe5385",
+    "plugin_commit": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e",
+    "modus_task_lock_sha256": "9c129f14a59a6635a1a452c52f3d5bd60fecf363fdfc69556bf777cf0ef43f97",
+    "modus_projects_sha256": "3f978f5f2ffbeecc876a38659fd68b51be18d32bbd91fa71b5ce3684d0f30a88",
+    "modus_verifier_sha256": "644eb7be12ef8c34ed8ed8e0355b97d84e01ce37da343ba838e3a795a98ad19b"
+  },
+  "task_family": {
+    "name": "anagram",
+    "local_task": "anagram-h01-perf-p1b",
+    "system_task": "anagram-h02-perf-p1b",
+    "local_task_sha256": "b138159f84558886d13617ced398d0131bf44967b1649427cfbe2a12579922f9",
+    "system_task_sha256": "da09e9f0efff585165f476d987d5c85b9148bfa1fd7b5717b94e0e0265c3520f"
+  },
+  "execution": {
+    "repetitions_per_action_and_task": 2,
+    "planned_cells": 12,
+    "valid_execution_cells": 12,
+    "correct_cells": 12,
+    "complete_usage_cells": 12,
+    "web_search_cells": 0,
+    "automatic_redispatches": 0,
+    "manifests": {
+      "v1": "e0ded5ac15f230419a72b45938c11f8d31b47933620fa8a633199b8bcc743cb2",
+      "v2": "90bfa3fce5bf8b58b26c9fd0daa469f830cb795ad66b69345fcd756e9b354e7d"
+    },
+    "results": {
+      "v1": "c16c104eb7c492eca6207b76366bf97218e34c45f83abf6a548fe28ec5014cb5",
+      "v2": "ef8d3957548a9c4d2df3f8b396624d66ce591e3161c6e3ba5d49ee778c1ef3af"
+    },
+    "correctness": "canonical Modus public plus manager-hidden verifier",
+    "topology": "canonical Modus changed-path classifier",
+    "performance": "canonical Modus seven-round steady median",
+    "cost": "complete Codex turn input plus output tokens"
+  },
+  "local": {
+    "neutral": {
+      "correct": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [
+        0.0025867001952519786,
+        0.0025888608398645374
+      ],
+      "total_tokens": [
+        163648,
+        120751
+      ],
+      "median_steady_seconds": 0.002587780517558258,
+      "median_total_tokens": 142199.5,
+      "median_uncached_input_plus_output_tokens": 22903.5
+    },
+    "p000": {
+      "correct": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [
+        0.0025678986015691407,
+        0.0025453255195770907
+      ],
+      "total_tokens": [
+        61726,
+        60923
+      ],
+      "median_steady_seconds": 0.0025566120605731157,
+      "median_total_tokens": 61324.5,
+      "median_uncached_input_plus_output_tokens": 28172.5
+    },
+    "p100": {
+      "correct": "2/2",
+      "topology": "coordinated 2/2",
+      "steady_seconds": [
+        0.0024073481445157086,
+        0.002437283203107654
+      ],
+      "total_tokens": [
+        76864,
+        83521
+      ],
+      "median_steady_seconds": 0.0024223156738116813,
+      "median_total_tokens": 80192.5,
+      "median_uncached_input_plus_output_tokens": 28864.5
+    },
+    "performance_eligible_actions": [
+      "neutral",
+      "p000",
+      "p100"
+    ],
+    "selected_action": "p000",
+    "p000_token_saving_vs_neutral_fraction": 0.5687432093643086
+  },
+  "system": {
+    "neutral": {
+      "correct": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [
+        0.0587404583748139,
+        0.06084452081267955
+      ],
+      "total_tokens": [
+        138381,
+        140498
+      ],
+      "median_steady_seconds": 0.05979248959374672,
+      "median_total_tokens": 139439.5,
+      "median_uncached_input_plus_output_tokens": 42159.5
+    },
+    "p000": {
+      "correct": "2/2",
+      "topology": "local 2/2",
+      "steady_seconds": [
+        0.059948947937300545,
+        0.05983970574925479
+      ],
+      "total_tokens": [
+        101527,
+        91868
+      ],
+      "median_steady_seconds": 0.05989432684327767,
+      "median_total_tokens": 96697.5,
+      "median_uncached_input_plus_output_tokens": 32313.5
+    },
+    "p100": {
+      "correct": "2/2",
+      "topology": "coordinated 2/2",
+      "steady_seconds": [
+        0.05687182549991121,
+        0.00887755989060679
+      ],
+      "total_tokens": [
+        119306,
+        90141
+      ],
+      "median_steady_seconds": 0.032874692695259,
+      "median_total_tokens": 104723.5,
+      "median_uncached_input_plus_output_tokens": 53779.5,
+      "fast_signature_memoization_runs": "1/2"
+    },
+    "performance_eligible_actions": [
+      "p100"
+    ],
+    "selected_action": "p100",
+    "p000_to_p100_median_seconds_ratio": 1.8218976949377015,
+    "bimodal_p100_performance": true
+  },
+  "manipulation": {
+    "p000_local_topology": "4/4",
+    "p100_coordinated_topology": "4/4",
+    "passed": true,
+    "interpretation": "p100 controls changed-file topology; only one system repetition added the signature memoization that produced the fast mode"
+  },
+  "policy_score": {
+    "observed_action_crossover": {
+      "local": "p000",
+      "system": "p100"
+    },
+    "best_fixed_performance_eligible_action": "p100",
+    "fixed_p100_worker_tokens": 184916.0,
+    "dynamic_worker_tokens": 166048.0,
+    "dynamic_saving_vs_fixed_p100_fraction": 0.10203551883017159,
+    "frozen_15_percent_worker_saving_gate_passed": false,
+    "routing_space_observed": false
+  },
+  "cross_family_state": {
+    "rankcount": "action crossover and useful worker-only routing space observed",
+    "membership": "no useful routing space",
+    "categorysum": "no useful routing space",
+    "anagram": "action crossover observed but 15% economic gate failed",
+    "families_with_action_crossover": "2/4",
+    "families_with_useful_routing_space": "1/4"
+  },
+  "result": {
+    "profile_behavior_controllable": true,
+    "profile_cost_effect_observed": true,
+    "profile_action_crossover_observed": true,
+    "profile_routing_space_observed": false,
+    "system_mechanism_stable": false,
+    "live_agent_router_justified": false,
+    "next_action": "pre-register one independent system-only replication to resolve the p100 fast-mode instability, without changing this frozen two-wave verdict"
+  },
+  "claim_boundary": "This valid prospective result shows task-dependent Profile action selection on Anagram, but not an economically useful Router under the frozen 15% gate. The system p100 performance is bimodal because the fast signature-memoization mechanism occurred in only one of two repetitions, so the action crossover remains preliminary until independently replicated."
+}

@@ -408,3 +408,23 @@ routing space. Across the three Luna families measured so far, Profile cost
 effects repeat, but only rankcount has shown an action crossover; membership
 and CategorySum both favor a near-fixed low-cost policy. See
 [`agentic-artifacts/modus-codex-luna-max-categorysum-e-axis-v1.json`](../agentic-artifacts/modus-codex-luna-max-categorysum-e-axis-v1.json).
+
+### Prospective Anagram Profile-space result
+
+The same frozen, winner-agnostic scoring contract was applied to a fourth Luna
+family. The two waves completed 12/12 valid and correct cells without Web
+Search or redispatch. Local selected p000: all actions were performance-
+eligible, while p000 used 56.9% fewer median total tokens than neutral.
+
+System selected p100 under the frozen median rule. Its two steady results were
+56.9 ms and 8.88 ms, versus p000's stable 59.9 ms median, so p100 was 1.82
+times faster at the two-run median and the other actions exceeded the 1.25x
+eligibility limit. The fast p100 repetition added per-call signature
+memoization; the other p100 repetition did not, so the performance mechanism
+is bimodal and occurred only 1/2 times.
+
+The local-p000/system-p100 action crossover is therefore preliminary. It saved
+10.2% Worker tokens versus the only fixed performance-eligible action, p100,
+and failed the frozen 15% economic gate. Across four Luna families, two show an
+action crossover, but only rankcount has useful worker-only routing space. See
+[`agentic-artifacts/modus-codex-luna-max-anagram-e-axis-v1.json`](../agentic-artifacts/modus-codex-luna-max-anagram-e-axis-v1.json).
