@@ -22,7 +22,7 @@
   "profiles": {
     "p000": {
       "bits": "E0/T0/A0",
-      "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6d708296d304c76c7161f67282"
+      "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282"
     },
     "p010": {
       "bits": "E0/T1/A0",

@@ -27,10 +27,18 @@
       "django/db/models/deletion.py"
     ]
   },
+  "provenance_correction": {
+    "corrected_at": "2026-08-23",
+    "field": "treatments.p000.profile_sha256",
+    "prior_value": "4430eff8d5b732333319f93bf0a699c3593f6d708296d304c76c7161f67282",
+    "correct_value": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282",
+    "outcome_impact": "none: every invocation read the canonical p000 file directly; the typo was confined to the recorded run-plan and evidence identity field",
+    "evidence_class_impact": "the result remains preliminary and is not promoted"
+  },
   "treatments": {
     "p000": {
       "bits": "E0/T0/A0",
-      "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6d708296d304c76c7161f67282"
+      "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282"
     },
     "p001": {
       "bits": "E0/T0/A1",

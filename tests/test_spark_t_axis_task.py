@@ -14,6 +14,14 @@ class SparkTAxisTaskTest(unittest.TestCase):
         self.assertTrue(value["run_authorized"])
         self.assertEqual(value["profiles"]["p000"]["bits"], "E0/T0/A0")
         self.assertEqual(value["profiles"]["p010"]["bits"], "E0/T1/A0")
+        self.assertEqual(
+            value["profiles"]["p000"]["profile_sha256"],
+            "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282",
+        )
+        self.assertEqual(
+            value["profiles"]["p010"]["profile_sha256"],
+            "8b0e10fb396407cce7c1d190aafa98c446115b68763a1f3a42222f2df7b53d48",
+        )
         self.assertEqual(len(value["dispatch"]["wave_1"]), 4)
         self.assertEqual(len(value["dispatch"]["wave_2"]), 4)
         self.assertFalse(value["dispatch"]["automatic_redispatch"])
