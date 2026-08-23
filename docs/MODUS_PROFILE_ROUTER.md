@@ -111,6 +111,14 @@ When a manifest supplies `allowed_evidence_refs`, the runner also rejects any
 mechanism citation outside that allowlist. A nonempty but invented evidence
 string is not sufficient authorization.
 
+`configs/modus_mechanism_evidence.json` is the policy SSOT for the Luna
+mechanism catalog. It owns the verified Profile, semantic predicate, minimum
+reuse count, performance objective, Router eligibility, and hash-bound evidence
+artifacts. Router prompts and manifests are snapshots of this registry; they do
+not independently promote a mechanism. The registry currently permits
+outcome-blind ordered-search routing and confines prefix-sum evidence to known
+states until its applicability is independently qualified.
+
 ## OOD176 executable-task readiness
 
 A six-task SWE-bench Verified subset was also materialized and tested natively
