@@ -38,6 +38,20 @@ PROFILE_MECHANISM_ROUTE_KEYS = {
     "mechanism_id",
     "evidence_ref",
 }
+TASK_FEATURE_CONTRACT_KEYS = {
+    "schema",
+    "stages",
+    "allowed_semantic_kinds",
+    "allowed_performance_objectives",
+    "minimum_reuse_batches",
+    "maximum_reuse_batches",
+}
+TASK_FEATURE_KEYS = {
+    "stage",
+    "semantic_kind",
+    "reuse_batches",
+    "performance_objective",
+}
 
 
 class SparkShadowError(RuntimeError):
@@ -169,6 +183,75 @@ def validate_profile_mechanism_response(
     return None
 
 
+def _validate_task_feature_contract(value: Any) -> dict[str, Any]:
+    if not isinstance(value, dict) or set(value) != TASK_FEATURE_CONTRACT_KEYS:
+        raise SparkShadowError("task_feature_contract fields differ")
+    _nonempty_contract_list = (
+        "stages",
+        "allowed_semantic_kinds",
+        "allowed_performance_objectives",
+    )
+    if not isinstance(value["schema"], str) or not value["schema"]:
+        raise SparkShadowError("task_feature_contract.schema is invalid")
+    for field in _nonempty_contract_list:
+        items = value[field]
+        if (
+            not isinstance(items, list)
+            or not items
+            or not all(isinstance(item, str) and item for item in items)
+            or len(set(items)) != len(items)
+        ):
+            raise SparkShadowError(f"task_feature_contract.{field} is invalid")
+    minimum = value["minimum_reuse_batches"]
+    maximum = value["maximum_reuse_batches"]
+    if (
+        not isinstance(minimum, int)
+        or isinstance(minimum, bool)
+        or minimum < 1
+        or not isinstance(maximum, int)
+        or isinstance(maximum, bool)
+        or maximum < minimum
+    ):
+        raise SparkShadowError("task_feature_contract reuse range is invalid")
+    return value
+
+
+def validate_task_feature_response(
+    response: Any,
+    contract: dict[str, Any],
+) -> str | None:
+    """Return an error for any feature outside a frozen closed vocabulary."""
+    if not isinstance(response, dict) or set(response) != {"schema", "features"}:
+        return "response fields differ"
+    if response["schema"] != contract["schema"]:
+        return "response schema differs"
+    features = response["features"]
+    stages = contract["stages"]
+    if not isinstance(features, list) or len(features) != len(stages):
+        return "response features differ"
+    for index, (feature, stage) in enumerate(zip(features, stages, strict=True)):
+        if not isinstance(feature, dict) or set(feature) != TASK_FEATURE_KEYS:
+            return f"features[{index}] fields differ"
+        if feature["stage"] != stage:
+            return f"features[{index}].stage differs"
+        if feature["semantic_kind"] not in contract["allowed_semantic_kinds"]:
+            return f"features[{index}].semantic_kind is invalid"
+        reuse = feature["reuse_batches"]
+        if (
+            not isinstance(reuse, int)
+            or isinstance(reuse, bool)
+            or reuse < contract["minimum_reuse_batches"]
+            or reuse > contract["maximum_reuse_batches"]
+        ):
+            return f"features[{index}].reuse_batches is invalid"
+        if (
+            feature["performance_objective"]
+            not in contract["allowed_performance_objectives"]
+        ):
+            return f"features[{index}].performance_objective is invalid"
+    return None
+
+
 def validate_manifest(path: Path) -> dict[str, Any]:
     value = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(value, dict) or value.get("schema") not in MANIFEST_SCHEMAS:
@@ -184,6 +267,14 @@ def validate_manifest(path: Path) -> dict[str, Any]:
     timeout = value.get("timeout_seconds")
     if not isinstance(timeout, int) or isinstance(timeout, bool) or timeout < 1:
         raise SparkShadowError("timeout_seconds must be positive")
+    maximum_response_bytes = value.get("maximum_response_bytes", 1024)
+    if (
+        not isinstance(maximum_response_bytes, int)
+        or isinstance(maximum_response_bytes, bool)
+        or maximum_response_bytes < 1
+        or maximum_response_bytes > 8192
+    ):
+        raise SparkShadowError("maximum_response_bytes is invalid")
     _, system_prompt = _snapshot(
         value.get("system_prompt", ""),
         value.get("system_prompt_sha256", ""),
@@ -192,6 +283,11 @@ def validate_manifest(path: Path) -> dict[str, Any]:
     response_contract = value.get("response_contract")
     if response_contract is not None:
         response_contract = _validate_profile_mechanism_contract(response_contract)
+    task_feature_contract = value.get("task_feature_contract")
+    if task_feature_contract is not None:
+        task_feature_contract = _validate_task_feature_contract(task_feature_contract)
+    if response_contract is not None and task_feature_contract is not None:
+        raise SparkShadowError("response contracts are mutually exclusive")
     raw_cells = value.get("cells")
     if not isinstance(raw_cells, list) or not raw_cells:
         raise SparkShadowError("cells must be non-empty")
@@ -223,6 +319,8 @@ def validate_manifest(path: Path) -> dict[str, Any]:
         "system_prompt": system_prompt,
         "system_prompt_sha256": value["system_prompt_sha256"],
         "response_contract": response_contract,
+        "task_feature_contract": task_feature_contract,
+        "maximum_response_bytes": maximum_response_bytes,
         "manifest_sha256": _sha256(path.read_bytes()),
         "cells": cells,
     }
@@ -265,7 +363,10 @@ def _run_cell(cell: dict[str, Any], plan: dict[str, Any], output_root: Path, cod
     response_path = cell["workspace"] / "outbox" / "route-response.json"
     response: dict[str, Any] | None = None
     response_error: str | None = None
-    if response_path.is_file() and response_path.stat().st_size <= 1024:
+    if (
+        response_path.is_file()
+        and response_path.stat().st_size <= plan["maximum_response_bytes"]
+    ):
         try:
             parsed = json.loads(response_path.read_text(encoding="utf-8"))
             if isinstance(parsed, dict):
@@ -282,6 +383,11 @@ def _run_cell(cell: dict[str, Any], plan: dict[str, Any], output_root: Path, cod
         response_error = validate_profile_mechanism_response(
             response,
             plan["response_contract"],
+        )
+    if response is not None and plan["task_feature_contract"] is not None:
+        response_error = validate_task_feature_response(
+            response,
+            plan["task_feature_contract"],
         )
     files = _workspace_files(cell["workspace"])
     custody_passed = files == ALLOWED_FINAL_FILES

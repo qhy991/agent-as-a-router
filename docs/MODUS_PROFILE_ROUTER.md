@@ -129,6 +129,14 @@ objective mismatch, invalid descriptors, and evidence drift return no
 candidate or fail closed. The Agent is not asked to choose a mechanism when
 zero or one typed candidate exists.
 
+The bounded shadow runner can separately validate `modus-task-features-v1`
+responses. A feature manifest freezes stage order, closed semantic kinds,
+allowed performance objectives, and reuse bounds; it is mutually exclusive
+with a Profile-mechanism response contract. This lets an Agent be evaluated as
+a constrained parser without giving it authority to select a Profile or
+mechanism. Larger feature responses remain bounded by an explicit manifest
+byte limit capped at 8 KiB.
+
 ## OOD176 executable-task readiness
 
 A six-task SWE-bench Verified subset was also materialized and tested natively

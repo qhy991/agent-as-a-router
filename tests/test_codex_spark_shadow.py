@@ -9,6 +9,7 @@ from acrouter_repro.codex_spark_shadow import (
     SparkShadowError,
     run_shadow,
     validate_profile_mechanism_response,
+    validate_task_feature_response,
 )
 
 
@@ -201,6 +202,67 @@ class CodexSparkShadowTest(unittest.TestCase):
         self.assertEqual(
             validate_profile_mechanism_response(response, contract),
             "routes[0].mechanism_id is required for dispatch",
+        )
+
+    def test_task_feature_response_accepts_exact_closed_features(self):
+        contract = {
+            "schema": "modus-task-features-v1",
+            "stages": ["local", "system"],
+            "allowed_semantic_kinds": ["ordered_search", "token_frequency"],
+            "allowed_performance_objectives": [
+                "latency_subject_to_correctness_then_tokens"
+            ],
+            "minimum_reuse_batches": 1,
+            "maximum_reuse_batches": 64,
+        }
+        response = {
+            "schema": "modus-task-features-v1",
+            "features": [
+                {
+                    "stage": "local",
+                    "semantic_kind": "ordered_search",
+                    "reuse_batches": 1,
+                    "performance_objective": (
+                        "latency_subject_to_correctness_then_tokens"
+                    ),
+                },
+                {
+                    "stage": "system",
+                    "semantic_kind": "token_frequency",
+                    "reuse_batches": 20,
+                    "performance_objective": (
+                        "latency_subject_to_correctness_then_tokens"
+                    ),
+                },
+            ],
+        }
+        self.assertIsNone(validate_task_feature_response(response, contract))
+
+    def test_task_feature_response_rejects_unknown_kind_and_reuse(self):
+        contract = {
+            "schema": "modus-task-features-v1",
+            "stages": ["stage"],
+            "allowed_semantic_kinds": ["ordered_search"],
+            "allowed_performance_objectives": [
+                "latency_subject_to_correctness_then_tokens"
+            ],
+            "minimum_reuse_batches": 1,
+            "maximum_reuse_batches": 64,
+        }
+        response = {
+            "schema": "modus-task-features-v1",
+            "features": [{
+                "stage": "stage",
+                "semantic_kind": "invented",
+                "reuse_batches": 0,
+                "performance_objective": (
+                    "latency_subject_to_correctness_then_tokens"
+                ),
+            }],
+        }
+        self.assertEqual(
+            validate_task_feature_response(response, contract),
+            "features[0].semantic_kind is invalid",
         )
 
 
