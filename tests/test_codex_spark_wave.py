@@ -66,6 +66,12 @@ class CodexSparkWaveTest(unittest.TestCase):
             self.assertEqual(result["valid_execution_cells"], 2)
             self.assertEqual(result["automatic_redispatches"], 0)
             self.assertTrue(all(cell["usage_complete"] for cell in result["cells"]))
+            expected_prompt = hashlib.sha256(
+                b"profile\n\n\n--- Task ---\n\ntask\n"
+            ).hexdigest()
+            self.assertTrue(all(
+                cell["prompt_sha256"] == expected_prompt for cell in result["cells"]
+            ))
 
     def test_web_search_invalidates_wave_without_retry(self):
         with tempfile.TemporaryDirectory() as temporary:

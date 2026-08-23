@@ -34,13 +34,18 @@ def _load_json(path: Path) -> dict[str, Any]:
     return value
 
 
-def _required_file(path: str, digest: str, where: str) -> Path:
+def _required_text(path: str, digest: str, where: str) -> tuple[Path, str]:
     resolved = Path(path).expanduser().resolve()
     if not resolved.is_file():
         raise SparkWaveError(f"{where} is missing")
-    if _sha256_file(resolved) != digest:
+    raw = resolved.read_bytes()
+    if _sha256_bytes(raw) != digest:
         raise SparkWaveError(f"{where} digest differs")
-    return resolved
+    try:
+        text = raw.decode("utf-8")
+    except UnicodeDecodeError as error:
+        raise SparkWaveError(f"{where} is not UTF-8") from error
+    return resolved, text
 
 
 def validate_manifest(path: Path) -> dict[str, Any]:
@@ -84,8 +89,12 @@ def validate_manifest(path: Path) -> dict[str, Any]:
             raise SparkWaveError(f"cells[{index}].workspace is missing or duplicated")
         if not (environment_bin / "python").is_file():
             raise SparkWaveError(f"cells[{index}].environment_bin has no python")
-        profile = _required_file(raw["profile"], raw["profile_sha256"], f"cells[{index}].profile")
-        task = _required_file(raw["task"], raw["task_sha256"], f"cells[{index}].task")
+        profile, profile_text = _required_text(
+            raw["profile"], raw["profile_sha256"], f"cells[{index}].profile",
+        )
+        task, task_text = _required_text(
+            raw["task"], raw["task_sha256"], f"cells[{index}].task",
+        )
         ids.add(cell)
         workspaces.add(workspace)
         cells.append({
@@ -93,6 +102,8 @@ def validate_manifest(path: Path) -> dict[str, Any]:
             "workspace": workspace,
             "profile": profile,
             "task": task,
+            "profile_text": profile_text,
+            "task_text": task_text,
             "environment_bin": environment_bin,
         })
     return {
@@ -165,11 +176,7 @@ def _run_cell(
     events = destination / "events.jsonl"
     stderr = destination / "stderr.log"
     last_message = destination / "last-message.txt"
-    prompt = (
-        cell["profile"].read_text(encoding="utf-8")
-        + "\n\n--- Task ---\n\n"
-        + cell["task"].read_text(encoding="utf-8")
-    )
+    prompt = cell["profile_text"] + "\n\n--- Task ---\n\n" + cell["task_text"]
     command = [
         codex,
         "exec",
@@ -241,6 +248,7 @@ def _run_cell(
         "events_sha256": _sha256_file(events),
         "stderr_sha256": _sha256_file(stderr),
         "last_message_sha256": _sha256_file(last_message) if last_message.is_file() else None,
+        "prompt_sha256": _sha256_bytes(prompt.encode("utf-8")),
     }
 
 
