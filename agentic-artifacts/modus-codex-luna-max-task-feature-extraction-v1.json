@@ -1,0 +1,90 @@
+{
+  "schema": "acrouter-modus-codex-luna-max-task-feature-extraction-result-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "valid-positive-closed-feature-extraction-and-typed-matcher-result",
+  "protocol": {
+    "path": "examples/modus_profile_router/luna-max-task-feature-extraction-v1.json",
+    "sha256": "46052134b10828443fc26f925b8f92131d8e6677cfead2f5d2905f816f2b8222",
+    "frozen_commit": "b61d24e",
+    "agent_has_mechanism_profile_registry_or_outcome_access": false
+  },
+  "execution": {
+    "planned_cells": 3,
+    "valid_execution_cells": 3,
+    "schema_valid_cells": 3,
+    "exact_feature_cells": 3,
+    "complete_usage_cells": 3,
+    "web_search_cells": 0,
+    "automatic_redispatches": 0,
+    "manifest_sha256": "00f5c3d41d4573978d6c0a3dd3dd8ab7a13943271c0c0c738374a4945ea7798c",
+    "result_sha256": "6815709917a046be4c8a07858b2a5fb6406a2f73efd87d25087c92359435fa3e",
+    "matcher_replay_sha256": "78ef61286b4b951303164b08dad28a16305dc1275375b769a627f2a16044dd37"
+  },
+  "expected_and_observed_features": {
+    "lookup-p01": ["canonical_key_lookup", 1],
+    "lookup-p02": ["canonical_key_lookup", 20],
+    "interval-p01": ["interval_membership", 1],
+    "interval-p02": ["interval_membership", 20],
+    "frequency-p01": ["token_frequency", 1],
+    "frequency-p02": ["token_frequency", 20],
+    "nearest-p01": ["ordered_search", 1],
+    "nearest-p02": ["ordered_search", 20],
+    "performance_objective": "latency_subject_to_correctness_then_tokens",
+    "identical_complete_feature_sets": "3/3"
+  },
+  "typed_matcher": {
+    "registry_sha256": "f52262c47ed6011e4063a33316e5baa9f75efed1f32c34d3206808a407ba3043",
+    "matches_by_stage": {
+      "lookup-p01": [],
+      "lookup-p02": [],
+      "interval-p01": [],
+      "interval-p02": [],
+      "frequency-p01": [],
+      "frequency-p02": [],
+      "nearest-p01": [],
+      "nearest-p02": [
+        {
+          "mechanism_id": "shared-ordered-search-v1",
+          "profile": "p100",
+          "evidence_ref": "case:rankcount-prefixcount-n3"
+        }
+      ]
+    },
+    "exact_safe_candidate_sets": "3/3",
+    "unsafe_candidates": 0
+  },
+  "cost": {
+    "extractor_total_tokens": [59567, 48392, 65995],
+    "median_extractor_total_tokens": 59567,
+    "median_tokens_per_stage": 7445.875,
+    "old_direct_mixed_router_median_tokens": 85997,
+    "saving_vs_old_direct_router_tokens": 26430,
+    "saving_vs_old_direct_router_fraction": 0.3073363024291545,
+    "trusted_metadata_tokens": 0,
+    "agent_beats_trusted_metadata": false
+  },
+  "gates": {
+    "feature_exactness_3_of_3": true,
+    "feature_stability": true,
+    "typed_candidate_exactness_3_of_3": true,
+    "candidate_safety": true,
+    "agent_parser_contract_passed": true
+  },
+  "result": {
+    "agent_as_closed_feature_parser_supported": true,
+    "agent_as_direct_mechanism_router_supported": false,
+    "typed_matcher_boundary_supported": true,
+    "agent_parser_net_benefit_vs_trusted_metadata": false,
+    "outcome_blind_new_family_feature_generalization": "not evaluated",
+    "next_action": "freeze feature extraction and full Profile outcomes on an unused family, then test parser plus matcher without known labels"
+  },
+  "design_implication": {
+    "agent_authority": "extract closed features only",
+    "deterministic_authority": "validate evidence and match compatible mechanisms",
+    "dispatch_authority": "direct dispatch for one candidate, abstain for zero, Agent comparison only for multiple candidates",
+    "cost_boundary": "skip Agent extraction whenever trusted task metadata already owns the same features"
+  },
+  "claim_boundary": "This result validates 3/3 feature parsing and safe typed matching on known task descriptions. It does not test feature generalization to a new family and remains more expensive than trusted zero-token metadata."
+}

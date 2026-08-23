@@ -664,3 +664,18 @@ matching reliable. Outcome-blind mechanism eligibility must be revoked until a
 deterministic typed feature matcher filters candidates before Agent reasoning.
 See
 [`agentic-artifacts/modus-codex-luna-max-lookup-interval-heldout-v1.json`](../agentic-artifacts/modus-codex-luna-max-lookup-interval-heldout-v1.json).
+
+### Closed task-feature extraction result
+
+After removing mechanism choice from the Agent, three Luna extractors classified
+eight Lookup, Interval, Frequency, and Nearest stages under a fail-closed
+feature schema. All three returned the exact semantic kind, reuse count, stage
+order, and performance objective for all eight stages. Feeding those outputs to
+the zero-token typed matcher produced no candidate for seven stages and only
+ordered-search for Nearest-P02, exactly 3/3.
+
+Median extractor cost was 59,567 tokens, 30.7% below the old unsafe direct
+Router but still strictly worse than trusted zero-token metadata. This supports
+Agent use as a bounded parser only when authoritative features are unavailable;
+mechanism compatibility remains deterministic. See
+[`agentic-artifacts/modus-codex-luna-max-task-feature-extraction-v1.json`](../agentic-artifacts/modus-codex-luna-max-task-feature-extraction-v1.json).

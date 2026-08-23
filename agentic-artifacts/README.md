@@ -66,6 +66,8 @@ that need to decide what to inspect before loading the full repository.
     four-stage 56.2% Router-call amortization result.
 30. Read `modus-codex-luna-max-lookup-interval-heldout-v1.json` for the
     negative mixed held-out registry matching result and eligibility rollback.
+31. Read `modus-codex-luna-max-task-feature-extraction-v1.json` for the 3/3
+    closed feature parser and safe typed-matcher replay.
 
 ## Scope
 
