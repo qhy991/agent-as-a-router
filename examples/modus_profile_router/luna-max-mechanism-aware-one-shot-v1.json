@@ -1,0 +1,69 @@
+{
+  "schema": "acrouter-luna-max-mechanism-aware-one-shot-protocol-v1",
+  "frozen_at": "2026-08-23",
+  "run_authorized": true,
+  "purpose": "test whether proactive mechanism evidence plus p100 closes the two system stages in one Worker turn and reduces cost versus implementation followed by repair",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "profile": "p100",
+  "profile_sha256": "ec850834450c09a0e6d736c606a8d2295b955206e00c0e7778f982809ca98bfe",
+  "cells": [
+    {
+      "stage": "rankcount-system",
+      "task_id": "rankcount-h02-perf-p1b",
+      "task_sha256": "53805b6eda3f1576cbf4bb0e9089e1789abaa5081343455750ef3ae1ca0c112b",
+      "performance_threshold_seconds": 0.0013448025500000002,
+      "two_turn_implementation_plus_repair_tokens": 238068
+    },
+    {
+      "stage": "prefixcount-system",
+      "task_id": "prefixcount-h02-perf-p1b",
+      "task_sha256": "2691ddf859239ab5d08555b05d81a928776a5d6d2d1dd29c970ff2cfd65507a3",
+      "performance_threshold_seconds": 0.007391881713800785,
+      "two_turn_implementation_plus_repair_tokens": 288896
+    }
+  ],
+  "matrix": {
+    "cells": 2,
+    "clean_starter_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "gates": {
+    "execution_valid": true,
+    "hidden_correctness": true,
+    "topology": "coordinated",
+    "performance": "no slower than the frozen task threshold",
+    "usage_complete": true,
+    "cost": "one-shot tokens lower than the corresponding two-turn implementation plus selected repair tokens"
+  },
+  "end_to_end_accounting": {
+    "original_router_plus_workers_tokens": 1475122,
+    "original_slow_rankcount_worker_tokens": 130040,
+    "original_slow_prefixcount_worker_tokens": 168064,
+    "unchanged_router_plus_ten_workers_tokens": 1177018,
+    "feedback_closed_total_tokens": 1703982,
+    "proactive_closed_total": "unchanged total plus two actual one-shot Worker token counts"
+  },
+  "decision": {
+    "one_shot_quality_pass": "both cells pass correctness, topology, and performance",
+    "one_shot_cost_pass": "both cells individually cost less than their two-turn comparator",
+    "proactive_route_improves_closed_loop": "proactive closed total is lower than 1703982",
+    "replication_required": true
+  },
+  "failure_policy": {
+    "incorrect_or_incomplete_cell": "one-shot failure",
+    "performance_miss": "one-shot failure",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch",
+    "post_hoc_mechanism_threshold_or_comparator_change": false
+  },
+  "provenance": {
+    "feedback_evidence_sha256": "40cf0d72c59cc334fdd1dc8b9a8763a7c6f34c9d57ae4f7aab6974b792ef376f",
+    "agent_router_commit_before_freeze": "2640ed614dbc7cd86c977f1fc835911e58d9e071",
+    "worker_runner_sha256": "4f73aee9371711752e30688584321b968f06597b25b792c1eafd762891fe5385",
+    "modus_commit": "b0377989f6b489051843e2439d64b3c78557942e",
+    "plugin_commit": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f"
+  },
+  "claim_boundary": "This is one development cell per task using mechanism evidence learned from prior outcomes. It tests closed-loop cost optimization on known failures, not held-out mechanism discovery or replicated reliability."
+}
