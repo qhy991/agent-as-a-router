@@ -1,0 +1,15 @@
+{
+  "schema": "modus-p2o-custody-startup-failure-v1",
+  "formal_status": "apparatus_startup_failure",
+  "scientific_evidence": false,
+  "model_turn_started": false,
+  "returncode": 1,
+  "automatic_redispatches": 0,
+  "diagnosis": "sandbox was activated while the launcher cwd was the denied owner repo, so Codex failed before applying -C workspace",
+  "custody_conclusion": "not_evaluated",
+  "files": {
+    "protocol": "configs/modus_p2o_read_custody_canary_v1.json",
+    "wave_result": "examples/modus_profile_router/custody-p2o-v1/wave-result.json",
+    "wave_result_sha256": "06eb8d1f44a4e849b8d7c0a13539c679681b4f79ee00fc1af6e9fd5c4b976acf"
+  }
+}
