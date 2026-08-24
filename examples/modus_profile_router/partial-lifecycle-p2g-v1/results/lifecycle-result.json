@@ -1,0 +1,140 @@
+{
+  "checks": {
+    "continuation_worker_valid": true,
+    "continuation_worker_verified": true,
+    "neutral_fallbacks_zero": true,
+    "previous_partial": true,
+    "request_identity_preserved": true,
+    "request_resolution_accepted": true
+  },
+  "complete": true,
+  "continuation_dispatch": {
+    "evidence_ref": "qualification:p2c:stage-S",
+    "mechanism_id": "shared-token-frequency-v1",
+    "profile": "e1v2",
+    "stage": "stage-unqualified"
+  },
+  "continuation_verification": {
+    "arm": "routed",
+    "benchmark": {
+      "all_seconds": [
+        0.000611,
+        0.001043,
+        0.000678,
+        0.000831,
+        0.000737,
+        0.001075,
+        0.00063,
+        0.000827,
+        0.000622
+      ],
+      "median_seconds": 0.000737,
+      "rounds": 9,
+      "steady_relative_mad": 0.015175718849840278,
+      "steady_seconds": 0.000626,
+      "success": true
+    },
+    "checks": {
+      "benchmark": true,
+      "correctness": true,
+      "custody": true,
+      "parent_record": true,
+      "semantic_mechanism": true,
+      "topology": true
+    },
+    "correctness": {
+      "hidden": {
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "hidden-ok\n",
+        "timed_out": false
+      },
+      "public": {
+        "returncode": 0,
+        "stderr": "test_frequency (test_public.PublicTest.test_frequency) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+        "stdout": "",
+        "timed_out": false
+      },
+      "success": true
+    },
+    "custody": {
+      "files": {
+        ".modus-task.json": {
+          "actual_sha256": "daf07a6a2caad99cf23d13b13d46822314daecbed6a9c8e4a61ea2b027f377d6",
+          "expected_sha256": "daf07a6a2caad99cf23d13b13d46822314daecbed6a9c8e4a61ea2b027f377d6",
+          "present": true
+        },
+        "benchmark_final.py": {
+          "actual_sha256": "6af75a0ae175eea5899df206bd4d007d1bddb1c215ccd0ed1a6e766b8589f57d",
+          "expected_sha256": "6af75a0ae175eea5899df206bd4d007d1bddb1c215ccd0ed1a6e766b8589f57d",
+          "present": true
+        },
+        "benchmark_stage_l.py": {
+          "actual_sha256": "b70df40f3807d90829df8bf26b771f804b05a1c79f3d685c3f4408dfa05da722",
+          "expected_sha256": "b70df40f3807d90829df8bf26b771f804b05a1c79f3d685c3f4408dfa05da722",
+          "present": true
+        },
+        "tests/test_public.py": {
+          "actual_sha256": "ab2a5722761034f947cca71a48974799a8250d7e56ddddb73dd3bd04c4a8403f",
+          "expected_sha256": "ab2a5722761034f947cca71a48974799a8250d7e56ddddb73dd3bd04c4a8403f",
+          "present": true
+        }
+      },
+      "passed": true
+    },
+    "implementation_digest": "824ec9439a767cffd8b78f4fc7bc2af2d104262cd21127a691e3a9f3ab5da095",
+    "parent_record": {
+      "implementation_digest": "be8bd921663299e9d72762a2c313193724d466aa593a2240defa023b2857153b",
+      "schema": "modus-long-horizon-p2c-parent-v1",
+      "stage_l_verification_sha256": "3c36b93cd974960a75ed9f8b71af079b729e9dab3dd9167f895f0e22c267b133"
+    },
+    "passed": true,
+    "profile": "e1v2",
+    "schema": "modus-long-horizon-p2c-stage-verification-v1",
+    "semantic_mechanism": {
+      "run": {
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "mechanism-ok\n",
+        "timed_out": false
+      },
+      "success": true
+    },
+    "stage": "S",
+    "topology": {
+      "changed_implementation_paths": [
+        "perf_linked_frequency/observer.py",
+        "perf_linked_frequency/shared.py",
+        "perf_linked_frequency/target.py"
+      ],
+      "expected_topology": "coordinated",
+      "passed": true,
+      "topology": "coordinated"
+    }
+  },
+  "lifecycle_status": "complete",
+  "neutral_fallbacks": 0,
+  "pending_qualification_requests": 0,
+  "resolved_request": {
+    "candidate_view_sha256": "7740a80d0520dc59b88e1ec987a5f58601d15a243d4b3923071e4dab526f7452",
+    "neutral_fallbacks": 0,
+    "request_id": "qualification:0e0b4cec4f6408f663e313036a862a2621d05f8a1125d02750eed8d9cb259cfd",
+    "request_sha256": "1a77ec96fa27aaaed4c7731c9d3488a109efd2df017e47540c5999a7ddf56829",
+    "schema": "modus-qualification-request-resolution-v1",
+    "stage": "stage-unqualified",
+    "status": "accepted",
+    "worker_dispatch": {
+      "evidence_ref": "qualification:p2c:stage-S",
+      "mechanism_id": "shared-token-frequency-v1",
+      "profile": "e1v2",
+      "stage": "stage-unqualified"
+    }
+  },
+  "schema": "modus-completed-lifecycle-p2g-result-v1",
+  "status": "pass",
+  "workers": {
+    "continuation_worker_tokens": 171176,
+    "initial_qualified_worker_tokens": 126949,
+    "total_worker_tokens": 298125
+  }
+}

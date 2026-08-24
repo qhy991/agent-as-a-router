@@ -151,7 +151,8 @@
     "profile_p2e_agent_schema_failure": "modus-p2e-agent-schema-failure-v2.json",
     "profile_p2e_autonomous_evidence_gated_agent": "modus-p2e-autonomous-evidence-gated-agent-v3.json",
     "profile_manager_partial_dispatch_plan": "modus-manager-partial-dispatch-plan-v1.json",
-    "profile_partial_lifecycle_p2f_live": "modus-partial-lifecycle-p2f-live-v1.json"
+    "profile_partial_lifecycle_p2f_live": "modus-partial-lifecycle-p2f-live-v1.json",
+    "profile_completed_lifecycle_p2g_live": "modus-completed-lifecycle-p2g-live-v1.json"
   },
   "headline_metrics": {
     "id": {

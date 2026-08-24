@@ -1,0 +1,55 @@
+{
+  "schema": "acrouter-modus-completed-lifecycle-p2g-live-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "live_qualification_resolution_evidence": true,
+  "offline_qualification": {
+    "request_id": "qualification:0e0b4cec4f6408f663e313036a862a2621d05f8a1125d02750eed8d9cb259cfd",
+    "semantic_kind": "token_frequency",
+    "p2c_envelope_status": "qualified",
+    "registry_mechanism": "shared-token-frequency-v1",
+    "profile": "e1v2",
+    "evidence_ref": "qualification:p2c:stage-S",
+    "resolution_status": "accepted",
+    "router_model_calls": 0,
+    "neutral_fallbacks": 0
+  },
+  "continuation_worker": {
+    "valid_execution": true,
+    "correctness_passed": true,
+    "coordinated_topology_passed": true,
+    "prepared_counter_passed": true,
+    "parent_binding_passed": true,
+    "final_seconds": 0.000626,
+    "tokens": 171176
+  },
+  "completed_lifecycle": {
+    "initial_range_sum_worker_tokens": 126949,
+    "continuation_token_frequency_worker_tokens": 171176,
+    "total_worker_tokens": 298125,
+    "pending_qualification_requests": 0,
+    "neutral_fallbacks": 0,
+    "status": "complete",
+    "complete": true
+  },
+  "conclusions": {
+    "pending_request_resolved_only_after_qualified_envelope": true,
+    "manager_continuation_requires_no_new_agent_call": true,
+    "accepted_evidence_can_transition_partial_to_complete": true,
+    "unqualified_stage_was_never_run_before_qualification": true,
+    "lifecycle_fact_ownership_preserved": true
+  },
+  "files": {
+    "p2f_partial_lifecycle": "examples/modus_profile_router/partial-lifecycle-p2f-v1/results/lifecycle-result.json",
+    "qualification_resolution": "examples/modus_profile_router/partial-lifecycle-p2f-v1/p2g-resolution.json",
+    "wave_result": "examples/modus_profile_router/partial-lifecycle-p2g-v1/results/wave-result.json",
+    "qualified_verification": "examples/modus_profile_router/partial-lifecycle-p2g-v1/results/qualified-verification.json",
+    "lifecycle_result": "examples/modus_profile_router/partial-lifecycle-p2g-v1/results/lifecycle-result.json",
+    "wave_result_sha256": "10ce51aae0870ed5cd0cf568c52a39e01f1164ec5d20491a7d8858eb53c7737f",
+    "qualified_verification_sha256": "865a4e38297904e3e4b9d9cac9cc50a14f9ad4fef150811e15dc8df8710323d0",
+    "lifecycle_result_sha256": "8957825c407bc1df425b5a810700ed2afe57a537b0b7440bafe140526e7776be"
+  },
+  "next_experiment": "apply the same qualification-request lifecycle to a genuinely unseen semantic descriptor rather than resolving from existing P2c evidence",
+  "claim_boundary": "This completes one mixed lifecycle by reusing existing P2c outcome evidence. It does not measure the cost of generating new qualification evidence from scratch."
+}
+

@@ -1061,3 +1061,13 @@ stage created no workspace, manifest, model call, or neutral fallback; its
 hash-bound qualification request remains pending. The lifecycle remains
 `partial_pending_qualification` and `complete=false`. See
 [`agentic-artifacts/modus-partial-lifecycle-p2f-live-v1.json`](../agentic-artifacts/modus-partial-lifecycle-p2f-live-v1.json).
+
+The pending TokenFrequency request was then resolved from existing P2c outcome
+evidence. Its route envelope passed the same 1.25x/10%/15% policy, registry v2
+derived one e1-v2/shared-token-frequency candidate, and the manager accepted a
+continuation dispatch without another Router call. The continuation Worker
+passed correctness, coordinated topology, prepared Counter semantics, and
+parent binding while using 171,176 tokens. Combined with the initial 126,949-
+token RangeSum Worker, the lifecycle has zero pending requests and transitions
+from partial to `complete=true` with no neutral fallback. See
+[`agentic-artifacts/modus-completed-lifecycle-p2g-live-v1.json`](../agentic-artifacts/modus-completed-lifecycle-p2g-live-v1.json).
