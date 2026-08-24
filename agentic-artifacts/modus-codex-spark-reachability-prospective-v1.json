@@ -1,0 +1,113 @@
+{
+ "schema": "acrouter-modus-codex-spark-reachability-prospective-result-v1",
+ "captured_at": "2026-08-24",
+ "scientific_evidence": false,
+ "development_outcome_evidence": true,
+ "evidence_kind": "prospective-pre-registered-staged-qualification-replication",
+ "harness": {
+  "model_slug": "gpt-5.3-codex-spark",
+  "reasoning_effort": "high",
+  "authentication": "ChatGPT login",
+  "supported_in_api": false,
+  "profile_delivery": "canonical Profile text prepended to the user task prompt",
+  "codex_cli_version": "0.146.0",
+  "runner": "acrouter_repro.codex_spark_wave.run_wave",
+  "dsh_runtime_gate_present": false,
+  "agent_router_commit_at_dispatch": "78c2be1"
+ },
+ "protocol": {
+  "path": "configs/modus_reachability_prospective_v1.json",
+  "schema": "acrouter-modus-reachability-prospective-protocol-v1",
+  "frozen_before_dispatch": true,
+  "binding_tests": "tests/test_reachability_prospective_task.py",
+  "manifest_sha256": "1d45e30ae7ab16751b9b348dea5029f34a8a8c694ad01a0a29458be258051cbd"
+ },
+ "design": {
+  "primitive": "target/shared/observer/api structure and public-test form copied from frozen Reachability p01/p02; workload, task ids, prompts, and locks are new",
+  "task_pair": {
+   "reachability-p03": "cycle-and-chord strongly connected graph consumed as six-query batches",
+   "reachability-p04": "the same input consumed as ninety-six two-query batches"
+  },
+  "independence": "new graph family (ring plus chords, all nodes mutually reachable), new scale (640 nodes, 816 edges, 192 queries), new task ids, new sha256 lock set",
+  "actions": ["neutral", "p000"],
+  "repetitions_per_action": 2,
+  "cells": 8,
+  "p100_cells": 0,
+  "stop_rule": "score once after eight cells; no p100 acquisition; no redispatch"
+ },
+ "execution": {
+  "wave_result_sha256": "a29a32b3a317ac375af1c7fb998ab6647f572b74366cf10f717e019b667843ac",
+  "manager_verification_sha256": "3c6568ae1fa3265d8c8a8524357983c1294e36a3051efc1c04024253dbba93b4",
+  "score_sha256": "71f48521fb305ee8295d4125c0ee09660b09da517434fa1f6b4599e9f6bd5f43",
+  "valid_execution_cells": 8,
+  "correct_cells": 8,
+  "topology_fidelity_cells": 8,
+  "complete_usage_cells": 8,
+  "web_search_cells": 0,
+  "automatic_redispatches": 0
+ },
+ "outcome": {
+  "reachability-p03": {
+   "neutral": {
+    "eligible": true,
+    "median_seconds": 0.007157,
+    "median_total_tokens": 841046.0,
+    "performance_ratio_to_fastest": 1.0
+   },
+   "p000": {
+    "eligible": true,
+    "median_seconds": 0.013681,
+    "median_total_tokens": 455623.0,
+    "performance_ratio_to_fastest": 1.912
+   },
+   "oracle_action": "p000"
+  },
+  "reachability-p04": {
+   "neutral": {
+    "eligible": true,
+    "median_seconds": 0.013773,
+    "median_total_tokens": 562803.0,
+    "performance_ratio_to_fastest": 1.0
+   },
+   "p000": {
+    "eligible": true,
+    "median_seconds": 0.029414,
+    "median_total_tokens": 384766.0,
+    "performance_ratio_to_fastest": 2.136
+   },
+   "oracle_action": "p000"
+  },
+  "token_effect": "p000 used 45.8% (p03) and 31.6% (p04) fewer median total tokens than neutral while remaining performance-eligible under the frozen 1.25x gate",
+  "token_saving_family_median_fraction": 0.4014,
+  "selective_routing_space_observed": false,
+  "selective_routing_space_interpretation": "both tasks resolved to fixed p000, which is the staged-policy target shape: promote one fixed Profile, no per-task crossover required"
+ },
+ "prospective_economics": {
+  "comparison": "promotion of fixed p000 over the default defer action neutral; one deployment is one task-pair execution",
+  "acquisition_tokens_measured_prospectively": 4488477,
+  "neutral_two_task_median_tokens": 1403850,
+  "p000_two_task_median_tokens": 840389,
+  "saving_per_deployment_tokens": 563461,
+  "saving_fraction": 0.4014,
+  "break_even_deployments": 8,
+  "net_tokens_at_eight_deployments": 19211,
+  "replayed_staged_break_even_deployments": 8,
+  "break_even_matches_replay": true,
+  "decision_at_eight": "promote",
+  "decision_below_eight": "qualified_but_not_economic",
+  "frozen_15_percent_gate": "pass"
+ },
+ "boundary_conditions": {
+  "model_difference": "the replayed break-even of 8 came from gpt-5.6-luna max cells; this replication ran gpt-5.3-codex-spark high, so absolute token scales differ and only the break-even structure is compared",
+  "acquisition_scale_difference": "the replayed staged acquisition of 1,427,833 tokens covered twelve cells plus replication; this prospective wave spent 4,488,477 tokens on eight Spark cells, yet break-even still lands at 8 because per-deployment savings scaled proportionally",
+  "single_pair_scope": "one task pair, two repetitions; a rankcount-style crossover family or a p100-requiring family would need its own frozen protocol",
+  "not_validated": "p100 behavior, live routing, and any assumption that the eighth-deployment rule transfers to other families or models"
+ },
+ "result": {
+  "staged_policy_prospectively_validated": true,
+  "break_even_rule_prospectively_validated": true,
+  "profile_prediction_p000_on_both_tasks_held": true,
+  "next_action": "the staged neutral/p000-first acquisition policy and the qualification-economics break-even gate are now prospectively supported; a second family with expected crossover would test whether staged acquisition remains correct when the best fixed action is not uniform"
+ },
+ "claim_boundary": "Development evidence only. This replication validates the staged acquisition policy and the arithmetic break-even gate on one independent Reachability pair under gpt-5.3-codex-spark. It does not constitute scientific evidence about Profile routing in general and does not authorize live dispatch."
+}

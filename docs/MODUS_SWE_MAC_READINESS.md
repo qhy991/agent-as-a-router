@@ -717,3 +717,24 @@ deployment 10 and promotes at 11. Staged qualification promotes at deployment
 8. Removing the Agent parser does not change the staged break-even, but saves
 43,452 additional tokens at every horizon. See
 [`agentic-artifacts/modus-codex-luna-max-reachability-deployment-simulation-v1.json`](../agentic-artifacts/modus-codex-luna-max-reachability-deployment-simulation-v1.json).
+
+### Prospective staged-qualification replication
+
+The staged neutral/p000-first policy was then validated prospectively. A
+protocol was frozen and hash-bound before dispatch over a new independent
+Reachability pair (`reachability-p03` cycle-and-chord six-query batches,
+`reachability-p04` the same input as ninety-six two-query batches) with new
+task ids, a new graph family, and its own lock set. Eight gpt-5.3-codex-spark
+high cells (neutral/p000 x 2 repetitions x 2 tasks) all executed validly,
+passed hidden-case correctness, kept p000 local-only topology, and reported
+complete usage with no web search and no redispatch.
+
+Both tasks selected fixed p000: it used 45.8% and 31.6% fewer median total
+tokens than neutral while staying inside the frozen 1.25x performance gate.
+Measured prospective acquisition was 4,488,477 tokens against 563,461 tokens
+saved per task-pair deployment, and `evaluate_qualification_economics`
+returned break-even at exactly deployment 8 — matching the replayed staged
+break-even — with `promote` at 8 and `qualified_but_not_economic` below it.
+No selective routing space appeared, which is the staged-policy target shape:
+promote one fixed Profile without per-task crossover. See
+[`agentic-artifacts/modus-codex-spark-reachability-prospective-v1.json`](../agentic-artifacts/modus-codex-spark-reachability-prospective-v1.json).

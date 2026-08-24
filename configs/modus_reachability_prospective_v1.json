@@ -1,0 +1,115 @@
+{
+  "schema": "acrouter-modus-reachability-prospective-protocol-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "purpose": "prospectively validate staged neutral/p000-first qualification and the deployment-8 break-even rule on a fresh independent Reachability workload pair before any outcome is observed",
+  "scientific_role": "pre-registered prospective staged-qualification replication",
+  "model": {
+    "local_slug": "gpt-5.3-codex-spark",
+    "reasoning_effort": "high",
+    "authentication": "ChatGPT login",
+    "supported_in_api": false
+  },
+  "harness": {
+    "codex_cli_version": "0.146.0",
+    "runner": "acrouter_repro.codex_spark_wave.run_wave",
+    "profile_delivery": "canonical Profile text prepended to the task prompt",
+    "ignore_user_config": true,
+    "ignore_rules": true,
+    "browser_features_disabled": true,
+    "web_search_event_policy": "invalidate cell",
+    "sandbox": "workspace-write",
+    "automatic_redispatch": false,
+    "dsh_runtime_gate_present": false
+  },
+  "profiles": {
+    "neutral": {
+      "profile_path": "/private/tmp/modus-codex-spark-neutral-profile.md",
+      "profile_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "p000": {
+      "bits": "E0/T0/A0",
+      "expected_topology": "local",
+      "profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/profiles/p000.md",
+      "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282"
+    }
+  },
+  "tasks": {
+    "reachability-p03": {
+      "task_id": "reachability-p03-perf-p0",
+      "workload_kind": "cycle-and-chord strongly connected graph, six-query batches (local path)",
+      "prompt": "examples/modus_profile_router/reachability-prospective-v1/reachability-p03-e-axis-task.md",
+      "prompt_sha256": "425fd005cac2b702acabb1eba95ff0f872c10333111d31c5eae9e0aa7c4b532a",
+      "seed_root": "examples/modus_profile_router/reachability-prospective-v1/seeds/reachability-p03",
+      "seed_files_sha256": {
+        "benchmark.py": "7d5cf6f5a3a1fe41caf3b2db7796f0e7591e4eabc537887e0d5dc4e336ae5aa5",
+        "perf_reachability_p03/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "perf_reachability_p03/api.py": "bc7d4f9005be8d23270301519ce0f27e68dfdfd7ae2a2d47a30d05524b04bd2e",
+        "perf_reachability_p03/observer.py": "9f53a6f322c7743bbf3f0cb134f9d4b205983afa13ea6494df84e08d765dd226",
+        "perf_reachability_p03/shared.py": "907cf29485630abdef6a1cf4626d956ae3430cb45b1d410ff12ec6f0097b766c",
+        "perf_reachability_p03/target.py": "16af95b356e0b04970f72862d8300a99461e109bc983a5f0e1527f51cade6c38",
+        "tests/test_public.py": "056ee2faa751e883f978c7a089e5a6e33a6fa78b805cac4512e25567a2f9ac08"
+      },
+      "expected_local_paths": ["perf_reachability_p03/target.py"],
+      "baseline_seed_benchmark_seconds": 0.021874
+    },
+    "reachability-p04": {
+      "task_id": "reachability-p04-perf-p0",
+      "workload_kind": "same cycle-and-chord input consumed by ninety-six two-query batches (system path)",
+      "prompt": "examples/modus_profile_router/reachability-prospective-v1/reachability-p04-e-axis-task.md",
+      "prompt_sha256": "b5337d334e179b2bb4b104c92fc55b0d2365f33aa653dea4fdd415d6abfcb11b",
+      "seed_root": "examples/modus_profile_router/reachability-prospective-v1/seeds/reachability-p04",
+      "seed_files_sha256": {
+        "benchmark.py": "c73522f8d39954db756d54cf81aca02761c13e27f087b3f263c96e13784c7a3c",
+        "perf_reachability_p04/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "perf_reachability_p04/api.py": "bc7d4f9005be8d23270301519ce0f27e68dfdfd7ae2a2d47a30d05524b04bd2e",
+        "perf_reachability_p04/observer.py": "9f53a6f322c7743bbf3f0cb134f9d4b205983afa13ea6494df84e08d765dd226",
+        "perf_reachability_p04/shared.py": "907cf29485630abdef6a1cf4626d956ae3430cb45b1d410ff12ec6f0097b766c",
+        "perf_reachability_p04/target.py": "16af95b356e0b04970f72862d8300a99461e109bc983a5f0e1527f51cade6c38",
+        "tests/test_public.py": "bc8c7f688ff3610f23319802d74a8e0db3ddc398500fcc933eb0df877e8a318a"
+      },
+      "expected_local_paths": ["perf_reachability_p04/target.py"],
+      "baseline_seed_benchmark_seconds": 0.023817
+    }
+  },
+  "matrix": {
+    "actions": ["neutral", "p000"],
+    "repetitions_per_action": 2,
+    "cells": 8,
+    "tasks": 2,
+    "fresh_workspace_per_cell": true,
+    "p100_follow_up": "not scheduled; p000 pass stops data acquisition",
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "staged_policy_under_test": {
+    "classification": "prospective replication of the post-outcome staged neutral/p000-first replay",
+    "stop_rule": "after both repetitions of neutral and p000 on both tasks, score once with the frozen gates; do not acquire p100 and do not redispatch any cell",
+    "expected_profile_for_family": "p000 on both tasks, based on the Luna Reachability outcome; this expectation is a prediction, not a scoring input",
+    "break_even_rule_under_test": "the staged acquisition tokens measured here are the prospective cost of this qualification wave; combine with the measured per-deployment saving to recompute break-even deployments with evaluate_qualification_economics and compare against the replayed break-even of 8"
+  },
+  "scoring": {
+    "correctness_first": "both repetitions pass public tests plus frozen hidden verifier cases",
+    "performance_eligibility": "task median seconds no more than 1.25x fastest correct action",
+    "cost_choice": "lowest eligible median complete tokens with 5% tie",
+    "promotion_gate": "evaluate_qualification_economics with minimum_saving_fraction 0.15",
+    "routing_space_gate": "15% saving versus best fixed eligible action on at least two tasks"
+  },
+  "failure_policy": {
+    "invalid_or_incomplete_cell": "cell failure; preserve and do not redispatch",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch",
+    "no_model_substitution": true,
+    "post_hoc_task_or_gate_change": false
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "78c2be1",
+    "plugin_commit_at_freeze": "a27aea3",
+    "qualification_economics_sha256_at_freeze": "f10a152823eedf751c6e422385aeee87a89bccd7940a9a5e889f5012f7d80a0f",
+    "replayed_staged_break_even_deployments": 8,
+    "replayed_staged_acquisition_tokens": 1427833,
+    "replayed_saving_per_deployment_tokens": 182606,
+    "primitive_lineage": "target/shared/observer/api and public-test structure copied from the frozen Reachability p01/p02 workspaces; benchmark workloads, task ids, prompts, and locks are new"
+  },
+  "claim_boundary": "This protocol tests whether a pre-committed neutral/p000-first acquisition policy, chosen before outcome observation, reproduces the staged qualification economics on an independent workload. It cannot validate p100 behavior and does not by itself authorize live routing."
+}

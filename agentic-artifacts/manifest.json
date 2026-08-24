@@ -111,7 +111,9 @@
     "legacy_ood112_summary": "../outputs/current/summary.json",
     "acrouter_ood176_metrics": "../outputs/acrouter_ood176/ood_metrics.json",
     "baseline_outputs": "../outputs/baselines_ood176/",
-    "tests": "../tests/"
+    "tests": "../tests/",
+    "profile_spark_reachability_prospective": "modus-codex-spark-reachability-prospective-v1.json",
+    "profile_reachability_prospective_protocol": "../configs/modus_reachability_prospective_v1.json"
   },
   "headline_metrics": {
     "id": {
@@ -123,11 +125,11 @@
     },
     "ood176_acrouter": {
       "n": 176,
-      "avg_perf_pct": 73.30,
+      "avg_perf_pct": 73.3,
       "cum_reg": 15.9,
       "total_cost_usd": 86.72,
       "perf_per_usd": 0.85,
-      "apply_ok_pct": 85.80
+      "apply_ok_pct": 85.8
     }
   },
   "legacy_supplement": {
