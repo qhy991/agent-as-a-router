@@ -865,3 +865,17 @@ matched local preparation versus cross-batch reuse. Router acquisition is
 authorizes a balanced AB/BA routed-versus-neutral pipeline protocol; no linked
 quality, performance, or economics conclusion is available yet. See
 [`agentic-artifacts/modus-codex-luna-max-long-horizon-p2a-router-v1.json`](../agentic-artifacts/modus-codex-luna-max-long-horizon-p2a-router-v1.json).
+
+The balanced AB/BA phase then completed four linked pipelines and eight Worker
+calls. Every Stage L and Stage S passed correctness, custody, topology, parent
+binding, and benchmark gates; routed Stage S passed the prepared mechanism in
+both repetitions. Routed two-stage Workers used 36.2% fewer tokens, and still
+saved 31.8% after charging the live Router.
+
+No conclusion is released yet. Pair 1 routed final performance was 1.445x
+neutral, while pair 2 was 0.528x, so the paired ratios straddle the frozen
+1.25x boundary. The precommitted ambiguity rule requires one additional
+routed-neutral linked pair. Initial acquisition is 1,415,122 tokens; its
+hypothetical break-even would be 11 deployments, but economics remains deferred
+until replication. See
+[`agentic-artifacts/modus-codex-luna-max-long-horizon-p2a-initial-v1.json`](../agentic-artifacts/modus-codex-luna-max-long-horizon-p2a-initial-v1.json).

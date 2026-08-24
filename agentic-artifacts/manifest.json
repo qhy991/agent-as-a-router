@@ -127,7 +127,9 @@
     "profile_luna_max_connectivity_p1f_replicated": "modus-codex-luna-max-connectivity-p1f-replicated-v1.json",
     "profile_luna_max_connectivity_p1f_replication_protocol": "../configs/modus_connectivity_p1f_third_pair_replication_v1.json",
     "profile_luna_max_long_horizon_p2a_router": "modus-codex-luna-max-long-horizon-p2a-router-v1.json",
-    "profile_luna_max_long_horizon_p2a_router_protocol": "../configs/modus_long_horizon_p2a_agent_router_v1.json"
+    "profile_luna_max_long_horizon_p2a_router_protocol": "../configs/modus_long_horizon_p2a_agent_router_v1.json",
+    "profile_luna_max_long_horizon_p2a_initial": "modus-codex-luna-max-long-horizon-p2a-initial-v1.json",
+    "profile_luna_max_long_horizon_p2a_pipeline_protocol": "../configs/modus_long_horizon_p2a_pipeline_v1.json"
   },
   "headline_metrics": {
     "id": {

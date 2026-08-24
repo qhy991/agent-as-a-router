@@ -1,0 +1,90 @@
+{
+  "arm": "neutral",
+  "benchmark": {
+    "all_seconds": [
+      0.000769,
+      0.000786,
+      0.000851,
+      0.000845,
+      0.000826,
+      0.000881,
+      0.001041,
+      0.000777,
+      0.000804
+    ],
+    "median_seconds": 0.000826,
+    "rounds": 9,
+    "steady_relative_mad": 0.010876519513755654,
+    "steady_seconds": 0.0007815000000000001,
+    "success": true
+  },
+  "checks": {
+    "benchmark": true,
+    "correctness": true,
+    "custody": true,
+    "parent_record": true,
+    "semantic_mechanism": true,
+    "topology": true
+  },
+  "correctness": {
+    "hidden": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "hidden-ok\n",
+      "timed_out": false
+    },
+    "public": {
+      "returncode": 0,
+      "stderr": "test_connectivity (test_public.PublicTest.test_connectivity) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "stdout": "",
+      "timed_out": false
+    },
+    "success": true
+  },
+  "custody": {
+    "files": {
+      ".modus-task.json": {
+        "actual_sha256": "d1d47e4a0076ee7e3a5390deb77852a6a5c33ffc613df51096d07c0c5e5cea97",
+        "expected_sha256": "d1d47e4a0076ee7e3a5390deb77852a6a5c33ffc613df51096d07c0c5e5cea97",
+        "present": true
+      },
+      "benchmark_final.py": {
+        "actual_sha256": "c262ca8e56043ef4722e837e3c42d7a60fc36c8a037be41a6ee77b487e1d620a",
+        "expected_sha256": "c262ca8e56043ef4722e837e3c42d7a60fc36c8a037be41a6ee77b487e1d620a",
+        "present": true
+      },
+      "benchmark_stage_l.py": {
+        "actual_sha256": "6f6ea19ad37b94fc8f44cde6d3cbc2f4b0580031b037acf693be7e63fb27f648",
+        "expected_sha256": "6f6ea19ad37b94fc8f44cde6d3cbc2f4b0580031b037acf693be7e63fb27f648",
+        "present": true
+      },
+      "tests/test_public.py": {
+        "actual_sha256": "700a996568d5e32abb4de77f88b371570bd69b76323bee0c5c029d0e888c0c27",
+        "expected_sha256": "700a996568d5e32abb4de77f88b371570bd69b76323bee0c5c029d0e888c0c27",
+        "present": true
+      }
+    },
+    "passed": true
+  },
+  "implementation_digest": "7da3a5bffc1a5f37da3ab504428ee71fd176d8288db78a69056e41a83131671a",
+  "parent_record": {
+    "implementation_digest": "ebe55dbc65d20fd43f1d41c08513cc361fdc41e11174e89c0289ea45227e839d",
+    "schema": "modus-long-horizon-p2a-parent-v1",
+    "stage_l_verification_sha256": "debef90d7cb206f3c79c90bb9d1571d8e51ec495bab32040f72a7d10732433a6"
+  },
+  "passed": true,
+  "profile": "neutral",
+  "schema": "modus-long-horizon-p2a-stage-verification-v1",
+  "semantic_mechanism": null,
+  "stage": "S",
+  "topology": {
+    "changed_implementation_paths": [
+      "perf_linked_connectivity/observer.py",
+      "perf_linked_connectivity/shared.py",
+      "perf_linked_connectivity/target.py"
+    ],
+    "expected_topology": "unconstrained",
+    "passed": true,
+    "topology": "unconstrained"
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "acquisition": {
+    "router_tokens": 37789,
+    "total_tokens": 1415122,
+    "worker_tokens": 1377333
+  },
+  "aggregates": {
+    "neutral": {
+      "maximum_relative_mad": 0.010876519513755654,
+      "median_final_seconds": 0.0008190000000000001,
+      "median_stage_l_seconds": 0.00077375,
+      "median_worker_tokens": 420547.0,
+      "pipelines": 2
+    },
+    "routed": {
+      "maximum_relative_mad": 0.04179728317659358,
+      "median_final_seconds": 0.00079075,
+      "median_stage_l_seconds": 0.00090825,
+      "median_worker_tokens": 268119.5,
+      "pipelines": 2
+    }
+  },
+  "ambiguity": {
+    "reasons": [
+      "paired final-performance ratios straddle 1.25x"
+    ],
+    "triggered": true
+  },
+  "decision": "third_paired_replication_required",
+  "deployment": {
+    "e2e_saving_fraction": 0.3175221794472437,
+    "live_router_tokens": 18894.5,
+    "neutral_worker_tokens": 420547.0,
+    "routed_e2e_tokens": 287014.0,
+    "routed_worker_tokens": 268119.5,
+    "worker_saving_fraction": 0.36245057032864336
+  },
+  "economics": {
+    "acquisition_tokens": 1415122,
+    "baseline_deployment_tokens": 420547,
+    "break_even_deployments": 11,
+    "candidate_deployment_tokens": 287014,
+    "correctness_passed": false,
+    "decision": "defer_correctness",
+    "evidence_stable": false,
+    "expected_deployments": 8,
+    "minimum_saving_fraction": 0.15,
+    "net_tokens_at_expected_deployments": -346858,
+    "performance_passed": false,
+    "saving_fraction": 0.3175221794472437,
+    "saving_per_deployment_tokens": 133533
+  },
+  "gates": {
+    "all_pipelines_valid": true,
+    "balanced_ab_ba": true,
+    "final_performance": true,
+    "no_ambiguity_trigger": false,
+    "stage_l_performance": true,
+    "worker_token_saving": true
+  },
+  "performance": {
+    "final_routed_ratio_to_fastest": 1.0,
+    "paired_final_routed_to_neutral_ratios": [
+      1.4452975047984642,
+      0.5277291301809691
+    ],
+    "stage_l_routed_ratio_to_fastest": 1.1738287560581582
+  },
+  "pipelines": [
+    {
+      "arm": "routed",
+      "final_seconds": 0.0011294999999999999,
+      "id": "pair1-routed",
+      "maximum_relative_mad": 0.012837538733953246,
+      "order": 1,
+      "pair": 1,
+      "parent_bound": true,
+      "parent_record_sha256": "6dec6aa85484228d278b09dff9f90d3d10d6ddc09b48105ae79c63cbc3ec492f",
+      "stage_l_profile": "p000",
+      "stage_l_seconds": 0.0008595,
+      "stage_l_verification_sha256": "7bc35b3777db3b2c0290a31fcac1a43ec3803a77e02824b40026f0e07daaaa4d",
+      "stage_s_profile": "e1v2",
+      "stage_s_verification_sha256": "aa834dd285c4fa7bde04f5b98f8a832932040a9c54a49f4f33e5a4c7074436fc",
+      "valid": true,
+      "worker_tokens": 268737
+    },
+    {
+      "arm": "neutral",
+      "final_seconds": 0.0007815000000000001,
+      "id": "pair1-neutral",
+      "maximum_relative_mad": 0.010876519513755654,
+      "order": 2,
+      "pair": 1,
+      "parent_bound": true,
+      "parent_record_sha256": "7fade69c24f0202c0de01fe0b01f4b147f65bc580eceed645744bc997245fcc4",
+      "stage_l_profile": "neutral",
+      "stage_l_seconds": 0.0007665,
+      "stage_l_verification_sha256": "debef90d7cb206f3c79c90bb9d1571d8e51ec495bab32040f72a7d10732433a6",
+      "stage_s_profile": "neutral",
+      "stage_s_verification_sha256": "e8b2c3f1867b646aafa3a9b3e7cdbbee6e0701766e6b176cccec6d2f21cc46c2",
+      "valid": true,
+      "worker_tokens": 437852
+    },
+    {
+      "arm": "neutral",
+      "final_seconds": 0.0008565000000000001,
+      "id": "pair2-neutral",
+      "maximum_relative_mad": 0.008962868117797704,
+      "order": 1,
+      "pair": 2,
+      "parent_bound": true,
+      "parent_record_sha256": "f23f9d4b96b0d65fa6e82f326d6f1edcd22040b062f17eec338ad8c6264dbae4",
+      "stage_l_profile": "neutral",
+      "stage_l_seconds": 0.000781,
+      "stage_l_verification_sha256": "5bfab6c1c5cbbfdd4edf1b86156fc21e8b62bf9c591e592a9f4fe3e99711abb4",
+      "stage_s_profile": "neutral",
+      "stage_s_verification_sha256": "7cd4c06f6759ae8e83e43cdf2352961e1650695da6c58926d2fd8b0fd8451da7",
+      "valid": true,
+      "worker_tokens": 403242
+    },
+    {
+      "arm": "routed",
+      "final_seconds": 0.00045200000000000004,
+      "id": "pair2-routed",
+      "maximum_relative_mad": 0.04179728317659358,
+      "order": 2,
+      "pair": 2,
+      "parent_bound": true,
+      "parent_record_sha256": "fcde2a5b6fa4c4eda9c950ceb9bf81fc93a796f40ceb12881731fa70b1e84eec",
+      "stage_l_profile": "p000",
+      "stage_l_seconds": 0.000957,
+      "stage_l_verification_sha256": "0ee5ab033b005bfffeac4d051b9456834178e186a1b3186e398304be03425fe0",
+      "stage_s_profile": "e1v2",
+      "stage_s_verification_sha256": "4acf10396d5b9a7df58704d823d0846ccc560e77cdac209e39ba2ca3bf2101c3",
+      "valid": true,
+      "worker_tokens": 267502
+    }
+  ],
+  "schema": "modus-long-horizon-p2a-pipeline-score-v1",
+  "status": "pass"
+}

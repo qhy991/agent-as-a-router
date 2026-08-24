@@ -6,6 +6,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "configs/modus_long_horizon_p2a_pipeline_v1.json"
+EVIDENCE = ROOT / "agentic-artifacts/modus-codex-luna-max-long-horizon-p2a-initial-v1.json"
 
 
 class LongHorizonP2aPipelineTest(unittest.TestCase):
@@ -52,6 +53,22 @@ class LongHorizonP2aPipelineTest(unittest.TestCase):
         self.assertEqual(scoring["minimum_worker_token_saving_fraction"], 0.15)
         self.assertEqual(scoring["third_pair_rule"]["near_threshold_band_inclusive"], [1.1875, 1.3125])
         self.assertIn("18,894.5", scoring["deployment_cost"])
+
+    def test_initial_evidence_defers_on_precommitted_ambiguity(self):
+        value = json.loads(EVIDENCE.read_text())
+        self.assertFalse(value["scientific_evidence"])
+        self.assertTrue(value["preliminary_linked_pipeline_evidence"])
+        self.assertTrue(value["paired_final_performance"]["straddles_1_25_gate"])
+        self.assertTrue(value["decision"]["ambiguity_triggered"])
+        self.assertFalse(value["decision"]["promotion_allowed"])
+        for name, hash_key in (
+            ("execution_summary", "execution_summary_sha256"),
+            ("score", "score_sha256"),
+        ):
+            self.assertEqual(
+                hashlib.sha256((ROOT / value["files"][name]).read_bytes()).hexdigest(),
+                value["files"][hash_key],
+            )
 
 
 if __name__ == "__main__":

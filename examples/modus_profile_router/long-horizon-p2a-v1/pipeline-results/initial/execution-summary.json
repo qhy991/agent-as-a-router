@@ -1,0 +1,39 @@
+{
+  "automatic_redispatches": 0,
+  "pipelines": [
+    {
+      "arm": "routed",
+      "id": "pair1-routed",
+      "order": 1,
+      "pair": 1,
+      "stage_l": "pass",
+      "stage_s": "pass"
+    },
+    {
+      "arm": "neutral",
+      "id": "pair1-neutral",
+      "order": 2,
+      "pair": 1,
+      "stage_l": "pass",
+      "stage_s": "pass"
+    },
+    {
+      "arm": "neutral",
+      "id": "pair2-neutral",
+      "order": 1,
+      "pair": 2,
+      "stage_l": "pass",
+      "stage_s": "pass"
+    },
+    {
+      "arm": "routed",
+      "id": "pair2-routed",
+      "order": 2,
+      "pair": 2,
+      "stage_l": "pass",
+      "stage_s": "pass"
+    }
+  ],
+  "schema": "modus-long-horizon-p2a-execution-v1",
+  "status": "pass"
+}

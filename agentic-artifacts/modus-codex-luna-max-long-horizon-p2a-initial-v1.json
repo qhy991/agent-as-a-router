@@ -1,0 +1,60 @@
+{
+  "schema": "acrouter-modus-luna-long-horizon-p2a-initial-result-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "preliminary_linked_pipeline_evidence": true,
+  "protocol": {
+    "commit_at_dispatch": "28c5107",
+    "protocol_sha256": "f2e94e310f0dba6e7c5900ffa0aa1fec5752e26eb45d0cd4a0b004e41b12efbc",
+    "pipelines": 4,
+    "worker_cells": 8,
+    "schedule": "pair1 routed-neutral; pair2 neutral-routed",
+    "automatic_redispatches": 0
+  },
+  "validity": {
+    "complete_pipelines": 4,
+    "stage_verifications_passed": 8,
+    "parent_bindings_passed": 4,
+    "routed_stage_l_local_topology": "2/2",
+    "routed_stage_s_coordinated_semantic_mechanism": "2/2",
+    "correct_final_pipelines": 4
+  },
+  "aggregates": {
+    "neutral_final_seconds": 0.000819,
+    "routed_final_seconds": 0.00079075,
+    "routed_final_ratio_to_fastest": 1.0,
+    "neutral_two_stage_worker_tokens": 420547.0,
+    "routed_two_stage_worker_tokens": 268119.5,
+    "worker_saving_fraction": 0.36245057032864336,
+    "live_router_tokens": 18894.5,
+    "routed_e2e_tokens": 287014.0,
+    "e2e_saving_fraction": 0.3175221794472437
+  },
+  "paired_final_performance": {
+    "pair1_routed_to_neutral_ratio": 1.4452975047984642,
+    "pair2_routed_to_neutral_ratio": 0.5277291301809691,
+    "straddles_1_25_gate": true
+  },
+  "economics_if_no_ambiguity": {
+    "router_acquisition_tokens": 37789,
+    "worker_acquisition_tokens": 1377333,
+    "total_acquisition_tokens": 1415122,
+    "saving_per_deployment_tokens": 133533,
+    "break_even_deployments": 11,
+    "expected_deployments": 8,
+    "net_tokens_at_expected_deployments": -346858
+  },
+  "decision": {
+    "ambiguity_triggered": true,
+    "promotion_allowed": false,
+    "next_action": "freeze and run one additional routed-neutral linked pair without rerunning Router"
+  },
+  "files": {
+    "execution_summary": "examples/modus_profile_router/long-horizon-p2a-v1/pipeline-results/initial/execution-summary.json",
+    "score": "examples/modus_profile_router/long-horizon-p2a-v1/pipeline-results/initial/score.json",
+    "execution_summary_sha256": "86da198385e1d67a1435c9438184975782416c0592991932d98f41cfc76c0662",
+    "score_sha256": "123a51a4ee29435918e1ec7615d7afddc2b3568b2e13e9b31e42959e1a6028b0"
+  },
+  "claim_boundary": "All four linked pipelines are valid and routed deployment tokens are lower, but paired final performance crosses the frozen 1.25x boundary. The precommitted rule requires a third pair, so no performance, economics, or promotion conclusion is released."
+}
+
