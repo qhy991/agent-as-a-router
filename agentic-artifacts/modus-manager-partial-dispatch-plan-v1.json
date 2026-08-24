@@ -1,0 +1,51 @@
+{
+  "schema": "acrouter-modus-manager-partial-dispatch-plan-mechanism-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "model_free_manager_mechanism_evidence": true,
+  "source": {
+    "agent_case": "P2e v3",
+    "agent_response_sha256": "3fdfb9313cc06edaad73b50f1f7e60ecc8d9efdef1a648e6acc50825d89ab37f",
+    "candidate_view_sha256": "d11b5463f069f5958c7627cbc1994f7b137919451a998fbdd6f6587404622e3c"
+  },
+  "actual_plan": {
+    "status": "partial_pending_qualification",
+    "complete": false,
+    "neutral_fallbacks": 0,
+    "worker_dispatches": [
+      {"stage": "stage-qualified", "profile": "e1v2", "mechanism_id": "shared-prefix-sum-v1", "evidence_ref": "qualification:p2b:stage-S"}
+    ],
+    "qualification_requests": [
+      {"stage": "stage-unqualified", "semantic_kind": "token_frequency", "reuse_batches": 120, "reason": "unqualified_task_state", "request_id": "qualification:0e0b4cec4f6408f663e313036a862a2621d05f8a1125d02750eed8d9cb259cfd"}
+    ]
+  },
+  "boundary_checks": {
+    "mixed_response_one_dispatch_one_request": true,
+    "all_abstain_zero_workers_two_requests": true,
+    "all_dispatch_complete_two_workers": true,
+    "stage_order_mismatch_rejected": true,
+    "candidate_action_mismatch_rejected": true,
+    "missing_stage_rejected": true,
+    "automatic_neutral_fallback_rejected": true,
+    "partial_plan_never_marked_complete": true
+  },
+  "files": {
+    "owner": "src/acrouter_repro/modus_dispatch_plan.py",
+    "builder": "scripts/build_modus_dispatch_plan.py",
+    "candidate_view": "examples/modus_profile_router/evidence-gated-agent-v1/p2e-v2-candidate-view.json",
+    "agent_score": "examples/modus_profile_router/evidence-gated-agent-v1/p2e-v3-results/score.json",
+    "dispatch_plan": "examples/modus_profile_router/evidence-gated-agent-v1/p2e-v3-results/dispatch-plan.json",
+    "owner_sha256": "162fe0670f075f022dc066b595476774c6a41617d13cfa6ec333027fe675b4c0",
+    "builder_sha256": "a72b08330420318e50f37ad455808aa6afdfdeb56c2e55f8a895a9b711bc0042",
+    "candidate_view_sha256": "d11b5463f069f5958c7627cbc1994f7b137919451a998fbdd6f6587404622e3c",
+    "agent_score_sha256": "287d253f33a9ab1a26356f1d4cadc5b887717039c56bd86bd4ac1e9a3eaba234",
+    "dispatch_plan_sha256": "f83ab26c491b8a0bd6dbabe60c6afe5e04a28409fe2fdc40f59f416fa0ff2824"
+  },
+  "decision": {
+    "partial_abstention_manager_ready": true,
+    "unqualified_neutral_fallback_allowed": false,
+    "next_action": "run a bounded P2f lifecycle where only the qualified stage Worker starts and the other stage remains a durable qualification request"
+  },
+  "claim_boundary": "This proves deterministic manager plan derivation and custody from an existing live Agent response. It does not execute the qualified Worker or persist the qualification request in an external scheduler."
+}
+

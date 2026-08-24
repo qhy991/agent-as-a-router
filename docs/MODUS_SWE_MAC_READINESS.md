@@ -1043,3 +1043,12 @@ no Worker ran. Candidate derivation now comes from typed features, the canonical
 mechanism registry, and a qualified envelope rather than free Agent inference.
 The v1 and v2 failures remain separate evidence and were not overwritten. See
 [`agentic-artifacts/modus-p2e-autonomous-evidence-gated-agent-v3.json`](../agentic-artifacts/modus-p2e-autonomous-evidence-gated-agent-v3.json).
+
+The manager now derives a thin plan from the validated P2e response and the
+same candidate view. The qualified stage produces one exact e1-v2 Worker
+dispatch. The abstained stage produces a hash-bound offline qualification
+request with its typed descriptor and `unqualified_task_state` reason. The plan
+is `partial_pending_qualification`, never complete, and contains zero neutral
+fallbacks. All-abstain and all-dispatch boundaries pass; stage/action/view
+mismatch, missing stages, and attempted neutral fallback fail closed. See
+[`agentic-artifacts/modus-manager-partial-dispatch-plan-v1.json`](../agentic-artifacts/modus-manager-partial-dispatch-plan-v1.json).

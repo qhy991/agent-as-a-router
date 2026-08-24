@@ -1,0 +1,34 @@
+{
+  "complete": false,
+  "neutral_fallbacks": 0,
+  "qualification_requests": [
+    {
+      "candidate_view_sha256": "d11b5463f069f5958c7627cbc1994f7b137919451a998fbdd6f6587404622e3c",
+      "reason": "unqualified_task_state",
+      "request_id": "qualification:0e0b4cec4f6408f663e313036a862a2621d05f8a1125d02750eed8d9cb259cfd",
+      "response_sha256": "3fdfb9313cc06edaad73b50f1f7e60ecc8d9efdef1a648e6acc50825d89ab37f",
+      "stage": "stage-unqualified",
+      "typed_descriptor": {
+        "performance_objective": "latency_subject_to_correctness_then_tokens",
+        "reuse_batches": 120,
+        "semantic_kind": "token_frequency",
+        "worker_model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "schema": "modus-manager-dispatch-plan-v1",
+  "source": {
+    "candidate_view_sha256": "d11b5463f069f5958c7627cbc1994f7b137919451a998fbdd6f6587404622e3c",
+    "response_contract_sha256": "01f9946b05ece048a5499dabfde73467fa5514690ee682f43a4b454f85d2c0fa",
+    "response_sha256": "3fdfb9313cc06edaad73b50f1f7e60ecc8d9efdef1a648e6acc50825d89ab37f"
+  },
+  "status": "partial_pending_qualification",
+  "worker_dispatches": [
+    {
+      "evidence_ref": "qualification:p2b:stage-S",
+      "mechanism_id": "shared-prefix-sum-v1",
+      "profile": "e1v2",
+      "stage": "stage-qualified"
+    }
+  ]
+}
