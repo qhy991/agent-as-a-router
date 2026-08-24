@@ -40,12 +40,12 @@
     },
     {
       "mechanism_id": "shared-prefix-sum-v1",
-      "evidence_ref": "case:rangesum-binding-2of2",
-      "verified_profile": "p100",
-      "router_eligible": false,
-      "agent_router_eligible": false,
-      "typed_matcher_eligible": false,
-      "verification_status": "known_state_execution_verified_applicability_unreplicated",
+      "evidence_ref": "qualification:p2b:stage-S",
+      "verified_profile": "e1v2",
+      "router_eligible": true,
+      "agent_router_eligible": true,
+      "typed_matcher_eligible": true,
+      "verification_status": "outcome_qualified_on_unseen_linked_rangesum_transfer",
       "semantic_predicate": {
         "kind": "additive_range_sum",
         "description": "Inclusive-exclusive additive range queries are answered from one reusable prefix-sum representation."
@@ -60,10 +60,15 @@
           "kind": "known_state_cross_family_execution",
           "path": "agentic-artifacts/modus-codex-luna-max-rangesum-mechanism-binding-v1.json",
           "sha256": "f5d2979d56b68f76fdd22d76f1e0225cf73c78823c42ee457ef06876358d04a1"
+        },
+        {
+          "kind": "outcome_qualification_envelope",
+          "path": "examples/modus_profile_router/long-horizon-p2b-v1/route-qualification.json",
+          "sha256": "4e0eeb4ee93e9675eeb6c1409a2659de9e45cab06e4c7508730599707554fd3d"
         }
       ]
     }
   ],
-  "dispatch_rule": "No mechanism is eligible for outcome-blind Agent matching. A trusted typed matcher may return only typed_matcher_eligible mechanisms whose worker model, semantic kind, performance objective, and minimum reuse predicates match exactly; Agent reasoning may run only after that filter.",
+  "dispatch_rule": "A trusted typed matcher may return only typed_matcher_eligible mechanisms whose worker model, semantic kind, performance objective, minimum reuse predicate, and outcome qualification evidence match exactly; Agent reasoning may run only after that filter and must retain the evidence ref.",
   "claim_boundary": "This registry is the policy input for GPT-5.6 Luna only. Evidence from other models or Profiles requires a separate qualified entry."
 }

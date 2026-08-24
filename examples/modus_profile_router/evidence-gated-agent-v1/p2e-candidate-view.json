@@ -1,0 +1,39 @@
+{
+  "descriptor_sha256": "d907c3591aaa9e6c4213bfd36e6ebdb3986c260c232d0f7b32f27e2dd83b7f90",
+  "registry_sha256": "864e9d2c7c17c37111b99f40e6548f28a2d554b7ade68a47c43ef656f0af3695",
+  "schema": "modus-derived-qualified-candidate-view-v1",
+  "stages": [
+    {
+      "descriptor": {
+        "performance_objective": "latency_subject_to_correctness_then_tokens",
+        "reuse_batches": 120,
+        "semantic_kind": "additive_range_sum",
+        "worker_model": "gpt-5.6-luna"
+      },
+      "resolution": {
+        "action": {
+          "evidence_ref": "qualification:p2b:stage-S",
+          "mechanism_id": "shared-prefix-sum-v1",
+          "profile": "e1v2"
+        },
+        "decision": "dispatch",
+        "reason": "single_typed_candidate"
+      },
+      "stage": "stage-qualified"
+    },
+    {
+      "descriptor": {
+        "performance_objective": "latency_subject_to_correctness_then_tokens",
+        "reuse_batches": 120,
+        "semantic_kind": "token_frequency",
+        "worker_model": "gpt-5.6-luna"
+      },
+      "resolution": {
+        "candidates": [],
+        "decision": "defer",
+        "reason": "unqualified_task_state"
+      },
+      "stage": "stage-unqualified"
+    }
+  ]
+}

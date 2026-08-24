@@ -30,7 +30,7 @@ class ModusMechanismEvidenceTest(unittest.TestCase):
             len(mechanisms),
         )
         for mechanism in mechanisms:
-            self.assertIn(mechanism["verified_profile"], {"neutral", "p000", "p100"})
+            self.assertIn(mechanism["verified_profile"], {"neutral", "p000", "p100", "e1v2"})
             self.assertIsInstance(mechanism["router_eligible"], bool)
             self.assertGreaterEqual(
                 mechanism["applicability"]["minimum_reuse_batches"],
@@ -47,14 +47,14 @@ class ModusMechanismEvidenceTest(unittest.TestCase):
                     evidence["path"],
                 )
 
-    def test_failed_outcome_blind_matching_revokes_router_eligibility(self):
+    def test_only_outcome_qualified_prefix_sum_is_router_eligible(self):
         registry = json.loads(REGISTRY.read_text())
         eligible = [
             row["mechanism_id"]
             for row in registry["mechanisms"]
             if row["router_eligible"]
         ]
-        self.assertEqual(eligible, [])
+        self.assertEqual(eligible, ["shared-prefix-sum-v1"])
 
     def test_typed_matcher_filters_model_kind_objective_and_reuse(self):
         registry = load_mechanism_registry(REGISTRY)
@@ -81,6 +81,19 @@ class ModusMechanismEvidenceTest(unittest.TestCase):
             with self.subTest(change=change):
                 descriptor = {**base, **change}
                 self.assertEqual(match_typed_mechanisms(registry, descriptor), [])
+        self.assertEqual(
+            match_typed_mechanisms(registry, {
+                "worker_model": "gpt-5.6-luna",
+                "semantic_kind": "additive_range_sum",
+                "reuse_batches": 120,
+                "performance_objective": "latency_subject_to_correctness_then_tokens",
+            }),
+            [{
+                "mechanism_id": "shared-prefix-sum-v1",
+                "profile": "e1v2",
+                "evidence_ref": "qualification:p2b:stage-S",
+            }],
+        )
 
     def test_typed_matcher_replays_trusted_task_descriptors(self):
         registry = load_mechanism_registry(REGISTRY)

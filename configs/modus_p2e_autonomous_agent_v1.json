@@ -1,0 +1,36 @@
+{
+  "schema": "acrouter-modus-p2e-autonomous-agent-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "model": {"local_slug": "gpt-5.6-luna", "reasoning_effort": "max", "authentication": "ChatGPT login"},
+  "prompt": "examples/modus_profile_router/evidence-gated-agent-v1/p2e-task.md",
+  "prompt_sha256": "6d4488735ad27f1af071bb49ca582b56a0440c27dbf47ca5a2dd985f51639752",
+  "candidate_view": "examples/modus_profile_router/evidence-gated-agent-v1/p2e-candidate-view.json",
+  "candidate_view_sha256": "ed51590ab4d02602be5ee9592400988a08dfafe1b182d2a56c901bef8120754b",
+  "registry": "configs/modus_mechanism_evidence.json",
+  "registry_sha256": "864e9d2c7c17c37111b99f40e6548f28a2d554b7ade68a47c43ef656f0af3695",
+  "descriptors": "configs/modus_p2e_typed_descriptors_v1.json",
+  "descriptors_sha256": "d907c3591aaa9e6c4213bfd36e6ebdb3986c260c232d0f7b32f27e2dd83b7f90",
+  "response_contract": {
+    "schema": "modus-profile-mechanism-route-v1",
+    "stages": ["stage-qualified", "stage-unqualified"],
+    "allowed_profiles": ["neutral", "p000", "e1v2"],
+    "allowed_mechanism_ids": ["shared-prefix-sum-v1"],
+    "allowed_evidence_refs": ["qualification:p2b:stage-S"],
+    "require_evidence_ref_for_mechanism": true,
+    "require_mechanism_for_dispatch": true,
+    "qualified_routes": [
+      {"stage": "stage-qualified", "profile": "e1v2", "mechanism_id": "shared-prefix-sum-v1", "evidence_ref": "qualification:p2b:stage-S"}
+    ]
+  },
+  "execution": {"cells": 1, "workers_authorized": false, "automatic_redispatch": false, "web_search_allowed": false},
+  "provenance": {
+    "agent_router_commit_before_freeze": "664735e",
+    "view_builder": "scripts/build_modus_typed_candidate_view.py",
+    "view_builder_sha256": "5dca55eaa7704e15847d81bb07e8ea35b3e27fd9747f3e54a652733be614c6f6",
+    "scorer": "scripts/score_modus_p2e_agent.py",
+    "scorer_sha256": "184de4e0a4ccf10e683c6745b99dbf3e5047d7ec77eae63473699bc64d54063b"
+  },
+  "claim_boundary": "This tests live Agent selection from a derived candidate view. It calls no Workers and does not establish task performance or economics."
+}
+
