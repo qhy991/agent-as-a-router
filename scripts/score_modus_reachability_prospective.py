@@ -23,7 +23,7 @@ from acrouter_repro.qualification_economics import (  # noqa: E402
     evaluate_qualification_economics,
 )
 
-PERFORMANCE_TOLERANCE = 1.25
+PERFORMANCE_RATIO_MAXIMUM = 1.25
 TOKEN_TIE = 0.05
 MINIMUM_SAVING = 0.15
 REPLAYED_STAGED_BREAK_EVEN = 8
@@ -40,6 +40,11 @@ def _usage_tokens(usage: dict) -> int | None:
 
 def _median(values: list[float]) -> float:
     return statistics.median(values)
+
+
+def _performance_gate(ratio: float) -> bool:
+    """Apply the protocol's absolute 1.25x non-inferiority boundary."""
+    return ratio <= PERFORMANCE_RATIO_MAXIMUM
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -90,7 +95,7 @@ def main(argv: list[str] | None = None) -> int:
         for action, aggregate in actions.items():
             ratio = aggregate["median_seconds"] / fastest
             aggregate["performance_ratio_to_fastest"] = ratio
-            aggregate["performance_gate_passed"] = ratio <= 1.0 + PERFORMANCE_TOLERANCE
+            aggregate["performance_gate_passed"] = _performance_gate(ratio)
             aggregate["eligible"] = all((
                 aggregate["behavior_fidelity_passed"],
                 aggregate["correctness_passed"],

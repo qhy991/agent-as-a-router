@@ -720,7 +720,7 @@ deployment 10 and promotes at 11. Staged qualification promotes at deployment
 
 ### Prospective staged-qualification replication
 
-The staged neutral/p000-first policy was then validated prospectively. A
+The staged neutral/p000-first policy was tested prospectively. A
 protocol was frozen and hash-bound before dispatch over a new independent
 Reachability pair (`reachability-p03` cycle-and-chord six-query batches,
 `reachability-p04` the same input as ninety-six two-query batches) with new
@@ -729,12 +729,15 @@ high cells (neutral/p000 x 2 repetitions x 2 tasks) all executed validly,
 passed hidden-case correctness, kept p000 local-only topology, and reported
 complete usage with no web search and no redispatch.
 
-Both tasks selected fixed p000: it used 45.8% and 31.6% fewer median total
-tokens than neutral while staying inside the frozen 1.25x performance gate.
-Measured prospective acquisition was 4,488,477 tokens against 563,461 tokens
-saved per task-pair deployment, and `evaluate_qualification_economics`
-returned break-even at exactly deployment 8 — matching the replayed staged
-break-even — with `promote` at 8 and `qualified_but_not_economic` below it.
-No selective routing space appeared, which is the staged-policy target shape:
-promote one fixed Profile without per-task crossover. See
+All eight cells remained valid, but the staged prediction failed. p000 used
+45.8% and 31.6% fewer median total tokens while running 1.912x and 2.136x
+slower than neutral. Both ratios exceed the frozen absolute 1.25x performance
+gate, so only neutral is eligible and no token break-even or promotion exists.
+
+This corrects the first checked-in score, whose implementation mistakenly
+evaluated `ratio <= 1 + 1.25` (2.25x) despite the protocol specifying an
+absolute 1.25x maximum. The scorer now has a boundary regression test, and the
+same preserved outcomes were rescored without redispatch. The result shows a
+real Profile cost/behavior effect, but not a favorable cost-performance trade.
+See
 [`agentic-artifacts/modus-codex-spark-reachability-prospective-v1.json`](../agentic-artifacts/modus-codex-spark-reachability-prospective-v1.json).

@@ -1,41 +1,22 @@
 {
- "best_fixed_profile": "p000",
+ "best_fixed_profile": "neutral",
  "default_defer_action": "neutral",
  "fixed_profiles_eligible_everywhere": [
-  "neutral",
-  "p000"
+  "neutral"
  ],
  "fixed_total_median_tokens": {
-  "neutral": 1403849.5,
-  "p000": 840389.0
+  "neutral": 1403849.5
  },
  "oracle": {
   "actions_by_task": {
-   "reachability-p03": "p000",
-   "reachability-p04": "p000"
+   "reachability-p03": "neutral",
+   "reachability-p04": "neutral"
   },
   "saving_fraction_vs_best_fixed": 0.0,
-  "total_median_tokens": 840389.0
+  "total_median_tokens": 1403849.5
  },
- "promoted_candidate": "p000",
- "prospective_economics": {
-  "acquisition_tokens": 4488477,
-  "baseline_deployment_tokens": 1403850,
-  "break_even_deployments": 8,
-  "candidate_deployment_tokens": 840389,
-  "comparison": "promotion of fixed p000 over the default defer action neutral; one deployment is one task-pair execution",
-  "correctness_passed": true,
-  "decision": "promote",
-  "evidence_stable": true,
-  "expected_deployments": 8,
-  "minimum_saving_fraction": 0.15,
-  "net_tokens_at_expected_deployments": 19211,
-  "performance_passed": true,
-  "prospective_replay_break_even_match": true,
-  "replayed_staged_break_even_deployments": 8,
-  "saving_fraction": 0.40136837981265805,
-  "saving_per_deployment_tokens": 563461
- },
+ "promoted_candidate": null,
+ "prospective_economics": null,
  "routing_space": {
   "economic_observed": false,
   "minimum_saving_fraction": 0.15
@@ -59,19 +40,18 @@
      "behavior_fidelity_passed": true,
      "benchmark_passed": true,
      "correctness_passed": true,
-     "eligible": true,
+     "eligible": false,
      "median_seconds": 0.013681,
      "median_total_tokens": 455623.0,
-     "performance_gate_passed": true,
+     "performance_gate_passed": false,
      "performance_ratio_to_fastest": 1.9115551208606958,
      "usage_complete": true
     }
    },
    "eligible_actions": [
-    "neutral",
-    "p000"
+    "neutral"
    ],
-   "oracle_action": "p000"
+   "oracle_action": "neutral"
   },
   "reachability-p04": {
    "actions": {
@@ -90,19 +70,18 @@
      "behavior_fidelity_passed": true,
      "benchmark_passed": true,
      "correctness_passed": true,
-     "eligible": true,
+     "eligible": false,
      "median_seconds": 0.0294145,
      "median_total_tokens": 384766.0,
-     "performance_gate_passed": true,
+     "performance_gate_passed": false,
      "performance_ratio_to_fastest": 2.135663980251216,
      "usage_complete": true
     }
    },
    "eligible_actions": [
-    "neutral",
-    "p000"
+    "neutral"
    ],
-   "oracle_action": "p000"
+   "oracle_action": "neutral"
   }
  }
 }

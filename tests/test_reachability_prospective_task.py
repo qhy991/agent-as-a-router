@@ -3,6 +3,8 @@ import json
 from pathlib import Path
 import unittest
 
+from scripts.score_modus_reachability_prospective import _performance_gate
+
 
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "configs/modus_reachability_prospective_v1.json"
@@ -90,6 +92,11 @@ class ReachabilityProspectiveTaskTest(unittest.TestCase):
         )
         self.assertEqual(value["provenance"]["replayed_staged_break_even_deployments"], 8)
         self.assertEqual(value["scoring"]["promotion_gate"].split()[-1], "0.15")
+
+    def test_performance_gate_is_absolute_one_point_two_five(self):
+        self.assertTrue(_performance_gate(1.25))
+        self.assertFalse(_performance_gate(1.250001))
+        self.assertFalse(_performance_gate(1.91))
 
 
 if __name__ == "__main__":
