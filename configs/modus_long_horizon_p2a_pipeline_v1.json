@@ -1,0 +1,85 @@
+{
+  "schema": "acrouter-modus-long-horizon-p2a-pipeline-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "purpose": "compare Agent-routed and fixed-neutral linked Stage L -> Stage S pipelines with balanced AB/BA execution",
+  "expected_future_deployments": 8,
+  "model": {"local_slug": "gpt-5.6-luna", "reasoning_effort": "max", "authentication": "ChatGPT login"},
+  "task": {
+    "seed_root": "examples/modus_profile_router/long-horizon-p2a-v1/seed",
+    "stage_l_prompt": "examples/modus_profile_router/long-horizon-p2a-v1/stage-l-task.md",
+    "stage_l_prompt_sha256": "2d3177196d781be5ac200fa6eae9d1237f52b867f6f5bcc25e7c695b5e31d78e",
+    "stage_s_prompt": "examples/modus_profile_router/long-horizon-p2a-v1/stage-s-task.md",
+    "stage_s_prompt_sha256": "1bf44524f06457aa41ae601a983456d8ad1199f26591b1b5fb8561f6243962ea"
+  },
+  "profiles": {
+    "neutral": {"profile_path": "/private/tmp/modus-codex-spark-neutral-profile.md", "profile_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    "p000": {"profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/profiles/p000.md", "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282"},
+    "e1v2": {"profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/experimental-profiles/e1-v2/p100.md", "profile_sha256": "c4d0326d4fb5afb14aa51aeb91653fa7771610a41eb53de019c87bf9ff3419e1"}
+  },
+  "arms": {
+    "routed": {"stage-L": "p000", "stage-S": "e1v2", "live_router_calls_per_deployment": 1},
+    "neutral": {"stage-L": "neutral", "stage-S": "neutral", "live_router_calls_per_deployment": 0}
+  },
+  "pipelines": [
+    {"id": "pair1-routed", "pair": 1, "order": 1, "arm": "routed"},
+    {"id": "pair1-neutral", "pair": 1, "order": 2, "arm": "neutral"},
+    {"id": "pair2-neutral", "pair": 2, "order": 1, "arm": "neutral"},
+    {"id": "pair2-routed", "pair": 2, "order": 2, "arm": "routed"}
+  ],
+  "execution": {
+    "fresh_workspace_per_pipeline": true,
+    "stage_s_uses_same_workspace_as_stage_l": true,
+    "stage_l_failure": "stop that pipeline without Stage S",
+    "stage_s_parent_record_required": true,
+    "pipeline_dispatch": "sequential in listed AB/BA order",
+    "automatic_redispatch": false,
+    "web_search_allowed": false,
+    "worker_cells_if_complete": 8
+  },
+  "scoring": {
+    "correctness_first": "Stage L and final Stage S pass public and hidden cases",
+    "routed_topology": "Stage L local target-only; final Stage S coordinated target/shared/observer",
+    "e1v2_semantic_gate": "observer returns a prepared non-raw representation consumed by target",
+    "parent_binding": "Stage S parent record matches exact Stage L implementation digest and verification hash",
+    "performance_ratio_maximum": 1.25,
+    "steady_relative_mad_maximum": 0.10,
+    "minimum_worker_token_saving_fraction": 0.15,
+    "third_pair_rule": {
+      "paired_ratio_straddle": 1.25,
+      "near_threshold_band_inclusive": [1.1875, 1.3125],
+      "relative_mad_maximum": 0.10,
+      "quality_disagreement": "trigger when only one paired pipeline is valid",
+      "action": "freeze one additional routed/neutral linked pair before a promotion conclusion"
+    },
+    "deployment_cost": "routed two-stage Worker median plus 18,894.5 live Router tokens; neutral two-stage Worker median only",
+    "acquisition": "37,789 Router tokens plus every Stage L and Stage S Worker token",
+    "economic_gate": "quality, performance, stability, 15% saving, and eight expected deployments"
+  },
+  "parent_router": {
+    "evidence_path": "agentic-artifacts/modus-codex-luna-max-long-horizon-p2a-router-v1.json",
+    "evidence_sha256": "e3c3064dd6ae44c10edbcd5c55056671f2bc6f5561d3262ab9d696c1921048c2",
+    "score_path": "examples/modus_profile_router/long-horizon-p2a-v1/router-results/score.json",
+    "score_sha256": "852be3c7fdcf55ce38d853610be4e0c159879256cd5dfd3a17e78dffbb14327f",
+    "stable_repetitions": 2,
+    "actions": {"stage-L": "p000", "stage-S": "e1v2"},
+    "acquisition_tokens": 37789,
+    "tokens_per_deployment": 18894.5
+  },
+  "failure_policy": {
+    "invalid_or_incomplete_cell": "preserve, stop affected pipeline, and do not redispatch",
+    "no_model_substitution": true,
+    "post_hoc_route_or_gate_change": false
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "5e41cdec81b1e517a7f85fc89fe6ae66fc1ccdeb",
+    "router_protocol_path": "configs/modus_long_horizon_p2a_agent_router_v1.json",
+    "router_protocol_sha256": "e49ec1666e669c435e800caa8b3bfcc46dea3819817ca4609d0ecdd8ac141d76",
+    "stage_verifier_path": "scripts/verify_modus_long_horizon_p2a_stage.py",
+    "stage_verifier_sha256_at_freeze": "628100697183c97fb77d34f1e438bfdc2ded56c7166107edd788aef11506b560",
+    "pipeline_scorer_path": "scripts/score_modus_long_horizon_p2a_pipeline.py",
+    "pipeline_scorer_sha256_at_freeze": "bc3b8664e0174a914517acae969ccf296f9c9b3b95c1231a26623881aef06750"
+  },
+  "claim_boundary": "This evaluates one linked workflow with two paired repetitions and a constrained routed-versus-neutral comparison. It can support an end-to-end stage-routing case result, not broad Profile generalization."
+}
+
