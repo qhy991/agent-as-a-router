@@ -1,0 +1,131 @@
+{
+  "schema": "modus-performance-p2l-qualification-v1",
+  "profile_outcomes_read": false,
+  "task_count": 1,
+  "algorithm_family_count": 1,
+  "thresholds": {
+    "starter_speedup_minimum": 1.2,
+    "oracle_relative_median_absolute_deviation_maximum": 0.1,
+    "oracle_rounds": 15
+  },
+  "lock": {
+    "success": true,
+    "message": "ok"
+  },
+  "tasks": [
+    {
+      "task_id": "keyed-distinct-energy-p2l",
+      "family": "keyed-distinct-energy",
+      "checks": {
+        "starter_and_coordinated_oracle_correct": true,
+        "variant_result_digests_equal": true,
+        "topologies_exact": true,
+        "coordinated_oracle_noise_within_limit": true,
+        "starter_slower_than_coordinated_oracle": true
+      },
+      "passed": true,
+      "starter_speedup_to_coordinated_oracle": 25.225304979781868,
+      "variants": {
+        "starter": {
+          "variant": "starter",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "keyed-distinct-energy-p2l",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.1364,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_keyed_distinct_energy (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [],
+            "changed_implementation_modules": 0,
+            "topology": "other",
+            "expected_local_paths": [
+              "perf_energy_p2l/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_energy_p2l/observer.py",
+              "perf_energy_p2l/shared.py",
+              "perf_energy_p2l/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.009622126914402637,
+            "maximum_seconds": 8.945350957999999,
+            "mean_seconds": 8.843488596999999,
+            "median_seconds": 8.848048999999996,
+            "minimum_seconds": 8.737065832999999,
+            "relative_median_absolute_deviation": 0.010996995834901319,
+            "repeat_per_round": 1,
+            "result_sha256": "eb3eb83c8d1144bb4df9e14df936b71ee9efb6512f527150d145d1a944018ecb",
+            "rounds": 3,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.010996995834901319,
+            "steady_sample_count": 3,
+            "steady_seconds": 8.848048999999996,
+            "task_id": "keyed-distinct-energy-p2l"
+          }
+        },
+        "coordinated": {
+          "variant": "coordinated",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "keyed-distinct-energy-p2l",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.1218,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_keyed_distinct_energy (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_energy_p2l/observer.py",
+              "perf_energy_p2l/shared.py",
+              "perf_energy_p2l/target.py"
+            ],
+            "changed_implementation_modules": 3,
+            "topology": "coordinated",
+            "expected_local_paths": [
+              "perf_energy_p2l/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_energy_p2l/observer.py",
+              "perf_energy_p2l/shared.py",
+              "perf_energy_p2l/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.07169757673898587,
+            "maximum_seconds": 0.4324827080000002,
+            "mean_seconds": 0.3755276402666667,
+            "median_seconds": 0.3775533959999997,
+            "minimum_seconds": 0.3333693335000003,
+            "relative_median_absolute_deviation": 0.04813265141442412,
+            "repeat_per_round": 2,
+            "result_sha256": "eb3eb83c8d1144bb4df9e14df936b71ee9efb6512f527150d145d1a944018ecb",
+            "rounds": 15,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.04103852860755747,
+            "steady_sample_count": 7,
+            "steady_seconds": 0.3507608335000003,
+            "task_id": "keyed-distinct-energy-p2l"
+          }
+        }
+      }
+    }
+  ],
+  "passed": true,
+  "P2l_design_freeze_authorized": true,
+  "P2l_model_dispatch_authorized": false
+}

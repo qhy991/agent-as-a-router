@@ -1,0 +1,6 @@
+{
+  "schema": "modus-performance-p2l-public-task-v1",
+  "task_id": "keyed-distinct-energy-p2l",
+  "algorithm_family": "keyed-distinct-energy",
+  "implementation_package": "perf_energy_p2l"
+}

@@ -1,0 +1,79 @@
+{
+  "schema": "acrouter-modus-performance-p2l-triplet-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "purpose": "prospectively test whether a minimal query-ready prepared representation stabilizes e1 performance without losing token efficiency",
+  "expected_future_deployments": 8,
+  "model": {
+    "local_slug": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "authentication": "ChatGPT login"
+  },
+  "task": {
+    "seed_root": "examples/modus_profile_router/performance-p2l-v1/seed",
+    "seed_tree_sha256": "5b30abaacbbaed117a665debe0dfd5c3fc3f69f63843153403e592cd5e07ae00",
+    "prompt": "examples/modus_profile_router/performance-p2l-v1/seed/instruction.md",
+    "prompt_sha256": "da442356001e1f8ceb72126d7e1920623da86bb8eb90b4c42da4789c123d6174",
+    "qualification_path": "examples/modus_profile_router/performance-p2l-v1/task-qualification.json",
+    "qualification_sha256": "8896812dd95cbe0233e65c271d6f7ecdcccab4d26afb518bb084d7b7f8ffe5cd",
+    "modus_commit": "c5c07d7"
+  },
+  "profiles": {
+    "neutral": {
+      "profile_path": "/private/tmp/modus-codex-spark-neutral-profile.md",
+      "profile_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "e1v2": {
+      "profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/experimental-profiles/e1-v2/p100.md",
+      "profile_sha256": "c4d0326d4fb5afb14aa51aeb91653fa7771610a41eb53de019c87bf9ff3419e1"
+    },
+    "e1v3": {
+      "profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/experimental-profiles/e1-minimal-v3/p100.md",
+      "profile_sha256": "4c8c3c325792267bbda83de0167ec026700989be9fb5f38ae16c033e95ad8280",
+      "status": "unqualified-development-candidate",
+      "plugin_commit": "e1e94e2"
+    }
+  },
+  "cells": [
+    {"id": "triplet1-neutral", "triplet": 1, "order": 1, "profile": "neutral"},
+    {"id": "triplet1-e1v3", "triplet": 1, "order": 2, "profile": "e1v3"},
+    {"id": "triplet1-e1v2", "triplet": 1, "order": 3, "profile": "e1v2"}
+  ],
+  "execution": {
+    "fresh_workspace_per_cell": true,
+    "sequential": true,
+    "automatic_redispatch": false,
+    "worker_cells_if_complete": 3,
+    "canonical_benchmark_rounds": 15,
+    "order_rule": "qualification sha256 first eight hex digits modulo six lexicographic permutations",
+    "order_index": 1,
+    "frozen_first_triplet_order": ["neutral", "e1v3", "e1v2"]
+  },
+  "scoring": {
+    "performance_ratio_to_neutral_maximum": 1.25,
+    "steady_relative_mad_maximum": 0.10,
+    "minimum_token_saving_fraction_vs_neutral": 0.15,
+    "e1v3_performance_near_threshold_band": [1.1875, 1.3125],
+    "e1v3_token_near_threshold_band": [0.10, 0.20],
+    "second_triplet_order_if_triggered": ["e1v2", "e1v3", "neutral"],
+    "selection": "among eligible e1v2 and e1v3, choose lower Worker tokens",
+    "clear_result": "stop after first triplet",
+    "acquisition": "actual three Worker calls; no Router call"
+  },
+  "failure_policy": {
+    "invalid_cell": "preserve and stop",
+    "no_model_substitution": true,
+    "automatic_redispatch": false,
+    "candidate_failure": "retain e1-v3 as unqualified and do not enter P2m with it"
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "0ee29ce",
+    "runner_path": "scripts/run_modus_performance_p2l_triplet.py",
+    "runner_sha256": "faf2864b79d37767a7efa6a3327ac752082f36fe9fc364697df17e3a3ded347b",
+    "verifier_path": "scripts/verify_modus_performance_p2l_cell.py",
+    "verifier_sha256": "517a0980bb85f1bf43a4e80397f5e48ec70e68b18abcd62016a1266bce10a4c8",
+    "scorer_path": "scripts/score_modus_performance_p2l_triplet.py",
+    "scorer_sha256_at_freeze": "ee65a7bbc42afc45bf860c3453983360f0d24242d41febb14ff1988ec8058271"
+  },
+  "claim_boundary": "One held-out triplet can qualify e1-v3 for P2m or reject it. It cannot establish a universal representation policy."
+}
