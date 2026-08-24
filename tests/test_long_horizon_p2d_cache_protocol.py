@@ -3,6 +3,8 @@ import json
 from pathlib import Path
 import unittest
 
+from acrouter_repro.modus_route_cache import build_key, load_cached_route
+
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "configs/modus_long_horizon_p2d_agent_cache_v1.json"
 
@@ -33,5 +35,25 @@ class LongHorizonP2dCacheProtocolTest(unittest.TestCase):
         self.assertEqual(hashlib.sha256(prior.read_bytes()).hexdigest(), value["cache_gate"]["prior_mechanism_evidence_sha256"])
         owner = ROOT / "src/acrouter_repro/modus_route_cache.py"
         self.assertEqual(hashlib.sha256(owner.read_bytes()).hexdigest(), value["provenance"]["route_cache_owner_sha256"])
+
+    def test_actual_p2d_entry_replays_reverse_linked_route_zero_model(self):
+        config = json.loads((ROOT / "configs/modus_p2d_route_cache_v1.json").read_text())
+        key = build_key(
+            task_contract_sha256=config["task_contract_sha256"],
+            typed_descriptor=config["typed_descriptor"],
+            router_prompt_sha256=config["router_prompt_sha256"],
+            model_slug=config["model"]["slug"],
+            reasoning_effort=config["model"]["reasoning_effort"],
+            allowed_actions=config["allowed_actions"],
+            profile_digests=config["profile_digests"],
+        )
+        result = load_cached_route(
+            ROOT / "examples/modus_profile_router/long-horizon-p2d-v1/route-cache.json",
+            current_key=key,
+            evidence_root=ROOT,
+        )
+        self.assertEqual(result["actions_by_stage"], {"stage-L": "e1v2", "stage-S": "p000"})
+        self.assertEqual(result["router_model_calls"], 0)
+        self.assertEqual(result["router_tokens"], 0)
 
 if __name__ == "__main__": unittest.main()
