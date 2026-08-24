@@ -1034,3 +1034,12 @@ validator again rejected the response and called no Worker. This narrows the
 remaining apparatus issue to output-schema anchoring; v2 remains a separate
 failure and is not retried. See
 [`agentic-artifacts/modus-p2e-agent-schema-failure-v2.json`](../agentic-artifacts/modus-p2e-agent-schema-failure-v2.json).
+
+P2e v3 retained the derived candidates and added only an explicit top-level
+`schema/routes` skeleton. The live Agent dispatched the one exact qualified
+e1-v2/shared-prefix candidate and abstained on the token-frequency stage whose
+typed matcher produced no candidate. The strict response validator passed and
+no Worker ran. Candidate derivation now comes from typed features, the canonical
+mechanism registry, and a qualified envelope rather than free Agent inference.
+The v1 and v2 failures remain separate evidence and were not overwritten. See
+[`agentic-artifacts/modus-p2e-autonomous-evidence-gated-agent-v3.json`](../agentic-artifacts/modus-p2e-autonomous-evidence-gated-agent-v3.json).

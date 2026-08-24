@@ -148,7 +148,8 @@
     "profile_evidence_gated_agent": "modus-evidence-gated-agent-v1.json",
     "profile_evidence_gated_agent_live": "modus-evidence-gated-agent-live-v1.json",
     "profile_p2e_agent_vocabulary_failure": "modus-p2e-agent-vocabulary-failure-v1.json",
-    "profile_p2e_agent_schema_failure": "modus-p2e-agent-schema-failure-v2.json"
+    "profile_p2e_agent_schema_failure": "modus-p2e-agent-schema-failure-v2.json",
+    "profile_p2e_autonomous_evidence_gated_agent": "modus-p2e-autonomous-evidence-gated-agent-v3.json"
   },
   "headline_metrics": {
     "id": {

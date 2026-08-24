@@ -1,0 +1,45 @@
+{
+  "schema": "acrouter-modus-p2e-autonomous-evidence-gated-agent-v3",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "live_autonomous_candidate_derivation_evidence": true,
+  "derivation": {
+    "source": "typed task descriptors + canonical mechanism registry + P2b qualified envelope",
+    "qualified_stage_resolution": "single_typed_candidate",
+    "unqualified_stage_resolution": "abstain",
+    "prompt_directly_enumerated_expected_response": false
+  },
+  "live_agent": {
+    "valid_execution": true,
+    "qualified_stage": {"decision": "dispatch", "profile": "e1v2", "mechanism_id": "shared-prefix-sum-v1", "evidence_ref": "qualification:p2b:stage-S"},
+    "unqualified_stage": {"decision": "abstain", "profile": null, "mechanism_id": null, "evidence_ref": null},
+    "strict_validation": "pass",
+    "workers_called": 0,
+    "total_tokens": 15343
+  },
+  "failure_lineage": {
+    "v1": "host defer leaked into Agent response and was rejected",
+    "v2": "decisions were correct but top-level type replaced schema and was rejected",
+    "v3_corrections": ["canonical Agent-facing abstain projection", "explicit schema/routes top-level skeleton"],
+    "previous_runs_retried_or_overwritten": false
+  },
+  "conclusions": {
+    "typed_matcher_derives_qualified_candidates_without_agent_guessing": true,
+    "live_agent_selects_only_exact_qualified_candidate": true,
+    "live_agent_abstains_when_candidate_set_is_empty": true,
+    "strict_validator_prevents_unqualified_workers": true,
+    "p2d_style_free_reasoning_error_prevented": true
+  },
+  "files": {
+    "registry": "configs/modus_mechanism_evidence.json",
+    "descriptors": "configs/modus_p2e_typed_descriptors_v1.json",
+    "candidate_view": "examples/modus_profile_router/evidence-gated-agent-v1/p2e-v2-candidate-view.json",
+    "wave_result": "examples/modus_profile_router/evidence-gated-agent-v1/p2e-v3-results/wave-result.json",
+    "score": "examples/modus_profile_router/evidence-gated-agent-v1/p2e-v3-results/score.json",
+    "wave_result_sha256": "afa9e606bdd3520d29320023b15295c4ffb29b4654b3dcc678aadd633d38e74a",
+    "score_sha256": "287d253f33a9ab1a26356f1d4cadc5b887717039c56bd86bd4ac1e9a3eaba234"
+  },
+  "next_experiment": "connect mixed dispatch/abstain output to the manager lifecycle: dispatch the qualified stage and create an offline qualification request for the unqualified stage without neutral fallback",
+  "claim_boundary": "This validates autonomous candidate derivation and live Agent compliance without Worker calls. It does not measure downstream task quality, cost, or the manager behavior after partial abstention."
+}
+
