@@ -929,3 +929,20 @@ universal. A post-outcome calculation shows that caching the already verified
 route would break even at deployment 8 with 9,371 tokens positive; that is a
 next design hypothesis, not part of this primary result. See
 [`agentic-artifacts/modus-codex-luna-max-long-horizon-p2c-transfer-v1.json`](../agentic-artifacts/modus-codex-luna-max-long-horizon-p2c-transfer-v1.json).
+
+### Exact evidence-bound route cache
+
+A minimal route cache now treats an Agent decision as reusable evidence only
+under an exact identity. The key binds the task contract, typed descriptor,
+Router prompt, model and effort, ordered action catalog, and every Profile
+digest. The entry additionally binds the original Router score and decision
+hash. Any drift, missing evidence, tampering, or unsupported action fails
+closed and requires a new Agent decision.
+
+The actual P2c decision replays from this cache with the same p000→e1-v2 route,
+zero Router model calls, and zero Router tokens. This is model-free mechanism
+evidence, not a new P2c outcome. Under cached repeated deployments, P2c would
+break even at deployment 8 with 9,371 tokens positive; that arithmetic remains
+post-outcome until a new P2d contract validates first-call creation and later
+exact hits prospectively. See
+[`agentic-artifacts/modus-route-cache-p2c-mechanism-v1.json`](../agentic-artifacts/modus-route-cache-p2c-mechanism-v1.json).

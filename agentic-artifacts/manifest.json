@@ -137,7 +137,8 @@
     "profile_luna_max_long_horizon_p2b_pair_protocol": "../configs/modus_long_horizon_p2b_first_pair_v1.json",
     "profile_luna_max_long_horizon_p2c_transfer": "modus-codex-luna-max-long-horizon-p2c-transfer-v1.json",
     "profile_luna_max_long_horizon_p2c_router_protocol": "../configs/modus_long_horizon_p2c_agent_router_v1.json",
-    "profile_luna_max_long_horizon_p2c_pair_protocol": "../configs/modus_long_horizon_p2c_first_pair_v1.json"
+    "profile_luna_max_long_horizon_p2c_pair_protocol": "../configs/modus_long_horizon_p2c_first_pair_v1.json",
+    "profile_route_cache_p2c_mechanism": "modus-route-cache-p2c-mechanism-v1.json"
   },
   "headline_metrics": {
     "id": {

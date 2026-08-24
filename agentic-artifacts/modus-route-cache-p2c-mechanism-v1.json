@@ -1,0 +1,67 @@
+{
+  "schema": "acrouter-modus-route-cache-mechanism-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "model_free_mechanism_evidence": true,
+  "source": {
+    "task": "linked TokenFrequency P2c",
+    "router_score": "examples/modus_profile_router/long-horizon-p2c-v1/router-results/score.json",
+    "router_score_sha256": "d55b27ec3777643fe0e5f59f1374ad6b822ce6f13476e6d4247df97e0ca8df90",
+    "original_router_usage_tokens": 15951,
+    "original_actions": {"stage-L": "p000", "stage-S": "e1v2"}
+  },
+  "cache_identity": {
+    "key_sha256": "e5cb46328392a63f9a24c4b3176d25579085406aa374b7c00cb9e9772c524774",
+    "decision_sha256": "a5d76bc3e1d678c34ee80de8fa5284be59ee317f76040047649e35ae204c6dcd",
+    "entry_sha256": "0885104b18ea13fcb5725fb8813c78b6c6b7c9f381f67c2ad276e1482ac0d301"
+  },
+  "bound_inputs": [
+    "task contract sha256",
+    "typed stage descriptor sha256",
+    "Router prompt sha256",
+    "model slug and reasoning effort",
+    "exact ordered action catalog",
+    "every Profile digest",
+    "Router score evidence sha256"
+  ],
+  "verification": {
+    "exact_hit_actions": {"stage-L": "p000", "stage-S": "e1v2"},
+    "exact_hit_from_cache": true,
+    "exact_hit_router_model_calls": 0,
+    "exact_hit_router_tokens": 0,
+    "task_contract_mismatch_rejected": true,
+    "descriptor_mismatch_rejected": true,
+    "prompt_mismatch_rejected": true,
+    "model_or_effort_mismatch_rejected": true,
+    "action_catalog_mismatch_rejected": true,
+    "profile_digest_mismatch_rejected": true,
+    "missing_or_tampered_evidence_rejected": true,
+    "tampered_decision_rejected": true
+  },
+  "p2c_cached_route_counterfactual": {
+    "acquisition_tokens_including_first_agent_and_workers": 667461,
+    "neutral_deployment_tokens": 368057,
+    "cached_routed_deployment_tokens": 283453,
+    "saving_per_deployment_tokens": 84604,
+    "break_even_deployments": 8,
+    "expected_deployments": 8,
+    "net_tokens_at_expected_deployments": 9371,
+    "claim_status": "post-outcome arithmetic; prospective P2d validation required"
+  },
+  "files": {
+    "owner": "src/acrouter_repro/modus_route_cache.py",
+    "builder": "scripts/build_modus_route_cache.py",
+    "config": "configs/modus_p2c_route_cache_v1.json",
+    "entry": "examples/modus_profile_router/long-horizon-p2c-v1/route-cache.json",
+    "owner_sha256": "02be019d6386d96c3c68d6575562a13ddc950f3f7dc6ea1ccbbc382a84a74906",
+    "builder_sha256": "b96ee4ae9769b3ac20c70fa1ca99e61f034f3e8b2e993ae8666fec29b398fd61",
+    "entry_sha256": "0885104b18ea13fcb5725fb8813c78b6c6b7c9f381f67c2ad276e1482ac0d301"
+  },
+  "decision": {
+    "route_cache_mechanism_ready": true,
+    "prospective_economic_claim_ready": false,
+    "next_action": "freeze a new linked P2d contract where one Agent decision creates the exact cache and repeated deployments use zero-model hits"
+  },
+  "claim_boundary": "This proves exact cache identity, evidence custody, fail-closed invalidation, and zero-model replay on a historical P2c decision. It does not retroactively change P2c primary economics and does not prove a future deployment will hit the cache."
+}
+

@@ -1,0 +1,19 @@
+{
+  "schema": "modus-route-cache-build-v1",
+  "task_contract_sha256": "246ee8705313c3f59f7ff58ca2d3d8a2c5bd79dbe3ac13ff73aad5cbc481fa13",
+  "typed_descriptor": {
+    "stages": [
+      {"id": "stage-L", "semantic_kind": "token-frequency", "query_batches": 1, "parent": "frozen-starter"},
+      {"id": "stage-S", "semantic_kind": "token-frequency", "query_batches": 120, "parent": "exact-stage-L-delivery", "reusable_immutable_input": true}
+    ]
+  },
+  "router_prompt_sha256": "6c49f2e272b810e28c98b019dfa4cfcd2dd6215258f38e2772e8c46a5d2bfcd4",
+  "model": {"slug": "gpt-5.6-luna", "reasoning_effort": "max"},
+  "allowed_actions": ["neutral", "p000", "e1v2"],
+  "profile_digests": {
+    "neutral": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "p000": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282",
+    "e1v2": "c4d0326d4fb5afb14aa51aeb91653fa7771610a41eb53de019c87bf9ff3419e1"
+  },
+  "router_score_path": "examples/modus_profile_router/long-horizon-p2c-v1/router-results/score.json"
+}
