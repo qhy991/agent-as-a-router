@@ -895,3 +895,21 @@ horizon: Router plus 12 Worker calls cost 2,107,808 acquisition tokens, so the
 deployments the result is 981,984 tokens negative. The remaining problem is
 not Worker routing utility but qualification cost. See
 [`agentic-artifacts/modus-codex-luna-max-long-horizon-p2a-final-v1.json`](../agentic-artifacts/modus-codex-luna-max-long-horizon-p2a-final-v1.json).
+
+### Low-acquisition linked P2b transfer
+
+P2b changed the semantic contract to linked RangeSum while reusing the already
+qualified single-batch p000 and prepared-reuse e1-v2 predicates. One
+outcome-blind Router call selected Stage L→p000 and Stage S→e1-v2. The frozen
+first-pair order was neutral then routed; both pipelines and all four stages
+passed correctness, custody, parent binding, topology, mechanism, and noise.
+
+The routed final result is faster than neutral. It uses 66.2% fewer Worker
+tokens and 63.8% fewer Router-inclusive deployment tokens. Router plus four
+Workers cost 907,042 acquisition tokens; saving is 424,596 tokens per
+deployment, break-even is deployment 3, and the eight-deployment horizon is
+2,489,726 tokens positive. No uncertainty trigger fired, so the protocol
+correctly stopped without a second pair. This supports the hypothesis that
+Modus becomes economic when qualified Profile predicates are transferred with
+minimal, outcome-gated evidence. See
+[`agentic-artifacts/modus-codex-luna-max-long-horizon-p2b-transfer-v1.json`](../agentic-artifacts/modus-codex-luna-max-long-horizon-p2b-transfer-v1.json).

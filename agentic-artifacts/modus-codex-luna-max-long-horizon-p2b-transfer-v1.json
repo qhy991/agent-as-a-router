@@ -1,0 +1,78 @@
+{
+  "schema": "acrouter-modus-luna-long-horizon-p2b-transfer-result-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "prospective_low_acquisition_transfer_evidence": true,
+  "model": {"slug": "gpt-5.6-luna", "reasoning_effort": "max"},
+  "scope": {
+    "unseen_linked_contract": "RangeSum Stage L -> Stage S",
+    "router_calls": 1,
+    "pipelines": 2,
+    "stage_worker_calls": 4,
+    "automatic_redispatches": 0,
+    "second_pair_run": false
+  },
+  "router": {
+    "actions": {"stage-L": "p000", "stage-S": "e1v2"},
+    "outcome_blind": true,
+    "tokens_per_deployment": 16223,
+    "acquisition_tokens": 16223
+  },
+  "validity": {
+    "complete_pipelines": 2,
+    "stage_verifications_passed": 4,
+    "parent_bindings_passed": 2,
+    "routed_stage_l_local_topology": "1/1",
+    "routed_stage_s_coordinated_semantic_mechanism": "1/1",
+    "final_correctness": "2/2",
+    "maximum_relative_mad": 0.01762114537444935
+  },
+  "performance": {
+    "neutral_stage_l_seconds": 0.000227,
+    "routed_stage_l_seconds": 0.000256,
+    "routed_stage_l_ratio_to_fastest": 1.1277533039647578,
+    "neutral_final_seconds": 0.00037,
+    "routed_final_seconds": 0.000211,
+    "routed_final_ratio_to_fastest": 1.0
+  },
+  "deployment": {
+    "neutral_two_stage_worker_tokens": 665819,
+    "routed_two_stage_worker_tokens": 225000,
+    "worker_saving_fraction": 0.6620703224149507,
+    "routed_e2e_tokens_including_router": 241223,
+    "e2e_saving_fraction": 0.6377048417062294
+  },
+  "economics": {
+    "total_acquisition_tokens": 907042,
+    "saving_per_deployment_tokens": 424596,
+    "break_even_deployments": 3,
+    "expected_deployments": 8,
+    "net_tokens_at_expected_deployments": 2489726,
+    "decision": "promote"
+  },
+  "stopping_rule": {
+    "quality_trigger": false,
+    "near_threshold_trigger": false,
+    "noise_trigger": false,
+    "second_pair_authorized": false,
+    "stopped_after_first_pair": true
+  },
+  "conclusions": {
+    "qualified_stage_predicates_transfer_to_new_semantic_contract": true,
+    "agent_routes_linked_stages_before_outcomes": true,
+    "exact_stage_state_handoff_preserved": true,
+    "routed_pipeline_improves_final_performance_and_tokens": true,
+    "low_acquisition_protocol_net_positive_at_eight_deployments": true,
+    "modus_design_chain_supported": true
+  },
+  "files": {
+    "router_score": "examples/modus_profile_router/long-horizon-p2b-v1/router-results/score.json",
+    "execution_summary": "examples/modus_profile_router/long-horizon-p2b-v1/pipeline-results/first-pair/execution-summary.json",
+    "score": "examples/modus_profile_router/long-horizon-p2b-v1/pipeline-results/first-pair/score.json",
+    "router_score_sha256": "7baf78002fe885f3767bb850e113ffe5c5a8c05940ef7cc38b14efb46008b3b5",
+    "execution_summary_sha256": "6d1574bf78f3efd8c5bc3044b5841ca568202408bf4181b6e71898cbadd87154",
+    "score_sha256": "1855f7ed2d1d68d45117579650fe4b17e6b4976beaba8f8f964b31816392119e"
+  },
+  "claim_boundary": "This is one prospective low-acquisition transfer pair that reuses Profile and Router stability evidence from P1f/P2a. It supports the complete Modus design chain and positive eight-deployment economics for this contract, but one pair does not establish population-level generalization or replace the replicated P2a robustness result."
+}
+

@@ -1,0 +1,76 @@
+{
+  "acquisition_tokens": 907042,
+  "decision": "promote",
+  "deployment": {
+    "e2e_saving_fraction": 0.6377048417062294,
+    "live_router_tokens": 16223,
+    "neutral_worker_tokens": 665819,
+    "routed_e2e_tokens": 241223,
+    "routed_worker_tokens": 225000,
+    "worker_saving_fraction": 0.6620703224149507
+  },
+  "economics": {
+    "acquisition_tokens": 907042,
+    "baseline_deployment_tokens": 665819,
+    "break_even_deployments": 3,
+    "candidate_deployment_tokens": 241223,
+    "correctness_passed": true,
+    "decision": "promote",
+    "evidence_stable": true,
+    "expected_deployments": 8,
+    "minimum_saving_fraction": 0.15,
+    "net_tokens_at_expected_deployments": 2489726,
+    "performance_passed": true,
+    "saving_fraction": 0.6377048417062294,
+    "saving_per_deployment_tokens": 424596
+  },
+  "gates": {
+    "both_pipelines_valid": true,
+    "final_performance": true,
+    "noise": true,
+    "stage_l_performance": true,
+    "worker_token_saving": true
+  },
+  "performance": {
+    "final_routed_ratio_to_fastest": 1.0,
+    "stage_l_routed_ratio_to_fastest": 1.1277533039647578
+  },
+  "pipelines": [
+    {
+      "arm": "neutral",
+      "final_seconds": 0.00037,
+      "id": "pair1-neutral",
+      "maximum_relative_mad": 0.01762114537444935,
+      "order": 1,
+      "pair": 1,
+      "parent_bound": true,
+      "parent_record_sha256": "5792df950a735ad962568a671e32f8ad448cedcbfa2765803261745950dc9614",
+      "stage_l_seconds": 0.000227,
+      "stage_l_verification_sha256": "0394161b416ba0138bfc5579ad39216761afaecf49a1fb1d5a5f52c4c377f9a8",
+      "stage_s_verification_sha256": "c0f74f231d333b24c745a5a2dd5f3da7f16ef80b49f8f7ec86e0efe574d8ea48",
+      "valid": true,
+      "worker_tokens": 665819
+    },
+    {
+      "arm": "routed",
+      "final_seconds": 0.000211,
+      "id": "pair1-routed",
+      "maximum_relative_mad": 0.0019531250000000477,
+      "order": 2,
+      "pair": 1,
+      "parent_bound": true,
+      "parent_record_sha256": "20302998b6c276d82ab9243c712715e2f5b7f9ba1adf8c37cde68ad9340c40fd",
+      "stage_l_seconds": 0.000256,
+      "stage_l_verification_sha256": "56ba621437a949346c7c99e3994b2d3933f734f6baf3a50fde47d7d66536052b",
+      "stage_s_verification_sha256": "b6038aa70ad4eb69d81ab7b15fb454d4f85d24cc401fa1b33d15e4246d766bd6",
+      "valid": true,
+      "worker_tokens": 225000
+    }
+  ],
+  "schema": "modus-long-horizon-p2b-first-pair-score-v1",
+  "status": "pass",
+  "trigger": {
+    "reasons": [],
+    "triggered": false
+  }
+}
