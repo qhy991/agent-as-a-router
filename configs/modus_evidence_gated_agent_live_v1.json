@@ -1,0 +1,55 @@
+{
+  "schema": "acrouter-modus-evidence-gated-agent-live-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "model": {"local_slug": "gpt-5.6-luna", "reasoning_effort": "max", "authentication": "ChatGPT login"},
+  "cases": [
+    {
+      "id": "qualified-p2b",
+      "cell": "qualified-p2b",
+      "prompt": "examples/modus_profile_router/evidence-gated-agent-v1/p2b-task.md",
+      "prompt_sha256": "f67c6625ad35a1a143347ca1a61995a064005474a8f0845c8b07f6f30cb81517",
+      "expected": "dispatch",
+      "qualification_path": "examples/modus_profile_router/long-horizon-p2b-v1/route-qualification.json",
+      "qualification_sha256": "4e0eeb4ee93e9675eeb6c1409a2659de9e45cab06e4c7508730599707554fd3d",
+      "response_contract": {
+        "schema": "modus-profile-mechanism-route-v1",
+        "stages": ["stage-L", "stage-S"],
+        "allowed_profiles": ["neutral", "p000", "e1v2"],
+        "allowed_mechanism_ids": ["local-prefix-sum-v1", "shared-prefix-sum-v1"],
+        "allowed_evidence_refs": ["qualification:p2b:stage-L", "qualification:p2b:stage-S"],
+        "require_evidence_ref_for_mechanism": true,
+        "require_mechanism_for_dispatch": true,
+        "qualified_routes": [
+          {"stage": "stage-L", "profile": "p000", "mechanism_id": "local-prefix-sum-v1", "evidence_ref": "qualification:p2b:stage-L"},
+          {"stage": "stage-S", "profile": "e1v2", "mechanism_id": "shared-prefix-sum-v1", "evidence_ref": "qualification:p2b:stage-S"}
+        ]
+      }
+    },
+    {
+      "id": "rejected-p2d",
+      "cell": "rejected-p2d",
+      "prompt": "examples/modus_profile_router/evidence-gated-agent-v1/p2d-task.md",
+      "prompt_sha256": "170e2a30789962f952a5ea157f07a2a3b58686abd1333b835b1607ccb18f9a6c",
+      "expected": "abstain",
+      "qualification_path": "examples/modus_profile_router/long-horizon-p2d-v1/route-qualification.json",
+      "qualification_sha256": "af516c310be533d2229c15fac0af27d5b634b640e8825b494d102eaf84251b15",
+      "response_contract": {
+        "schema": "modus-profile-mechanism-route-v1",
+        "stages": ["stage-L", "stage-S"],
+        "allowed_profiles": ["neutral", "p000", "e1v2"],
+        "allowed_mechanism_ids": [],
+        "require_evidence_ref_for_mechanism": true,
+        "require_mechanism_for_dispatch": true
+      }
+    }
+  ],
+  "execution": {"cells": 2, "workers_authorized": false, "automatic_redispatch": false, "web_search_allowed": false},
+  "provenance": {
+    "agent_router_commit_before_freeze": "857823b",
+    "scorer_path": "scripts/score_modus_evidence_gated_agent.py",
+    "scorer_sha256": "a294e6e8c5394b4f6341327b7a6c813e8910eb62822df85cd816f17044c5ef03"
+  },
+  "claim_boundary": "This tests live Agent compliance with qualified dispatch versus explicit abstention. It makes no Worker or economics claim."
+}
+
