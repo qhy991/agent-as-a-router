@@ -78,7 +78,7 @@ that need to decide what to inspect before loading the full repository.
     prospective scratch-qualification run that was invalidated by an
     uncontracted verifier tag; its large token/performance crossover is
     exploratory only and no second pair is authorized.
-36. Read `modus-experiment-scorecard-v1.json` for the generated P1e–P2j
+36. Read `modus-experiment-scorecard-v1.json` for the generated P1e–P2k
     comparison under one correctness, performance, cost, acquisition, and
     eight-deployment economic vocabulary. Regenerate it with
     `scripts/build_modus_experiment_scorecard.py`.
@@ -90,6 +90,10 @@ that need to decide what to inspect before loading the full repository.
     prospective p000-v1/p000-v2/neutral ablation: the T-only revision is within
     1.132x neutral performance, saves 48.3% tokens, and is authorized only for
     the next P2k chain rather than as a global p000 replacement.
+39. Read `modus-codex-luna-max-long-horizon-p2k-final-v1.json` for the
+    replicated long-horizon rejection: p000-v2/e1-v2 saves 44.5% Worker tokens
+    and composes correctly, but median final performance is 2.49x slower and
+    the second pair remains noisy, so no deployment is authorized.
 
 ## Scope
 

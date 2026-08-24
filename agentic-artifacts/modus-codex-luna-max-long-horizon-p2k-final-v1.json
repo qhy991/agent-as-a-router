@@ -1,0 +1,94 @@
+{
+  "schema": "modus-long-horizon-p2k-final-evidence-v1",
+  "recorded_at": "2026-08-24",
+  "formal_status": "valid_rejection",
+  "scientific_evidence": false,
+  "prospective_revised_profile_long_horizon_evidence": true,
+  "model": {"id": "gpt-5.6-luna", "reasoning_effort": "max"},
+  "route": {
+    "stage-L": "p000v2",
+    "stage-S": "e1v2",
+    "agent_selected_before_p2k_worker_outcomes": true,
+    "matches_preoutcome_oracle_topology": true
+  },
+  "validity": {
+    "complete_pipelines": 4,
+    "stage_verifications_passed": 8,
+    "parent_bindings_passed": 4,
+    "correctness_topology_and_mechanism_passed": true,
+    "automatic_redispatches": 0
+  },
+  "replicated_aggregates": {
+    "neutral_median_stage_l_seconds": 0.066484,
+    "proposed_median_stage_l_seconds": 0.07264999999999999,
+    "proposed_stage_l_ratio_to_fastest": 1.0927441188857467,
+    "neutral_median_final_seconds": 0.07896449999999999,
+    "proposed_median_final_seconds": 0.19694,
+    "proposed_final_ratio_to_fastest": 2.494032128361479,
+    "neutral_median_worker_tokens": 439025,
+    "proposed_median_worker_tokens": 243555,
+    "worker_saving_fraction": 0.4452366038380502
+  },
+  "per_repetition_performance": {
+    "pair1": {
+      "stage_l_proposed_ratio_to_fastest": 1.0,
+      "final_proposed_ratio_to_fastest": 1.0,
+      "proposed_maximum_relative_mad": 0.011562738562943443,
+      "neutral_maximum_relative_mad": 0.11259301334848057
+    },
+    "pair2": {
+      "stage_l_proposed_ratio_to_fastest": 1.4433641148476157,
+      "final_proposed_ratio_to_fastest": 4.634942206454566,
+      "proposed_maximum_relative_mad": 0.12337187339643865,
+      "neutral_maximum_relative_mad": 0.007359198209839503
+    }
+  },
+  "gates": {
+    "all_four_pipelines_valid": true,
+    "two_repetitions_per_arm": true,
+    "route_matches_frozen_profiles": true,
+    "first_pair_noise_trigger_bound": true,
+    "second_pair_stage_l_performance": false,
+    "second_pair_final_performance": false,
+    "median_stage_l_performance": true,
+    "median_final_performance": false,
+    "worker_token_saving": true,
+    "second_pair_noise_resolution": false,
+    "route_qualified": false
+  },
+  "economics": {
+    "combined_acquisition_tokens": 1381363,
+    "raw_saving_per_deployment_tokens": 195470,
+    "raw_break_even_deployments": 8,
+    "raw_net_tokens_at_8_deployments": 182397,
+    "qualified_break_even_deployments": null,
+    "qualified_net_tokens_at_8_deployments": null,
+    "reason_raw_economics_inadmissible": "per-repetition and median final performance fail, and second-pair noise remains above 0.10"
+  },
+  "decision": {
+    "value": "stop_inconclusive_or_negative_no_further_replication",
+    "deployment_authorized": false,
+    "third_pair_authorized": false,
+    "p000v2_global_promotion_authorized": false,
+    "p000v2_p2j_result_retracted": false
+  },
+  "conclusions": {
+    "agent_can_route_versioned_profiles_from_prior_evidence": true,
+    "different_profiles_compose_into_a_correct_linked_workspace": true,
+    "versioned_route_reduces_worker_tokens_in_both_repetitions": true,
+    "versioned_route_has_stable_long_horizon_performance": false,
+    "single_stage_p2j_eligibility_generalizes_to_full_p2k_chain": false,
+    "outcome_qualification_prevents_raw_token_savings_from_becoming_a_bad_deployment": true
+  },
+  "claim_boundary": "P2k is a valid route rejection. It supports evidence-bound selection, Profile composition, and fail-closed qualification, but not a long-horizon performance or economic benefit claim.",
+  "files": {
+    "initial_evidence": "agentic-artifacts/modus-codex-luna-max-long-horizon-p2k-initial-v1.json",
+    "initial_evidence_sha256": "d0fe484c629e2b23f63c1f3b8e5a1347ae2c3745a489907dc2289894e575b2de",
+    "second_pair_protocol": "configs/modus_long_horizon_p2k_second_pair_v1.json",
+    "second_pair_protocol_sha256": "3dbcf7539d930bc6a348992f9532c2848a0cb172a861245d8f6a3d78906be403",
+    "second_execution": "examples/modus_profile_router/long-horizon-p2k-v1/pipeline-results/second-pair/execution-summary.json",
+    "second_execution_sha256": "c21545bc09ac97fa5b2fbd933c4c875429796a0722366541e36b6f548a8fc1e0",
+    "second_score": "examples/modus_profile_router/long-horizon-p2k-v1/pipeline-results/second-pair/score.json",
+    "second_score_sha256": "aab4f84604131dab1574c4aee56709baffcb5a7b445e2a23a0e6d2a2ba2b82da"
+  }
+}

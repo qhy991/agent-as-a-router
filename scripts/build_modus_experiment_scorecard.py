@@ -30,6 +30,7 @@ def build(root: Path) -> dict:
     p2h, p2h_source = _source(root, "modus-codex-luna-max-long-horizon-p2h-invalid-v1.json")
     p2i, p2i_source = _source(root, "modus-codex-luna-max-long-horizon-p2i-negative-v1.json")
     p2j, p2j_source = _source(root, "modus-codex-luna-max-performance-p2j-positive-v1.json")
+    p2k, p2k_source = _source(root, "modus-codex-luna-max-long-horizon-p2k-final-v1.json")
 
     p1f_max_ratio = max(
         row.get("p000_performance_ratio", row.get("e1v2_performance_ratio"))
@@ -181,6 +182,23 @@ def build(root: Path) -> dict:
             "break_even_deployments": p2j["common_metrics"]["break_even_deployments"],
             "net_tokens_at_8_deployments": p2j["common_metrics"]["net_tokens_at_8_deployments"],
             "source": p2j_source,
+        },
+        {
+            "experiment": "P2k",
+            "task_family": "keyed_distinct_sum",
+            "workflow": "replicated revised-Profile linked route",
+            "route": {"stage-L": "p000v2", "stage-S": "e1v2"},
+            "evidence_status": p2k["formal_status"],
+            "outcome_valid": True,
+            "route_qualified": False,
+            "final_performance_ratio_to_fastest": p2k["replicated_aggregates"]["proposed_final_ratio_to_fastest"],
+            "worker_saving_fraction": p2k["replicated_aggregates"]["worker_saving_fraction"],
+            "e2e_saving_fraction": p2k["replicated_aggregates"]["worker_saving_fraction"],
+            "acquisition_tokens": p2k["economics"]["combined_acquisition_tokens"],
+            "break_even_deployments": None,
+            "net_tokens_at_8_deployments": None,
+            "disqualification": "replicated final performance and second-pair noise fail",
+            "source": p2k_source,
         },
     ]
     valid = [row for row in rows if row["outcome_valid"]]

@@ -1143,3 +1143,35 @@ tokens, break-even at deployment 5, and `Net@8=+314,395`. No uncertainty
 trigger fired. This is authorization to test p000-v2 in P2k, not a global p000
 replacement or universal superiority claim. See
 [`agentic-artifacts/modus-codex-luna-max-performance-p2j-positive-v1.json`](../agentic-artifacts/modus-codex-luna-max-performance-p2j-positive-v1.json).
+
+### P2k revised-Profile long-horizon result
+
+P2k moved the P2j-qualified p000-v2 into a fresh linked keyed-distinct-sum
+task. An evidence-bound Luna max Router saw prior P2j/P2i/P2b qualification
+records but no P2k Worker outcome, and selected Stage L→p000-v2 and Stage
+S→e1-v2. Both profiles composed correctly in one parent-bound workspace.
+
+The first proposed/neutral pair passed every quality, performance, and token
+gate: the proposed route used 250,583 Worker tokens versus 467,001, and both
+stages were faster. Neutral relative MAD was 11.26%, so the frozen rule required
+a reversed second pair. The first scorer also retained an old non-gating
+topology comparison and falsely reported a mismatch; the error did not affect
+any gate and was preserved, while the aggregate scorer was corrected before
+the second outcome.
+
+All four pipelines across both pairs passed correctness, topology, mechanism,
+custody, and parent binding. Token reduction was consistent: median proposed
+Worker tokens were 243,555 versus neutral's 439,025, a 44.5% saving. Performance
+was not stable. In the reversed pair the proposed route was 1.44x slower at
+Stage L and 4.63x slower at the final stage; its MAD was 12.34%. Replicated
+median final performance was 2.49x slower. Combined acquisition was 1,381,363
+tokens. Raw arithmetic would break even at deployment 8 with 182,397 tokens
+positive, but it is inadmissible because performance and noise gates fail.
+
+P2k therefore stops with no deployment and no third pair. It proves that an
+Agent can route versioned Profiles from prior evidence, that p000-v2 and e1-v2
+compose into a correct long-horizon chain, and that Profile routing consistently
+reduces search tokens. It does not prove stable long-horizon performance or
+economic benefit. The fail-closed outcome gate again prevents a low-token but
+poor-quality route from promotion. See
+[`agentic-artifacts/modus-codex-luna-max-long-horizon-p2k-final-v1.json`](../agentic-artifacts/modus-codex-luna-max-long-horizon-p2k-final-v1.json).
