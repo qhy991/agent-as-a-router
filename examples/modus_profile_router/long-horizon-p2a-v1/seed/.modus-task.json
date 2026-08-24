@@ -1,0 +1,10 @@
+{
+  "schema": "modus-long-horizon-p2a-public-task-v1",
+  "task_id": "connectivity-linked-p2a",
+  "algorithm_family": "connectivity-linked",
+  "implementation_package": "perf_linked_connectivity",
+  "stages": [
+    "L",
+    "S"
+  ]
+}
