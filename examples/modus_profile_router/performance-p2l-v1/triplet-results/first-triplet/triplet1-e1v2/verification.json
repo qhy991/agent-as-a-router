@@ -1,0 +1,96 @@
+{
+  "benchmark": {
+    "all_seconds": [
+      21.896463,
+      19.057083,
+      23.776098,
+      22.97532,
+      26.555911,
+      20.443784,
+      22.296161,
+      17.922888,
+      19.294023,
+      19.999515,
+      21.973885,
+      25.241475,
+      22.997404,
+      33.817115,
+      36.140298
+    ],
+    "median_seconds": 22.296161,
+    "rounds": 15,
+    "steady_relative_mad": 0.04712274272651113,
+    "steady_seconds": 19.999515,
+    "success": true
+  },
+  "checks": {
+    "benchmark": true,
+    "correctness": true,
+    "custody": true,
+    "semantic_mechanism": false,
+    "topology": true
+  },
+  "correctness": {
+    "hidden": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "hidden-ok\n",
+      "timed_out": false
+    },
+    "public": {
+      "returncode": 0,
+      "stderr": "test_keyed_distinct_energy (test_public.PublicTest.test_keyed_distinct_energy) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "stdout": "",
+      "timed_out": false
+    },
+    "success": true
+  },
+  "custody": {
+    "files": {
+      ".modus-task.json": {
+        "actual_sha256": "df5ee76724472efeba538832043084fc98af2e67015a25cd94643c6c62567031",
+        "expected_sha256": "df5ee76724472efeba538832043084fc98af2e67015a25cd94643c6c62567031",
+        "present": true
+      },
+      "benchmark.py": {
+        "actual_sha256": "c0961fabd48ee0f1bf3a8ca107d2bff1d45530f415670c1d97db4f83d20ca201",
+        "expected_sha256": "c0961fabd48ee0f1bf3a8ca107d2bff1d45530f415670c1d97db4f83d20ca201",
+        "present": true
+      },
+      "instruction.md": {
+        "actual_sha256": "da442356001e1f8ceb72126d7e1920623da86bb8eb90b4c42da4789c123d6174",
+        "expected_sha256": "da442356001e1f8ceb72126d7e1920623da86bb8eb90b4c42da4789c123d6174",
+        "present": true
+      },
+      "tests/test_public.py": {
+        "actual_sha256": "514ae3eb88b4099a719c1fdb687230ee887c9bea22c61f2cd5848a93fec0e5df",
+        "expected_sha256": "514ae3eb88b4099a719c1fdb687230ee887c9bea22c61f2cd5848a93fec0e5df",
+        "present": true
+      }
+    },
+    "passed": true
+  },
+  "implementation_digest": "6a8c6ae661ce90123e36fdb85f8296382e50248f7b12104eeab4341d0cbd21fd",
+  "passed": false,
+  "profile": "e1v2",
+  "schema": "modus-performance-p2l-cell-verification-v1",
+  "semantic_mechanism": {
+    "run": {
+      "returncode": 1,
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 4, in <module>\nAssertionError\n",
+      "stdout": "",
+      "timed_out": false
+    },
+    "success": false
+  },
+  "topology": {
+    "changed_implementation_paths": [
+      "perf_energy_p2l/observer.py",
+      "perf_energy_p2l/shared.py",
+      "perf_energy_p2l/target.py"
+    ],
+    "expected_topology": "coordinated",
+    "passed": true,
+    "topology": "coordinated"
+  }
+}

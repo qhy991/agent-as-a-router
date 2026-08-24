@@ -1,0 +1,40 @@
+{
+  "schema": "modus-performance-p2l-initial-evidence-v1",
+  "recorded_at": "2026-08-24",
+  "formal_status": "preliminary_second_triplet_required",
+  "scientific_evidence": false,
+  "profiles": ["neutral", "e1v3", "e1v2"],
+  "first_triplet": {
+    "neutral": {"valid": true, "tokens": 189002, "seconds": 0.279693, "relative_mad": 0.05949737748173896},
+    "e1v3": {"valid": true, "tokens": 164294, "seconds": 0.140474, "relative_mad": 0.18972194142688334},
+    "e1v2": {"valid": false, "tokens": 227219, "seconds": 19.999515, "relative_mad": 0.04712274272651113}
+  },
+  "candidate_metrics": {
+    "e1v3_performance_ratio_to_neutral": 0.50224353130039,
+    "e1v3_token_saving_fraction_vs_neutral": 0.13072877535687455,
+    "e1v2_performance_ratio_to_neutral": 71.50523967349915,
+    "e1v2_token_saving_fraction_vs_neutral": -0.20220420947926487
+  },
+  "e1v2_failure": {
+    "classification": "prepared_result_discarded",
+    "observed_behavior": "observer called prepare_energy(data) but returned passthrough(data), so target recomputed preparation for every batch",
+    "canonical_semantic_mechanism_passed": false
+  },
+  "trigger": {
+    "reasons": [
+      "cell quality disagreement",
+      "relative MAD exceeds 0.10",
+      "e1-v3 token saving is within five points of 15 percent"
+    ],
+    "second_triplet_required": true,
+    "promotion_authorized": false
+  },
+  "files": {
+    "protocol": "configs/modus_performance_p2l_triplet_v1.json",
+    "protocol_sha256": "29eb0646690d082531b0112414a57e979f97122cfcb7636ff29c966cb137e411",
+    "execution_summary": "examples/modus_profile_router/performance-p2l-v1/triplet-results/first-triplet/execution-summary.json",
+    "execution_summary_sha256": "4427f8a3bc550d3223fe5f55f853dca78e6d7381a9e55b34c231046585528365",
+    "score": "examples/modus_profile_router/performance-p2l-v1/triplet-results/first-triplet/score.json",
+    "score_sha256": "b262cf45655b3c2292b538ce74a279190c8d7373d7fcdda3a2097a665fc76045"
+  }
+}

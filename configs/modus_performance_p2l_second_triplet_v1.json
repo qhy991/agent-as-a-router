@@ -1,0 +1,75 @@
+{
+  "schema": "acrouter-modus-performance-p2l-second-triplet-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "post_outcome_replication": true,
+  "expected_future_deployments": 8,
+  "model": {
+    "local_slug": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "authentication": "ChatGPT login"
+  },
+  "task": {
+    "seed_root": "examples/modus_profile_router/performance-p2l-v1/seed",
+    "prompt": "examples/modus_profile_router/performance-p2l-v1/seed/instruction.md",
+    "prompt_sha256": "da442356001e1f8ceb72126d7e1920623da86bb8eb90b4c42da4789c123d6174"
+  },
+  "profiles": {
+    "neutral": {
+      "profile_path": "/private/tmp/modus-codex-spark-neutral-profile.md",
+      "profile_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "e1v2": {
+      "profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/experimental-profiles/e1-v2/p100.md",
+      "profile_sha256": "c4d0326d4fb5afb14aa51aeb91653fa7771610a41eb53de019c87bf9ff3419e1"
+    },
+    "e1v3": {
+      "profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/experimental-profiles/e1-minimal-v3/p100.md",
+      "profile_sha256": "4c8c3c325792267bbda83de0167ec026700989be9fb5f38ae16c033e95ad8280"
+    }
+  },
+  "cells": [
+    {"id": "triplet2-e1v2", "triplet": 2, "order": 1, "profile": "e1v2"},
+    {"id": "triplet2-e1v3", "triplet": 2, "order": 2, "profile": "e1v3"},
+    {"id": "triplet2-neutral", "triplet": 2, "order": 3, "profile": "neutral"}
+  ],
+  "execution": {
+    "fresh_workspace_per_cell": true,
+    "sequential": true,
+    "automatic_redispatch": false,
+    "worker_cells_if_complete": 3,
+    "canonical_benchmark_rounds": 15
+  },
+  "scoring": {
+    "performance_ratio_to_neutral_maximum": 1.25,
+    "steady_relative_mad_maximum": 0.10,
+    "minimum_token_saving_fraction_vs_neutral": 0.15,
+    "e1v3_requires_two_valid_repetitions": true,
+    "e1v3_requires_per_repetition_performance": true,
+    "noise_resolution": "second-triplet e1v3 and neutral must each have relative MAD at or below 0.10",
+    "selection": "among replicated eligible e1v2 and e1v3, choose lower median Worker tokens",
+    "no_further_replication": true
+  },
+  "parent_initial": {
+    "evidence_path": "agentic-artifacts/modus-codex-luna-max-performance-p2l-initial-v1.json",
+    "evidence_sha256": "3230f8f8b787d0d513e51d34f46aa6e0a8bbea70e12ad054aed2117d293c6f39",
+    "score_path": "examples/modus_profile_router/performance-p2l-v1/triplet-results/first-triplet/score.json",
+    "score_sha256": "b262cf45655b3c2292b538ce74a279190c8d7373d7fcdda3a2097a665fc76045",
+    "acquisition_tokens": 580515
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "14b2adb",
+    "runner_path": "scripts/run_modus_performance_p2l_triplet.py",
+    "runner_sha256": "faf2864b79d37767a7efa6a3327ac752082f36fe9fc364697df17e3a3ded347b",
+    "verifier_path": "scripts/verify_modus_performance_p2l_cell.py",
+    "verifier_sha256": "517a0980bb85f1bf43a4e80397f5e48ec70e68b18abcd62016a1266bce10a4c8",
+    "scorer_path": "scripts/score_modus_performance_p2l_replication.py",
+    "scorer_sha256": "ea1f93695bda2365944043dc1b645bd868f825baae8c455ccdeb2d2d8e3b75cf"
+  },
+  "failure_policy": {
+    "invalid_cell": "preserve; e1v3 evaluation continues only if e1v3 and neutral are valid",
+    "automatic_redispatch": false,
+    "no_model_substitution": true,
+    "remaining_ambiguity": "stop with no third triplet"
+  }
+}
