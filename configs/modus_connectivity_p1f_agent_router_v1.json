@@ -1,0 +1,105 @@
+{
+  "schema": "acrouter-modus-connectivity-p1f-agent-router-protocol-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "purpose": "obtain a stable outcome-blind Agent route for an unseen Connectivity pair before freezing or running any Worker cell",
+  "expected_future_deployments": 8,
+  "model": {
+    "local_slug": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "authentication": "ChatGPT login"
+  },
+  "router": {
+    "prompt": "examples/modus_profile_router/connectivity-p1f-v1/router-task.md",
+    "prompt_sha256": "696a9493683db96e9a7ed0126a61142573d501e7a200e8e7e9dfd59f76aedbc1",
+    "allowed_actions": ["neutral", "p000", "e1v2"],
+    "repetitions": 2,
+    "stable_route_required": "both repetitions return identical valid actions for both tasks",
+    "worker_outcomes_available": false,
+    "tools_allowed": false,
+    "live_calls_per_future_deployment": 1,
+    "live_router_tokens_must_be_included_in_candidate_deployment_cost": true
+  },
+  "tasks": {
+    "connectivity-y01-perf-p1f": {
+      "package": "perf_connectivity_y01",
+      "trusted_descriptor": {"semantic_kind": "undirected-connectivity", "reusable_input": true, "query_batches": 1},
+      "worker_prompt": "examples/modus_profile_router/connectivity-p1f-v1/connectivity-y01-task.md",
+      "worker_prompt_sha256": "9ca41940168d7d85b117e1b984e2931b177eb713dfc48bd4faa18a5f50f8ae4f",
+      "seed_root": "examples/modus_profile_router/connectivity-p1f-v1/seeds/connectivity-y01",
+      "seed_files_sha256": {
+        "benchmark.py": "43077c610b902b2a30217a7dddd9c8a5ede87edc97f43bcf14b76a0127021372",
+        "perf_connectivity_y01/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "perf_connectivity_y01/api.py": "bc7d4f9005be8d23270301519ce0f27e68dfdfd7ae2a2d47a30d05524b04bd2e",
+        "perf_connectivity_y01/observer.py": "9f53a6f322c7743bbf3f0cb134f9d4b205983afa13ea6494df84e08d765dd226",
+        "perf_connectivity_y01/shared.py": "907cf29485630abdef6a1cf4626d956ae3430cb45b1d410ff12ec6f0097b766c",
+        "perf_connectivity_y01/target.py": "93da906ec01097fa69b3c3aeb9aaf2b16018c477d8e1e66d5c890f2ed892f4dd",
+        "tests/test_public.py": "c31f0c1f1e5e2c98bede2a15003c1942cd6a84b51118322592b53e41630d49fa"
+      }
+    },
+    "connectivity-y02-perf-p1f": {
+      "package": "perf_connectivity_y02",
+      "trusted_descriptor": {"semantic_kind": "undirected-connectivity", "reusable_input": true, "query_batches": 120},
+      "worker_prompt": "examples/modus_profile_router/connectivity-p1f-v1/connectivity-y02-task.md",
+      "worker_prompt_sha256": "8699078de317f63dd4c1180c37d7cf4182c0b84d9e3d290828499c15f5be1e52",
+      "seed_root": "examples/modus_profile_router/connectivity-p1f-v1/seeds/connectivity-y02",
+      "seed_files_sha256": {
+        "benchmark.py": "341a2cdab482ba514169da79e1fcf1e781b6ae3320a1bf75eee9132c1e090d82",
+        "perf_connectivity_y02/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "perf_connectivity_y02/api.py": "bc7d4f9005be8d23270301519ce0f27e68dfdfd7ae2a2d47a30d05524b04bd2e",
+        "perf_connectivity_y02/observer.py": "9f53a6f322c7743bbf3f0cb134f9d4b205983afa13ea6494df84e08d765dd226",
+        "perf_connectivity_y02/shared.py": "907cf29485630abdef6a1cf4626d956ae3430cb45b1d410ff12ec6f0097b766c",
+        "perf_connectivity_y02/target.py": "93da906ec01097fa69b3c3aeb9aaf2b16018c477d8e1e66d5c890f2ed892f4dd",
+        "tests/test_public.py": "98408c46dd8c9faf1e1c262e34c6de3b61e706d8b090d8b8987c1ef77481c537"
+      }
+    }
+  },
+  "profiles": {
+    "neutral": {"profile_path": "/private/tmp/modus-codex-spark-neutral-profile.md", "profile_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    "p000": {"profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/profiles/p000.md", "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282"},
+    "e1v2": {"profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/experimental-profiles/e1-v2/p100.md", "profile_sha256": "c4d0326d4fb5afb14aa51aeb91653fa7771610a41eb53de019c87bf9ff3419e1", "status": "unqualified-development-candidate"}
+  },
+  "router_wave": {
+    "cells": 2,
+    "fresh_empty_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false,
+    "profile": "neutral"
+  },
+  "worker_stage": {
+    "authorized_before_router_outcome": false,
+    "freeze_after_stable_route": true,
+    "comparison": "for each task, run the selected non-neutral action and neutral with two fresh repetitions; if selected action is neutral, run neutral twice only",
+    "quality_gate": "public and hidden correctness in every cell",
+    "performance_ratio_maximum": 1.25,
+    "minimum_worker_token_saving_fraction": 0.15,
+    "semantic_gate_for_e1v2": "observer returns a non-raw prepared representation consumed by target",
+    "economics": "include Router acquisition, Worker acquisition, and median live Router tokens in every routed deployment"
+  },
+  "qualification": {
+    "modus_commit": "42e9e10",
+    "path": "examples/modus_profile_router/connectivity-p1f-v1/task-qualification.json",
+    "sha256": "838372c89c36fcb99d7580d573cd607956cdf21ece1b6f555ff92df11bc2eebd",
+    "passed": true
+  },
+  "candidate_calibration": {
+    "path": "agentic-artifacts/modus-codex-luna-max-reachability-e1v2-calibration-v1.json",
+    "sha256": "9dba71375df7491cf2d43a8d556d069aeb255b07dc2e2ff8c5b66ac17a112abc",
+    "new_holdout_design_authorized": true,
+    "router_qualified_before_holdout": false
+  },
+  "failure_policy": {
+    "invalid_or_unstable_router": "stop without Worker calls",
+    "invalid_or_incomplete_cell": "preserve and do not redispatch",
+    "no_model_substitution": true,
+    "post_hoc_route_or_gate_change": false
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "f62b9d862a11a5f29244a8449596241885bdcb6c",
+    "plugin_commit": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f",
+    "router_scorer_path": "scripts/score_modus_connectivity_p1f_router.py",
+    "router_scorer_sha256_at_freeze": "f3e18ba7b776cf520836272d93effc38c9a4494f4f467d0fd75b83e0648c4312"
+  },
+  "claim_boundary": "This first phase evaluates only whether an Agent can stably choose Profile actions from trusted task features before outcomes. Worker quality, profile preference, and end-to-end economics remain unevaluated until a separately frozen selected-action protocol runs."
+}
+

@@ -1,0 +1,346 @@
+{
+  "schema": "modus-performance-p1f-qualification-v1",
+  "profile_outcomes_read": false,
+  "task_count": 2,
+  "algorithm_family_count": 1,
+  "thresholds": {
+    "local_noninferior_seconds_ratio_maximum": 1.25,
+    "system_coordinated_speedup_minimum": 1.25,
+    "starter_speedup_minimum": 1.2,
+    "oracle_relative_median_absolute_deviation_maximum": 0.1
+  },
+  "lock": {
+    "success": true,
+    "message": "ok"
+  },
+  "tasks": [
+    {
+      "task_id": "connectivity-y01-perf-p1f",
+      "family": "connectivity",
+      "bottleneck": "local",
+      "checks": {
+        "starter_and_oracles_correct": true,
+        "variant_result_digests_equal": true,
+        "topologies_exact": true,
+        "oracle_noise_within_limit": true,
+        "starter_slower_than_best_oracle": true,
+        "bottleneck_contrast_qualified": true
+      },
+      "passed": true,
+      "starter_speedup_to_best_oracle": 298.5082825870202,
+      "local_to_coordinated_seconds_ratio": 1.0006195552257844,
+      "variants": {
+        "starter": {
+          "variant": "starter",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "connectivity-y01-perf-p1f",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0412,
+              "stdout": "",
+              "stderr": "test_hidden_cases (test_hidden.HiddenTest.test_hidden_cases) ... ok\ntest_connectivity (test_public.PublicTest.test_connectivity) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [],
+            "changed_implementation_modules": 0,
+            "topology": "other",
+            "expected_local_paths": [
+              "perf_connectivity_y01/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_connectivity_y01/observer.py",
+              "perf_connectivity_y01/shared.py",
+              "perf_connectivity_y01/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.04248431842699043,
+            "maximum_seconds": 0.15452661449671723,
+            "mean_seconds": 0.1493749965011375,
+            "median_seconds": 0.15316354175593005,
+            "minimum_seconds": 0.14043483325076522,
+            "relative_median_absolute_deviation": 0.008899459526466586,
+            "repeat_per_round": 4,
+            "result_sha256": "d1a48ec9508fad877ea2c5fc8e203b6a349531ef410bd638ae0fd84c00ad35bc",
+            "rounds": 3,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.008899459526466586,
+            "steady_sample_count": 3,
+            "steady_seconds": 0.15316354175593005,
+            "task_id": "connectivity-y01-perf-p1f"
+          }
+        },
+        "local": {
+          "variant": "local",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "connectivity-y01-perf-p1f",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0373,
+              "stdout": "",
+              "stderr": "test_hidden_cases (test_hidden.HiddenTest.test_hidden_cases) ... ok\ntest_connectivity (test_public.PublicTest.test_connectivity) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_connectivity_y01/target.py"
+            ],
+            "changed_implementation_modules": 1,
+            "topology": "local",
+            "expected_local_paths": [
+              "perf_connectivity_y01/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_connectivity_y01/observer.py",
+              "perf_connectivity_y01/shared.py",
+              "perf_connectivity_y01/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.011327422886715954,
+            "maximum_seconds": 0.0005277159423826561,
+            "mean_seconds": 0.0005183585883293694,
+            "median_seconds": 0.0005169903154467193,
+            "minimum_seconds": 0.0005102655029247671,
+            "relative_median_absolute_deviation": 0.007869628056276615,
+            "repeat_per_round": 1024,
+            "result_sha256": "d1a48ec9508fad877ea2c5fc8e203b6a349531ef410bd638ae0fd84c00ad35bc",
+            "rounds": 9,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.0023860983625162025,
+            "steady_sample_count": 4,
+            "steady_seconds": 0.0005134143471678954,
+            "task_id": "connectivity-y01-perf-p1f"
+          }
+        },
+        "coordinated": {
+          "variant": "coordinated",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "connectivity-y01-perf-p1f",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0387,
+              "stdout": "",
+              "stderr": "test_hidden_cases (test_hidden.HiddenTest.test_hidden_cases) ... ok\ntest_connectivity (test_public.PublicTest.test_connectivity) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_connectivity_y01/observer.py",
+              "perf_connectivity_y01/shared.py",
+              "perf_connectivity_y01/target.py"
+            ],
+            "changed_implementation_modules": 3,
+            "topology": "coordinated",
+            "expected_local_paths": [
+              "perf_connectivity_y01/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_connectivity_y01/observer.py",
+              "perf_connectivity_y01/shared.py",
+              "perf_connectivity_y01/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.02921395573408085,
+            "maximum_seconds": 0.0005543028154306739,
+            "mean_seconds": 0.0005234659512830654,
+            "median_seconds": 0.0005144079179615346,
+            "minimum_seconds": 0.0005121672363372909,
+            "relative_median_absolute_deviation": 0.0030873859205718755,
+            "repeat_per_round": 1024,
+            "result_sha256": "d1a48ec9508fad877ea2c5fc8e203b6a349531ef410bd638ae0fd84c00ad35bc",
+            "rounds": 9,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.0008824847471820193,
+            "steady_sample_count": 4,
+            "steady_seconds": 0.0005130964555775108,
+            "task_id": "connectivity-y01-perf-p1f"
+          }
+        }
+      }
+    },
+    {
+      "task_id": "connectivity-y02-perf-p1f",
+      "family": "connectivity",
+      "bottleneck": "system",
+      "checks": {
+        "starter_and_oracles_correct": true,
+        "variant_result_digests_equal": true,
+        "topologies_exact": true,
+        "oracle_noise_within_limit": true,
+        "starter_slower_than_best_oracle": true,
+        "bottleneck_contrast_qualified": true
+      },
+      "passed": true,
+      "starter_speedup_to_best_oracle": 267.3567029525969,
+      "local_to_coordinated_seconds_ratio": 114.78960170774681,
+      "variants": {
+        "starter": {
+          "variant": "starter",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "connectivity-y02-perf-p1f",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0355,
+              "stdout": "",
+              "stderr": "test_hidden_cases (test_hidden.HiddenTest.test_hidden_cases) ... ok\ntest_connectivity (test_public.PublicTest.test_connectivity) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [],
+            "changed_implementation_modules": 0,
+            "topology": "other",
+            "expected_local_paths": [
+              "perf_connectivity_y02/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_connectivity_y02/observer.py",
+              "perf_connectivity_y02/shared.py",
+              "perf_connectivity_y02/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.021505572578425686,
+            "maximum_seconds": 0.14633357300044736,
+            "mean_seconds": 0.1421948679999332,
+            "median_seconds": 0.14121189575234894,
+            "minimum_seconds": 0.1390391352470033,
+            "relative_median_absolute_deviation": 0.015386525998887087,
+            "repeat_per_round": 4,
+            "result_sha256": "bdefc334e001ffc73cb17f2770409ab596bab4c185398292eb8eafbb69c882dd",
+            "rounds": 3,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.015386525998887087,
+            "steady_sample_count": 3,
+            "steady_seconds": 0.14121189575234894,
+            "task_id": "connectivity-y02-perf-p1f"
+          }
+        },
+        "local": {
+          "variant": "local",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "connectivity-y02-perf-p1f",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.04,
+              "stdout": "",
+              "stderr": "test_hidden_cases (test_hidden.HiddenTest.test_hidden_cases) ... ok\ntest_connectivity (test_public.PublicTest.test_connectivity) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_connectivity_y02/target.py"
+            ],
+            "changed_implementation_modules": 1,
+            "topology": "local",
+            "expected_local_paths": [
+              "perf_connectivity_y02/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_connectivity_y02/observer.py",
+              "perf_connectivity_y02/shared.py",
+              "perf_connectivity_y02/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.08537796699331747,
+            "maximum_seconds": 0.07553604174972861,
+            "mean_seconds": 0.06477831366646569,
+            "median_seconds": 0.06267753124848241,
+            "minimum_seconds": 0.05991335425278521,
+            "relative_median_absolute_deviation": 0.03346402942204553,
+            "repeat_per_round": 8,
+            "result_sha256": "bdefc334e001ffc73cb17f2770409ab596bab4c185398292eb8eafbb69c882dd",
+            "rounds": 9,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.0011676145867459643,
+            "steady_sample_count": 4,
+            "steady_seconds": 0.06062932812528743,
+            "task_id": "connectivity-y02-perf-p1f"
+          }
+        },
+        "coordinated": {
+          "variant": "coordinated",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "connectivity-y02-perf-p1f",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0361,
+              "stdout": "",
+              "stderr": "test_hidden_cases (test_hidden.HiddenTest.test_hidden_cases) ... ok\ntest_connectivity (test_public.PublicTest.test_connectivity) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_connectivity_y02/observer.py",
+              "perf_connectivity_y02/shared.py",
+              "perf_connectivity_y02/target.py"
+            ],
+            "changed_implementation_modules": 3,
+            "topology": "coordinated",
+            "expected_local_paths": [
+              "perf_connectivity_y02/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_connectivity_y02/observer.py",
+              "perf_connectivity_y02/shared.py",
+              "perf_connectivity_y02/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.010092379601479733,
+            "maximum_seconds": 0.000537929321296815,
+            "mean_seconds": 0.0005319720054267742,
+            "median_seconds": 0.0005350630293037284,
+            "minimum_seconds": 0.0005209059658000115,
+            "relative_median_absolute_deviation": 0.00535692401849649,
+            "repeat_per_round": 1024,
+            "result_sha256": "bdefc334e001ffc73cb17f2770409ab596bab4c185398292eb8eafbb69c882dd",
+            "rounds": 9,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.0011438314992065764,
+            "steady_sample_count": 4,
+            "steady_seconds": 0.000528177876944369,
+            "task_id": "connectivity-y02-perf-p1f"
+          }
+        }
+      }
+    }
+  ],
+  "passed": true,
+  "prior_model_outcomes_read": false,
+  "P1f_design_freeze_authorized": true,
+  "P1f_confirmatory_dispatch_authorized": false
+}
