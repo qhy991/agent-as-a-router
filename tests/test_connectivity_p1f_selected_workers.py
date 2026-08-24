@@ -8,6 +8,7 @@ from scripts.score_modus_connectivity_p1f_workers import _usage_tokens
 
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "configs/modus_connectivity_p1f_selected_workers_v1.json"
+EVIDENCE = ROOT / "agentic-artifacts/modus-codex-luna-max-connectivity-p1f-initial-v1.json"
 
 
 class ConnectivityP1fSelectedWorkersTest(unittest.TestCase):
@@ -54,6 +55,25 @@ class ConnectivityP1fSelectedWorkersTest(unittest.TestCase):
         self.assertEqual(scoring["minimum_selected_worker_token_saving_fraction"], 0.15)
         self.assertEqual(scoring["steady_relative_mad_maximum"], 0.10)
         self.assertEqual(_usage_tokens({"input_tokens": 9, "output_tokens": 1}), 10)
+
+    def test_initial_evidence_is_positive_but_requires_replication(self):
+        value = json.loads(EVIDENCE.read_text(encoding="utf-8"))
+        self.assertFalse(value["scientific_evidence"])
+        self.assertTrue(value["preliminary_prospective_evidence"])
+        self.assertTrue(value["interpretation"]["agent_matches_constrained_oracle"])
+        self.assertTrue(value["interpretation"]["router_plus_worker_net_benefit_observed"])
+        self.assertEqual(value["economics"]["break_even_deployments"], 7)
+        self.assertEqual(value["economics"]["net_tokens_at_expected_deployments"], 552342)
+        self.assertFalse(value["replication_trigger"]["precommitted_in_initial_protocol"])
+        for name, hash_key in (
+            ("wave_result", "wave_result_sha256"),
+            ("manager_verification", "manager_verification_sha256"),
+            ("score", "score_sha256"),
+        ):
+            self.assertEqual(
+                hashlib.sha256((ROOT / value["files"][name]).read_bytes()).hexdigest(),
+                value["files"][hash_key],
+            )
 
 
 if __name__ == "__main__":

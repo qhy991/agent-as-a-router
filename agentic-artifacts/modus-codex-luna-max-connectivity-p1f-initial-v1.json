@@ -1,0 +1,87 @@
+{
+  "schema": "acrouter-modus-luna-connectivity-p1f-initial-result-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "preliminary_prospective_evidence": true,
+  "model": {"slug": "gpt-5.6-luna", "reasoning_effort": "max", "authentication": "ChatGPT login"},
+  "protocol": {
+    "router_commit_at_dispatch": "3b4d7ab",
+    "worker_commit_at_dispatch": "f5a2861",
+    "worker_manifest_sha256": "a463fd9f829d630401fa126455d385f8b006bcc39ad9b393258f883b61a0a7df",
+    "worker_cells": 8,
+    "automatic_redispatch": false,
+    "full_profile_matrix_completed": false
+  },
+  "validity": {
+    "valid_worker_cells": 8,
+    "correct_cells": 8,
+    "topology_fidelity_cells": 8,
+    "e1v2_semantic_mechanism_cells": "2/2",
+    "benchmark_cells": 8,
+    "complete_usage_cells": 8,
+    "web_search_cells": 0,
+    "router_stable_repetitions": 2
+  },
+  "tasks": {
+    "connectivity-y01": {
+      "agent_action": "p000",
+      "constrained_oracle_action": "p000",
+      "neutral_median_seconds": 0.000507,
+      "p000_median_seconds": 0.00062675,
+      "p000_performance_ratio": 1.2361932938856015,
+      "neutral_median_tokens": 243373.0,
+      "p000_median_tokens": 109320.0,
+      "p000_worker_saving_fraction": 0.5508129496698484
+    },
+    "connectivity-y02": {
+      "agent_action": "e1v2",
+      "constrained_oracle_action": "e1v2",
+      "neutral_median_seconds": 0.00055275,
+      "e1v2_median_seconds": 0.00066875,
+      "e1v2_performance_ratio": 1.209859791949344,
+      "neutral_median_tokens": 340306.5,
+      "e1v2_median_tokens": 170120.0,
+      "e1v2_worker_saving_fraction": 0.500097706038527,
+      "prepared_representation_gate": "2/2"
+    }
+  },
+  "deployment": {
+    "fixed_neutral_worker_tokens": 583679.5,
+    "routed_worker_tokens": 279440.0,
+    "worker_saving_fraction": 0.5212441074253935,
+    "live_router_tokens": 15533.5,
+    "routed_e2e_tokens": 294973.5,
+    "e2e_saving_fraction": 0.49463104323520013
+  },
+  "economics": {
+    "router_acquisition_tokens": 31067,
+    "worker_acquisition_tokens": 1726239,
+    "total_acquisition_tokens": 1757306,
+    "saving_per_deployment_tokens": 288706,
+    "break_even_deployments": 7,
+    "expected_deployments": 8,
+    "net_tokens_at_expected_deployments": 552342,
+    "decision": "promote"
+  },
+  "interpretation": {
+    "agent_matches_constrained_oracle": true,
+    "profile_task_interaction_replicates_on_new_contract": true,
+    "mechanism_aware_e1_transfers": true,
+    "router_plus_worker_net_benefit_observed": true
+  },
+  "replication_trigger": {
+    "precommitted_in_initial_protocol": false,
+    "reason": "selected performance ratios 1.236 and 1.210 are close to the absolute 1.25 gate",
+    "next_action": "freeze one additional neutral/selected paired repetition per task; report it as post-outcome replication and include its acquisition cost"
+  },
+  "files": {
+    "wave_result": "examples/modus_profile_router/connectivity-p1f-v1/worker-results/wave-result.json",
+    "manager_verification": "examples/modus_profile_router/connectivity-p1f-v1/worker-results/manager-verification.json",
+    "score": "examples/modus_profile_router/connectivity-p1f-v1/worker-results/score.json",
+    "wave_result_sha256": "e96e1d627278bb44fdf05a26268098b791ea7eb34a04f600d21ede0850b309f3",
+    "manager_verification_sha256": "68b785690ae62ee42c46c02106534314f6ae2a5cd19773ffd03ff872aa3e9554",
+    "score_sha256": "d7cf2bfbaac36c264405409ed7eab0f8cb61bc0033cfc128027ed4bb9569ff8e"
+  },
+  "claim_boundary": "This is a prospective positive result on one unseen two-task family, with an actual Agent Router and live Router cost. Because both selected performance ratios are near the gate and no third-pair rule was precommitted, promotion is preliminary until a separately frozen replication is evaluated. The Oracle is constrained to selected-versus-neutral actions."
+}
+

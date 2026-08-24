@@ -1,0 +1,117 @@
+{
+  "acquisition": {
+    "router_tokens": 31067,
+    "total_tokens": 1757306,
+    "worker_tokens": 1726239
+  },
+  "candidate_qualification": {
+    "e1v2_connectivity_y02_passed": true,
+    "router_live_dispatch_qualified": true
+  },
+  "deployment": {
+    "fixed_neutral_worker_tokens": 583679.5,
+    "routed_e2e_saving_fraction": 0.49463104323520013,
+    "routed_e2e_tokens_including_live_router": 294973.5,
+    "routed_worker_saving_fraction": 0.5212441074253935,
+    "routed_worker_tokens": 279440.0
+  },
+  "economics": {
+    "acquisition_tokens": 1757306,
+    "baseline_deployment_tokens": 583680,
+    "break_even_deployments": 7,
+    "candidate_deployment_tokens": 294974,
+    "correctness_passed": true,
+    "decision": "promote",
+    "evidence_stable": true,
+    "expected_deployments": 8,
+    "minimum_saving_fraction": 0.15,
+    "net_tokens_at_expected_deployments": 552342,
+    "performance_passed": true,
+    "saving_fraction": 0.49463061951754383,
+    "saving_per_deployment_tokens": 288706
+  },
+  "router": {
+    "actions_by_task": {
+      "connectivity-y01": "p000",
+      "connectivity-y02": "e1v2"
+    },
+    "matches_constrained_oracle_on_all_tasks": true,
+    "tokens_per_deployment": 15533.5
+  },
+  "schema": "modus-connectivity-p1f-selected-worker-score-v1",
+  "status": "pass",
+  "tasks": {
+    "connectivity-y01": {
+      "actions": {
+        "neutral": {
+          "benchmark_and_usage_complete": true,
+          "correctness_passed": true,
+          "eligible": true,
+          "maximum_steady_relative_mad": 0.00912547528517124,
+          "median_seconds": 0.0005070000000000001,
+          "median_total_tokens": 243373.0,
+          "noise_gate_passed": true,
+          "performance_gate_passed": true,
+          "performance_ratio_to_fastest": 1.0,
+          "semantic_mechanism_passed": true,
+          "topology_fidelity_passed": true
+        },
+        "p000": {
+          "benchmark_and_usage_complete": true,
+          "correctness_passed": true,
+          "eligible": true,
+          "maximum_steady_relative_mad": 0.011591962905718648,
+          "median_seconds": 0.00062675,
+          "median_total_tokens": 109320.0,
+          "noise_gate_passed": true,
+          "performance_gate_passed": true,
+          "performance_ratio_to_fastest": 1.2361932938856015,
+          "semantic_mechanism_passed": true,
+          "topology_fidelity_passed": true
+        }
+      },
+      "agent_matches_constrained_oracle": true,
+      "constrained_oracle_action": "p000",
+      "final_action": "p000",
+      "selected_action": "p000",
+      "selected_action_passed_all_gates": true,
+      "selected_worker_saving_fraction_vs_neutral": 0.5508129496698484
+    },
+    "connectivity-y02": {
+      "actions": {
+        "e1v2": {
+          "benchmark_and_usage_complete": true,
+          "correctness_passed": true,
+          "eligible": true,
+          "maximum_steady_relative_mad": 0.04376367614879662,
+          "median_seconds": 0.00066875,
+          "median_total_tokens": 170120.0,
+          "noise_gate_passed": true,
+          "performance_gate_passed": true,
+          "performance_ratio_to_fastest": 1.209859791949344,
+          "semantic_mechanism_passed": true,
+          "topology_fidelity_passed": true
+        },
+        "neutral": {
+          "benchmark_and_usage_complete": true,
+          "correctness_passed": true,
+          "eligible": true,
+          "maximum_steady_relative_mad": 0.024070021881838183,
+          "median_seconds": 0.0005527500000000001,
+          "median_total_tokens": 340306.5,
+          "noise_gate_passed": true,
+          "performance_gate_passed": true,
+          "performance_ratio_to_fastest": 1.0,
+          "semantic_mechanism_passed": true,
+          "topology_fidelity_passed": true
+        }
+      },
+      "agent_matches_constrained_oracle": true,
+      "constrained_oracle_action": "e1v2",
+      "final_action": "e1v2",
+      "selected_action": "e1v2",
+      "selected_action_passed_all_gates": true,
+      "selected_worker_saving_fraction_vs_neutral": 0.500097706038527
+    }
+  }
+}

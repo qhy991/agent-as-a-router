@@ -812,3 +812,24 @@ two-task deployment. This cost is frozen into the upcoming end-to-end
 economics. The result authorizes a separately frozen selected-action Worker
 comparison, but does not yet validate either route. See
 [`agentic-artifacts/modus-codex-luna-max-connectivity-p1f-agent-router-v1.json`](../agentic-artifacts/modus-codex-luna-max-connectivity-p1f-agent-router-v1.json).
+
+The separately frozen selected-action Worker wave then completed eight valid
+cells. Every cell passed hidden correctness, exact topology, complete usage,
+and nine-round noise gates; e1-v2 also passed its prepared-representation gate
+twice. The Agent choices matched the lowest-token eligible action in both
+evaluated selected-versus-neutral sets. P000 saved 55.1% Worker tokens on Y01;
+e1-v2 saved 50.0% on Y02.
+
+The routed Workers save 52.1% versus fixed neutral. After charging 15,533.5
+live Router tokens per deployment, end-to-end saving remains 49.5%. Router and
+Worker acquisition total 1,757,306 tokens; break-even is deployment 7, and the
+frozen eight-deployment horizon yields a 552,342-token net saving. This is the
+first prospective Modus result where an actual Agent Router selects different
+Profiles on an unseen contract and remains net-positive after Router cost.
+
+The result is preliminary rather than promoted evidence because selected
+performance ratios are 1.236x and 1.210x, close to the absolute 1.25x gate,
+and the initial protocol did not precommit an ambiguity repetition. A separate
+post-outcome third-pair replication is required and must add its evidence cost.
+See
+[`agentic-artifacts/modus-codex-luna-max-connectivity-p1f-initial-v1.json`](../agentic-artifacts/modus-codex-luna-max-connectivity-p1f-initial-v1.json).
