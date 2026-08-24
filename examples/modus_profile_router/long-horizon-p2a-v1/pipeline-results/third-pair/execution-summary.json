@@ -1,0 +1,23 @@
+{
+  "automatic_redispatches": 0,
+  "pipelines": [
+    {
+      "arm": "neutral",
+      "id": "pair3-neutral",
+      "order": 1,
+      "pair": 3,
+      "stage_l": "pass",
+      "stage_s": "pass"
+    },
+    {
+      "arm": "routed",
+      "id": "pair3-routed",
+      "order": 2,
+      "pair": 3,
+      "stage_l": "pass",
+      "stage_s": "pass"
+    }
+  ],
+  "schema": "modus-long-horizon-p2a-execution-v1",
+  "status": "pass"
+}

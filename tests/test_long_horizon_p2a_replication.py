@@ -6,6 +6,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "configs/modus_long_horizon_p2a_third_pair_v1.json"
+EVIDENCE = ROOT / "agentic-artifacts/modus-codex-luna-max-long-horizon-p2a-final-v1.json"
 
 
 class LongHorizonP2aReplicationTest(unittest.TestCase):
@@ -40,6 +41,24 @@ class LongHorizonP2aReplicationTest(unittest.TestCase):
             self.assertEqual(
                 hashlib.sha256((ROOT / value["provenance"][path_key]).read_bytes()).hexdigest(),
                 value["provenance"][hash_key],
+            )
+
+    def test_final_linked_evidence_validates_route_but_not_eight_deployments(self):
+        value = json.loads(EVIDENCE.read_text())
+        self.assertFalse(value["scientific_evidence"])
+        self.assertTrue(value["replicated_linked_case_evidence"])
+        self.assertTrue(value["conclusions"]["different_profiles_control_different_linked_stages"])
+        self.assertTrue(value["conclusions"]["routed_pipeline_reduces_worker_and_router_inclusive_deployment_tokens"])
+        self.assertFalse(value["conclusions"]["net_positive_at_eight_deployments"])
+        self.assertEqual(value["economics"]["break_even_deployments"], 15)
+        self.assertEqual(value["economics"]["net_tokens_at_expected_deployments"], -981984)
+        for name, hash_key in (
+            ("third_pair_execution", "third_pair_execution_sha256"),
+            ("third_pair_score", "third_pair_score_sha256"),
+        ):
+            self.assertEqual(
+                hashlib.sha256((ROOT / value["files"][name]).read_bytes()).hexdigest(),
+                value["files"][hash_key],
             )
 
 

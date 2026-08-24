@@ -129,7 +129,9 @@
     "profile_luna_max_long_horizon_p2a_router": "modus-codex-luna-max-long-horizon-p2a-router-v1.json",
     "profile_luna_max_long_horizon_p2a_router_protocol": "../configs/modus_long_horizon_p2a_agent_router_v1.json",
     "profile_luna_max_long_horizon_p2a_initial": "modus-codex-luna-max-long-horizon-p2a-initial-v1.json",
-    "profile_luna_max_long_horizon_p2a_pipeline_protocol": "../configs/modus_long_horizon_p2a_pipeline_v1.json"
+    "profile_luna_max_long_horizon_p2a_pipeline_protocol": "../configs/modus_long_horizon_p2a_pipeline_v1.json",
+    "profile_luna_max_long_horizon_p2a_final": "modus-codex-luna-max-long-horizon-p2a-final-v1.json",
+    "profile_luna_max_long_horizon_p2a_third_pair_protocol": "../configs/modus_long_horizon_p2a_third_pair_v1.json"
   },
   "headline_metrics": {
     "id": {

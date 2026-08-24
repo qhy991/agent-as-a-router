@@ -1,0 +1,74 @@
+{
+  "schema": "acrouter-modus-luna-long-horizon-p2a-final-result-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "replicated_linked_case_evidence": true,
+  "model": {"slug": "gpt-5.6-luna", "reasoning_effort": "max"},
+  "scope": {
+    "linked_workspace_contract": "Connectivity Stage L -> Stage S",
+    "agent_router_calls": 2,
+    "initial_pipelines": 4,
+    "post_outcome_third_pair_pipelines": 2,
+    "total_stage_worker_calls": 12,
+    "repetitions_per_arm": 3,
+    "automatic_redispatches": 0
+  },
+  "validity": {
+    "complete_pipelines": 6,
+    "stage_verifications_passed": 12,
+    "parent_bindings_passed": 6,
+    "routed_stage_l_local_topology": "3/3",
+    "routed_stage_s_coordinated_semantic_mechanism": "3/3",
+    "final_correctness": "6/6",
+    "maximum_relative_mad": 0.04179728317659358
+  },
+  "router": {
+    "stable_repetitions": 2,
+    "actions": {"stage-L": "p000", "stage-S": "e1v2"},
+    "tokens_per_deployment": 18894.5
+  },
+  "replicated_aggregates": {
+    "neutral_stage_l_seconds": 0.0007665,
+    "routed_stage_l_seconds": 0.0008595,
+    "routed_stage_l_ratio_to_fastest": 1.12133072407045,
+    "neutral_final_seconds": 0.0008065,
+    "routed_final_seconds": 0.0008,
+    "routed_final_ratio_to_fastest": 1.0,
+    "neutral_two_stage_worker_tokens": 427124,
+    "routed_two_stage_worker_tokens": 267502,
+    "worker_saving_fraction": 0.3737134883546699,
+    "routed_e2e_tokens_including_router": 286396.5,
+    "e2e_saving_fraction": 0.32947692005132
+  },
+  "economics": {
+    "initial_router_and_worker_acquisition_tokens": 1415122,
+    "third_pair_worker_acquisition_tokens": 692686,
+    "combined_acquisition_tokens": 2107808,
+    "saving_per_deployment_tokens": 140728,
+    "break_even_deployments": 15,
+    "expected_deployments": 8,
+    "net_tokens_at_expected_deployments": -981984,
+    "net_tokens_at_break_even_deployment": 3112,
+    "decision_at_expected_deployments": "qualified_but_not_economic"
+  },
+  "conclusions": {
+    "different_profiles_control_different_linked_stages": true,
+    "stage_s_consumes_exact_stage_l_delivery": true,
+    "agent_routes_before_worker_outcomes": true,
+    "routed_pipeline_preserves_final_correctness_and_performance": true,
+    "routed_pipeline_reduces_worker_and_router_inclusive_deployment_tokens": true,
+    "net_positive_at_eight_deployments": false,
+    "net_positive_from_deployment": 15,
+    "remaining_bottleneck": "qualification and replication acquisition cost"
+  },
+  "files": {
+    "initial_evidence": "agentic-artifacts/modus-codex-luna-max-long-horizon-p2a-initial-v1.json",
+    "third_pair_execution": "examples/modus_profile_router/long-horizon-p2a-v1/pipeline-results/third-pair/execution-summary.json",
+    "third_pair_score": "examples/modus_profile_router/long-horizon-p2a-v1/pipeline-results/third-pair/score.json",
+    "third_pair_execution_sha256": "14a7e941a8e6330cc784fee3b227bbe7356df05f347519fe2884ca45abe0eb86",
+    "third_pair_score_sha256": "82fdab69c0c3de4ca3af80d8be1bd9fadfd549cdc41d3890280712effa2a3f73"
+  },
+  "next_experiment": "freeze a low-acquisition transfer protocol on a different linked contract, using the already qualified stage predicates and one paired pipeline first; trigger additional evidence only by precommitted quality, performance, or noise criteria",
+  "claim_boundary": "This replicated case validates the complete Modus chain on one linked workflow: Profile-controlled stage behavior, outcome-blind Agent routing, exact state handoff, final quality/performance, and lower per-deployment tokens. It does not establish broad task generalization, and the robust evidence plan is not economic at eight deployments."
+}
+

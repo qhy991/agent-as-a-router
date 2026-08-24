@@ -1,0 +1,166 @@
+{
+  "acquisition": {
+    "combined_tokens": 2107808,
+    "initial_tokens": 1415122,
+    "third_pair_worker_tokens": 692686
+  },
+  "aggregates": {
+    "neutral": {
+      "maximum_relative_mad": 0.027758970886932913,
+      "median_final_seconds": 0.0008064999999999999,
+      "median_stage_l_seconds": 0.0007665,
+      "median_worker_tokens": 427124,
+      "pipelines": 3
+    },
+    "routed": {
+      "maximum_relative_mad": 0.04179728317659358,
+      "median_final_seconds": 0.0007999999999999999,
+      "median_stage_l_seconds": 0.0008595,
+      "median_worker_tokens": 267502,
+      "pipelines": 3
+    }
+  },
+  "decision": "qualified_but_not_economic",
+  "deployment": {
+    "e2e_saving_fraction": 0.32947692005132,
+    "live_router_tokens": 18894.5,
+    "neutral_worker_tokens": 427124,
+    "routed_e2e_tokens": 286396.5,
+    "routed_worker_tokens": 267502,
+    "worker_saving_fraction": 0.3737134883546699
+  },
+  "economics": {
+    "acquisition_tokens": 2107808,
+    "baseline_deployment_tokens": 427124,
+    "break_even_deployments": 15,
+    "candidate_deployment_tokens": 286396,
+    "correctness_passed": true,
+    "decision": "qualified_but_not_economic",
+    "evidence_stable": true,
+    "expected_deployments": 8,
+    "minimum_saving_fraction": 0.15,
+    "net_tokens_at_expected_deployments": -981984,
+    "performance_passed": true,
+    "saving_fraction": 0.3294780906715614,
+    "saving_per_deployment_tokens": 140728
+  },
+  "gates": {
+    "all_six_pipelines_valid": true,
+    "final_performance": true,
+    "noise": true,
+    "stage_l_performance": true,
+    "three_repetitions_per_arm": true,
+    "worker_token_saving": true
+  },
+  "performance": {
+    "final_routed_ratio_to_fastest": 1.0,
+    "stage_l_routed_ratio_to_fastest": 1.12133072407045
+  },
+  "pipelines": [
+    {
+      "arm": "routed",
+      "final_seconds": 0.0011294999999999999,
+      "id": "pair1-routed",
+      "maximum_relative_mad": 0.012837538733953246,
+      "order": 1,
+      "pair": 1,
+      "parent_bound": true,
+      "parent_record_sha256": "6dec6aa85484228d278b09dff9f90d3d10d6ddc09b48105ae79c63cbc3ec492f",
+      "stage_l_profile": "p000",
+      "stage_l_seconds": 0.0008595,
+      "stage_l_verification_sha256": "7bc35b3777db3b2c0290a31fcac1a43ec3803a77e02824b40026f0e07daaaa4d",
+      "stage_s_profile": "e1v2",
+      "stage_s_verification_sha256": "aa834dd285c4fa7bde04f5b98f8a832932040a9c54a49f4f33e5a4c7074436fc",
+      "valid": true,
+      "worker_tokens": 268737
+    },
+    {
+      "arm": "neutral",
+      "final_seconds": 0.0007815000000000001,
+      "id": "pair1-neutral",
+      "maximum_relative_mad": 0.010876519513755654,
+      "order": 2,
+      "pair": 1,
+      "parent_bound": true,
+      "parent_record_sha256": "7fade69c24f0202c0de01fe0b01f4b147f65bc580eceed645744bc997245fcc4",
+      "stage_l_profile": "neutral",
+      "stage_l_seconds": 0.0007665,
+      "stage_l_verification_sha256": "debef90d7cb206f3c79c90bb9d1571d8e51ec495bab32040f72a7d10732433a6",
+      "stage_s_profile": "neutral",
+      "stage_s_verification_sha256": "e8b2c3f1867b646aafa3a9b3e7cdbbee6e0701766e6b176cccec6d2f21cc46c2",
+      "valid": true,
+      "worker_tokens": 437852
+    },
+    {
+      "arm": "neutral",
+      "final_seconds": 0.0008565000000000001,
+      "id": "pair2-neutral",
+      "maximum_relative_mad": 0.008962868117797704,
+      "order": 1,
+      "pair": 2,
+      "parent_bound": true,
+      "parent_record_sha256": "f23f9d4b96b0d65fa6e82f326d6f1edcd22040b062f17eec338ad8c6264dbae4",
+      "stage_l_profile": "neutral",
+      "stage_l_seconds": 0.000781,
+      "stage_l_verification_sha256": "5bfab6c1c5cbbfdd4edf1b86156fc21e8b62bf9c591e592a9f4fe3e99711abb4",
+      "stage_s_profile": "neutral",
+      "stage_s_verification_sha256": "7cd4c06f6759ae8e83e43cdf2352961e1650695da6c58926d2fd8b0fd8451da7",
+      "valid": true,
+      "worker_tokens": 403242
+    },
+    {
+      "arm": "routed",
+      "final_seconds": 0.00045200000000000004,
+      "id": "pair2-routed",
+      "maximum_relative_mad": 0.04179728317659358,
+      "order": 2,
+      "pair": 2,
+      "parent_bound": true,
+      "parent_record_sha256": "fcde2a5b6fa4c4eda9c950ceb9bf81fc93a796f40ceb12881731fa70b1e84eec",
+      "stage_l_profile": "p000",
+      "stage_l_seconds": 0.000957,
+      "stage_l_verification_sha256": "0ee5ab033b005bfffeac4d051b9456834178e186a1b3186e398304be03425fe0",
+      "stage_s_profile": "e1v2",
+      "stage_s_verification_sha256": "4acf10396d5b9a7df58704d823d0846ccc560e77cdac209e39ba2ca3bf2101c3",
+      "valid": true,
+      "worker_tokens": 267502
+    },
+    {
+      "arm": "neutral",
+      "final_seconds": 0.0008064999999999999,
+      "id": "pair3-neutral",
+      "maximum_relative_mad": 0.027758970886932913,
+      "order": 1,
+      "pair": 3,
+      "parent_bound": true,
+      "parent_record_sha256": "343cff7165a534be10d9aebb2ce45e808d039209217573069de0bcdf849c9c9f",
+      "stage_l_profile": "neutral",
+      "stage_l_seconds": 0.0007385,
+      "stage_l_verification_sha256": "93a8d0b09c2ebfb0b9cc5e2b75889ccf4eff653531c6be5d3f5603259cf7a6ba",
+      "stage_s_profile": "neutral",
+      "stage_s_verification_sha256": "257bf4bd23c84b1615c79e2181dc73f2fb665fc1dec50b1fb001d33b79773944",
+      "valid": true,
+      "worker_tokens": 427124
+    },
+    {
+      "arm": "routed",
+      "final_seconds": 0.0007999999999999999,
+      "id": "pair3-routed",
+      "maximum_relative_mad": 0.010625000000000056,
+      "order": 2,
+      "pair": 3,
+      "parent_bound": true,
+      "parent_record_sha256": "cd6402bf7f786c73762fe67e3ee95cede994ed71ae2e8c059968994eb8ae0bc1",
+      "stage_l_profile": "p000",
+      "stage_l_seconds": 0.0007565,
+      "stage_l_verification_sha256": "848578d947a03a886724a791589e1d55720352d560e193141e3e5956722a7799",
+      "stage_s_profile": "e1v2",
+      "stage_s_verification_sha256": "b32bcf84e1d6d2c82f2bfc6b1faeaaba29f565e3b5ec5692a1063cfbdf046602",
+      "valid": true,
+      "worker_tokens": 265562
+    }
+  ],
+  "post_outcome_replication": true,
+  "schema": "modus-long-horizon-p2a-third-pair-score-v1",
+  "status": "pass"
+}

@@ -879,3 +879,19 @@ routed-neutral linked pair. Initial acquisition is 1,415,122 tokens; its
 hypothetical break-even would be 11 deployments, but economics remains deferred
 until replication. See
 [`agentic-artifacts/modus-codex-luna-max-long-horizon-p2a-initial-v1.json`](../agentic-artifacts/modus-codex-luna-max-long-horizon-p2a-initial-v1.json).
+
+The hash-ordered third pair (neutral then routed) completed four more linked
+Worker stages. Combining three repetitions per arm resolves the ambiguity.
+Routed Stage L is 1.121x the fastest Stage L, and routed final performance is
+slightly faster than neutral. All six pipelines are correct, all Stage S parent
+bindings hold, and all three routed Stage S deliveries satisfy the coordinated
+prepared-representation mechanism.
+
+The linked route uses 37.4% fewer Worker tokens and 32.9% fewer tokens after
+charging the live Router. This validates the complete behavioral chain on one
+long-horizon workflow. The economic conclusion remains negative at the frozen
+horizon: Router plus 12 Worker calls cost 2,107,808 acquisition tokens, so the
+140,728-token per-deployment saving breaks even only at deployment 15; at eight
+deployments the result is 981,984 tokens negative. The remaining problem is
+not Worker routing utility but qualification cost. See
+[`agentic-artifacts/modus-codex-luna-max-long-horizon-p2a-final-v1.json`](../agentic-artifacts/modus-codex-luna-max-long-horizon-p2a-final-v1.json).

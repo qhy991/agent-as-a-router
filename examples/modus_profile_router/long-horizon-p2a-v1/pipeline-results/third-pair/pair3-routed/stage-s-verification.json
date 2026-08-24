@@ -1,0 +1,98 @@
+{
+  "arm": "routed",
+  "benchmark": {
+    "all_seconds": [
+      0.000819,
+      0.000985,
+      0.000923,
+      0.001055,
+      0.000819,
+      0.000793,
+      0.00081,
+      0.000774,
+      0.000807
+    ],
+    "median_seconds": 0.000819,
+    "rounds": 9,
+    "steady_relative_mad": 0.010625000000000056,
+    "steady_seconds": 0.0007999999999999999,
+    "success": true
+  },
+  "checks": {
+    "benchmark": true,
+    "correctness": true,
+    "custody": true,
+    "parent_record": true,
+    "semantic_mechanism": true,
+    "topology": true
+  },
+  "correctness": {
+    "hidden": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "hidden-ok\n",
+      "timed_out": false
+    },
+    "public": {
+      "returncode": 0,
+      "stderr": "test_connectivity (test_public.PublicTest.test_connectivity) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "stdout": "",
+      "timed_out": false
+    },
+    "success": true
+  },
+  "custody": {
+    "files": {
+      ".modus-task.json": {
+        "actual_sha256": "d1d47e4a0076ee7e3a5390deb77852a6a5c33ffc613df51096d07c0c5e5cea97",
+        "expected_sha256": "d1d47e4a0076ee7e3a5390deb77852a6a5c33ffc613df51096d07c0c5e5cea97",
+        "present": true
+      },
+      "benchmark_final.py": {
+        "actual_sha256": "c262ca8e56043ef4722e837e3c42d7a60fc36c8a037be41a6ee77b487e1d620a",
+        "expected_sha256": "c262ca8e56043ef4722e837e3c42d7a60fc36c8a037be41a6ee77b487e1d620a",
+        "present": true
+      },
+      "benchmark_stage_l.py": {
+        "actual_sha256": "6f6ea19ad37b94fc8f44cde6d3cbc2f4b0580031b037acf693be7e63fb27f648",
+        "expected_sha256": "6f6ea19ad37b94fc8f44cde6d3cbc2f4b0580031b037acf693be7e63fb27f648",
+        "present": true
+      },
+      "tests/test_public.py": {
+        "actual_sha256": "700a996568d5e32abb4de77f88b371570bd69b76323bee0c5c029d0e888c0c27",
+        "expected_sha256": "700a996568d5e32abb4de77f88b371570bd69b76323bee0c5c029d0e888c0c27",
+        "present": true
+      }
+    },
+    "passed": true
+  },
+  "implementation_digest": "acde00f48f44178a513864a6a8f0b0f4838aef36bcf117a3dc203474e4f08587",
+  "parent_record": {
+    "implementation_digest": "b13f7b00966f9764c0715243d00313c346ac4a663d65e3831b422013f62fcf54",
+    "schema": "modus-long-horizon-p2a-parent-v1",
+    "stage_l_verification_sha256": "848578d947a03a886724a791589e1d55720352d560e193141e3e5956722a7799"
+  },
+  "passed": true,
+  "profile": "e1v2",
+  "schema": "modus-long-horizon-p2a-stage-verification-v1",
+  "semantic_mechanism": {
+    "run": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "mechanism-ok\n",
+      "timed_out": false
+    },
+    "success": true
+  },
+  "stage": "S",
+  "topology": {
+    "changed_implementation_paths": [
+      "perf_linked_connectivity/observer.py",
+      "perf_linked_connectivity/shared.py",
+      "perf_linked_connectivity/target.py"
+    ],
+    "expected_topology": "coordinated",
+    "passed": true,
+    "topology": "coordinated"
+  }
+}
