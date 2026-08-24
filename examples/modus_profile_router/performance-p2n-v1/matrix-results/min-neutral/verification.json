@@ -1,0 +1,56 @@
+{
+  "benchmark": {
+    "all_seconds": [
+      0.014716,
+      0.014912,
+      0.014833,
+      0.015101,
+      0.015012,
+      0.014988,
+      0.015126,
+      0.014947,
+      0.014922,
+      0.017375,
+      0.015249,
+      0.015252,
+      0.016182,
+      0.014915,
+      0.015709
+    ],
+    "failed_run": null,
+    "rounds": 15,
+    "steady_relative_mad": 0.002145491116325899,
+    "steady_seconds": 0.014915,
+    "success": true
+  },
+  "changed_implementation_paths": [
+    "perf_keyed_distinct_min_p2n/target.py"
+  ],
+  "checks": {
+    "benchmark": true,
+    "correctness": true,
+    "custody": true,
+    "semantic_mechanism": true,
+    "topology": true
+  },
+  "correctness": {
+    "hidden": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "hidden-ok\n",
+      "timed_out": false
+    },
+    "public": {
+      "returncode": 0,
+      "stderr": "test_minimum (test_public.PublicTest.test_minimum) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "stdout": "",
+      "timed_out": false
+    }
+  },
+  "implementation_digest": "df3b560d63218147a085d153fea1a336db93f5759f1946462ebf10d5d45862c2",
+  "passed": true,
+  "profile": "neutral",
+  "schema": "modus-performance-p2n-cell-verification-v1",
+  "semantic_mechanism": null,
+  "task": "keyed-distinct-min"
+}

@@ -1,0 +1,70 @@
+{
+  "automatic_redispatches": 0,
+  "cells": [
+    {
+      "id": "min-p000v2",
+      "order": 1,
+      "profile": "p000v2",
+      "status": "pass",
+      "task": "keyed-distinct-min"
+    },
+    {
+      "id": "min-neutral",
+      "order": 2,
+      "profile": "neutral",
+      "status": "pass",
+      "task": "keyed-distinct-min"
+    },
+    {
+      "id": "min-e1v3",
+      "order": 3,
+      "profile": "e1v3",
+      "status": "pass",
+      "task": "keyed-distinct-min"
+    },
+    {
+      "id": "cube-p000v2",
+      "order": 4,
+      "profile": "p000v2",
+      "status": "pass",
+      "task": "keyed-distinct-cube-sum"
+    },
+    {
+      "id": "cube-e1v3",
+      "order": 5,
+      "profile": "e1v3",
+      "status": "pass",
+      "task": "keyed-distinct-cube-sum"
+    },
+    {
+      "id": "cube-neutral",
+      "order": 6,
+      "profile": "neutral",
+      "status": "pass",
+      "task": "keyed-distinct-cube-sum"
+    },
+    {
+      "id": "affine-p000v2",
+      "order": 7,
+      "profile": "p000v2",
+      "status": "pass",
+      "task": "affine-checksum"
+    },
+    {
+      "id": "affine-neutral",
+      "order": 8,
+      "profile": "neutral",
+      "status": "pass",
+      "task": "affine-checksum"
+    },
+    {
+      "id": "affine-e1v3",
+      "order": 9,
+      "profile": "e1v3",
+      "status": "pass",
+      "task": "affine-checksum"
+    }
+  ],
+  "schema": "modus-performance-p2n-execution-v1",
+  "status": "pass"
+}

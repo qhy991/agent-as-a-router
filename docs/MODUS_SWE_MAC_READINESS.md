@@ -1204,3 +1204,33 @@ triplet. The result supports controllable representation behavior and a real
 reliability improvement over e1-v2, but not strict task-level eligibility or
 economic benefit. See
 [`agentic-artifacts/modus-codex-luna-max-performance-p2l-final-v1.json`](../agentic-artifacts/modus-codex-luna-max-performance-p2l-final-v1.json).
+
+### P2n partial task-preference matrix
+
+P2n froze three new task types and evaluated the complete neutral/p000-v2/e1-v3
+matrix. Before Worker outcomes, one Luna max Router selected p000-v2 for the
+single-batch local task, e1-v3 for the ninety-batch shared task, and p000-v2 for
+the direct affine task. All nine cells completed canonical correctness,
+topology, and fifteen-round benchmarks.
+
+The direct task is excluded. Its neutral Worker read other P2n seed workspaces,
+both candidate Profile files, verifier/scorer source, and historical local
+artifacts outside the fresh workspace. It did not read another P2n Worker
+outcome, but the task-isolation and cost-baseline custody assumptions were
+violated. Therefore the raw 3/3 Router match, 83.3% full-matrix saving,
+deployment-2 break-even, and `Net@8=+11,411,610` are retracted.
+
+The remaining six local/shared cells have no such cross-workspace reads and
+remain preliminary evidence. On the local task p000-v2 was performance-equivalent
+to neutral (1.008x) and used 27.0% fewer tokens. On the shared task e1-v3 was
+slightly faster (0.971x) and used 28.2% fewer tokens; p000-v2 was 128.5x slower.
+Thus two task types select two different Profiles, and the outcome-blind Router
+matches the valid constrained oracle 2/2.
+
+For the valid two-task subset, per-deployment token saving is 27.7%. Qualification
+acquisition is 866,974 tokens, break-even is deployment 10, and
+`Net@8=-97,782`. No deployment or Profile promotion is authorized. The next
+apparatus priority is read custody: Worker processes must be unable to read
+other workspaces, Profile catalogs, scorers, or historical artifacts before a
+three-task matrix can support economics. See
+[`agentic-artifacts/modus-codex-luna-max-performance-p2n-partial-v1.json`](../agentic-artifacts/modus-codex-luna-max-performance-p2n-partial-v1.json).

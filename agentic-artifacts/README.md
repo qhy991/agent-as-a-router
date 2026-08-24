@@ -78,7 +78,7 @@ that need to decide what to inspect before loading the full repository.
     prospective scratch-qualification run that was invalidated by an
     uncontracted verifier tag; its large token/performance crossover is
     exploratory only and no second pair is authorized.
-36. Read `modus-experiment-scorecard-v1.json` for the generated P1e–P2l
+36. Read `modus-experiment-scorecard-v1.json` for the generated P1e–P2n
     comparison under one correctness, performance, cost, acquisition, and
     eight-deployment economic vocabulary. Regenerate it with
     `scripts/build_modus_experiment_scorecard.py`.
@@ -98,6 +98,10 @@ that need to decide what to inspect before loading the full repository.
     e1-v2/e1-v3/neutral representation ablation: e1-v3 is semantically reliable
     and saves 31.9% median tokens, but fails per-repetition performance and
     eight-deployment economics, so P2m is not authorized.
+41. Read `modus-codex-luna-max-performance-p2n-partial-v1.json` for the partial
+    task-preference matrix: isolated local/shared tasks select p000-v2/e1-v3
+    and the Agent matches 2/2, while the direct task and full economics are
+    excluded after affine-neutral reads outside its workspace.
 
 ## Scope
 

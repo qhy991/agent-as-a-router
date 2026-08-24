@@ -1,0 +1,63 @@
+{
+  "benchmark": {
+    "all_seconds": [
+      0.071628,
+      0.125017,
+      0.047797,
+      0.039108,
+      0.049107,
+      0.047394,
+      0.044089,
+      0.050684,
+      0.184725,
+      0.065229,
+      0.040626,
+      0.061015,
+      0.04373,
+      0.044571,
+      0.047257
+    ],
+    "failed_run": null,
+    "rounds": 15,
+    "steady_relative_mad": 0.07185465762435067,
+    "steady_seconds": 0.044089,
+    "success": true
+  },
+  "changed_implementation_paths": [
+    "perf_affine_checksum_p2n/observer.py",
+    "perf_affine_checksum_p2n/shared.py",
+    "perf_affine_checksum_p2n/target.py"
+  ],
+  "checks": {
+    "benchmark": true,
+    "correctness": true,
+    "custody": true,
+    "semantic_mechanism": true,
+    "topology": true
+  },
+  "correctness": {
+    "hidden": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "hidden-ok\n",
+      "timed_out": false
+    },
+    "public": {
+      "returncode": 0,
+      "stderr": "test_affine (test_public.PublicTest.test_affine) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.014s\n\nOK\n",
+      "stdout": "",
+      "timed_out": false
+    }
+  },
+  "implementation_digest": "e832e096ab9e1cfeb1ce98e06baec69b8a43de5a1c822e0bc74f1f4cda9054c7",
+  "passed": true,
+  "profile": "e1v3",
+  "schema": "modus-performance-p2n-cell-verification-v1",
+  "semantic_mechanism": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "mechanism-ok\n",
+    "timed_out": false
+  },
+  "task": "affine-checksum"
+}

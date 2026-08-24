@@ -1,0 +1,63 @@
+{
+  "benchmark": {
+    "all_seconds": [
+      0.015746,
+      0.014989,
+      0.015922,
+      0.015129,
+      0.015289,
+      0.01719,
+      0.016419,
+      0.017148,
+      0.019322,
+      0.016819,
+      0.020028,
+      0.021337,
+      0.019292,
+      0.027235,
+      0.019418
+    ],
+    "failed_run": null,
+    "rounds": 15,
+    "steady_relative_mad": 0.039184554807570146,
+    "steady_seconds": 0.015746,
+    "success": true
+  },
+  "changed_implementation_paths": [
+    "perf_keyed_distinct_min_p2n/observer.py",
+    "perf_keyed_distinct_min_p2n/shared.py",
+    "perf_keyed_distinct_min_p2n/target.py"
+  ],
+  "checks": {
+    "benchmark": true,
+    "correctness": true,
+    "custody": true,
+    "semantic_mechanism": true,
+    "topology": true
+  },
+  "correctness": {
+    "hidden": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "hidden-ok\n",
+      "timed_out": false
+    },
+    "public": {
+      "returncode": 0,
+      "stderr": "test_minimum (test_public.PublicTest.test_minimum) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "stdout": "",
+      "timed_out": false
+    }
+  },
+  "implementation_digest": "eace126b7352e9413dbee5a14be456bf4c439de678c5da21cfca9ef9676d3c76",
+  "passed": true,
+  "profile": "e1v3",
+  "schema": "modus-performance-p2n-cell-verification-v1",
+  "semantic_mechanism": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "mechanism-ok\n",
+    "timed_out": false
+  },
+  "task": "keyed-distinct-min"
+}

@@ -1,0 +1,71 @@
+{
+  "schema": "modus-performance-p2n-partial-evidence-v1",
+  "recorded_at": "2026-08-24",
+  "formal_status": "partial_valid_custody_exclusion",
+  "scientific_evidence": false,
+  "matrix_cells_completed": 9,
+  "valid_isolated_tasks": ["keyed-distinct-min", "keyed-distinct-cube-sum"],
+  "excluded_tasks": ["affine-checksum"],
+  "custody_exclusion": {
+    "cell": "affine-neutral",
+    "reason": "the neutral Worker read other P2n seed workspaces, both candidate Profile files, verifier/scorer source, and historical local artifacts outside its fresh workspace",
+    "other_worker_outcomes_read": false,
+    "invalidated_claims": ["direct-task preference", "three-task Agent match", "full-matrix deployment saving", "full-matrix break-even and Net@8"],
+    "events_sha256": "a8a33f9ed5541cab0a64a7da2a971828f803259234c0acc1d0c9097617f82e0a"
+  },
+  "valid_preference_results": {
+    "keyed-distinct-min": {
+      "selected_profile": "p000v2",
+      "performance_ratio_to_neutral": 1.0075762655045257,
+      "token_saving_fraction_vs_neutral": 0.2696828058657723,
+      "agent_selected_profile": "p000v2",
+      "agent_match": true
+    },
+    "keyed-distinct-cube-sum": {
+      "selected_profile": "e1v3",
+      "performance_ratio_to_neutral": 0.9709506839866651,
+      "token_saving_fraction_vs_neutral": 0.28203913760022425,
+      "agent_selected_profile": "e1v3",
+      "agent_match": true
+    }
+  },
+  "partial_two_task_economics": {
+    "fixed_neutral_tokens": 347046,
+    "selected_route_tokens": 250897,
+    "saving_fraction": 0.2770497282780957,
+    "valid_subset_acquisition_tokens": 866974,
+    "break_even_deployments": 10,
+    "net_tokens_at_8_deployments": -97782,
+    "decision": "qualified_per_deployment_but_not_economic_at_8"
+  },
+  "raw_full_matrix_values_retracted": {
+    "agent_match_count": 3,
+    "saving_fraction": 0.833139267657423,
+    "break_even_deployments": 2,
+    "net_tokens_at_8_deployments": 11411610,
+    "reason": "all depend on the contaminated affine-neutral baseline"
+  },
+  "conclusions": {
+    "two_task_types_select_different_profiles": true,
+    "agent_matches_valid_constrained_oracle": "2/2",
+    "profile_task_preference_is_observed_preliminarily": true,
+    "three_way_preference_matrix_is_valid": false,
+    "task_dependent_router_is_net_positive_at_8": false,
+    "workspace_read_custody_must_be_enforced_before_scaling": true
+  },
+  "decision": {
+    "value": "preserve_two_task_partial_evidence_and_repair_read_custody",
+    "deployment_authorized": false,
+    "profile_promotion_authorized": false
+  },
+  "files": {
+    "matrix_protocol": "configs/modus_performance_p2n_matrix_v1.json",
+    "matrix_protocol_sha256": "848578dc39359bd4d51d5049d86ebc45a6bf1cf821bb276413e193a9784f734b",
+    "execution_summary": "examples/modus_profile_router/performance-p2n-v1/matrix-results/execution-summary.json",
+    "execution_summary_sha256": "748125882fc8ce3fddc86daf80a32d0cb4bf0955db4651993152aa8fd6d7a786",
+    "raw_score": "examples/modus_profile_router/performance-p2n-v1/matrix-results/raw-score.json",
+    "raw_score_sha256": "1923dcadf9420561cc7d98151ab5f69574bc945b334d21de71c0762aeacab0fd",
+    "custody_events": "examples/modus_profile_router/performance-p2n-v1/matrix-results/affine-neutral/events.jsonl",
+    "custody_events_sha256": "a8a33f9ed5541cab0a64a7da2a971828f803259234c0acc1d0c9097617f82e0a"
+  }
+}

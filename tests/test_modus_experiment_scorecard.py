@@ -19,7 +19,7 @@ class ModusExperimentScorecardTest(unittest.TestCase):
         self.assertFalse(rows["P2h"]["outcome_valid"])
         self.assertTrue(rows["P2h"]["excluded_from_valid_trends"])
         self.assertIsNone(rows["P2h"]["net_tokens_at_8_deployments"])
-        self.assertEqual(value["summary"]["valid_outcomes"], 10)
+        self.assertEqual(value["summary"]["valid_outcomes"], 11)
         self.assertEqual(value["summary"]["qualified_routes"], 6)
         self.assertEqual(value["summary"]["net_positive_at_8_deployments"], 2)
 
@@ -58,6 +58,15 @@ class ModusExperimentScorecardTest(unittest.TestCase):
         self.assertGreater(rows["P2l"]["worker_saving_fraction"], 0.30)
         self.assertLess(rows["P2l"]["final_performance_ratio_to_fastest"], 1.0)
         self.assertIsNone(rows["P2l"]["net_tokens_at_8_deployments"])
+
+    def test_p2n_preserves_two_task_preference_but_excludes_contaminated_direct_task(self):
+        value = json.loads(SCORECARD.read_text())
+        rows = {row["experiment"]: row for row in value["experiments"]}
+        self.assertTrue(rows["P2n"]["outcome_valid"])
+        self.assertFalse(rows["P2n"]["route_qualified"])
+        self.assertGreater(rows["P2n"]["worker_saving_fraction"], 0.25)
+        self.assertLess(rows["P2n"]["net_tokens_at_8_deployments"], 0)
+        self.assertIn("custody", rows["P2n"]["disqualification"])
 
 
 if __name__ == "__main__":

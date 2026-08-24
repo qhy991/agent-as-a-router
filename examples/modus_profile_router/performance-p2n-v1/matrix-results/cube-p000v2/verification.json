@@ -1,0 +1,56 @@
+{
+  "benchmark": {
+    "all_seconds": [
+      12.387037,
+      22.284991,
+      11.873335,
+      11.182015,
+      12.427472,
+      10.897333,
+      26.207606,
+      17.909774,
+      16.318522,
+      14.397286,
+      17.812081,
+      18.459898,
+      10.932681,
+      11.389049,
+      10.826058
+    ],
+    "failed_run": null,
+    "rounds": 15,
+    "steady_relative_mad": 0.02545891773530979,
+    "steady_seconds": 11.182015,
+    "success": true
+  },
+  "changed_implementation_paths": [
+    "perf_keyed_distinct_cube_sum_p2n/target.py"
+  ],
+  "checks": {
+    "benchmark": true,
+    "correctness": true,
+    "custody": true,
+    "semantic_mechanism": true,
+    "topology": true
+  },
+  "correctness": {
+    "hidden": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "hidden-ok\n",
+      "timed_out": false
+    },
+    "public": {
+      "returncode": 0,
+      "stderr": "test_cube_sum (test_public.PublicTest.test_cube_sum) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "stdout": "",
+      "timed_out": false
+    }
+  },
+  "implementation_digest": "d667f759f0e9f6d2c0902f4b93f024459b6dd0afc4bdcd581d062f7fb15a61bc",
+  "passed": true,
+  "profile": "p000v2",
+  "schema": "modus-performance-p2n-cell-verification-v1",
+  "semantic_mechanism": null,
+  "task": "keyed-distinct-cube-sum"
+}

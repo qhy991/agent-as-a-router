@@ -1,0 +1,271 @@
+{
+  "acquisition_tokens": 2944446,
+  "agent_match_count": 3,
+  "agent_matches": {
+    "affine-checksum": true,
+    "keyed-distinct-cube-sum": true,
+    "keyed-distinct-min": true
+  },
+  "agent_route": {
+    "affine-checksum": "p000v2",
+    "keyed-distinct-cube-sum": "e1v3",
+    "keyed-distinct-min": "p000v2"
+  },
+  "claim_boundary": "one task per type is preliminary task-dependent preference evidence",
+  "decision": "promote_task_dependent_router",
+  "deployment": {
+    "fixed_neutral_tokens": 2153910,
+    "saving_fraction": 0.833139267657423,
+    "selected_route_tokens": 359403
+  },
+  "distinct_selected_profiles": 2,
+  "economics": {
+    "acquisition_tokens": 2944446,
+    "baseline_deployment_tokens": 2153910,
+    "break_even_deployments": 2,
+    "candidate_deployment_tokens": 359403,
+    "correctness_passed": true,
+    "decision": "promote",
+    "evidence_stable": true,
+    "expected_deployments": 8,
+    "minimum_saving_fraction": 0.15,
+    "net_tokens_at_expected_deployments": 11411610,
+    "performance_passed": true,
+    "saving_fraction": 0.833139267657423,
+    "saving_per_deployment_tokens": 1794507
+  },
+  "rows": [
+    {
+      "id": "min-p000v2",
+      "implementation_digest": "763f8e3211c0f47db5d8d9edbe46462808e9dc006589d80db792290dbd2ddb66",
+      "order": 1,
+      "profile": "p000v2",
+      "relative_mad": 0.005323396326856548,
+      "seconds": 0.015028,
+      "task": "keyed-distinct-min",
+      "valid": true,
+      "verification_sha256": "09b275381db9ca2c33e8278b03edb787159534f0312a303cd65143673874724d",
+      "worker_tokens": 102343
+    },
+    {
+      "id": "min-neutral",
+      "implementation_digest": "df3b560d63218147a085d153fea1a336db93f5759f1946462ebf10d5d45862c2",
+      "order": 2,
+      "profile": "neutral",
+      "relative_mad": 0.002145491116325899,
+      "seconds": 0.014915,
+      "task": "keyed-distinct-min",
+      "valid": true,
+      "verification_sha256": "74ce7bfa05d2e6e03b1c277ec846c143f0e3645a84496e69b6edf7263393c84a",
+      "worker_tokens": 140135
+    },
+    {
+      "id": "min-e1v3",
+      "implementation_digest": "eace126b7352e9413dbee5a14be456bf4c439de678c5da21cfca9ef9676d3c76",
+      "order": 3,
+      "profile": "e1v3",
+      "relative_mad": 0.039184554807570146,
+      "seconds": 0.015746,
+      "task": "keyed-distinct-min",
+      "valid": true,
+      "verification_sha256": "b00da8422e0cd1db3004d0a69f346c12d9cf4750adeda30cc86d0cad9c3b0bdf",
+      "worker_tokens": 162277
+    },
+    {
+      "id": "cube-p000v2",
+      "implementation_digest": "d667f759f0e9f6d2c0902f4b93f024459b6dd0afc4bdcd581d062f7fb15a61bc",
+      "order": 4,
+      "profile": "p000v2",
+      "relative_mad": 0.02545891773530979,
+      "seconds": 11.182015,
+      "task": "keyed-distinct-cube-sum",
+      "valid": true,
+      "verification_sha256": "a0c16fc3d1b3e349201d397d7015c2a18027ebaf90a94ca9226f6e475fbff046",
+      "worker_tokens": 89736
+    },
+    {
+      "id": "cube-e1v3",
+      "implementation_digest": "49bf98d6fca2344618d53afa46b24fa1671ac16276de01f89bfce43be0b26f8c",
+      "order": 5,
+      "profile": "e1v3",
+      "relative_mad": 0.004581887927258071,
+      "seconds": 0.084463,
+      "task": "keyed-distinct-cube-sum",
+      "valid": true,
+      "verification_sha256": "8d82cbfced79ffc7987a83fd11eef211bf0f2a549b762b3af539e8d74dbe0d48",
+      "worker_tokens": 148554
+    },
+    {
+      "id": "cube-neutral",
+      "implementation_digest": "0d9de1bda1bae9b6873b9461951f61614e80660cf32783d224cc87b3753b3bd2",
+      "order": 6,
+      "profile": "neutral",
+      "relative_mad": 0.008311300149442482,
+      "seconds": 0.08699,
+      "task": "keyed-distinct-cube-sum",
+      "valid": true,
+      "verification_sha256": "1684a12cf9e0ee05158d88ecb3897367d60f8451ec881d25bf221403574a479c",
+      "worker_tokens": 206911
+    },
+    {
+      "id": "affine-p000v2",
+      "implementation_digest": "3b089dbd5e52216b94ce1813be817d3f2ec454120c868522e0fb14970f3acf97",
+      "order": 7,
+      "profile": "p000v2",
+      "relative_mad": 0.00515063168124402,
+      "seconds": 0.01029,
+      "task": "affine-checksum",
+      "valid": true,
+      "verification_sha256": "be3d3420ee9f3da5c094a4510f012366a0afc97b5f239783d87187b9bf464123",
+      "worker_tokens": 108506
+    },
+    {
+      "id": "affine-neutral",
+      "implementation_digest": "fb8e10a5c095fdbe6dc1c21a2d7d2e5d26a2ed5cbc320b7591dd55be2351b6ff",
+      "order": 8,
+      "profile": "neutral",
+      "relative_mad": 0.007133995037220804,
+      "seconds": 0.009672,
+      "task": "affine-checksum",
+      "valid": true,
+      "verification_sha256": "334d5add5dd1b5da0cdb0755be4702072b4da66b4055084d6750913cda808a07",
+      "worker_tokens": 1806864
+    },
+    {
+      "id": "affine-e1v3",
+      "implementation_digest": "e832e096ab9e1cfeb1ce98e06baec69b8a43de5a1c822e0bc74f1f4cda9054c7",
+      "order": 9,
+      "profile": "e1v3",
+      "relative_mad": 0.07185465762435067,
+      "seconds": 0.044089,
+      "task": "affine-checksum",
+      "valid": true,
+      "verification_sha256": "5881654304b469dd0da9ece02d9be11c46611915fb3e843a4b87e25f714a0adc",
+      "worker_tokens": 162102
+    }
+  ],
+  "schema": "modus-performance-p2n-matrix-score-v1",
+  "selected_route": {
+    "affine-checksum": "p000v2",
+    "keyed-distinct-cube-sum": "e1v3",
+    "keyed-distinct-min": "p000v2"
+  },
+  "status": "pass",
+  "task_dependent_preference_observed": true,
+  "tasks": {
+    "affine-checksum": {
+      "candidates": {
+        "e1v3": {
+          "eligible": false,
+          "gates": {
+            "noise": true,
+            "performance": false,
+            "token_saving": true,
+            "valid": true
+          },
+          "performance_ratio_to_neutral": 4.558416046319272,
+          "token_saving_fraction_vs_neutral": 0.9102854448370215
+        },
+        "neutral": {
+          "eligible": true,
+          "gates": {
+            "noise": true,
+            "performance": true,
+            "valid": true
+          },
+          "performance_ratio_to_neutral": 1.0,
+          "token_saving_fraction_vs_neutral": 0.0
+        },
+        "p000v2": {
+          "eligible": true,
+          "gates": {
+            "noise": true,
+            "performance": true,
+            "token_saving": true,
+            "valid": true
+          },
+          "performance_ratio_to_neutral": 1.0638957816377173,
+          "token_saving_fraction_vs_neutral": 0.9399478876107997
+        }
+      },
+      "expected_preference": "neutral",
+      "selected_profile": "p000v2"
+    },
+    "keyed-distinct-cube-sum": {
+      "candidates": {
+        "e1v3": {
+          "eligible": true,
+          "gates": {
+            "noise": true,
+            "performance": true,
+            "token_saving": true,
+            "valid": true
+          },
+          "performance_ratio_to_neutral": 0.9709506839866651,
+          "token_saving_fraction_vs_neutral": 0.28203913760022425
+        },
+        "neutral": {
+          "eligible": true,
+          "gates": {
+            "noise": true,
+            "performance": true,
+            "valid": true
+          },
+          "performance_ratio_to_neutral": 1.0,
+          "token_saving_fraction_vs_neutral": 0.0
+        },
+        "p000v2": {
+          "eligible": false,
+          "gates": {
+            "noise": true,
+            "performance": false,
+            "token_saving": true,
+            "valid": true
+          },
+          "performance_ratio_to_neutral": 128.54368318197493,
+          "token_saving_fraction_vs_neutral": 0.5663062862776749
+        }
+      },
+      "expected_preference": "e1v3",
+      "selected_profile": "e1v3"
+    },
+    "keyed-distinct-min": {
+      "candidates": {
+        "e1v3": {
+          "eligible": false,
+          "gates": {
+            "noise": true,
+            "performance": true,
+            "token_saving": false,
+            "valid": true
+          },
+          "performance_ratio_to_neutral": 1.0557157224270868,
+          "token_saving_fraction_vs_neutral": -0.15800478110393557
+        },
+        "neutral": {
+          "eligible": true,
+          "gates": {
+            "noise": true,
+            "performance": true,
+            "valid": true
+          },
+          "performance_ratio_to_neutral": 1.0,
+          "token_saving_fraction_vs_neutral": 0.0
+        },
+        "p000v2": {
+          "eligible": true,
+          "gates": {
+            "noise": true,
+            "performance": true,
+            "token_saving": true,
+            "valid": true
+          },
+          "performance_ratio_to_neutral": 1.0075762655045257,
+          "token_saving_fraction_vs_neutral": 0.2696828058657723
+        }
+      },
+      "expected_preference": "p000v2",
+      "selected_profile": "p000v2"
+    }
+  }
+}

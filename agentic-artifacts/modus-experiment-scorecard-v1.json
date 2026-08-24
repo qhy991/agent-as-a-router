@@ -253,6 +253,30 @@
       "task_family": "keyed_distinct_energy",
       "worker_saving_fraction": 0.31938257149920934,
       "workflow": "replicated prepared-representation Profile triplet"
+    },
+    {
+      "acquisition_tokens": 866974,
+      "break_even_deployments": 10,
+      "disqualification": "direct task excluded by cross-workspace read custody violation",
+      "e2e_saving_fraction": 0.2770497282780957,
+      "evidence_status": "partial_valid_custody_exclusion",
+      "experiment": "P2n",
+      "final_performance_ratio_to_fastest": 1.0075762655045257,
+      "net_tokens_at_8_deployments": -97782,
+      "outcome_valid": true,
+      "route": {
+        "affine-checksum": "excluded",
+        "keyed-distinct-cube-sum": "e1v3",
+        "keyed-distinct-min": "p000v2"
+      },
+      "route_qualified": false,
+      "source": {
+        "path": "agentic-artifacts/modus-codex-luna-max-performance-p2n-partial-v1.json",
+        "sha256": "0a4c344f9ad738a8bd93b10b9f7ed9868996cde862d08a4664feed4a18fd9ab4"
+      },
+      "task_family": "local_and_shared_partial_subset",
+      "worker_saving_fraction": 0.2770497282780957,
+      "workflow": "three-task revised-Profile matrix with one custody exclusion"
     }
   ],
   "schema": "modus-experiment-scorecard-v1",
@@ -260,7 +284,7 @@
     "invalid_outcomes": 1,
     "net_positive_at_8_deployments": 2,
     "qualified_routes": 6,
-    "rows": 11,
-    "valid_outcomes": 10
+    "rows": 12,
+    "valid_outcomes": 11
   }
 }
