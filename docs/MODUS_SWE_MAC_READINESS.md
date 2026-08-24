@@ -1052,3 +1052,12 @@ is `partial_pending_qualification`, never complete, and contains zero neutral
 fallbacks. All-abstain and all-dispatch boundaries pass; stage/action/view
 mismatch, missing stages, and attempted neutral fallback fail closed. See
 [`agentic-artifacts/modus-manager-partial-dispatch-plan-v1.json`](../agentic-artifacts/modus-manager-partial-dispatch-plan-v1.json).
+
+P2f executed that mixed plan end to end. Only the qualified RangeSum Stage S
+created a workspace and Worker call. Its e1-v2 delivery passed hidden
+correctness, coordinated topology, prepared semantics, exact parent binding,
+and final performance while using 126,949 tokens. The abstained TokenFrequency
+stage created no workspace, manifest, model call, or neutral fallback; its
+hash-bound qualification request remains pending. The lifecycle remains
+`partial_pending_qualification` and `complete=false`. See
+[`agentic-artifacts/modus-partial-lifecycle-p2f-live-v1.json`](../agentic-artifacts/modus-partial-lifecycle-p2f-live-v1.json).

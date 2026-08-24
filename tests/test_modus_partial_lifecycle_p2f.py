@@ -5,6 +5,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "configs/modus_partial_lifecycle_p2f_v1.json"
+EVIDENCE = ROOT / "agentic-artifacts/modus-partial-lifecycle-p2f-live-v1.json"
 
 class ModusPartialLifecycleP2fTest(unittest.TestCase):
     def test_only_qualified_worker_is_authorized_and_lifecycle_stays_partial(self):
@@ -34,5 +35,18 @@ class ModusPartialLifecycleP2fTest(unittest.TestCase):
         self.assertEqual(hashlib.sha256((ROOT / request["path"]).read_bytes()).hexdigest(), request["sha256"])
         for path_key, hash_key in (("stage_verifier", "stage_verifier_sha256"), ("scorer", "scorer_sha256")):
             self.assertEqual(hashlib.sha256((ROOT / value["provenance"][path_key]).read_bytes()).hexdigest(), value["provenance"][hash_key])
+
+    def test_live_partial_lifecycle_executes_only_qualified_branch(self):
+        value = json.loads(EVIDENCE.read_text())
+        self.assertTrue(value["live_partial_lifecycle_evidence"])
+        self.assertTrue(value["qualified_stage"]["correctness_passed"])
+        self.assertEqual(value["qualified_stage"]["worker_tokens"], 126949)
+        self.assertEqual(value["unqualified_stage"]["worker_calls"], 0)
+        self.assertFalse(value["unqualified_stage"]["neutral_fallback"])
+        self.assertTrue(value["unqualified_stage"]["request_remains_pending"])
+        self.assertEqual(value["final_lifecycle"]["status"], "partial_pending_qualification")
+        self.assertFalse(value["final_lifecycle"]["complete"])
+        for name, hash_key in (("wave_result", "wave_result_sha256"), ("qualified_verification", "qualified_verification_sha256"), ("lifecycle_result", "lifecycle_result_sha256")):
+            self.assertEqual(hashlib.sha256((ROOT / value["files"][name]).read_bytes()).hexdigest(), value["files"][hash_key])
 
 if __name__ == "__main__": unittest.main()

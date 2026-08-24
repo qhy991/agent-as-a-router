@@ -1,0 +1,56 @@
+{
+  "schema": "acrouter-modus-partial-lifecycle-p2f-live-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "live_partial_lifecycle_evidence": true,
+  "source_plan": {
+    "status": "partial_pending_qualification",
+    "qualified_dispatches": 1,
+    "qualification_requests": 1,
+    "neutral_fallbacks": 0
+  },
+  "qualified_stage": {
+    "profile": "e1v2",
+    "mechanism_id": "shared-prefix-sum-v1",
+    "evidence_ref": "qualification:p2b:stage-S",
+    "valid_execution": true,
+    "correctness_passed": true,
+    "coordinated_topology_passed": true,
+    "prepared_representation_passed": true,
+    "parent_binding_passed": true,
+    "final_seconds": 0.0003945,
+    "worker_tokens": 126949
+  },
+  "unqualified_stage": {
+    "semantic_kind": "token_frequency",
+    "worker_calls": 0,
+    "workspace_created": false,
+    "manifest_created": false,
+    "neutral_fallback": false,
+    "qualification_request_id": "qualification:0e0b4cec4f6408f663e313036a862a2621d05f8a1125d02750eed8d9cb259cfd",
+    "request_remains_pending": true
+  },
+  "final_lifecycle": {
+    "status": "partial_pending_qualification",
+    "complete": false,
+    "qualified_work_continued": true,
+    "unqualified_work_blocked": true
+  },
+  "conclusions": {
+    "mixed_dispatch_abstain_executes_only_qualified_worker": true,
+    "unqualified_stage_does_not_fallback_to_neutral": true,
+    "qualification_request_custody_preserved": true,
+    "partial_lifecycle_not_misreported_complete": true
+  },
+  "files": {
+    "wave_result": "examples/modus_profile_router/partial-lifecycle-p2f-v1/results/wave-result.json",
+    "qualified_verification": "examples/modus_profile_router/partial-lifecycle-p2f-v1/results/qualified-verification.json",
+    "lifecycle_result": "examples/modus_profile_router/partial-lifecycle-p2f-v1/results/lifecycle-result.json",
+    "wave_result_sha256": "23bb8f9a1b0a6a9ef241a9dffbe6160abad46294db909b89e78f76c048bbe569",
+    "qualified_verification_sha256": "642bfb23baae89d2a8a96b2770a257905538ba1ff657ff9361f77e5025f332c3",
+    "lifecycle_result_sha256": "56ecfe6b7c8d3b4115859a6b3ce4742f2eb1d38c0718652109fd4d5df5061317"
+  },
+  "next_experiment": "run the offline qualification lifecycle for the pending token-frequency descriptor and prove that only accepted evidence can transition the plan from partial to complete",
+  "claim_boundary": "This proves live execution of the qualified branch and zero side effects for the abstained branch. It does not resolve the pending qualification request or complete the overall task."
+}
+
