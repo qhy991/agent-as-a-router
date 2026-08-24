@@ -1,0 +1,155 @@
+{
+  "acquisition_tokens": 1087034,
+  "aggregates": {
+    "e1v2": {
+      "maximum_relative_mad": 0.18594375576386754,
+      "median_seconds": 10.134758,
+      "median_worker_tokens": 183238.0,
+      "repetitions": 2,
+      "valid_repetitions": 1
+    },
+    "e1v3": {
+      "maximum_relative_mad": 0.18972194142688334,
+      "median_seconds": 0.15004099999999998,
+      "median_worker_tokens": 145906.0,
+      "repetitions": 2,
+      "valid_repetitions": 2
+    },
+    "neutral": {
+      "maximum_relative_mad": 0.05949737748173896,
+      "median_seconds": 0.176266,
+      "median_worker_tokens": 214373.0,
+      "repetitions": 2,
+      "valid_repetitions": 2
+    }
+  },
+  "candidates": {
+    "e1v2": {
+      "eligible": false,
+      "gates": {
+        "median_performance": false,
+        "per_repetition_performance": false,
+        "second_triplet_noise_resolution": true,
+        "token_saving": false,
+        "two_valid_repetitions": false
+      },
+      "per_repetition_performance_ratios": [
+        71.50523967349915,
+        3.7068191490822224
+      ],
+      "performance_ratio_to_neutral": 57.49695346805396,
+      "token_saving_fraction_vs_neutral": 0.1452375065889827
+    },
+    "e1v3": {
+      "eligible": false,
+      "gates": {
+        "median_performance": true,
+        "per_repetition_performance": false,
+        "second_triplet_noise_resolution": true,
+        "token_saving": true,
+        "two_valid_repetitions": true
+      },
+      "per_repetition_performance_ratios": [
+        0.50224353130039,
+        2.191243701863013
+      ],
+      "performance_ratio_to_neutral": 0.8512191801027991,
+      "token_saving_fraction_vs_neutral": 0.31938257149920934
+    }
+  },
+  "decision": "stop_no_eligible_coordinated_profile",
+  "economics": {
+    "acquisition_tokens": 1087034,
+    "baseline_deployment_tokens": 214373,
+    "break_even_deployments": 16,
+    "candidate_deployment_tokens": 145906,
+    "correctness_passed": false,
+    "decision": "defer_correctness",
+    "evidence_stable": false,
+    "expected_deployments": 8,
+    "minimum_saving_fraction": 0.15,
+    "net_tokens_at_expected_deployments": -539298,
+    "performance_passed": false,
+    "saving_fraction": 0.31938257149920934,
+    "saving_per_deployment_tokens": 68467
+  },
+  "no_further_replication": true,
+  "post_outcome_replication": true,
+  "rows": [
+    {
+      "id": "triplet1-neutral",
+      "implementation_digest": "e9ca5f8fb43a6f7665b54be1dc4581a60540f00a87962a47e4ded4138bd459a5",
+      "order": 1,
+      "profile": "neutral",
+      "relative_mad": 0.05949737748173896,
+      "seconds": 0.279693,
+      "triplet": 1,
+      "valid": true,
+      "verification_sha256": "61cf313d9e27c6c4776508f1913b1fa2ef4352649fe4dc468e8c0d74f58b4553",
+      "worker_tokens": 189002
+    },
+    {
+      "id": "triplet1-e1v3",
+      "implementation_digest": "574aeba1cb0c37a34670f287842fb722f7a7378eaa660233f325059f4112a62c",
+      "order": 2,
+      "profile": "e1v3",
+      "relative_mad": 0.18972194142688334,
+      "seconds": 0.140474,
+      "triplet": 1,
+      "valid": true,
+      "verification_sha256": "b90bc58e7679b94158b3a4f62147f6ff0ba7930711e4312227f02073f5f6689a",
+      "worker_tokens": 164294
+    },
+    {
+      "id": "triplet1-e1v2",
+      "implementation_digest": "6a8c6ae661ce90123e36fdb85f8296382e50248f7b12104eeab4341d0cbd21fd",
+      "order": 3,
+      "profile": "e1v2",
+      "relative_mad": 0.04712274272651113,
+      "seconds": 19.999515,
+      "triplet": 1,
+      "valid": false,
+      "verification_sha256": "16e239cf7910a0dad29673f9a48fc8e78f7d6a08b595d8689d39283eb2ed67c3",
+      "worker_tokens": 227219
+    },
+    {
+      "id": "triplet2-e1v2",
+      "implementation_digest": "4207d2eae17de5db44ef376548ae50cd8f4f494491e3e583215fd23dbba6fdf2",
+      "order": 1,
+      "profile": "e1v2",
+      "relative_mad": 0.18594375576386754,
+      "seconds": 0.270001,
+      "triplet": 2,
+      "valid": true,
+      "verification_sha256": "36f9fba884f973d1cbbb3bafbb74da955890caa8ef3791d11e490990ef312b2e",
+      "worker_tokens": 139257
+    },
+    {
+      "id": "triplet2-e1v3",
+      "implementation_digest": "3a83e248f5c51886d73fb7ede8710f0dbb5f294d79699fc6a864c41665ff2c0e",
+      "order": 2,
+      "profile": "e1v3",
+      "relative_mad": 0.05170793443937654,
+      "seconds": 0.159608,
+      "triplet": 2,
+      "valid": true,
+      "verification_sha256": "187f9e8c91aefa1679105fa080aba5432b8860dc66e5f7a7af2da1669bb50ad8",
+      "worker_tokens": 127518
+    },
+    {
+      "id": "triplet2-neutral",
+      "implementation_digest": "d041f89b5365c1d5b2ab606b1fed3bc0a62507a504f004d88be14c20d3c2b0c3",
+      "order": 3,
+      "profile": "neutral",
+      "relative_mad": 0.004654100138662062,
+      "seconds": 0.072839,
+      "triplet": 2,
+      "valid": true,
+      "verification_sha256": "7d898ebb6df601888177d461a7605e7f0b4748f0b779becafe463fd56a0a1769",
+      "worker_tokens": 239744
+    }
+  ],
+  "schema": "modus-performance-p2l-second-triplet-score-v1",
+  "selected_profile": null,
+  "status": "pass"
+}

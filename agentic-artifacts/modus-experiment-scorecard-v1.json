@@ -231,6 +231,28 @@
       "task_family": "keyed_distinct_sum",
       "worker_saving_fraction": 0.4452366038380502,
       "workflow": "replicated revised-Profile linked route"
+    },
+    {
+      "acquisition_tokens": 1087034,
+      "break_even_deployments": null,
+      "disqualification": "per-repetition performance and eight-deployment economics fail",
+      "e2e_saving_fraction": 0.31938257149920934,
+      "evidence_status": "valid_rejection",
+      "experiment": "P2l",
+      "final_performance_ratio_to_fastest": 0.8512191801027991,
+      "net_tokens_at_8_deployments": null,
+      "outcome_valid": true,
+      "route": {
+        "stage-S": "e1v3"
+      },
+      "route_qualified": false,
+      "source": {
+        "path": "agentic-artifacts/modus-codex-luna-max-performance-p2l-final-v1.json",
+        "sha256": "b312da3c071ba32ab32d9aa026aa6676ad992b4a3d491d263b0bdbd8d6a21268"
+      },
+      "task_family": "keyed_distinct_energy",
+      "worker_saving_fraction": 0.31938257149920934,
+      "workflow": "replicated prepared-representation Profile triplet"
     }
   ],
   "schema": "modus-experiment-scorecard-v1",
@@ -238,7 +260,7 @@
     "invalid_outcomes": 1,
     "net_positive_at_8_deployments": 2,
     "qualified_routes": 6,
-    "rows": 10,
-    "valid_outcomes": 9
+    "rows": 11,
+    "valid_outcomes": 10
   }
 }

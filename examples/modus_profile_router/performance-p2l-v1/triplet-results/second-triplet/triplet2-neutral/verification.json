@@ -1,0 +1,88 @@
+{
+  "benchmark": {
+    "all_seconds": [
+      0.073397,
+      0.073746,
+      0.0725,
+      0.071895,
+      0.073133,
+      0.083923,
+      0.12904,
+      0.088616,
+      0.104387,
+      0.072839,
+      0.073395,
+      0.077039,
+      0.072786,
+      0.073349,
+      0.073208
+    ],
+    "median_seconds": 0.073395,
+    "rounds": 15,
+    "steady_relative_mad": 0.004654100138662062,
+    "steady_seconds": 0.072839,
+    "success": true
+  },
+  "checks": {
+    "benchmark": true,
+    "correctness": true,
+    "custody": true,
+    "semantic_mechanism": true,
+    "topology": true
+  },
+  "correctness": {
+    "hidden": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "hidden-ok\n",
+      "timed_out": false
+    },
+    "public": {
+      "returncode": 0,
+      "stderr": "test_keyed_distinct_energy (test_public.PublicTest.test_keyed_distinct_energy) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "stdout": "",
+      "timed_out": false
+    },
+    "success": true
+  },
+  "custody": {
+    "files": {
+      ".modus-task.json": {
+        "actual_sha256": "df5ee76724472efeba538832043084fc98af2e67015a25cd94643c6c62567031",
+        "expected_sha256": "df5ee76724472efeba538832043084fc98af2e67015a25cd94643c6c62567031",
+        "present": true
+      },
+      "benchmark.py": {
+        "actual_sha256": "c0961fabd48ee0f1bf3a8ca107d2bff1d45530f415670c1d97db4f83d20ca201",
+        "expected_sha256": "c0961fabd48ee0f1bf3a8ca107d2bff1d45530f415670c1d97db4f83d20ca201",
+        "present": true
+      },
+      "instruction.md": {
+        "actual_sha256": "da442356001e1f8ceb72126d7e1920623da86bb8eb90b4c42da4789c123d6174",
+        "expected_sha256": "da442356001e1f8ceb72126d7e1920623da86bb8eb90b4c42da4789c123d6174",
+        "present": true
+      },
+      "tests/test_public.py": {
+        "actual_sha256": "514ae3eb88b4099a719c1fdb687230ee887c9bea22c61f2cd5848a93fec0e5df",
+        "expected_sha256": "514ae3eb88b4099a719c1fdb687230ee887c9bea22c61f2cd5848a93fec0e5df",
+        "present": true
+      }
+    },
+    "passed": true
+  },
+  "implementation_digest": "d041f89b5365c1d5b2ab606b1fed3bc0a62507a504f004d88be14c20d3c2b0c3",
+  "passed": true,
+  "profile": "neutral",
+  "schema": "modus-performance-p2l-cell-verification-v1",
+  "semantic_mechanism": null,
+  "topology": {
+    "changed_implementation_paths": [
+      "perf_energy_p2l/observer.py",
+      "perf_energy_p2l/shared.py",
+      "perf_energy_p2l/target.py"
+    ],
+    "expected_topology": "unconstrained",
+    "passed": true,
+    "topology": "unconstrained"
+  }
+}

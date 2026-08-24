@@ -1175,3 +1175,32 @@ reduces search tokens. It does not prove stable long-horizon performance or
 economic benefit. The fail-closed outcome gate again prevents a low-token but
 poor-quality route from promotion. See
 [`agentic-artifacts/modus-codex-luna-max-long-horizon-p2k-final-v1.json`](../agentic-artifacts/modus-codex-luna-max-long-horizon-p2k-final-v1.json).
+
+### P2l prepared-representation Profile revision
+
+P2l isolated the P2k Stage S instability on a new keyed-distinct-energy task.
+The e1-minimal-v3 candidate changed only the E representation policy: target,
+shared, and observer remained mandatory, while shared preparation had to emit
+the smallest query-ready final aggregate instead of retaining source-level
+containers or wrappers. T0 and A0 were unchanged.
+
+The first neutral/e1-v3/e1-v2 triplet triggered replication. e1-v3 was correct
+and about twice as fast as neutral, but its token saving was 13.1%—near the 15%
+gate—and MAD was 19.0%. e1-v2 discarded the prepared result in observer,
+recomputed preparation in every batch, failed the canonical semantic mechanism,
+and ran 71.5x slower than neutral. The frozen reverse triplet then ran
+e1-v2/e1-v3/neutral with no retries.
+
+Across both triplets e1-v3 passed prepared semantics in 2/2 repetitions, while
+e1-v2 passed only 1/2. e1-v3 median performance was 0.851x neutral and median
+token saving was 31.9%, demonstrating improved representation reliability and
+efficiency. It still failed the strict gate because the second-triplet neutral
+was unusually fast: e1-v3 was 2.19x slower in that repetition. Combined
+acquisition was 1,087,034 tokens; raw break-even was deployment 16 and
+`Net@8=-539,298`.
+
+P2l therefore authorizes neither e1-v3 nor P2m and stops without a third
+triplet. The result supports controllable representation behavior and a real
+reliability improvement over e1-v2, but not strict task-level eligibility or
+economic benefit. See
+[`agentic-artifacts/modus-codex-luna-max-performance-p2l-final-v1.json`](../agentic-artifacts/modus-codex-luna-max-performance-p2l-final-v1.json).

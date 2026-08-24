@@ -1,0 +1,81 @@
+{
+  "schema": "modus-performance-p2l-final-evidence-v1",
+  "recorded_at": "2026-08-24",
+  "formal_status": "valid_rejection",
+  "scientific_evidence": false,
+  "prospective_representation_profile_evidence": true,
+  "profile_revision": {
+    "base": "e1-v2",
+    "candidate": "e1-minimal-v3",
+    "changed_axis": "E representation policy only",
+    "candidate_requires_minimal_query_ready_final_aggregates": true
+  },
+  "replicated_aggregates": {
+    "neutral_median_seconds": 0.176266,
+    "neutral_median_worker_tokens": 214373,
+    "e1v3_valid_repetitions": 2,
+    "e1v3_median_seconds": 0.15004099999999998,
+    "e1v3_performance_ratio_to_neutral": 0.8512191801027991,
+    "e1v3_median_worker_tokens": 145906,
+    "e1v3_token_saving_fraction_vs_neutral": 0.31938257149920934,
+    "e1v2_valid_repetitions": 1,
+    "e1v2_median_seconds": 10.134758,
+    "e1v2_performance_ratio_to_neutral": 57.49695346805396,
+    "e1v2_median_worker_tokens": 183238,
+    "e1v2_token_saving_fraction_vs_neutral": 0.1452375065889827
+  },
+  "per_repetition": {
+    "e1v3_performance_ratios_to_neutral": [0.50224353130039, 2.191243701863013],
+    "e1v2_performance_ratios_to_neutral": [71.50523967349915, 3.7068191490822224],
+    "e1v3_representation_semantics_passed": "2/2",
+    "e1v2_representation_semantics_passed": "1/2"
+  },
+  "gates": {
+    "e1v3_two_valid_repetitions": true,
+    "e1v3_median_performance": true,
+    "e1v3_per_repetition_performance": false,
+    "e1v3_token_saving": true,
+    "e1v3_second_triplet_noise_resolution": true,
+    "e1v3_eligible": false,
+    "e1v2_eligible": false
+  },
+  "economics": {
+    "combined_acquisition_tokens": 1087034,
+    "raw_saving_per_deployment_tokens": 68467,
+    "raw_break_even_deployments": 16,
+    "raw_net_tokens_at_8_deployments": -539298,
+    "qualified_break_even_deployments": null,
+    "qualified_net_tokens_at_8_deployments": null
+  },
+  "mechanism_findings": {
+    "e1v3": "both repetitions returned a minimal final scalar map from observer to target",
+    "e1v2_first": "observer computed prepare_energy but discarded the result and returned raw rows, causing preparation in every batch",
+    "e1v2_second": "returned a valid prepared map but remained slower than neutral",
+    "interpretation": "the representation instruction improves semantic reliability and median efficiency, but does not satisfy strict per-repetition performance or eight-deployment economics"
+  },
+  "decision": {
+    "value": "stop_no_eligible_coordinated_profile",
+    "selected_profile": null,
+    "p2m_authorized": false,
+    "third_triplet_authorized": false,
+    "global_e1v2_replacement_authorized": false
+  },
+  "conclusions": {
+    "profile_representation_policy_changes_agent_behavior": true,
+    "e1v3_improves_prepared_semantic_reliability_over_e1v2": true,
+    "e1v3_reduces_median_tokens_and_time": true,
+    "e1v3_meets_joint_strict_eligibility": false,
+    "profile_revision_alone_proves_long_horizon_benefit": false
+  },
+  "claim_boundary": "P2l supports controllable representation behavior and rejects both coordinated profiles under the frozen joint gate. It does not authorize P2m or a global profile replacement.",
+  "files": {
+    "initial_evidence": "agentic-artifacts/modus-codex-luna-max-performance-p2l-initial-v1.json",
+    "initial_evidence_sha256": "3230f8f8b787d0d513e51d34f46aa6e0a8bbea70e12ad054aed2117d293c6f39",
+    "second_triplet_protocol": "configs/modus_performance_p2l_second_triplet_v1.json",
+    "second_triplet_protocol_sha256": "194695dff7e7e783b196823d1ff4b759fa3b487c91dd61efd6596640ebfdb9fd",
+    "second_execution": "examples/modus_profile_router/performance-p2l-v1/triplet-results/second-triplet/execution-summary.json",
+    "second_execution_sha256": "9da1436f21ff043f23ae75e7be6b3cd96ded1cc4a5cb0d9b188e310591c58a19",
+    "second_score": "examples/modus_profile_router/performance-p2l-v1/triplet-results/second-triplet/score.json",
+    "second_score_sha256": "7e037cef978f100d1a0b918381fabc497d0fe964f25d89c62c29d9be0db43c3d"
+  }
+}

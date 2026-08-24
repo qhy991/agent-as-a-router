@@ -31,6 +31,7 @@ def build(root: Path) -> dict:
     p2i, p2i_source = _source(root, "modus-codex-luna-max-long-horizon-p2i-negative-v1.json")
     p2j, p2j_source = _source(root, "modus-codex-luna-max-performance-p2j-positive-v1.json")
     p2k, p2k_source = _source(root, "modus-codex-luna-max-long-horizon-p2k-final-v1.json")
+    p2l, p2l_source = _source(root, "modus-codex-luna-max-performance-p2l-final-v1.json")
 
     p1f_max_ratio = max(
         row.get("p000_performance_ratio", row.get("e1v2_performance_ratio"))
@@ -199,6 +200,23 @@ def build(root: Path) -> dict:
             "net_tokens_at_8_deployments": None,
             "disqualification": "replicated final performance and second-pair noise fail",
             "source": p2k_source,
+        },
+        {
+            "experiment": "P2l",
+            "task_family": "keyed_distinct_energy",
+            "workflow": "replicated prepared-representation Profile triplet",
+            "route": {"stage-S": "e1v3"},
+            "evidence_status": p2l["formal_status"],
+            "outcome_valid": True,
+            "route_qualified": False,
+            "final_performance_ratio_to_fastest": p2l["replicated_aggregates"]["e1v3_performance_ratio_to_neutral"],
+            "worker_saving_fraction": p2l["replicated_aggregates"]["e1v3_token_saving_fraction_vs_neutral"],
+            "e2e_saving_fraction": p2l["replicated_aggregates"]["e1v3_token_saving_fraction_vs_neutral"],
+            "acquisition_tokens": p2l["economics"]["combined_acquisition_tokens"],
+            "break_even_deployments": None,
+            "net_tokens_at_8_deployments": None,
+            "disqualification": "per-repetition performance and eight-deployment economics fail",
+            "source": p2l_source,
         },
     ]
     valid = [row for row in rows if row["outcome_valid"]]

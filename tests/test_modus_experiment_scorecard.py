@@ -19,7 +19,7 @@ class ModusExperimentScorecardTest(unittest.TestCase):
         self.assertFalse(rows["P2h"]["outcome_valid"])
         self.assertTrue(rows["P2h"]["excluded_from_valid_trends"])
         self.assertIsNone(rows["P2h"]["net_tokens_at_8_deployments"])
-        self.assertEqual(value["summary"]["valid_outcomes"], 9)
+        self.assertEqual(value["summary"]["valid_outcomes"], 10)
         self.assertEqual(value["summary"]["qualified_routes"], 6)
         self.assertEqual(value["summary"]["net_positive_at_8_deployments"], 2)
 
@@ -49,6 +49,15 @@ class ModusExperimentScorecardTest(unittest.TestCase):
         self.assertGreater(rows["P2k"]["worker_saving_fraction"], 0.40)
         self.assertGreater(rows["P2k"]["final_performance_ratio_to_fastest"], 1.25)
         self.assertIsNone(rows["P2k"]["net_tokens_at_8_deployments"])
+
+    def test_p2l_improves_representation_but_fails_strict_joint_gate(self):
+        value = json.loads(SCORECARD.read_text())
+        rows = {row["experiment"]: row for row in value["experiments"]}
+        self.assertTrue(rows["P2l"]["outcome_valid"])
+        self.assertFalse(rows["P2l"]["route_qualified"])
+        self.assertGreater(rows["P2l"]["worker_saving_fraction"], 0.30)
+        self.assertLess(rows["P2l"]["final_performance_ratio_to_fastest"], 1.0)
+        self.assertIsNone(rows["P2l"]["net_tokens_at_8_deployments"])
 
 
 if __name__ == "__main__":
