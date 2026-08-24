@@ -1,0 +1,68 @@
+{
+  "schema": "acrouter-modus-long-horizon-p2d-cached-pair-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "expected_future_deployments": 8,
+  "model": {"local_slug": "gpt-5.6-luna", "reasoning_effort": "max", "authentication": "ChatGPT login"},
+  "task": {
+    "seed_root": "examples/modus_profile_router/long-horizon-p2d-v1/seed",
+    "stage_l_prompt": "examples/modus_profile_router/long-horizon-p2d-v1/stage-l-task.md",
+    "stage_l_prompt_sha256": "0776237c2bbd0990d592b5530ccbf8da2632b03f4e0ef866653b66312d6c46cb",
+    "stage_s_prompt": "examples/modus_profile_router/long-horizon-p2d-v1/stage-s-task.md",
+    "stage_s_prompt_sha256": "2706e770c40293a99301b795947536e489150a60988aabb3c4791e1125324012"
+  },
+  "profiles": {
+    "neutral": {"profile_path": "/private/tmp/modus-codex-spark-neutral-profile.md", "profile_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    "p000": {"profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/profiles/p000.md", "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282"},
+    "e1v2": {"profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/experimental-profiles/e1-v2/p100.md", "profile_sha256": "c4d0326d4fb5afb14aa51aeb91653fa7771610a41eb53de019c87bf9ff3419e1"}
+  },
+  "arms": {
+    "routed": {"stage-L": "e1v2", "stage-S": "p000", "live_router_calls_per_deployment": 0},
+    "neutral": {"stage-L": "neutral", "stage-S": "neutral", "live_router_calls_per_deployment": 0}
+  },
+  "pipelines": [
+    {"id": "pair1-routed", "pair": 1, "order": 1, "arm": "routed"},
+    {"id": "pair1-neutral", "pair": 1, "order": 2, "arm": "neutral"}
+  ],
+  "execution": {
+    "fresh_workspace_per_pipeline": true,
+    "stage_s_uses_same_workspace_as_stage_l": true,
+    "stage_s_parent_file_hashes_required": true,
+    "automatic_redispatch": false,
+    "worker_cells_if_complete": 4
+  },
+  "scoring": {
+    "performance_ratio_maximum": 1.25,
+    "steady_relative_mad_maximum": 0.10,
+    "minimum_worker_token_saving_fraction": 0.15,
+    "near_threshold_band_inclusive": [1.1875, 1.3125],
+    "cached_router_tokens_per_deployment": 0,
+    "live_agent_counterfactual_tokens_per_deployment": 20788,
+    "second_pair_triggers": ["pipeline quality disagreement", "near-threshold final performance", "relative MAD above 0.10"]
+  },
+  "parent_router": {
+    "score_path": "examples/modus_profile_router/long-horizon-p2d-v1/router-results/score.json",
+    "score_sha256": "f56a9d3a9047185e53035a6e30a6be25564c277ad3f91398821bc049537b944a",
+    "actions": {"stage-L": "e1v2", "stage-S": "p000"},
+    "acquisition_tokens": 20788,
+    "cached_tokens_per_deployment": 0,
+    "live_tokens_per_deployment": 20788
+  },
+  "cache": {
+    "entry_path": "examples/modus_profile_router/long-horizon-p2d-v1/route-cache.json",
+    "entry_sha256": "19393010bc891ba407b99eb5ad73619179acea2d47b6390b5b7907e788564fe2",
+    "zero_model_replay_passed": true,
+    "replayed_actions": {"stage-L": "e1v2", "stage-S": "p000"}
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "36b8f0eb4589a866220d129dc4981f7a2b855d0c",
+    "pipeline_runner_path": "scripts/run_modus_long_horizon_p2d_pipeline.py",
+    "pipeline_runner_sha256": "a7f6a388d9eb06ad3d934d97e018d80ca67481fe44f25794ab3795ec871aa94e",
+    "stage_verifier_path": "scripts/verify_modus_long_horizon_p2d_stage.py",
+    "stage_verifier_sha256": "bdc3fb6db97e117c87da7efb0f576cc50e2d3bfb5a7229c740ebcea8316624b0",
+    "scorer_path": "scripts/score_modus_long_horizon_p2d_pair.py",
+    "scorer_sha256": "2ca95d234240e2c826a26ea5bfc3025bd2e91a89ad5d8ab40b69a505ef7937fa"
+  },
+  "failure_policy": {"invalid_cell_or_parent_delta": "stop", "automatic_redispatch": false, "no_model_substitution": true}
+}
+
