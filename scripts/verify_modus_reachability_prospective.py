@@ -18,36 +18,34 @@ import sys
 import time
 from pathlib import Path
 
-HIDDEN_CASES = {
-    "reachability-p03": [
-        (0, 1), (1, 0), (0, 0), (5, 5),
-        (0, 639), (639, 0), (319, 320), (320, 319),
-        (638, 637), (4, 65), (65, 4), (16, 19),
-    ],
-    "reachability-p04": [
-        (0, 1), (1, 0), (0, 0), (5, 5),
-        (0, 639), (639, 0), (319, 320), (320, 319),
-        (638, 637), (4, 65), (65, 4), (16, 19),
-    ],
-}
+HIDDEN_EDGES = (
+    (0, 1), (1, 2), (2, 0), (2, 4), (4, 5), (5, 6),
+    (7, 8), (8, 9), (9, 7),
+)
+HIDDEN_QUERIES = (
+    (0, 6), (6, 0), (4, 6), (5, 4), (7, 9),
+    (9, 8), (8, 7), (3, 3), (10, 10), (10, 0),
+)
+HIDDEN_EXPECTED = (True, False, True, False, True, True, True, True, True, False)
 
 IMPLEMENTATION_FILES = ("api.py", "observer.py", "shared.py", "target.py")
 
 
-def _hidden_program(task: str) -> str:
-    cases = HIDDEN_CASES[task]
+def _hidden_program(package: str) -> str:
     return (
-        "from perf_{pkg}.api import execute\n"
-        "nodes = 640\n"
-        "edges = [(i, (i + 1) % nodes) for i in range(nodes)]\n"
-        "edges.extend((i, (i + 61) % nodes) for i in range(0, nodes, 4))\n"
-        "edges.extend(((i + 3) % nodes, i) for i in range(0, nodes, 16))\n"
-        "queries = {cases}\n"
-        "expected = [True] * len(queries)\n"
-        "result = execute(tuple(edges), (queries,))[0]\n"
+        "from {package}.api import execute\n"
+        "edges = {edges}\n"
+        "queries = {queries}\n"
+        "expected = {expected}\n"
+        "result = execute(edges, (queries,))[0]\n"
         "assert result == expected, (result, expected)\n"
         "print('hidden-ok')\n"
-    ).format(pkg=task.replace("reachability-", "reachability_"), cases=repr(tuple(cases)))
+    ).format(
+        package=package,
+        edges=repr(HIDDEN_EDGES),
+        queries=repr(HIDDEN_QUERIES),
+        expected=repr(list(HIDDEN_EXPECTED)),
+    )
 
 
 def _run(command: list[str], cwd: Path, timeout: int) -> dict:
@@ -65,13 +63,13 @@ def _run(command: list[str], cwd: Path, timeout: int) -> dict:
         return {"returncode": None, "stdout": "", "stderr": "", "timed_out": True}
 
 
-def _correctness(workspace: Path, task: str, python: str) -> dict:
+def _correctness(workspace: Path, task_id: str, package: str, python: str) -> dict:
     public = _run([python, "-m", "unittest", "discover", "-s", "tests", "-v"],
                   workspace, 120)
-    hidden = _run([python, "-c", _hidden_program(task)], workspace, 120)
+    hidden = _run([python, "-c", _hidden_program(package)], workspace, 120)
     return {
         "schema": "modus-performance-p0-correctness-v1",
-        "task_id": f"{task}-perf-p0",
+        "task_id": task_id,
         "public_passed": public["returncode"] == 0,
         "hidden_passed": hidden["returncode"] == 0 and "hidden-ok" in hidden["stdout"],
         "public": public,
@@ -84,13 +82,22 @@ def _correctness(workspace: Path, task: str, python: str) -> dict:
 
 def _benchmark(workspace: Path, python: str) -> dict:
     rounds = []
-    for _ in range(7):
+    for attempt in range(7):
         done = _run([python, "benchmark.py"], workspace, 300)
         if done["returncode"] != 0:
             return {"schema": "modus-performance-p0-benchmark-v1", "success": False}
         try:
             line = done["stdout"].strip().splitlines()[-1]
-            value = float(ast.literal_eval(line)["seconds"])
+            payload = json.loads(line) if line.startswith("{") else ast.literal_eval(line)
+            if "steady_seconds" in payload:
+                required = {
+                    "rounds", "steady_seconds",
+                    "steady_relative_median_absolute_deviation", "result_sha256",
+                }
+                if not required <= set(payload) or payload["rounds"] != 9:
+                    return {"schema": "modus-performance-p0-benchmark-v1", "success": False}
+                return {**payload, "success": True}
+            value = float(payload["seconds"])
         except (ValueError, SyntaxError, KeyError, IndexError, TypeError):
             return {"schema": "modus-performance-p0-benchmark-v1", "success": False}
         rounds.append(value)
@@ -105,8 +112,7 @@ def _benchmark(workspace: Path, python: str) -> dict:
     }
 
 
-def _topology(workspace: Path, task: str, seed: Path, expected: str) -> dict:
-    package = task.replace("reachability-", "perf_reachability_")
+def _topology(workspace: Path, task_id: str, package: str, seed: Path, expected: str) -> dict:
     changed = []
     for name in IMPLEMENTATION_FILES:
         current = workspace / package / name
@@ -124,7 +130,7 @@ def _topology(workspace: Path, task: str, seed: Path, expected: str) -> dict:
         topology = "unknown-expectation"
     return {
         "schema": "modus-performance-p0-topology-v1",
-        "task_id": task,
+        "task_id": task_id,
         "changed_implementation_paths": changed,
         "expected_topology": expected,
         "topology": topology,
@@ -158,6 +164,8 @@ def main(argv: list[str] | None = None) -> int:
     cells = []
     for task_name, task in protocol["tasks"].items():
         seed = repo / task["seed_root"]
+        package = task.get("package", task_name.replace("reachability-", "perf_reachability_"))
+        task_id = task["task_id"]
         for action in protocol["matrix"]["actions"]:
             for rep in range(1, protocol["matrix"]["repetitions_per_action"] + 1):
                 cell_id = f"{task_name}-{action}-r{rep}"
@@ -181,9 +189,9 @@ def main(argv: list[str] | None = None) -> int:
                     entry["topology"] = None
                     entry["topology_fidelity_passed"] = False
                 else:
-                    correctness = _correctness(workspace, task_name, options.python)
+                    correctness = _correctness(workspace, task_id, package, options.python)
                     benchmark = _benchmark(workspace, options.python)
-                    topology = _topology(workspace, task_name, seed, expected)
+                    topology = _topology(workspace, task_id, package, seed, expected)
                     entry["correctness"] = correctness
                     entry["benchmark"] = benchmark
                     entry["topology"] = topology

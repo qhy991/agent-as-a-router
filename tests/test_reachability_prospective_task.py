@@ -3,7 +3,10 @@ import json
 from pathlib import Path
 import unittest
 
-from scripts.score_modus_reachability_prospective import _performance_gate
+from scripts.score_modus_reachability_prospective import (
+    _ambiguity_reasons,
+    _performance_gate,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -97,6 +100,12 @@ class ReachabilityProspectiveTaskTest(unittest.TestCase):
         self.assertTrue(_performance_gate(1.25))
         self.assertFalse(_performance_gate(1.250001))
         self.assertFalse(_performance_gate(1.91))
+
+    def test_third_pair_triggers_are_objective(self):
+        self.assertIn("straddle", " ".join(_ambiguity_reasons([1.2, 1.3], 1.4, [0.01])))
+        self.assertIn("five percent", " ".join(_ambiguity_reasons([1.2, 1.2], 1.25, [0.01])))
+        self.assertIn("MAD", " ".join(_ambiguity_reasons([1.0, 1.0], 1.0, [0.11])))
+        self.assertEqual(_ambiguity_reasons([1.0, 1.1], 1.1, [0.01]), [])
 
 
 if __name__ == "__main__":

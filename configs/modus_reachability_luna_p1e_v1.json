@@ -1,0 +1,129 @@
+{
+  "schema": "acrouter-modus-reachability-luna-p1e-protocol-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "purpose": "prospectively test staged neutral/p000-first qualification with gpt-5.6-luna max on an independent Modus Reachability pair before any Luna outcome is observed",
+  "scientific_role": "pre-registered model-specific replication on a new task workload",
+  "expected_future_deployments": 8,
+  "model": {
+    "local_slug": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "authentication": "ChatGPT login"
+  },
+  "harness": {
+    "codex_cli_version": "0.146.0",
+    "runner": "acrouter_repro.codex_spark_wave.run_wave",
+    "profile_delivery": "canonical Profile text prepended to the task prompt",
+    "ignore_user_config": true,
+    "ignore_rules": true,
+    "browser_features_disabled": true,
+    "web_search_event_policy": "invalidate cell",
+    "sandbox": "workspace-write",
+    "automatic_redispatch": false,
+    "manager_measurement_dispatch": "sequential after Worker completion",
+    "dsh_runtime_gate_present": false
+  },
+  "profiles": {
+    "neutral": {
+      "profile_path": "/private/tmp/modus-codex-spark-neutral-profile.md",
+      "profile_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "p000": {
+      "bits": "E0/T0/A0",
+      "expected_topology": "local",
+      "profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/profiles/p000.md",
+      "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282"
+    }
+  },
+  "tasks": {
+    "reachability-x01": {
+      "task_id": "reachability-x01-perf-p1e",
+      "package": "perf_reachability_x01",
+      "workload_kind": "631-node seeded SCC-chain graph, 192 queries in one batch",
+      "prompt": "examples/modus_profile_router/reachability-luna-p1e-v1/reachability-x01-task.md",
+      "prompt_sha256": "a601dbe0b3fbdf15df4dbcf23f2d960fb14976bcce3b6a0783e02719a3c3c9da",
+      "seed_root": "examples/modus_profile_router/reachability-luna-p1e-v1/seeds/reachability-x01",
+      "seed_files_sha256": {
+        "benchmark.py": "d79a6f1b1d7350fce7c50757df8ed8d0c52378cd59d11157617427d811017c8c",
+        "perf_reachability_x01/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "perf_reachability_x01/api.py": "bc7d4f9005be8d23270301519ce0f27e68dfdfd7ae2a2d47a30d05524b04bd2e",
+        "perf_reachability_x01/observer.py": "9f53a6f322c7743bbf3f0cb134f9d4b205983afa13ea6494df84e08d765dd226",
+        "perf_reachability_x01/shared.py": "907cf29485630abdef6a1cf4626d956ae3430cb45b1d410ff12ec6f0097b766c",
+        "perf_reachability_x01/target.py": "a33041c98e40824d3a448f574752d11cb2b71f1f95ca6bdecc78048c24ac463a",
+        "tests/test_public.py": "547c498371f4b2a012a407f5c5207efaa5d649b19e2edffb615e9b87951efe71"
+      },
+      "expected_local_paths": ["perf_reachability_x01/target.py"]
+    },
+    "reachability-x02": {
+      "task_id": "reachability-x02-perf-p1e",
+      "package": "perf_reachability_x02",
+      "workload_kind": "the same graph and 192 queries consumed as ninety-six two-query batches",
+      "prompt": "examples/modus_profile_router/reachability-luna-p1e-v1/reachability-x02-task.md",
+      "prompt_sha256": "d463676fa80e83ddf2a5537d8ba6c2b01582c14989f5db3a59f6b1f3aa8617b6",
+      "seed_root": "examples/modus_profile_router/reachability-luna-p1e-v1/seeds/reachability-x02",
+      "seed_files_sha256": {
+        "benchmark.py": "0d3e4a0187e3957b12bfa96c985b616a7ffdc99c10a5f84960364624e9a88578",
+        "perf_reachability_x02/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "perf_reachability_x02/api.py": "bc7d4f9005be8d23270301519ce0f27e68dfdfd7ae2a2d47a30d05524b04bd2e",
+        "perf_reachability_x02/observer.py": "9f53a6f322c7743bbf3f0cb134f9d4b205983afa13ea6494df84e08d765dd226",
+        "perf_reachability_x02/shared.py": "907cf29485630abdef6a1cf4626d956ae3430cb45b1d410ff12ec6f0097b766c",
+        "perf_reachability_x02/target.py": "a33041c98e40824d3a448f574752d11cb2b71f1f95ca6bdecc78048c24ac463a",
+        "tests/test_public.py": "be943def0b81eac55a10d32e5d5d536386f0734261d98940f5e39b6354d77782"
+      },
+      "expected_local_paths": ["perf_reachability_x02/target.py"]
+    }
+  },
+  "matrix": {
+    "actions": ["neutral", "p000"],
+    "repetitions_per_action": 2,
+    "cells": 8,
+    "tasks": 2,
+    "fresh_workspace_per_cell": true,
+    "p100_follow_up": "not in stage one; authorized in a separately frozen stage only if p000 fails and no third paired repetition is required",
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "staged_policy_under_test": {
+    "classification": "prospective neutral/p000-first qualification under Luna max",
+    "trusted_task_metadata": true,
+    "agent_parser_invocation": "skip because canonical task metadata is present",
+    "stop_rule": "score once after eight cells; promote p000 and stop if every task gate passes; otherwise acquire only the pre-registered third pair when ambiguous, or separately authorize p100 when p000 fails unambiguously",
+    "expected_profile_for_family": "p000 on both tasks, based on prior Reachability evidence; this is a prediction and not a scoring input"
+  },
+  "scoring": {
+    "correctness_first": "both repetitions pass public tests plus frozen hidden verifier cases",
+    "topology_fidelity": "each p000 cell changes only its named target.py; neutral is unconstrained",
+    "performance_ratio_maximum": 1.25,
+    "performance_eligibility": "task median steady seconds no more than 1.25x the fastest correct action",
+    "minimum_p000_token_saving_fraction_per_task": 0.15,
+    "complete_token_definition": "input_tokens plus output_tokens from exactly one turn.completed usage object",
+    "third_pair_rule": {
+      "paired_ratio_straddle": "trigger when matched p000/neutral repetition ratios lie on opposite sides of 1.25",
+      "near_threshold_band_inclusive": [1.1875, 1.3125],
+      "steady_relative_mad_maximum": 0.10,
+      "action": "run one additional matched neutral/p000 pair only for each ambiguous task before promotion or p100 authorization"
+    },
+    "promotion_gate": "p000 must pass correctness, topology, performance, and at least 15% token saving on both tasks",
+    "economic_gate": "evaluate qualification economics at eight expected future task-pair deployments"
+  },
+  "failure_policy": {
+    "invalid_or_incomplete_cell": "cell failure; preserve and do not redispatch",
+    "web_search_item": "cell invalid",
+    "model_terminal_failure": "preserve and do not redispatch",
+    "no_model_substitution": true,
+    "post_hoc_task_or_gate_change": false
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "5896ee19ef6c46edc4fdaeed94137bd630c49388",
+    "modus_commit": "a1fc62d0fab4585b32a2f1625f8610e56be29318",
+    "modus_p1e_lock_sha256": "2ceb7264bd303bdfe031766cfea49565ec0c086affe5998877cc9e3b9d6a738a",
+    "task_qualification_path": "examples/modus_profile_router/reachability-luna-p1e-v1/task-qualification.json",
+    "task_qualification_sha256": "60d473d13eabb4f91f9948efc725511d17dae9f44a57e806191598c5ca645071",
+    "plugin_commit_at_freeze": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f",
+    "verifier_sha256_at_freeze": "1acca1c3a47cca0c2d45623020aca5f69941726ab8d2e7623926e45536750f91",
+    "scorer_sha256_at_freeze": "15c03b2d08e023bf69bf9dbd25a1d3ab2dab7c8d87c2531d8b2f4490e5380ba3",
+    "primitive_lineage": "P1e references P0 canonical target/shared/observer/api primitives; only graph seed, size, workload, task ids, prompts, and locks are new"
+  },
+  "claim_boundary": "This protocol tests whether a frozen Profile changes the cost-performance trade under Luna max on one new Reachability pair. It can support or reject p000 qualification for this pair; it cannot establish broad Profile routing or p100 behavior."
+}
+

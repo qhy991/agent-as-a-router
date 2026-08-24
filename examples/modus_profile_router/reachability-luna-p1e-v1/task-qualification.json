@@ -1,0 +1,346 @@
+{
+  "schema": "modus-performance-p1e-qualification-v1",
+  "profile_outcomes_read": false,
+  "task_count": 2,
+  "algorithm_family_count": 1,
+  "thresholds": {
+    "local_noninferior_seconds_ratio_maximum": 1.25,
+    "system_coordinated_speedup_minimum": 1.25,
+    "starter_speedup_minimum": 1.2,
+    "oracle_relative_median_absolute_deviation_maximum": 0.1
+  },
+  "lock": {
+    "success": true,
+    "message": "ok"
+  },
+  "tasks": [
+    {
+      "task_id": "reachability-x01-perf-p1e",
+      "family": "reachability",
+      "bottleneck": "local",
+      "checks": {
+        "starter_and_oracles_correct": true,
+        "variant_result_digests_equal": true,
+        "topologies_exact": true,
+        "oracle_noise_within_limit": true,
+        "starter_slower_than_best_oracle": true,
+        "bottleneck_contrast_qualified": true
+      },
+      "passed": true,
+      "starter_speedup_to_best_oracle": 147.49769060737876,
+      "local_to_coordinated_seconds_ratio": 1.0169759049580556,
+      "variants": {
+        "starter": {
+          "variant": "starter",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "reachability-x01-perf-p1e",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0366,
+              "stdout": "",
+              "stderr": "test_hidden_cases (test_hidden.HiddenTest.test_hidden_cases) ... ok\ntest_reachability (test_public.PublicTest.test_reachability) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [],
+            "changed_implementation_modules": 0,
+            "topology": "other",
+            "expected_local_paths": [
+              "perf_reachability_x01/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_reachability_x01/observer.py",
+              "perf_reachability_x01/shared.py",
+              "perf_reachability_x01/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.04856780533848428,
+            "maximum_seconds": 0.7711696250189561,
+            "mean_seconds": 0.722142819664441,
+            "median_seconds": 0.7041440839821007,
+            "minimum_seconds": 0.6911147499922663,
+            "relative_median_absolute_deviation": 0.01850378961667967,
+            "repeat_per_round": 1,
+            "result_sha256": "b633f0b8e1f09f4d5aceac0039f1a9b01dc646e998a78c01fbed57f768f19faf",
+            "rounds": 3,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.01850378961667967,
+            "steady_sample_count": 3,
+            "steady_seconds": 0.7041440839821007,
+            "task_id": "reachability-x01-perf-p1e"
+          }
+        },
+        "local": {
+          "variant": "local",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "reachability-x01-perf-p1e",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0355,
+              "stdout": "",
+              "stderr": "test_hidden_cases (test_hidden.HiddenTest.test_hidden_cases) ... ok\ntest_reachability (test_public.PublicTest.test_reachability) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_reachability_x01/target.py"
+            ],
+            "changed_implementation_modules": 1,
+            "topology": "local",
+            "expected_local_paths": [
+              "perf_reachability_x01/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_reachability_x01/observer.py",
+              "perf_reachability_x01/shared.py",
+              "perf_reachability_x01/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.0308579103382628,
+            "maximum_seconds": 0.005314698562415288,
+            "mean_seconds": 0.0049856830138550225,
+            "median_seconds": 0.004905355140408574,
+            "minimum_seconds": 0.004829675132896227,
+            "relative_median_absolute_deviation": 0.015428038408253353,
+            "repeat_per_round": 128,
+            "result_sha256": "b633f0b8e1f09f4d5aceac0039f1a9b01dc646e998a78c01fbed57f768f19faf",
+            "rounds": 9,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.0050978967332187125,
+            "steady_sample_count": 4,
+            "steady_seconds": 0.004854974773365939,
+            "task_id": "reachability-x01-perf-p1e"
+          }
+        },
+        "coordinated": {
+          "variant": "coordinated",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "reachability-x01-perf-p1e",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0433,
+              "stdout": "",
+              "stderr": "test_hidden_cases (test_hidden.HiddenTest.test_hidden_cases) ... ok\ntest_reachability (test_public.PublicTest.test_reachability) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_reachability_x01/observer.py",
+              "perf_reachability_x01/shared.py",
+              "perf_reachability_x01/target.py"
+            ],
+            "changed_implementation_modules": 3,
+            "topology": "coordinated",
+            "expected_local_paths": [
+              "perf_reachability_x01/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_reachability_x01/observer.py",
+              "perf_reachability_x01/shared.py",
+              "perf_reachability_x01/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.04355908245103989,
+            "maximum_seconds": 0.00549778580466409,
+            "mean_seconds": 0.004949265443605732,
+            "median_seconds": 0.0049603033828589105,
+            "minimum_seconds": 0.004766199539062654,
+            "relative_median_absolute_deviation": 0.02905180953291427,
+            "repeat_per_round": 128,
+            "result_sha256": "b633f0b8e1f09f4d5aceac0039f1a9b01dc646e998a78c01fbed57f768f19faf",
+            "rounds": 9,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.001204696568731001,
+            "steady_sample_count": 4,
+            "steady_seconds": 0.004773932941475323,
+            "task_id": "reachability-x01-perf-p1e"
+          }
+        }
+      }
+    },
+    {
+      "task_id": "reachability-x02-perf-p1e",
+      "family": "reachability",
+      "bottleneck": "system",
+      "checks": {
+        "starter_and_oracles_correct": true,
+        "variant_result_digests_equal": true,
+        "topologies_exact": true,
+        "oracle_noise_within_limit": true,
+        "starter_slower_than_best_oracle": true,
+        "bottleneck_contrast_qualified": true
+      },
+      "passed": true,
+      "starter_speedup_to_best_oracle": 149.1139495984651,
+      "local_to_coordinated_seconds_ratio": 2.944389520221444,
+      "variants": {
+        "starter": {
+          "variant": "starter",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "reachability-x02-perf-p1e",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0365,
+              "stdout": "",
+              "stderr": "test_hidden_cases (test_hidden.HiddenTest.test_hidden_cases) ... ok\ntest_reachability (test_public.PublicTest.test_reachability) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [],
+            "changed_implementation_modules": 0,
+            "topology": "other",
+            "expected_local_paths": [
+              "perf_reachability_x02/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_reachability_x02/observer.py",
+              "perf_reachability_x02/shared.py",
+              "perf_reachability_x02/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.022357814912568642,
+            "maximum_seconds": 0.7404053330246825,
+            "mean_seconds": 0.7177309723435125,
+            "median_seconds": 0.7072057920158841,
+            "minimum_seconds": 0.705581791989971,
+            "relative_median_absolute_deviation": 0.0022963613197848976,
+            "repeat_per_round": 1,
+            "result_sha256": "af2ea5b4c4fdb7105c1147aecb1188cb43f052fd9672e6d221090bef80003eb5",
+            "rounds": 3,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.0022963613197848976,
+            "steady_sample_count": 3,
+            "steady_seconds": 0.7072057920158841,
+            "task_id": "reachability-x02-perf-p1e"
+          }
+        },
+        "local": {
+          "variant": "local",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "reachability-x02-perf-p1e",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0437,
+              "stdout": "",
+              "stderr": "test_hidden_cases (test_hidden.HiddenTest.test_hidden_cases) ... ok\ntest_reachability (test_public.PublicTest.test_reachability) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_reachability_x02/target.py"
+            ],
+            "changed_implementation_modules": 1,
+            "topology": "local",
+            "expected_local_paths": [
+              "perf_reachability_x02/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_reachability_x02/observer.py",
+              "perf_reachability_x02/shared.py",
+              "perf_reachability_x02/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.02712351740925152,
+            "maximum_seconds": 0.01478954687490841,
+            "mean_seconds": 0.014240163770914983,
+            "median_seconds": 0.014103817046816403,
+            "minimum_seconds": 0.01361349479702767,
+            "relative_median_absolute_deviation": 0.010390766405143574,
+            "repeat_per_round": 64,
+            "result_sha256": "af2ea5b4c4fdb7105c1147aecb1188cb43f052fd9672e6d221090bef80003eb5",
+            "rounds": 9,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.004552027322412932,
+            "steady_sample_count": 4,
+            "steady_seconds": 0.013964416664293822,
+            "task_id": "reachability-x02-perf-p1e"
+          }
+        },
+        "coordinated": {
+          "variant": "coordinated",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "reachability-x02-perf-p1e",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0363,
+              "stdout": "",
+              "stderr": "test_hidden_cases (test_hidden.HiddenTest.test_hidden_cases) ... ok\ntest_reachability (test_public.PublicTest.test_reachability) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_reachability_x02/observer.py",
+              "perf_reachability_x02/shared.py",
+              "perf_reachability_x02/target.py"
+            ],
+            "changed_implementation_modules": 3,
+            "topology": "coordinated",
+            "expected_local_paths": [
+              "perf_reachability_x02/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_reachability_x02/observer.py",
+              "perf_reachability_x02/shared.py",
+              "perf_reachability_x02/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.015330089713364276,
+            "maximum_seconds": 0.0049288808595520095,
+            "mean_seconds": 0.004806182618141166,
+            "median_seconds": 0.004778792312663427,
+            "minimum_seconds": 0.004726212242076144,
+            "relative_median_absolute_deviation": 0.007623811016078152,
+            "repeat_per_round": 128,
+            "result_sha256": "af2ea5b4c4fdb7105c1147aecb1188cb43f052fd9672e6d221090bef80003eb5",
+            "rounds": 9,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.0001586172734473792,
+            "steady_sample_count": 4,
+            "steady_seconds": 0.004742720543049472,
+            "task_id": "reachability-x02-perf-p1e"
+          }
+        }
+      }
+    }
+  ],
+  "passed": true,
+  "prior_model_outcomes_read": false,
+  "P1e_design_freeze_authorized": true,
+  "P1e_neutral_p000_dispatch_authorized": false
+}

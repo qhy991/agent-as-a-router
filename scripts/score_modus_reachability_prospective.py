@@ -27,6 +27,9 @@ PERFORMANCE_RATIO_MAXIMUM = 1.25
 TOKEN_TIE = 0.05
 MINIMUM_SAVING = 0.15
 REPLAYED_STAGED_BREAK_EVEN = 8
+AMBIGUITY_RATIO_LOWER = PERFORMANCE_RATIO_MAXIMUM * 0.95
+AMBIGUITY_RATIO_UPPER = PERFORMANCE_RATIO_MAXIMUM * 1.05
+AMBIGUITY_RELATIVE_MAD_MAXIMUM = 0.10
 
 
 def _usage_tokens(usage: dict) -> int | None:
@@ -45,6 +48,19 @@ def _median(values: list[float]) -> float:
 def _performance_gate(ratio: float) -> bool:
     """Apply the protocol's absolute 1.25x non-inferiority boundary."""
     return ratio <= PERFORMANCE_RATIO_MAXIMUM
+
+
+def _ambiguity_reasons(
+    paired_ratios: list[float], aggregate_ratio: float, relative_mads: list[float]
+) -> list[str]:
+    reasons = []
+    if paired_ratios and min(paired_ratios) <= PERFORMANCE_RATIO_MAXIMUM < max(paired_ratios):
+        reasons.append("paired performance ratios straddle 1.25x")
+    if AMBIGUITY_RATIO_LOWER <= aggregate_ratio <= AMBIGUITY_RATIO_UPPER:
+        reasons.append("aggregate ratio is within five percent of 1.25x")
+    if relative_mads and max(relative_mads) > AMBIGUITY_RELATIVE_MAD_MAXIMUM:
+        reasons.append("steady relative MAD exceeds 0.10")
+    return reasons
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -122,6 +138,42 @@ def main(argv: list[str] | None = None) -> int:
             "oracle_action": oracle,
         }
 
+        neutral_entries = [
+            by_cell[f"{task_name}-neutral-r{rep}"]
+            for rep in range(1, protocol["matrix"]["repetitions_per_action"] + 1)
+        ]
+        p000_entries = [
+            by_cell[f"{task_name}-p000-r{rep}"]
+            for rep in range(1, protocol["matrix"]["repetitions_per_action"] + 1)
+        ]
+        paired_ratios = [
+            candidate["benchmark"]["steady_seconds"] / baseline["benchmark"]["steady_seconds"]
+            for baseline, candidate in zip(neutral_entries, p000_entries)
+            if baseline.get("benchmark") and candidate.get("benchmark")
+        ]
+        aggregate_ratio = actions["p000"]["performance_ratio_to_fastest"]
+        relative_mads = [
+            entry["benchmark"].get("steady_relative_median_absolute_deviation", 0.0)
+            for entry in neutral_entries + p000_entries
+            if entry.get("benchmark")
+        ]
+        ambiguity_reasons = _ambiguity_reasons(
+            paired_ratios, aggregate_ratio, relative_mads
+        )
+        neutral_tokens = actions["neutral"]["median_total_tokens"]
+        p000_tokens = actions["p000"]["median_total_tokens"]
+        tasks_out[task_name]["p000_saving_fraction_vs_neutral"] = (
+            1.0 - p000_tokens / neutral_tokens
+            if neutral_tokens and p000_tokens is not None else None
+        )
+        tasks_out[task_name]["third_pair_trigger"] = {
+            "triggered": bool(ambiguity_reasons),
+            "reasons": ambiguity_reasons,
+            "paired_p000_to_neutral_seconds_ratios": paired_ratios,
+            "aggregate_p000_ratio_to_fastest": aggregate_ratio,
+            "maximum_steady_relative_mad": max(relative_mads) if relative_mads else None,
+        }
+
     fixed_eligible_everywhere = [
         a for a in protocol["matrix"]["actions"]
         if all(tasks_out[t]["actions"][a]["eligible"] for t in tasks_out)
@@ -151,10 +203,26 @@ def main(argv: list[str] | None = None) -> int:
     acquisition = sum(
         _usage_tokens(entry["usage"]) for entry in by_cell.values() if _usage_tokens(entry["usage"])
     )
+    ambiguity = any(
+        task["third_pair_trigger"]["triggered"] for task in tasks_out.values()
+    )
+    p000_passed = all(
+        task["actions"]["p000"]["eligible"]
+        and task["p000_saving_fraction_vs_neutral"] is not None
+        and task["p000_saving_fraction_vs_neutral"] >= MINIMUM_SAVING
+        for task in tasks_out.values()
+    )
+    if ambiguity:
+        staged_decision = "third_paired_repetition_required"
+    elif p000_passed:
+        staged_decision = "promote_p000_and_stop"
+    else:
+        staged_decision = "authorize_p100_follow_up"
+
     economics = None
     default_action = protocol["matrix"]["actions"][0]
     promoted = best_fixed if best_fixed != default_action else None
-    if promoted and all(oracle_actions.values()):
+    if staged_decision == "promote_p000_and_stop" and promoted == "p000":
         baseline = int(round(fixed_totals[default_action]))
         candidate = int(round(fixed_totals[promoted]))
         acquisition = int(round(acquisition))
@@ -162,7 +230,9 @@ def main(argv: list[str] | None = None) -> int:
             acquisition_tokens=acquisition,
             baseline_deployment_tokens=baseline,
             candidate_deployment_tokens=candidate,
-            expected_deployments=REPLAYED_STAGED_BREAK_EVEN,
+            expected_deployments=protocol.get(
+                "expected_future_deployments", REPLAYED_STAGED_BREAK_EVEN
+            ),
             correctness_passed=all(
                 tasks_out[t]["actions"][a]["correctness_passed"]
                 for t, a in oracle_actions.items()
@@ -203,6 +273,12 @@ def main(argv: list[str] | None = None) -> int:
             "economic_observed": routing_space,
             "minimum_saving_fraction": MINIMUM_SAVING,
         },
+        "staged_policy": {
+            "decision": staged_decision,
+            "p000_passed_all_task_gates": p000_passed,
+            "third_pair_triggered": ambiguity,
+            "p100_follow_up_authorized": staged_decision == "authorize_p100_follow_up",
+        },
         "prospective_economics": economics,
     }
     options.output.write_text(json.dumps(report, indent=1, sort_keys=True) + "\n")
@@ -214,6 +290,7 @@ def main(argv: list[str] | None = None) -> int:
         "acquisition_tokens": acquisition,
         "break_even": economics["break_even_deployments"] if economics else None,
         "decision": economics["decision"] if economics else None,
+        "staged_decision": staged_decision,
         "break_even_matches_replay": (
             economics.get("prospective_replay_break_even_match") if economics else None
         ),
