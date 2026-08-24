@@ -1,0 +1,28 @@
+{
+  "automatic_redispatches": 0,
+  "cells": [
+    {
+      "id": "triplet1-p000v2",
+      "order": 1,
+      "profile": "p000v2",
+      "status": "pass",
+      "triplet": 1
+    },
+    {
+      "id": "triplet1-neutral",
+      "order": 2,
+      "profile": "neutral",
+      "status": "pass",
+      "triplet": 1
+    },
+    {
+      "id": "triplet1-p000",
+      "order": 3,
+      "profile": "p000",
+      "status": "pass",
+      "triplet": 1
+    }
+  ],
+  "schema": "modus-performance-p2j-execution-v1",
+  "status": "pass"
+}

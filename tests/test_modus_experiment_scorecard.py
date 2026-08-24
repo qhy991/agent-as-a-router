@@ -19,9 +19,9 @@ class ModusExperimentScorecardTest(unittest.TestCase):
         self.assertFalse(rows["P2h"]["outcome_valid"])
         self.assertTrue(rows["P2h"]["excluded_from_valid_trends"])
         self.assertIsNone(rows["P2h"]["net_tokens_at_8_deployments"])
-        self.assertEqual(value["summary"]["valid_outcomes"], 7)
-        self.assertEqual(value["summary"]["qualified_routes"], 5)
-        self.assertEqual(value["summary"]["net_positive_at_8_deployments"], 1)
+        self.assertEqual(value["summary"]["valid_outcomes"], 8)
+        self.assertEqual(value["summary"]["qualified_routes"], 6)
+        self.assertEqual(value["summary"]["net_positive_at_8_deployments"], 2)
 
     def test_valid_negative_p2i_keeps_saving_but_blocks_economics(self):
         value = json.loads(SCORECARD.read_text())
@@ -31,6 +31,15 @@ class ModusExperimentScorecardTest(unittest.TestCase):
         self.assertGreater(rows["P2i"]["worker_saving_fraction"], 0.40)
         self.assertIsNone(rows["P2i"]["break_even_deployments"])
         self.assertIsNone(rows["P2i"]["net_tokens_at_8_deployments"])
+
+    def test_p2j_profile_revision_is_jointly_eligible_and_economic(self):
+        value = json.loads(SCORECARD.read_text())
+        rows = {row["experiment"]: row for row in value["experiments"]}
+        self.assertTrue(rows["P2j"]["outcome_valid"])
+        self.assertTrue(rows["P2j"]["route_qualified"])
+        self.assertGreater(rows["P2j"]["worker_saving_fraction"], 0.40)
+        self.assertLess(rows["P2j"]["final_performance_ratio_to_fastest"], 1.25)
+        self.assertGreater(rows["P2j"]["net_tokens_at_8_deployments"], 0)
 
 
 if __name__ == "__main__":

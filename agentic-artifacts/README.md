@@ -78,7 +78,7 @@ that need to decide what to inspect before loading the full repository.
     prospective scratch-qualification run that was invalidated by an
     uncontracted verifier tag; its large token/performance crossover is
     exploratory only and no second pair is authorized.
-36. Read `modus-experiment-scorecard-v1.json` for the generated P1e–P2i
+36. Read `modus-experiment-scorecard-v1.json` for the generated P1e–P2j
     comparison under one correctness, performance, cost, acquisition, and
     eight-deployment economic vocabulary. Regenerate it with
     `scripts/build_modus_experiment_scorecard.py`.
@@ -86,6 +86,10 @@ that need to decide what to inspect before loading the full repository.
     observable-contract scratch qualification: the route saves 46.6% Worker
     tokens and passes final-stage performance, but is rejected because p000 is
     1.76x slower than neutral at Stage L.
+38. Read `modus-codex-luna-max-performance-p2j-positive-v1.json` for the
+    prospective p000-v1/p000-v2/neutral ablation: the T-only revision is within
+    1.132x neutral performance, saves 48.3% tokens, and is authorized only for
+    the next P2k chain rather than as a global p000 replacement.
 
 ## Scope
 

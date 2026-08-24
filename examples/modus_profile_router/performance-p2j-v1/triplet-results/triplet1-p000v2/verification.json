@@ -1,0 +1,78 @@
+{
+  "benchmark": {
+    "all_seconds": [
+      0.037328,
+      0.036628,
+      0.029607,
+      0.031504,
+      0.033322,
+      0.033491,
+      0.031954,
+      0.032656,
+      0.038114
+    ],
+    "median_seconds": 0.033322,
+    "rounds": 9,
+    "steady_relative_mad": 0.018153739481231685,
+    "steady_seconds": 0.031729,
+    "success": true
+  },
+  "checks": {
+    "benchmark": true,
+    "correctness": true,
+    "custody": true,
+    "topology": true
+  },
+  "correctness": {
+    "hidden": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "hidden-ok\n",
+      "timed_out": false
+    },
+    "public": {
+      "returncode": 0,
+      "stderr": "test_group_distinct (test_public.PublicTest.test_group_distinct) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "stdout": "",
+      "timed_out": false
+    },
+    "success": true
+  },
+  "custody": {
+    "files": {
+      ".modus-task.json": {
+        "actual_sha256": "44c22ab75160c336f937cbec35bdef37ee44efcb422d5c06f164432472e96e92",
+        "expected_sha256": "44c22ab75160c336f937cbec35bdef37ee44efcb422d5c06f164432472e96e92",
+        "present": true
+      },
+      "benchmark.py": {
+        "actual_sha256": "e812036d31c06cd1a4eb76d3c2423b145bc3e9708c8ae5ed51a6915f8adbdea4",
+        "expected_sha256": "e812036d31c06cd1a4eb76d3c2423b145bc3e9708c8ae5ed51a6915f8adbdea4",
+        "present": true
+      },
+      "instruction.md": {
+        "actual_sha256": "55528612dccef9f67bfd4f5d840b2c3cdcb3ba8b3a3e69142e300012b635e551",
+        "expected_sha256": "55528612dccef9f67bfd4f5d840b2c3cdcb3ba8b3a3e69142e300012b635e551",
+        "present": true
+      },
+      "tests/test_public.py": {
+        "actual_sha256": "83f25f1ca049811c1855b37d36502c843833a77b55f9fe299ce561af6bc221f7",
+        "expected_sha256": "83f25f1ca049811c1855b37d36502c843833a77b55f9fe299ce561af6bc221f7",
+        "present": true
+      }
+    },
+    "passed": true
+  },
+  "implementation_digest": "0db91e6d574d34fca77043011df9f3cf592a4b11a85fef807ca936a30e70b712",
+  "passed": true,
+  "profile": "p000v2",
+  "schema": "modus-performance-p2j-cell-verification-v1",
+  "topology": {
+    "changed_implementation_paths": [
+      "perf_groupdistinct_p2j/target.py"
+    ],
+    "expected_topology": "local",
+    "passed": true,
+    "topology": "local"
+  }
+}

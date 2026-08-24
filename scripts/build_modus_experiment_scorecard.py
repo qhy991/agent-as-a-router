@@ -29,6 +29,7 @@ def build(root: Path) -> dict:
     p2d, p2d_source = _source(root, "modus-codex-luna-max-long-horizon-p2d-final-v1.json")
     p2h, p2h_source = _source(root, "modus-codex-luna-max-long-horizon-p2h-invalid-v1.json")
     p2i, p2i_source = _source(root, "modus-codex-luna-max-long-horizon-p2i-negative-v1.json")
+    p2j, p2j_source = _source(root, "modus-codex-luna-max-performance-p2j-positive-v1.json")
 
     p1f_max_ratio = max(
         row.get("p000_performance_ratio", row.get("e1v2_performance_ratio"))
@@ -164,6 +165,22 @@ def build(root: Path) -> dict:
             "net_tokens_at_8_deployments": None,
             "disqualification": "stage_l_performance_ratio_exceeds_1.25",
             "source": p2i_source,
+        },
+        {
+            "experiment": "P2j",
+            "task_family": "group_distinct",
+            "workflow": "single-stage Profile revision triplet",
+            "route": {"stage-L": "p000v2"},
+            "evidence_status": p2j["formal_status"],
+            "outcome_valid": True,
+            "route_qualified": True,
+            "final_performance_ratio_to_fastest": p2j["common_metrics"]["p000v2_performance_ratio_to_neutral"],
+            "worker_saving_fraction": p2j["common_metrics"]["p000v2_token_saving_fraction_vs_neutral"],
+            "e2e_saving_fraction": p2j["common_metrics"]["p000v2_token_saving_fraction_vs_neutral"],
+            "acquisition_tokens": p2j["common_metrics"]["acquisition_tokens"],
+            "break_even_deployments": p2j["common_metrics"]["break_even_deployments"],
+            "net_tokens_at_8_deployments": p2j["common_metrics"]["net_tokens_at_8_deployments"],
+            "source": p2j_source,
         },
     ]
     valid = [row for row in rows if row["outcome_valid"]]

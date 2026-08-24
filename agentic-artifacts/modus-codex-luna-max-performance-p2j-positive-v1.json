@@ -1,0 +1,121 @@
+{
+  "schema": "modus-performance-p2j-positive-evidence-v1",
+  "recorded_at": "2026-08-24",
+  "formal_status": "valid_positive",
+  "scientific_evidence": false,
+  "prospective_profile_revision_evidence": true,
+  "task": {
+    "id": "group-distinct-p2j",
+    "family": "group-distinct",
+    "modus_commit": "37aa7c5fda671f174a7e1cf9da5224c64e962f06",
+    "qualification_passed_before_model_outcomes": true,
+    "qualification_sha256": "63ca6d681546919f67e7b6cf6d66827178b0f23fbd21f569872f38c3dd9c7d95"
+  },
+  "profile_revision": {
+    "plugin_commit": "395e353593ded1c8f466eac8dd7925b99e2981b8",
+    "base_profile": "p000",
+    "candidate": "p000-t0-workload-v2",
+    "candidate_status_before_run": "unqualified-development-candidate",
+    "changed_axis": "T only",
+    "unchanged_constraints": ["E0 target-only topology", "A0 one final verification"],
+    "added_bounded_information": "the directly named representative benchmark and one explicit workload asymmetry",
+    "base_sha256": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282",
+    "candidate_sha256": "e71273a512395cefab042a176e46fcc81fbed542715986e10e48e8f34847ebd0"
+  },
+  "protocol": {
+    "path": "configs/modus_performance_p2j_triplet_v1.json",
+    "sha256": "52eaf3557b5a448f42cbb4f6a217bb61fd57a7ad5fde323d2fdd74334ccadea9",
+    "agent_router_commit_at_execution": "e857e871ee8c7bcbe7bbf0aa77ecaff73b5c1dac",
+    "model": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "order": ["p000v2", "neutral", "p000"],
+    "automatic_redispatches": 0,
+    "expected_future_deployments": 8
+  },
+  "canonical_execution": {
+    "status": "pass",
+    "p000v2": {
+      "valid": true,
+      "target_only_topology": true,
+      "worker_tokens": 84427,
+      "steady_seconds": 0.031729,
+      "relative_mad": 0.018153739481231685,
+      "implementation_digest": "0db91e6d574d34fca77043011df9f3cf592a4b11a85fef807ca936a30e70b712"
+    },
+    "neutral": {
+      "valid": true,
+      "worker_tokens": 163378,
+      "steady_seconds": 0.028034,
+      "relative_mad": 0.018638082328600997,
+      "implementation_digest": "ea221d987f08fa72aa4628a4555fb74db3544a3ba8f82bb3f838bc3139696686"
+    },
+    "p000": {
+      "valid": true,
+      "target_only_topology": true,
+      "worker_tokens": 69408,
+      "steady_seconds": 0.13478099999999998,
+      "relative_mad": 0.06416705618744485,
+      "implementation_digest": "108659ac8b69828818e5e0269c10f73d3415f23fdb35f2810930755d0d7d365a"
+    }
+  },
+  "common_metrics": {
+    "p000v2_performance_ratio_to_neutral": 1.1318042377113504,
+    "p000v2_token_saving_fraction_vs_neutral": 0.48324131768047107,
+    "p000_performance_ratio_to_neutral": 4.807769137475922,
+    "p000_token_saving_fraction_vs_neutral": 0.5751692394324817,
+    "p000v2_seconds_ratio_to_p000": 0.23541151942781255,
+    "p000v2_tokens_ratio_to_p000": 1.2163871599815583,
+    "acquisition_tokens": 317213,
+    "saving_per_deployment_tokens": 78951,
+    "break_even_deployments": 5,
+    "net_tokens_at_8_deployments": 314395
+  },
+  "gates": {
+    "all_cells_valid": true,
+    "p000v2_performance": true,
+    "p000v2_token_saving": true,
+    "p000v2_noise": true,
+    "p000v2_eligible": true,
+    "p000_performance": false,
+    "p000_eligible": false
+  },
+  "post_outcome_mechanism_audit": {
+    "p000": "used dict.setdefault(key, set()), allocating a fresh unused set on every row whose key already existed",
+    "p000v2": "used get plus conditional set allocation, avoiding the per-row unused allocation while retaining target-only topology",
+    "neutral": "used the same conditional allocation shape as p000-v2",
+    "scope": "observed delivered source explanation; not a precommitted gate"
+  },
+  "decision": {
+    "frozen_scorer": "promote_p000v2_to_p2k",
+    "selected_profile": "p000v2",
+    "uncertainty_triggered": false,
+    "second_triplet_authorized": false,
+    "global_replacement_of_p000_authorized": false,
+    "p2k_use_authorized": true
+  },
+  "conclusions": {
+    "bounded_profile_revision_changes_agent_implementation": true,
+    "bounded_profile_revision_recovers_joint_performance_and_token_eligibility": true,
+    "original_p000_cost_saving_alone_is_sufficient": false,
+    "profile_creation_and_versioned_management_is_experimentally_relevant": true,
+    "single_task_proves_universal_p000v2_superiority": false
+  },
+  "files": {
+    "execution_summary": "examples/modus_profile_router/performance-p2j-v1/triplet-results/execution-summary.json",
+    "execution_summary_sha256": "6706f4b6768dfad58ccaa73e67e01a4a40c81f2f6e4781942949c38d7ee86cd1",
+    "score": "examples/modus_profile_router/performance-p2j-v1/triplet-results/score.json",
+    "score_sha256": "4d2f068689c87bf67e14b5e3b97e57222fe4e9286ca62d31a60a3e40c77d5575",
+    "p000v2_verification": "examples/modus_profile_router/performance-p2j-v1/triplet-results/triplet1-p000v2/verification.json",
+    "p000v2_verification_sha256": "aeaa6a43e327a11c2da07aa11e628a2a04a7c33eed4a0942a5843a5eac8eab9a",
+    "neutral_verification": "examples/modus_profile_router/performance-p2j-v1/triplet-results/triplet1-neutral/verification.json",
+    "neutral_verification_sha256": "77ea1beb6eac049b93bab8f65d9fa02fd1c2daa5f6c7298a9d8b84f328e450c7",
+    "p000_verification": "examples/modus_profile_router/performance-p2j-v1/triplet-results/triplet1-p000/verification.json",
+    "p000_verification_sha256": "318cf475e4eec6e35897ff3acd3c5de3997b6c2f74cb83ea3671429bf8a5043f",
+    "p000v2_target": "examples/modus_profile_router/performance-p2j-v1/triplet-results/triplet1-p000v2/target.py",
+    "p000v2_target_sha256": "4952ce9a4ca63b21b659dc768ae6f2bfa22b51a939779cd67355f0cb1f052bba",
+    "neutral_target": "examples/modus_profile_router/performance-p2j-v1/triplet-results/triplet1-neutral/target.py",
+    "neutral_target_sha256": "e9ca18ce3878fbf7293e32d1a9a90d4cab50966689f82a6134ef635fa74be12d",
+    "p000_target": "examples/modus_profile_router/performance-p2j-v1/triplet-results/triplet1-p000/target.py",
+    "p000_target_sha256": "75296ee4ae5ca534ef4d0d7d5cecd6e48abd737643cacee8b0760f1ad2461c55"
+  }
+}

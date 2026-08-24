@@ -187,14 +187,35 @@
       "task_family": "keyed_max",
       "worker_saving_fraction": 0.4663743493598943,
       "workflow": "observable-contract scratch qualification"
+    },
+    {
+      "acquisition_tokens": 317213,
+      "break_even_deployments": 5,
+      "e2e_saving_fraction": 0.48324131768047107,
+      "evidence_status": "valid_positive",
+      "experiment": "P2j",
+      "final_performance_ratio_to_fastest": 1.1318042377113504,
+      "net_tokens_at_8_deployments": 314395,
+      "outcome_valid": true,
+      "route": {
+        "stage-L": "p000v2"
+      },
+      "route_qualified": true,
+      "source": {
+        "path": "agentic-artifacts/modus-codex-luna-max-performance-p2j-positive-v1.json",
+        "sha256": "7c027e5c0f05b76b19c51344a7434e6c08795dd301178a3bd4f907f2f613acfb"
+      },
+      "task_family": "group_distinct",
+      "worker_saving_fraction": 0.48324131768047107,
+      "workflow": "single-stage Profile revision triplet"
     }
   ],
   "schema": "modus-experiment-scorecard-v1",
   "summary": {
     "invalid_outcomes": 1,
-    "net_positive_at_8_deployments": 1,
-    "qualified_routes": 5,
-    "rows": 8,
-    "valid_outcomes": 7
+    "net_positive_at_8_deployments": 2,
+    "qualified_routes": 6,
+    "rows": 9,
+    "valid_outcomes": 8
   }
 }

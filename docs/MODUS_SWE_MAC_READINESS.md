@@ -1118,3 +1118,28 @@ can reliably reduce search tokens and control implementation topology, while
 task-level topology matching alone does not guarantee implementation quality;
 outcome qualification is necessary before promotion. See
 [`agentic-artifacts/modus-codex-luna-max-long-horizon-p2i-negative-v1.json`](../agentic-artifacts/modus-codex-luna-max-long-horizon-p2i-negative-v1.json).
+
+### P2j workload-aware p000 revision
+
+P2j isolated the P2i Stage L defect on a new single-stage group-distinct task.
+The p000-v2 candidate changed only the T section: E0 remained target-only and
+A0 retained one final verification, while bounded pre-edit information added
+the directly named representative benchmark and one explicit workload
+asymmetry. The candidate remained unqualified and outside the Router action
+space before the run.
+
+The hash-ordered Luna max triplet ran p000-v2, neutral, then p000-v1 on fresh
+workspaces. All three cells passed hidden correctness, custody, topology, and
+nine-round noise checks. p000-v2 used 84,427 tokens versus neutral's 163,378,
+a 48.3% reduction, while running at 1.132x neutral performance—inside the
+frozen 1.25x limit. Original p000 used fewer tokens (69,408) but was 4.808x
+slower than neutral and failed eligibility.
+
+The delivered-source audit explains the difference without becoming a new
+gate: original p000 used `dict.setdefault(key, set())`, constructing an unused
+set on every already-present row, while p000-v2 and neutral used conditional
+allocation. The frozen scorer selected p000-v2, with 317,213 acquisition
+tokens, break-even at deployment 5, and `Net@8=+314,395`. No uncertainty
+trigger fired. This is authorization to test p000-v2 in P2k, not a global p000
+replacement or universal superiority claim. See
+[`agentic-artifacts/modus-codex-luna-max-performance-p2j-positive-v1.json`](../agentic-artifacts/modus-codex-luna-max-performance-p2j-positive-v1.json).
