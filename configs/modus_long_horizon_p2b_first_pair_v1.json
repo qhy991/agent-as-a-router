@@ -1,0 +1,66 @@
+{
+  "schema": "acrouter-modus-long-horizon-p2b-first-pair-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "purpose": "test low-acquisition transfer with one hash-ordered neutral/routed linked pair",
+  "expected_future_deployments": 8,
+  "model": {"local_slug": "gpt-5.6-luna", "reasoning_effort": "max", "authentication": "ChatGPT login"},
+  "task": {
+    "seed_root": "examples/modus_profile_router/long-horizon-p2b-v1/seed",
+    "stage_l_prompt": "examples/modus_profile_router/long-horizon-p2b-v1/stage-l-task.md",
+    "stage_l_prompt_sha256": "70fc33e18dee09562d39ad31569bfe7971d4fe9ac0ef76bf769095698ef31051",
+    "stage_s_prompt": "examples/modus_profile_router/long-horizon-p2b-v1/stage-s-task.md",
+    "stage_s_prompt_sha256": "b1c81fcdf411b270d237a2eea38af151824f27d577321be9ba0a767af8ed7cff"
+  },
+  "profiles": {
+    "neutral": {"profile_path": "/private/tmp/modus-codex-spark-neutral-profile.md", "profile_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    "p000": {"profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/profiles/p000.md", "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282"},
+    "e1v2": {"profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/experimental-profiles/e1-v2/p100.md", "profile_sha256": "c4d0326d4fb5afb14aa51aeb91653fa7771610a41eb53de019c87bf9ff3419e1"}
+  },
+  "arms": {
+    "routed": {"stage-L": "p000", "stage-S": "e1v2", "live_router_calls_per_deployment": 1},
+    "neutral": {"stage-L": "neutral", "stage-S": "neutral", "live_router_calls_per_deployment": 0}
+  },
+  "pipelines": [
+    {"id": "pair1-neutral", "pair": 1, "order": 1, "arm": "neutral"},
+    {"id": "pair1-routed", "pair": 1, "order": 2, "arm": "routed"}
+  ],
+  "execution": {
+    "fresh_workspace_per_pipeline": true,
+    "stage_s_uses_same_workspace_as_stage_l": true,
+    "stage_s_parent_record_required": true,
+    "pipeline_dispatch": "sequential neutral then routed",
+    "automatic_redispatch": false,
+    "worker_cells_if_complete": 4
+  },
+  "scoring": {
+    "performance_ratio_maximum": 1.25,
+    "steady_relative_mad_maximum": 0.10,
+    "minimum_worker_token_saving_fraction": 0.15,
+    "near_threshold_band_inclusive": [1.1875, 1.3125],
+    "second_pair_triggers": ["pipeline quality disagreement", "near-threshold final performance", "relative MAD above 0.10"],
+    "clear_negative_stop": "stop without second pair when quality/performance/token gate clearly fails outside ambiguity",
+    "clear_positive_stop": "stop after first pair when all gates pass outside ambiguity",
+    "live_router_tokens_per_deployment": 16223,
+    "acquisition": "16,223 Router tokens plus actual four Worker calls"
+  },
+  "parent_router": {
+    "score_path": "examples/modus_profile_router/long-horizon-p2b-v1/router-results/score.json",
+    "score_sha256": "7baf78002fe885f3767bb850e113ffe5c5a8c05940ef7cc38b14efb46008b3b5",
+    "actions": {"stage-L": "p000", "stage-S": "e1v2"},
+    "acquisition_tokens": 16223,
+    "tokens_per_deployment": 16223
+  },
+  "failure_policy": {"invalid_cell": "preserve and stop affected pipeline", "no_model_substitution": true, "automatic_redispatch": false},
+  "provenance": {
+    "agent_router_commit_before_freeze": "44033683c96bd09e71329f1a8a9af8064e0b8e50",
+    "pipeline_runner_path": "scripts/run_modus_long_horizon_p2b_pipeline.py",
+    "pipeline_runner_sha256": "81715e81fd3ccdbafd1f468478880e4a17bf00804babd75a8d6d75a1b5532ac5",
+    "stage_verifier_path": "scripts/verify_modus_long_horizon_p2b_stage.py",
+    "stage_verifier_sha256": "699d03068e233d5559702d086a1d48ea17cfa7dc6681a3ac6c5e78e33c7eb25d",
+    "scorer_path": "scripts/score_modus_long_horizon_p2b_pair.py",
+    "scorer_sha256_at_freeze": "b08d3ac41b067694123f1a8345d2fda838dd707a9d053274e862f4450923726a"
+  },
+  "claim_boundary": "This is a one-pair low-cost transfer. It can stop on clear evidence or authorize one reversed pair only under frozen uncertainty triggers."
+}
+
