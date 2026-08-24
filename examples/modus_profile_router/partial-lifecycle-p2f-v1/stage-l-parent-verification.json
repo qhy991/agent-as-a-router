@@ -1,0 +1,84 @@
+{
+  "arm": "routed",
+  "benchmark": {
+    "all_seconds": [
+      0.00039,
+      0.000328,
+      0.000354,
+      0.000303,
+      0.000323,
+      0.000298,
+      0.000302,
+      0.000308,
+      0.000328
+    ],
+    "median_seconds": 0.000323,
+    "rounds": 9,
+    "steady_relative_mad": 0.008264462809917465,
+    "steady_seconds": 0.00030250000000000003,
+    "success": true
+  },
+  "checks": {
+    "benchmark": true,
+    "correctness": true,
+    "custody": true,
+    "parent_record": true,
+    "semantic_mechanism": true,
+    "topology": true
+  },
+  "correctness": {
+    "hidden": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "hidden-ok\n",
+      "timed_out": false
+    },
+    "public": {
+      "returncode": 0,
+      "stderr": "test_ranges (test_public.PublicTest.test_ranges) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "stdout": "",
+      "timed_out": false
+    },
+    "success": true
+  },
+  "custody": {
+    "files": {
+      ".modus-task.json": {
+        "actual_sha256": "16d53dde4c93f450594f388ca34fb0bdb8ab554926257dcacb149c3a60769b27",
+        "expected_sha256": "16d53dde4c93f450594f388ca34fb0bdb8ab554926257dcacb149c3a60769b27",
+        "present": true
+      },
+      "benchmark_final.py": {
+        "actual_sha256": "3feacf5ac234c3e6231e26d612817d22a3c4ba77fcd473c8fb392696937cf8c0",
+        "expected_sha256": "3feacf5ac234c3e6231e26d612817d22a3c4ba77fcd473c8fb392696937cf8c0",
+        "present": true
+      },
+      "benchmark_stage_l.py": {
+        "actual_sha256": "d517b0af21ab68a404871e3ff99c4d2a1e0d18535978855cad19398106dab70e",
+        "expected_sha256": "d517b0af21ab68a404871e3ff99c4d2a1e0d18535978855cad19398106dab70e",
+        "present": true
+      },
+      "tests/test_public.py": {
+        "actual_sha256": "dcdffba73c62f1f1a9423b14807c8f4b35f4e4be83f7400e821b0d3a18da44ce",
+        "expected_sha256": "dcdffba73c62f1f1a9423b14807c8f4b35f4e4be83f7400e821b0d3a18da44ce",
+        "present": true
+      }
+    },
+    "passed": true
+  },
+  "implementation_digest": "282b8e94a4d6bb99217f734cb330c8d82ec0fa37ca254e2995c962bb63797d77",
+  "parent_record": null,
+  "passed": true,
+  "profile": "p000",
+  "schema": "modus-long-horizon-p2b-stage-verification-v1",
+  "semantic_mechanism": null,
+  "stage": "L",
+  "topology": {
+    "changed_implementation_paths": [
+      "perf_linked_rangesum/target.py"
+    ],
+    "expected_topology": "local",
+    "passed": true,
+    "topology": "local"
+  }
+}
