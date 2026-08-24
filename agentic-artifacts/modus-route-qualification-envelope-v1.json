@@ -1,0 +1,63 @@
+{
+  "schema": "acrouter-modus-route-qualification-mechanism-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "model_free_mechanism_evidence": true,
+  "design": {
+    "historical_cache_schema_modified": false,
+    "new_owner": "src/acrouter_repro/modus_route_qualification.py",
+    "status_is_derived_not_caller_supplied": true,
+    "deployment_requires_exact_cache_and_qualified_envelope": true
+  },
+  "qualification_policy": {
+    "performance_ratio_maximum": 1.25,
+    "relative_mad_maximum": 0.10,
+    "minimum_token_saving_fraction": 0.15,
+    "required": ["correctness", "performance", "noise/stability", "token saving", "route equality", "outcome evidence sha256"]
+  },
+  "positive_case": {
+    "case": "P2b linked RangeSum",
+    "cache_entry_sha256": "b2ffa1a82fc6a1ba187d602999365c321c605fa93d3514bf080858063043be80",
+    "envelope_sha256": "4e0eeb4ee93e9675eeb6c1409a2659de9e45cab06e4c7508730599707554fd3d",
+    "status": "qualified",
+    "deployment_actions": {"stage-L": "p000", "stage-S": "e1v2"},
+    "deployment_router_model_calls": 0,
+    "deployment_router_tokens": 0
+  },
+  "negative_case": {
+    "case": "P2d linked Membership",
+    "cache_entry_sha256": "19393010bc891ba407b99eb5ad73619179acea2d47b6390b5b7907e788564fe2",
+    "envelope_sha256": "af516c310be533d2229c15fac0af27d5b634b640e8825b494d102eaf84251b15",
+    "status": "rejected",
+    "exact_cache_identity_matches": true,
+    "deployment_route_returned": false,
+    "rejection_reason": "performance, stability, and token saving gates fail"
+  },
+  "fail_closed_tests": {
+    "route_mismatch": true,
+    "outcome_evidence_digest_tamper": true,
+    "outcome_evidence_missing": true,
+    "policy_threshold_drift": true,
+    "qualification_status_tamper": true,
+    "cache_entry_or_decision_tamper": true
+  },
+  "files": {
+    "owner": "src/acrouter_repro/modus_route_qualification.py",
+    "builder": "scripts/build_modus_route_qualification.py",
+    "p2b_cache": "examples/modus_profile_router/long-horizon-p2b-v1/route-cache.json",
+    "p2b_envelope": "examples/modus_profile_router/long-horizon-p2b-v1/route-qualification.json",
+    "p2d_envelope": "examples/modus_profile_router/long-horizon-p2d-v1/route-qualification.json",
+    "owner_sha256": "4d4bea1b66fd2e62d414d58d1a5f754d371f24d20808469054adf20baced3cdd",
+    "builder_sha256": "22d1312722e442aa373d8a7f4fe963a0b0db2ff4bea89222023bd8f49374a5d3",
+    "p2b_cache_sha256": "b2ffa1a82fc6a1ba187d602999365c321c605fa93d3514bf080858063043be80",
+    "p2b_envelope_sha256": "4e0eeb4ee93e9675eeb6c1409a2659de9e45cab06e4c7508730599707554fd3d",
+    "p2d_envelope_sha256": "af516c310be533d2229c15fac0af27d5b634b640e8825b494d102eaf84251b15"
+  },
+  "decision": {
+    "outcome_qualified_route_cache_ready": true,
+    "free_agent_decision_without_outcome_evidence_deployable": false,
+    "next_action": "bind Agent candidate generation to exact qualified mechanism evidence or abstain before a new Router experiment"
+  },
+  "claim_boundary": "This validates the deployment qualification mechanism on existing positive and negative outcomes. It does not create new Worker evidence or turn P2d into a successful route."
+}
+

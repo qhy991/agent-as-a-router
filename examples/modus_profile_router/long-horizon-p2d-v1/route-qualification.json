@@ -1,0 +1,25 @@
+{
+  "decision_sha256": "c542910bcec6fa3fb7ed7daf9820297b1d18c793e3ccb37900b5cf6def278258",
+  "observed": {
+    "correctness_passed": true,
+    "evidence_stable": false,
+    "maximum_relative_mad": 0.14224137931034486,
+    "performance_ratio": 1.386985513911244,
+    "token_saving_fraction": -0.036391912381880775
+  },
+  "outcome_evidence_path": "agentic-artifacts/modus-codex-luna-max-long-horizon-p2d-final-v1.json",
+  "outcome_evidence_sha256": "ff1a1cede4bb8d37a6c0eeb5ef0f7fe4a3224846e18cd11a83f1154befbf3d6a",
+  "policy": {
+    "minimum_token_saving_fraction": 0.15,
+    "performance_ratio_maximum": 1.25,
+    "relative_mad_maximum": 0.1
+  },
+  "route_actions": {
+    "stage-L": "e1v2",
+    "stage-S": "p000"
+  },
+  "route_entry_path": "examples/modus_profile_router/long-horizon-p2d-v1/route-cache.json",
+  "route_entry_sha256": "19393010bc891ba407b99eb5ad73619179acea2d47b6390b5b7907e788564fe2",
+  "schema": "modus-route-qualification-envelope-v1",
+  "status": "rejected"
+}

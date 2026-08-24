@@ -1,0 +1,25 @@
+{
+  "decision_sha256": "a5d76bc3e1d678c34ee80de8fa5284be59ee317f76040047649e35ae204c6dcd",
+  "observed": {
+    "correctness_passed": true,
+    "evidence_stable": true,
+    "maximum_relative_mad": 0.01762114537444935,
+    "performance_ratio": 1.0,
+    "token_saving_fraction": 0.6377048417062294
+  },
+  "outcome_evidence_path": "agentic-artifacts/modus-codex-luna-max-long-horizon-p2b-transfer-v1.json",
+  "outcome_evidence_sha256": "ca6d4ba86d3759a469b3431e6dd33ebc1397bf3af78ce71a369d7d47ba6dd01a",
+  "policy": {
+    "minimum_token_saving_fraction": 0.15,
+    "performance_ratio_maximum": 1.25,
+    "relative_mad_maximum": 0.1
+  },
+  "route_actions": {
+    "stage-L": "p000",
+    "stage-S": "e1v2"
+  },
+  "route_entry_path": "examples/modus_profile_router/long-horizon-p2b-v1/route-cache.json",
+  "route_entry_sha256": "b2ffa1a82fc6a1ba187d602999365c321c605fa93d3514bf080858063043be80",
+  "schema": "modus-route-qualification-envelope-v1",
+  "status": "qualified"
+}

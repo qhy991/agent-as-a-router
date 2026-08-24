@@ -976,3 +976,20 @@ bind correctness, performance, stability, and cost evidence—not only Router
 JSON and its provenance—and the Agent must abstain when its action conflicts
 with qualified stage-mechanism evidence. See
 [`agentic-artifacts/modus-codex-luna-max-long-horizon-p2d-final-v1.json`](../agentic-artifacts/modus-codex-luna-max-long-horizon-p2d-final-v1.json).
+
+### Outcome-qualified route cache
+
+Cache identity and route qualification are now separate immutable layers. A
+deployment loader first validates the exact v1 cache entry, then requires a
+derived qualification envelope that binds the same decision, the Worker
+outcome evidence hash, and the current correctness/performance/noise/token
+policy. Status is recomputed from observed evidence; callers cannot promote a
+route by editing `status`.
+
+P2b produces a qualified envelope and returns p000→e1-v2 with zero model calls.
+P2d produces a rejected envelope and returns no route despite an exact cache
+hit. Route mismatch, evidence tamper/missing files, threshold drift, status
+tamper, and cache/decision tamper all fail closed. This closes the defect found
+by P2d: cached Agent provenance is necessary, while qualified Worker outcome
+evidence is the deployment authority. See
+[`agentic-artifacts/modus-route-qualification-envelope-v1.json`](../agentic-artifacts/modus-route-qualification-envelope-v1.json).
