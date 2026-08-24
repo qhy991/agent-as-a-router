@@ -1,0 +1,10 @@
+{
+  "schema": "modus-long-horizon-p2k-public-task-v1",
+  "task_id": "keyed-distinct-sum-linked-p2k",
+  "algorithm_family": "keyed-distinct-sum-linked",
+  "implementation_package": "perf_linked_distinctsum",
+  "stages": [
+    "L",
+    "S"
+  ]
+}
