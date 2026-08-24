@@ -1,0 +1,54 @@
+{
+  "schema": "modus-long-horizon-p2k-initial-evidence-v1",
+  "recorded_at": "2026-08-24",
+  "formal_status": "preliminary_noise_trigger",
+  "scientific_evidence": false,
+  "prospective_first_pair_completed": true,
+  "route": {"stage-L": "p000v2", "stage-S": "e1v2"},
+  "router_tokens": 16203,
+  "validity": {
+    "both_pipelines_valid": true,
+    "correctness_topology_parent_and_mechanism_passed": true,
+    "stage_l_performance_passed": true,
+    "final_performance_passed": true,
+    "worker_token_saving_passed": true,
+    "noise_passed": false
+  },
+  "first_pair": {
+    "proposed_worker_tokens": 250583,
+    "neutral_worker_tokens": 467001,
+    "worker_saving_fraction": 0.46342084920589033,
+    "proposed_stage_l_seconds": 0.053707,
+    "neutral_stage_l_seconds": 0.06951,
+    "proposed_final_seconds": 0.069879,
+    "neutral_final_seconds": 0.088025,
+    "proposed_maximum_relative_mad": 0.011562738562943443,
+    "neutral_maximum_relative_mad": 0.11259301334848057,
+    "acquisition_tokens": 733787
+  },
+  "trigger": {
+    "reason": "neutral relative MAD exceeds 0.10",
+    "reversed_second_pair_required": true,
+    "deployment_authorized": false
+  },
+  "reporting_defect": {
+    "field": "proposal.matches_preoutcome_oracle_topology",
+    "observed_value": false,
+    "cause": "the frozen first-pair scorer retained the old p000/e1v2 comparison instead of p000v2/e1v2",
+    "affects_gate_or_decision": false,
+    "disposition": "preserve first score; correct only in the pre-outcome second-pair aggregate scorer"
+  },
+  "raw_economics_not_qualified": {
+    "break_even_deployments": 4,
+    "net_tokens_at_8_deployments": 997557,
+    "reason_inadmissible": "noise evidence is not stable before the required reversed pair"
+  },
+  "files": {
+    "first_pair_protocol": "configs/modus_long_horizon_p2k_first_pair_v1.json",
+    "first_pair_protocol_sha256": "e0344efa434ff7fa681f504ea1bd1a9f881e86bd9447e944984800d38de9b9bc",
+    "execution_summary": "examples/modus_profile_router/long-horizon-p2k-v1/pipeline-results/first-pair/execution-summary.json",
+    "execution_summary_sha256": "c4a2aeef4892481a401567d330bf4cc9e62961d99c93e3809ed87ccaf87231a2",
+    "score": "examples/modus_profile_router/long-horizon-p2k-v1/pipeline-results/first-pair/score.json",
+    "score_sha256": "c01a3f071181c05c478ae143bdf46fd2b9f167e8b02906cf94c8dc0f9800e6cc"
+  }
+}

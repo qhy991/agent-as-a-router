@@ -1,0 +1,87 @@
+{
+  "acquisition_tokens": 733787,
+  "decision": "second_pair_required",
+  "deployment": {
+    "e2e_saving_fraction": 0.46342084920589033,
+    "neutral_worker_tokens": 467001,
+    "qualified_cached_router_tokens": 0,
+    "routed_e2e_tokens": 250583,
+    "routed_worker_tokens": 250583,
+    "worker_saving_fraction": 0.46342084920589033
+  },
+  "economics": {
+    "acquisition_tokens": 733787,
+    "baseline_deployment_tokens": 467001,
+    "break_even_deployments": 4,
+    "candidate_deployment_tokens": 250583,
+    "correctness_passed": false,
+    "decision": "defer_correctness",
+    "evidence_stable": false,
+    "expected_deployments": 8,
+    "minimum_saving_fraction": 0.15,
+    "net_tokens_at_expected_deployments": 997557,
+    "performance_passed": false,
+    "saving_fraction": 0.46342084920589033,
+    "saving_per_deployment_tokens": 216418
+  },
+  "gates": {
+    "both_pipelines_valid": true,
+    "final_performance": true,
+    "noise": false,
+    "stage_l_performance": true,
+    "worker_token_saving": true
+  },
+  "performance": {
+    "final_routed_ratio_to_fastest": 1.0,
+    "stage_l_routed_ratio_to_fastest": 1.0
+  },
+  "pipelines": [
+    {
+      "arm": "proposed-route",
+      "final_seconds": 0.069879,
+      "id": "pair1-proposed-route",
+      "maximum_relative_mad": 0.011562738562943443,
+      "order": 1,
+      "pair": 1,
+      "parent_bound": true,
+      "parent_record_sha256": "64d9fb574174cf5e72f7607c3c09382f18d63d007507e96cf9906fc7141ef368",
+      "stage_l_seconds": 0.053707,
+      "stage_l_verification_sha256": "7ca4931cfb91f0bbbde27df6829868fb0bd481e0b3eea5d078fcd761530eb905",
+      "stage_s_verification_sha256": "e495b5d905858ff4f51e22940fda8d2056b0374b137e529b0748d745df814bf8",
+      "valid": true,
+      "worker_tokens": 250583
+    },
+    {
+      "arm": "neutral",
+      "final_seconds": 0.088025,
+      "id": "pair1-neutral",
+      "maximum_relative_mad": 0.11259301334848057,
+      "order": 2,
+      "pair": 1,
+      "parent_bound": true,
+      "parent_record_sha256": "f08b7041c14a2c6a08dd98b7c34744fd69b083c072f29362781845733a2cf2d2",
+      "stage_l_seconds": 0.06951,
+      "stage_l_verification_sha256": "256f280d90b62f2d9ec46e4a143cf2c70e14cacca333246f1dbcc4b8edc8acf7",
+      "stage_s_verification_sha256": "ee1a7dc7f856ad672cdf09a1f16c030db552045e1adf593cb3060d8e832964ae",
+      "valid": true,
+      "worker_tokens": 467001
+    }
+  ],
+  "proposal": {
+    "actions": {
+      "stage-L": "p000v2",
+      "stage-S": "e1v2"
+    },
+    "deployment_authorized_before_pair": false,
+    "matches_preoutcome_oracle_topology": false
+  },
+  "route_qualified": false,
+  "schema": "modus-long-horizon-p2k-first-pair-score-v1",
+  "status": "pass",
+  "trigger": {
+    "reasons": [
+      "relative MAD exceeds 0.10"
+    ],
+    "triggered": true
+  }
+}
