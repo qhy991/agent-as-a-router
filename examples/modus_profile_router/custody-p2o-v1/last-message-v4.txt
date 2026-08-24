@@ -1,0 +1,1 @@
+{"schema":"modus-p2o-custody-canary-v1","allowed":"sandbox-exec: sandbox_apply: Operation not permitted","sibling":"sandbox-exec: sandbox_apply: Operation not permitted","owner_repo":"sandbox-exec: sandbox_apply: Operation not permitted"}
