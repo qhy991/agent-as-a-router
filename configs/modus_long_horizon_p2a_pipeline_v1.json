@@ -75,6 +75,8 @@
     "agent_router_commit_before_freeze": "5e41cdec81b1e517a7f85fc89fe6ae66fc1ccdeb",
     "router_protocol_path": "configs/modus_long_horizon_p2a_agent_router_v1.json",
     "router_protocol_sha256": "e49ec1666e669c435e800caa8b3bfcc46dea3819817ca4609d0ecdd8ac141d76",
+    "pipeline_runner_path": "scripts/run_modus_long_horizon_p2a_pipeline.py",
+    "pipeline_runner_sha256_at_freeze": "8b1df51b4e9afe740ec506150a02605224e64c6f7a52282ce1f480e314e0c240",
     "stage_verifier_path": "scripts/verify_modus_long_horizon_p2a_stage.py",
     "stage_verifier_sha256_at_freeze": "628100697183c97fb77d34f1e438bfdc2ded56c7166107edd788aef11506b560",
     "pipeline_scorer_path": "scripts/score_modus_long_horizon_p2a_pipeline.py",
@@ -82,4 +84,3 @@
   },
   "claim_boundary": "This evaluates one linked workflow with two paired repetitions and a constrained routed-versus-neutral comparison. It can support an end-to-end stage-routing case result, not broad Profile generalization."
 }
-

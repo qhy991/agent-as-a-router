@@ -35,7 +35,11 @@ class LongHorizonP2aPipelineTest(unittest.TestCase):
         for stage in ("stage_l", "stage_s"):
             path = ROOT / value["task"][f"{stage}_prompt"]
             self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), value["task"][f"{stage}_prompt_sha256"])
-        for path_key, hash_key in (("stage_verifier_path", "stage_verifier_sha256_at_freeze"), ("pipeline_scorer_path", "pipeline_scorer_sha256_at_freeze")):
+        for path_key, hash_key in (
+            ("pipeline_runner_path", "pipeline_runner_sha256_at_freeze"),
+            ("stage_verifier_path", "stage_verifier_sha256_at_freeze"),
+            ("pipeline_scorer_path", "pipeline_scorer_sha256_at_freeze"),
+        ):
             self.assertEqual(
                 hashlib.sha256((ROOT / value["provenance"][path_key]).read_bytes()).hexdigest(),
                 value["provenance"][hash_key],
