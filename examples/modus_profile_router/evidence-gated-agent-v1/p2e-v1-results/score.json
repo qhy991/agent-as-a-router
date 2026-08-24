@@ -1,0 +1,42 @@
+{
+  "expected_decisions": [
+    "dispatch",
+    "abstain"
+  ],
+  "observed_decisions": [
+    "dispatch",
+    "defer"
+  ],
+  "response": {
+    "routes": [
+      {
+        "decision": "dispatch",
+        "evidence_ref": "qualification:p2b:stage-S",
+        "mechanism_id": "shared-prefix-sum-v1",
+        "profile": "e1v2",
+        "stage": "stage-qualified"
+      },
+      {
+        "decision": "defer",
+        "evidence_ref": null,
+        "mechanism_id": null,
+        "profile": null,
+        "stage": "stage-unqualified"
+      }
+    ],
+    "schema": "modus-profile-mechanism-route-v1"
+  },
+  "schema": "modus-p2e-autonomous-evidence-gated-agent-result-v1",
+  "status": "fail",
+  "total_tokens": 15634,
+  "usage": {
+    "cache_write_input_tokens": 0,
+    "cached_input_tokens": 0,
+    "input_tokens": 15030,
+    "output_tokens": 604,
+    "reasoning_output_tokens": 516
+  },
+  "valid_execution": true,
+  "validation_error": "routes[1].decision is invalid",
+  "workers_called": 0
+}

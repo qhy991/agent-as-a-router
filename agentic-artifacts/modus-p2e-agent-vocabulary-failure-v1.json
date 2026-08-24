@@ -1,0 +1,39 @@
+{
+  "schema": "acrouter-modus-p2e-agent-vocabulary-failure-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "development_failure_evidence": true,
+  "execution": {"valid_cell": true, "workers_called": 0, "automatic_redispatches": 0, "total_tokens": 15634},
+  "qualified_stage": {
+    "decision": "dispatch",
+    "profile": "e1v2",
+    "mechanism_id": "shared-prefix-sum-v1",
+    "evidence_ref": "qualification:p2b:stage-S",
+    "exact_candidate_match": true
+  },
+  "unqualified_stage": {
+    "derived_view_decision": "defer",
+    "agent_response_decision": "defer",
+    "response_contract_expected": "abstain",
+    "validation_error": "routes[1].decision is invalid"
+  },
+  "diagnosis": {
+    "candidate_derivation_failed": false,
+    "qualified_dispatch_failed": false,
+    "fail_closed_validator_worked": true,
+    "root_cause": "host candidate resolution and Agent response used duplicate defer/abstain vocabulary"
+  },
+  "decision": {
+    "run_valid_for_router_claim": false,
+    "retry_same_protocol": false,
+    "next_action": "freeze a v2 derived view that projects host defer to the canonical Agent abstain state"
+  },
+  "files": {
+    "wave_result": "examples/modus_profile_router/evidence-gated-agent-v1/p2e-v1-results/wave-result.json",
+    "score": "examples/modus_profile_router/evidence-gated-agent-v1/p2e-v1-results/score.json",
+    "wave_result_sha256": "a1fc45b88fd600a38b91cbb0606a2985d7660872487cb19d916be5f0817bfd75",
+    "score_sha256": "597eda0b5acac4aa4d055f016fcaa25258de28e8248af034b3cffad1ca6fafeb"
+  },
+  "claim_boundary": "This is an interface-vocabulary failure with zero Worker calls. It cannot support autonomous routing, but it proves invalid defer output was rejected before execution."
+}
+

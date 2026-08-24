@@ -1017,3 +1017,12 @@ abstained on both stages and supplied no Profile, mechanism, or evidence. Both
 responses passed the strict validator, and the historical P2d error was blocked
 before any Worker call. See
 [`agentic-artifacts/modus-evidence-gated-agent-live-v1.json`](../agentic-artifacts/modus-evidence-gated-agent-live-v1.json).
+
+P2e v1 then removed the explicit answer and supplied only typed descriptors plus
+the derived candidate view. The qualified stage dispatched the exact e1-v2
+candidate, but the no-candidate stage copied the host resolution word `defer`.
+The Agent response contract accepts only `abstain`, so the entire response was
+rejected and no Worker ran. This is a fail-closed vocabulary defect, not a
+candidate matching failure. The same protocol is not retried; a frozen v2 must
+project host `defer` into the canonical Agent-facing `abstain` state. See
+[`agentic-artifacts/modus-p2e-agent-vocabulary-failure-v1.json`](../agentic-artifacts/modus-p2e-agent-vocabulary-failure-v1.json).
