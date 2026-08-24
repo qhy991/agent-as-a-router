@@ -1,0 +1,31 @@
+{
+  "automatic_redispatches": 0,
+  "cells": [
+    {
+      "cell": "pair1-proposed-route-stage-l",
+      "events_parseable": true,
+      "events_sha256": "8abaf2f75eae5b92685c59367373e69559abfd4f3a417af3a4caa3370f27476b",
+      "last_message_sha256": "235e5b02d05a04bb4e7bd1f8a94349db7d2a5d5c7a4f405c78c8bcc58b6bcde2",
+      "prompt_sha256": "df8b02048494c79a763a818a4f5c020faec16884917628a241ab83d9a1f3535b",
+      "returncode": 0,
+      "stderr_sha256": "34eecbfb9b674e64168486a4abbc6d4524e7b85de34c05d1e82f48c825d19c30",
+      "timed_out": false,
+      "turn_completed": true,
+      "turn_error": null,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 75520,
+        "input_tokens": 114703,
+        "output_tokens": 2629,
+        "reasoning_output_tokens": 1688
+      },
+      "usage_complete": true,
+      "valid_execution": true,
+      "web_search_items": 0
+    }
+  ],
+  "manifest_sha256": "04bcff636087263cb0a084a4d1a016ca225b7e7ce6a789e1f5a1be7cea15286b",
+  "schema": "acrouter-codex-spark-wave-result-v1",
+  "status": "pass",
+  "valid_execution_cells": 1
+}

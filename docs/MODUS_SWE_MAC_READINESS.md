@@ -1092,3 +1092,29 @@ second pair. It does expose the next falsifiable question: whether restrictive
 Profiles consistently trade large token savings for worse implementation
 quality on unseen tasks under a verifier limited to observable semantics. See
 [`agentic-artifacts/modus-codex-luna-max-long-horizon-p2h-invalid-v1.json`](../agentic-artifacts/modus-codex-luna-max-long-horizon-p2h-invalid-v1.json).
+
+### P2i observable-contract scratch qualification
+
+P2i replaced the invalid P2h apparatus with a new linked keyed-maximum
+contract and a verifier limited to public/hidden behavior, Profile topology,
+parent binding, frozen-file custody, nine-round performance, and prepared
+semantics. A regression test explicitly accepts an alternative untagged
+prepared representation. No internal representation type or oracle tag is an
+acceptance condition.
+
+Before Worker outcomes, one Luna max Agent again proposed Stage L→p000 and
+Stage S→e1-v2 on the unseen semantic task. Both proposed and neutral pipelines
+then passed correctness, topology, exact parent binding, mechanism, custody,
+and noise checks. The proposed route used 262,142 Worker tokens versus
+neutral's 491,247, a 46.6% reduction. Its final stage was slightly faster
+(0.01015 versus 0.01127 seconds), but p000 Stage L was 1.758x slower than
+neutral (0.00863 versus 0.00491 seconds), above the frozen 1.25x limit.
+
+The result is a clear valid negative with no uncertainty trigger and no second
+pair. Raw arithmetic would break even in four deployments, but those economics
+are inadmissible because the Stage L performance gate fails. Modus therefore
+blocks deployment. The result strengthens a narrower claim: Profile constraints
+can reliably reduce search tokens and control implementation topology, while
+task-level topology matching alone does not guarantee implementation quality;
+outcome qualification is necessary before promotion. See
+[`agentic-artifacts/modus-codex-luna-max-long-horizon-p2i-negative-v1.json`](../agentic-artifacts/modus-codex-luna-max-long-horizon-p2i-negative-v1.json).

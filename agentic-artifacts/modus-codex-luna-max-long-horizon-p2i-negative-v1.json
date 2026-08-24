@@ -1,0 +1,108 @@
+{
+  "schema": "modus-long-horizon-p2i-negative-evidence-v1",
+  "recorded_at": "2026-08-24",
+  "formal_status": "valid_negative",
+  "scientific_evidence": false,
+  "prospective_observable_contract_negative_evidence": true,
+  "task": {
+    "id": "keyed-max-linked-p2i",
+    "stages": ["one 300-query batch", "sixty five-query batches"],
+    "modus_commit": "c04ccd9e513ab757b3467653cadfb9f918961772",
+    "qualification_passed_before_model_outcomes": true,
+    "qualification_sha256": "d714dc5609b0b469d45c403a84ad896abd340d9ef54207ce18e634380f24f446"
+  },
+  "protocol": {
+    "agent_proposal": "configs/modus_long_horizon_p2i_agent_proposal_v1.json",
+    "agent_proposal_sha256": "6672b2061b4bd852c7ea7b1ab0e6b779e545465d0388744f1932ca7c2a514754",
+    "first_pair": "configs/modus_long_horizon_p2i_first_pair_v1.json",
+    "first_pair_sha256": "3994bf37b8cf88a9ff2b4b568e43c43412b3ac03cc44f14c932229877505b25a",
+    "agent_router_commit_at_execution": "b62f6802e61550502426bb9f214a565a43e6dc59",
+    "model": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "automatic_redispatches": 0,
+    "expected_future_deployments": 8,
+    "verifier_internal_representation_type_or_tag": false
+  },
+  "agent_proposal": {
+    "status": "pass",
+    "actions": {"stage-L": "p000", "stage-S": "e1v2"},
+    "matches_preoutcome_oracle_topology": true,
+    "tokens": 15597,
+    "worker_deployment_authorized_by_proposal": false
+  },
+  "canonical_execution": {
+    "status": "pass",
+    "proposed_route": {
+      "stage_l_passed": true,
+      "stage_s_passed": true,
+      "stage_l_tokens": 117332,
+      "stage_s_tokens": 144810,
+      "worker_tokens": 262142,
+      "stage_l_seconds": 0.008633,
+      "final_seconds": 0.010152,
+      "maximum_relative_mad": 0.026989755713159962,
+      "correctness_topology_parent_and_mechanism_passed": true
+    },
+    "neutral": {
+      "stage_l_passed": true,
+      "stage_s_passed": true,
+      "stage_l_tokens": 257471,
+      "stage_s_tokens": 233776,
+      "worker_tokens": 491247,
+      "stage_l_seconds": 0.0049105,
+      "final_seconds": 0.011266,
+      "maximum_relative_mad": 0.019483401384697327
+    }
+  },
+  "common_metrics": {
+    "both_pipelines_valid": true,
+    "stage_l_proposed_ratio_to_fastest": 1.7580694430302413,
+    "final_proposed_ratio_to_fastest": 1.0,
+    "worker_token_saving_fraction": 0.4663743493598943,
+    "acquisition_tokens": 768986,
+    "raw_saving_per_deployment_tokens": 229105,
+    "raw_break_even_deployments_if_performance_passed": 4,
+    "raw_net_tokens_at_8_if_performance_passed": 1063854,
+    "performance_ratio_maximum": 1.25,
+    "minimum_token_saving_fraction": 0.15,
+    "maximum_relative_mad": 0.026989755713159962
+  },
+  "gates": {
+    "both_pipelines_valid": true,
+    "stage_l_performance": false,
+    "final_performance": true,
+    "worker_token_saving": true,
+    "noise": true,
+    "route_qualified": false
+  },
+  "decision": {
+    "frozen_scorer": "stop_negative",
+    "uncertainty_triggered": false,
+    "second_pair_authorized": false,
+    "deployment_authorized": false,
+    "reason": "The proposed p000 Stage L implementation is 1.758x slower than neutral, above the frozen 1.25x limit. Raw token economics are inadmissible when the performance gate fails."
+  },
+  "conclusions": {
+    "agent_proposed_oracle_topology_on_second_unseen_semantic_task": true,
+    "profiles_reduced_worker_search_tokens": true,
+    "profiles_preserved_correctness_and_controlled_topology": true,
+    "topology_match_guarantees_performance_quality": false,
+    "profile_route_meets_joint_quality_cost_gate": false,
+    "outcome_qualification_is_required_before_deployment": true,
+    "modus_fail_closed_design_blocked_a_bad_economic_promotion": true
+  },
+  "files": {
+    "execution_summary": "examples/modus_profile_router/long-horizon-p2i-v1/first-pair-results/execution-summary.json",
+    "execution_summary_sha256": "c731ae0c11e9c48ac72ca7f517114ae8b47660785acf8535531ad3cc753246e2",
+    "score": "examples/modus_profile_router/long-horizon-p2i-v1/first-pair-results/score.json",
+    "score_sha256": "f75b956eadc8e0e97d29c1ed721056850ae46a2ccd9f3ee10e96a4d10748c98b",
+    "neutral_stage_l_verification": "examples/modus_profile_router/long-horizon-p2i-v1/first-pair-results/pair1-neutral/stage-l-verification.json",
+    "neutral_stage_l_verification_sha256": "b4a082aae8814b87ac2d3aefb85fce81c61e6953ba2a0a0b8b6159dd33efa2d6",
+    "neutral_stage_s_verification": "examples/modus_profile_router/long-horizon-p2i-v1/first-pair-results/pair1-neutral/stage-s-verification.json",
+    "neutral_stage_s_verification_sha256": "374a2a961184f56e9be6be0e099f1f5b8ee4112eeb36f94684397d4d5ef06df9",
+    "proposed_stage_l_verification": "examples/modus_profile_router/long-horizon-p2i-v1/first-pair-results/pair1-proposed-route/stage-l-verification.json",
+    "proposed_stage_l_verification_sha256": "63af9052de38a5b6b7293e5eca1f0f5bacad02e6d1057a7f2252091f317f4d5c",
+    "proposed_stage_s_verification": "examples/modus_profile_router/long-horizon-p2i-v1/first-pair-results/pair1-proposed-route/stage-s-verification.json",
+    "proposed_stage_s_verification_sha256": "b407ed82f710e9a3472add7542977375284f90ebdd3ca29b9a78e4ff6a56630c"
+  }
+}

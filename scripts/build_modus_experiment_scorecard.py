@@ -28,6 +28,7 @@ def build(root: Path) -> dict:
     p2c, p2c_source = _source(root, "modus-codex-luna-max-long-horizon-p2c-transfer-v1.json")
     p2d, p2d_source = _source(root, "modus-codex-luna-max-long-horizon-p2d-final-v1.json")
     p2h, p2h_source = _source(root, "modus-codex-luna-max-long-horizon-p2h-invalid-v1.json")
+    p2i, p2i_source = _source(root, "modus-codex-luna-max-long-horizon-p2i-negative-v1.json")
 
     p1f_max_ratio = max(
         row.get("p000_performance_ratio", row.get("e1v2_performance_ratio"))
@@ -146,6 +147,23 @@ def build(root: Path) -> dict:
             "net_tokens_at_8_deployments": None,
             "excluded_from_valid_trends": True,
             "source": p2h_source,
+        },
+        {
+            "experiment": "P2i",
+            "task_family": "keyed_max",
+            "workflow": "observable-contract scratch qualification",
+            "route": p2i["agent_proposal"]["actions"],
+            "evidence_status": p2i["formal_status"],
+            "outcome_valid": True,
+            "route_qualified": False,
+            "final_performance_ratio_to_fastest": p2i["common_metrics"]["final_proposed_ratio_to_fastest"],
+            "worker_saving_fraction": p2i["common_metrics"]["worker_token_saving_fraction"],
+            "e2e_saving_fraction": p2i["common_metrics"]["worker_token_saving_fraction"],
+            "acquisition_tokens": p2i["common_metrics"]["acquisition_tokens"],
+            "break_even_deployments": None,
+            "net_tokens_at_8_deployments": None,
+            "disqualification": "stage_l_performance_ratio_exceeds_1.25",
+            "source": p2i_source,
         },
     ]
     valid = [row for row in rows if row["outcome_valid"]]

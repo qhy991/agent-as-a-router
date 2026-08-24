@@ -164,6 +164,29 @@
       "task_family": "distinct_out_degree",
       "worker_saving_fraction": 0.6796022186903599,
       "workflow": "scratch qualification after Agent proposal"
+    },
+    {
+      "acquisition_tokens": 768986,
+      "break_even_deployments": null,
+      "disqualification": "stage_l_performance_ratio_exceeds_1.25",
+      "e2e_saving_fraction": 0.4663743493598943,
+      "evidence_status": "valid_negative",
+      "experiment": "P2i",
+      "final_performance_ratio_to_fastest": 1.0,
+      "net_tokens_at_8_deployments": null,
+      "outcome_valid": true,
+      "route": {
+        "stage-L": "p000",
+        "stage-S": "e1v2"
+      },
+      "route_qualified": false,
+      "source": {
+        "path": "agentic-artifacts/modus-codex-luna-max-long-horizon-p2i-negative-v1.json",
+        "sha256": "01b5aad1150f3959bb26f73bfa451b0d02feac2bf1ffe942d51ad4e870b3229d"
+      },
+      "task_family": "keyed_max",
+      "worker_saving_fraction": 0.4663743493598943,
+      "workflow": "observable-contract scratch qualification"
     }
   ],
   "schema": "modus-experiment-scorecard-v1",
@@ -171,7 +194,7 @@
     "invalid_outcomes": 1,
     "net_positive_at_8_deployments": 1,
     "qualified_routes": 5,
-    "rows": 7,
-    "valid_outcomes": 6
+    "rows": 8,
+    "valid_outcomes": 7
   }
 }

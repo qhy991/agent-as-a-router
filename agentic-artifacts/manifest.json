@@ -154,7 +154,8 @@
     "profile_partial_lifecycle_p2f_live": "modus-partial-lifecycle-p2f-live-v1.json",
     "profile_completed_lifecycle_p2g_live": "modus-completed-lifecycle-p2g-live-v1.json",
     "profile_luna_max_long_horizon_p2h_invalid": "modus-codex-luna-max-long-horizon-p2h-invalid-v1.json",
-    "profile_experiment_scorecard": "modus-experiment-scorecard-v1.json"
+    "profile_experiment_scorecard": "modus-experiment-scorecard-v1.json",
+    "profile_luna_max_long_horizon_p2i_negative": "modus-codex-luna-max-long-horizon-p2i-negative-v1.json"
   },
   "headline_metrics": {
     "id": {
