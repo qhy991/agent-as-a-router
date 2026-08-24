@@ -1,0 +1,32 @@
+{
+  "cells": [
+    {
+      "cell": "p2k-router-proposal",
+      "last_message_sha256": "23bf9ae6625a57487d6c5b5d8b39727fc5e8fa707f3144344a7cc098a5a485cf",
+      "parse_error": null,
+      "parsed": {
+        "actions_by_stage": {"stage-L": "p000v2", "stage-S": "e1v2"},
+        "reasons_by_stage": {
+          "stage-L": "Authorized benchmark-aware qualification avoids p000's failed performance gate.",
+          "stage-S": "Linked evidence supports immutable-input reuse across the long target-call horizon."
+        }
+      },
+      "total_tokens": 16203,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 0,
+        "input_tokens": 15088,
+        "output_tokens": 1115,
+        "reasoning_output_tokens": 1034
+      },
+      "valid_execution": true
+    }
+  ],
+  "decision": "freeze_qualification_pair",
+  "proposed_actions_by_stage": {"stage-L": "p000v2", "stage-S": "e1v2"},
+  "qualification_pair_protocol_authorized": true,
+  "router_acquisition_tokens": 16203,
+  "schema": "modus-long-horizon-p2k-router-validation-v1",
+  "status": "pass",
+  "worker_deployment_authorized": false
+}
