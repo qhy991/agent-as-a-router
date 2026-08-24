@@ -1,0 +1,96 @@
+{
+  "schema": "acrouter-modus-reachability-luna-p1e-p100-followup-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "purpose": "execute only the outcome-authorized p100 follow-up on reachability-x02 after p000 failed the frozen performance gate without ambiguity",
+  "scientific_role": "pre-registered second stage of a sequential Profile qualification policy",
+  "expected_future_deployments": 8,
+  "model": {
+    "local_slug": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "authentication": "ChatGPT login"
+  },
+  "harness": {
+    "codex_cli_version": "0.146.0",
+    "runner": "acrouter_repro.codex_spark_wave.run_wave",
+    "profile_delivery": "canonical Profile text prepended to the task prompt",
+    "automatic_redispatch": false,
+    "web_search_event_policy": "invalidate cell",
+    "manager_measurement_dispatch": "sequential after Worker completion"
+  },
+  "profile": {
+    "action": "p100",
+    "bits": "E1/T0/A0",
+    "expected_topology": "coordinated",
+    "profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/profiles/p100.md",
+    "profile_sha256": "ec850834450c09a0e6d736c606a8d2295b955206e00c0e7778f982809ca98bfe"
+  },
+  "tasks": {
+    "reachability-x02": {
+      "task_id": "reachability-x02-perf-p1e",
+      "package": "perf_reachability_x02",
+      "prompt": "examples/modus_profile_router/reachability-luna-p1e-v1/reachability-x02-task.md",
+      "prompt_sha256": "d463676fa80e83ddf2a5537d8ba6c2b01582c14989f5db3a59f6b1f3aa8617b6",
+      "seed_root": "examples/modus_profile_router/reachability-luna-p1e-v1/seeds/reachability-x02",
+      "seed_files_sha256": {
+        "benchmark.py": "0d3e4a0187e3957b12bfa96c985b616a7ffdc99c10a5f84960364624e9a88578",
+        "perf_reachability_x02/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "perf_reachability_x02/api.py": "bc7d4f9005be8d23270301519ce0f27e68dfdfd7ae2a2d47a30d05524b04bd2e",
+        "perf_reachability_x02/observer.py": "9f53a6f322c7743bbf3f0cb134f9d4b205983afa13ea6494df84e08d765dd226",
+        "perf_reachability_x02/shared.py": "907cf29485630abdef6a1cf4626d956ae3430cb45b1d410ff12ec6f0097b766c",
+        "perf_reachability_x02/target.py": "a33041c98e40824d3a448f574752d11cb2b71f1f95ca6bdecc78048c24ac463a",
+        "tests/test_public.py": "be943def0b81eac55a10d32e5d5d536386f0734261d98940f5e39b6354d77782"
+      },
+      "expected_coordinated_paths": [
+        "perf_reachability_x02/observer.py",
+        "perf_reachability_x02/shared.py",
+        "perf_reachability_x02/target.py"
+      ]
+    }
+  },
+  "matrix": {
+    "actions": ["p100"],
+    "tasks": 1,
+    "repetitions_per_action": 2,
+    "cells": 2,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "parent_stage": {
+    "protocol": "configs/modus_reachability_luna_p1e_v1.json",
+    "outcome_commit_before_freeze": "8f6052e9f1d7b2d5048cd3449014d2677518eef3",
+    "evidence_path": "agentic-artifacts/modus-codex-luna-max-reachability-p1e-stage1-v1.json",
+    "evidence_sha256": "9c09639bc325a54ba617cb1daed60e8f547cf0c86b4074eae792b69025f0d237",
+    "score_path": "examples/modus_profile_router/reachability-luna-p1e-v1/results/score.json",
+    "score_sha256": "b9c62d84f1d1a524b9658fd93c6524c19f9b4dc36c8b9dd964aa1063df4d7b86",
+    "acquisition_tokens": 1060359,
+    "authorization_condition": "p000 failed x02 performance at 2.773x, no third-pair trigger fired, and the frozen stage-one policy returned authorize_p100_follow_up"
+  },
+  "scoring": {
+    "correctness_first": "both p100 repetitions pass public and hidden correctness",
+    "topology_fidelity": "both p100 repetitions change exactly observer.py, shared.py, and target.py",
+    "performance_ratio_maximum": 1.25,
+    "p100_token_advantage_minimum_vs_neutral": 0.05,
+    "x02_selection": "select p100 only when performance-eligible and at least 5% lower-token than frozen stage-one neutral; otherwise retain neutral",
+    "x01_action_frozen": "p000",
+    "final_router_saving_minimum": 0.15,
+    "economic_gate": "include stage-one and p100 acquisition tokens at eight expected future task-pair deployments"
+  },
+  "failure_policy": {
+    "invalid_or_incomplete_cell": "follow-up fails; preserve and do not redispatch",
+    "web_search_item": "cell invalid",
+    "no_model_substitution": true,
+    "post_hoc_task_or_gate_change": false
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "8f6052e9f1d7b2d5048cd3449014d2677518eef3",
+    "plugin_commit_at_freeze": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f",
+    "verifier_path": "scripts/verify_modus_reachability_p1e_p100_followup.py",
+    "verifier_sha256_at_freeze": "360f8bef497c2281f2b88d3f21237a66ce4f6d6bc6e38cd9500e48ec2ba76859",
+    "scorer_path": "scripts/score_modus_reachability_p1e_p100_followup.py",
+    "scorer_sha256_at_freeze": "601cb88c9ba9eb095a25cdf439454f78f87bdc13fc6a019bba847f8baf3d93dd"
+  },
+  "claim_boundary": "This stage tests p100 only on the one task whose p000 action failed prospectively. It cannot be pooled as an independently randomized full matrix and does not retest the already selected x01 action."
+}
+
