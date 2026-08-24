@@ -1,0 +1,63 @@
+{
+  "cells": [
+    {
+      "cell": "router-r1",
+      "last_message_sha256": "cbf92116ff72692810f2b2b500bb6271c0f5f92d862e176daa92534594c10f0a",
+      "parse_error": null,
+      "parsed": {
+        "actions_by_stage": {
+          "stage-L": "p000",
+          "stage-S": "e1v2"
+        },
+        "reasons_by_stage": {
+          "stage-L": "One batch makes local target preparation sufficient at lower cost.",
+          "stage-S": "Repeated batches require shared reusable preparation for feasible performance."
+        }
+      },
+      "total_tokens": 20396,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 8960,
+        "input_tokens": 15020,
+        "output_tokens": 5376,
+        "reasoning_output_tokens": 5301
+      },
+      "valid_execution": true
+    },
+    {
+      "cell": "router-r2",
+      "last_message_sha256": "cac92c6266dc9f3a11e93ba95df7f94d6d1f4bd8322c1ea506d59604be8ae7be",
+      "parse_error": null,
+      "parsed": {
+        "actions_by_stage": {
+          "stage-L": "p000",
+          "stage-S": "e1v2"
+        },
+        "reasons_by_stage": {
+          "stage-L": "One large batch makes local preparation sufficient at lower token cost.",
+          "stage-S": "Shared reusable preparation is needed across 150 small batches for feasible performance."
+        }
+      },
+      "total_tokens": 17393,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 0,
+        "input_tokens": 15020,
+        "output_tokens": 2373,
+        "reasoning_output_tokens": 2293
+      },
+      "valid_execution": true
+    }
+  ],
+  "decision": "freeze_linked_pipeline_protocol",
+  "pipeline_protocol_authorized": true,
+  "router_acquisition_tokens": 37789,
+  "router_tokens_per_deployment": 18894.5,
+  "schema": "modus-long-horizon-p2a-router-validation-v1",
+  "stable_actions_by_stage": {
+    "stage-L": "p000",
+    "stage-S": "e1v2"
+  },
+  "stable_repetitions": 2,
+  "status": "pass"
+}

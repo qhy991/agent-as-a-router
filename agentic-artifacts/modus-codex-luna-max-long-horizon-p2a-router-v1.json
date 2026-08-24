@@ -1,0 +1,39 @@
+{
+  "schema": "acrouter-modus-luna-long-horizon-p2a-router-result-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "outcome_blind_router_evidence": true,
+  "model": {"slug": "gpt-5.6-luna", "reasoning_effort": "max"},
+  "protocol": {
+    "commit_at_dispatch": "9966d2b",
+    "manifest_sha256": "01642f260037591c79875f65cd89c2dd320fc12d2f76f0351414cf385975eaf4",
+    "worker_outcomes_available": false,
+    "repetitions": 2,
+    "automatic_redispatch": false
+  },
+  "execution": {
+    "valid_cells": 2,
+    "parsed_cells": 2,
+    "stable_repetitions": 2,
+    "router_acquisition_tokens": 37789,
+    "router_tokens_per_deployment": 18894.5,
+    "wave_result_sha256": "8ac98d545b50ab0563f1619f6138723f2577e552d8d4759c98754addb2ed960f",
+    "score_sha256": "852be3c7fdcf55ce38d853610be4e0c159879256cd5dfd3a17e78dffbb14327f"
+  },
+  "stable_route": {"stage-L": "p000", "stage-S": "e1v2"},
+  "reasoning_signal": {
+    "stage-L": "both repetitions selected local preparation for one batch",
+    "stage-S": "both repetitions selected reusable shared preparation for 150 batches"
+  },
+  "decision": {
+    "linked_pipeline_protocol_authorized": true,
+    "pipeline_outcomes_known": false,
+    "next_action": "freeze balanced AB/BA routed versus fixed-neutral linked pipelines"
+  },
+  "files": {
+    "wave_result": "examples/modus_profile_router/long-horizon-p2a-v1/router-results/wave-result.json",
+    "score": "examples/modus_profile_router/long-horizon-p2a-v1/router-results/score.json"
+  },
+  "claim_boundary": "This proves only stable stage routing before outcomes. It does not establish that the linked pipeline succeeds, outperforms fixed neutral, or saves net tokens."
+}
+

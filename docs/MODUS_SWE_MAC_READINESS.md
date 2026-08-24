@@ -850,3 +850,18 @@ system is 424,028 tokens negative. Thus Modus now has replicated evidence that
 Profile routing improves per-deployment cost-performance, but not that this
 more robust evidence plan is net-positive at eight deployments. See
 [`agentic-artifacts/modus-codex-luna-max-connectivity-p1f-replicated-v1.json`](../agentic-artifacts/modus-codex-luna-max-connectivity-p1f-replicated-v1.json).
+
+### Linked long-horizon P2a Router
+
+Modus `6166963` introduced one sequential workspace: Stage L optimizes one
+batch, and Stage S inherits the exact Stage L implementation before optimizing
+150 batches. Model-free qualification binds the parent implementation digest
+and shows a 141x Stage S oracle advantage on the final workload.
+
+Before any P2a Worker outcome, two Luna max Router calls independently selected
+Stage L→p000 and Stage S→e1-v2. Both JSON responses were valid and their reasons
+matched local preparation versus cross-batch reuse. Router acquisition is
+37,789 tokens and its median live cost is 18,894.5 tokens per deployment. This
+authorizes a balanced AB/BA routed-versus-neutral pipeline protocol; no linked
+quality, performance, or economics conclusion is available yet. See
+[`agentic-artifacts/modus-codex-luna-max-long-horizon-p2a-router-v1.json`](../agentic-artifacts/modus-codex-luna-max-long-horizon-p2a-router-v1.json).
