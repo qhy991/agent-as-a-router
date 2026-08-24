@@ -1,0 +1,10 @@
+{
+  "schema": "modus-long-horizon-p2b-public-task-v1",
+  "task_id": "rangesum-linked-p2b",
+  "algorithm_family": "rangesum-linked",
+  "implementation_package": "perf_linked_rangesum",
+  "stages": [
+    "L",
+    "S"
+  ]
+}
