@@ -1,0 +1,32 @@
+{
+  "cells": [
+    {
+      "cell": "p2h-router-proposal",
+      "last_message_sha256": "7ba6984946b917bddb0e23a72c865776c5c08fb4b5f66e50eeeb0ffd9bbdefec",
+      "parse_error": null,
+      "parsed": {
+        "actions_by_stage": {"stage-L": "p000", "stage-S": "e1v2"},
+        "reasons_by_stage": {
+          "stage-L": "One batch favors a focused target-only change.",
+          "stage-S": "Repeated batches amortize one reusable shared representation."
+        }
+      },
+      "total_tokens": 14909,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 0,
+        "input_tokens": 13923,
+        "output_tokens": 986,
+        "reasoning_output_tokens": 914
+      },
+      "valid_execution": true
+    }
+  ],
+  "decision": "freeze_qualification_pair",
+  "proposed_actions_by_stage": {"stage-L": "p000", "stage-S": "e1v2"},
+  "qualification_pair_protocol_authorized": true,
+  "router_acquisition_tokens": 14909,
+  "schema": "modus-long-horizon-p2h-router-validation-v1",
+  "status": "pass",
+  "worker_deployment_authorized": false
+}
