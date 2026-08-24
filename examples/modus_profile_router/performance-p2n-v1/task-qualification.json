@@ -1,0 +1,506 @@
+{
+  "schema": "modus-performance-p2n-qualification-v1",
+  "profile_outcomes_read": false,
+  "task_count": 3,
+  "algorithm_family_count": 3,
+  "thresholds": {
+    "oracle_relative_median_absolute_deviation_maximum": 0.1,
+    "preference_contrast_minimum_or_noninferiority": 1.25,
+    "direct_noninferiority_ratio_maximum": 1.5,
+    "default_oracle_rounds": 15,
+    "local_selected_oracle_rounds": 25,
+    "shared_selected_oracle_rounds": 25
+  },
+  "lock": {
+    "success": true,
+    "message": "ok"
+  },
+  "tasks": [
+    {
+      "task_id": "keyed_distinct_min-p2n",
+      "family": "keyed_distinct_min",
+      "expected_preference": "p000v2",
+      "expected_variant": "local",
+      "contrast_ratio": 3.7848414406298634,
+      "checks": {
+        "all_variants_correct": true,
+        "variant_result_digests_equal": true,
+        "topologies_exact": true,
+        "expected_variant_noise_within_limit": true,
+        "expected_preference_contrast": true
+      },
+      "passed": true,
+      "variants": {
+        "starter": {
+          "variant": "starter",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "keyed_distinct_min-p2n",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.1341,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_minimum (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [],
+            "changed_implementation_modules": 0,
+            "topology": "other",
+            "expected_local_paths": [
+              "perf_keyed_distinct_min_p2n/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_keyed_distinct_min_p2n/observer.py",
+              "perf_keyed_distinct_min_p2n/shared.py",
+              "perf_keyed_distinct_min_p2n/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.0238788305849823,
+            "maximum_seconds": 8.105214542000002,
+            "mean_seconds": 7.843887250000001,
+            "median_seconds": 7.750701249999999,
+            "minimum_seconds": 7.675745958,
+            "relative_median_absolute_deviation": 0.009670775531439626,
+            "repeat_per_round": 1,
+            "result_sha256": "6c5d2c77ecf35a3526e59509e4714dd1e79ccf980daa3b607ec72fa06eb84bde",
+            "rounds": 3,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.009670775531439626,
+            "steady_sample_count": 3,
+            "steady_seconds": 7.750701249999999,
+            "task_id": "keyed_distinct_min-p2n"
+          }
+        },
+        "local": {
+          "variant": "local",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "keyed_distinct_min-p2n",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.1305,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_minimum (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_keyed_distinct_min_p2n/target.py"
+            ],
+            "changed_implementation_modules": 1,
+            "topology": "local",
+            "expected_local_paths": [
+              "perf_keyed_distinct_min_p2n/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_keyed_distinct_min_p2n/observer.py",
+              "perf_keyed_distinct_min_p2n/shared.py",
+              "perf_keyed_distinct_min_p2n/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.059211250635059456,
+            "maximum_seconds": 0.023626645812499986,
+            "mean_seconds": 0.0205818426025,
+            "median_seconds": 0.020577483062499985,
+            "minimum_seconds": 0.01875708593750003,
+            "relative_median_absolute_deviation": 0.043766994778445506,
+            "repeat_per_round": 32,
+            "result_sha256": "6c5d2c77ecf35a3526e59509e4714dd1e79ccf980daa3b607ec72fa06eb84bde",
+            "rounds": 25,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.022805509990902743,
+            "steady_sample_count": 12,
+            "steady_seconds": 0.019460671875000002,
+            "task_id": "keyed_distinct_min-p2n"
+          }
+        },
+        "coordinated": {
+          "variant": "coordinated",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "keyed_distinct_min-p2n",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.1308,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_minimum (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_keyed_distinct_min_p2n/observer.py",
+              "perf_keyed_distinct_min_p2n/shared.py",
+              "perf_keyed_distinct_min_p2n/target.py"
+            ],
+            "changed_implementation_modules": 3,
+            "topology": "coordinated",
+            "expected_local_paths": [
+              "perf_keyed_distinct_min_p2n/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_keyed_distinct_min_p2n/observer.py",
+              "perf_keyed_distinct_min_p2n/shared.py",
+              "perf_keyed_distinct_min_p2n/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.4120005510544418,
+            "maximum_seconds": 0.22786102612500003,
+            "mean_seconds": 0.09335320835833333,
+            "median_seconds": 0.08415268749999999,
+            "minimum_seconds": 0.06726695837500002,
+            "relative_median_absolute_deviation": 0.06320133863817497,
+            "repeat_per_round": 8,
+            "result_sha256": "6c5d2c77ecf35a3526e59509e4714dd1e79ccf980daa3b607ec72fa06eb84bde",
+            "rounds": 15,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.08646404428895983,
+            "steady_sample_count": 7,
+            "steady_seconds": 0.07365555737500007,
+            "task_id": "keyed_distinct_min-p2n"
+          }
+        }
+      }
+    },
+    {
+      "task_id": "keyed_distinct_cube_sum-p2n",
+      "family": "keyed_distinct_cube_sum",
+      "expected_preference": "e1v3",
+      "expected_variant": "coordinated",
+      "contrast_ratio": 4.276690052453668,
+      "checks": {
+        "all_variants_correct": true,
+        "variant_result_digests_equal": true,
+        "topologies_exact": true,
+        "expected_variant_noise_within_limit": true,
+        "expected_preference_contrast": true
+      },
+      "passed": true,
+      "variants": {
+        "starter": {
+          "variant": "starter",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "keyed_distinct_cube_sum-p2n",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.1593,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_cube_sum (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [],
+            "changed_implementation_modules": 0,
+            "topology": "other",
+            "expected_local_paths": [
+              "perf_keyed_distinct_cube_sum_p2n/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_keyed_distinct_cube_sum_p2n/observer.py",
+              "perf_keyed_distinct_cube_sum_p2n/shared.py",
+              "perf_keyed_distinct_cube_sum_p2n/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.012293603973021747,
+            "maximum_seconds": 7.829088165999998,
+            "mean_seconds": 7.696320277333332,
+            "median_seconds": 7.6443467080000005,
+            "minimum_seconds": 7.615525957999999,
+            "relative_median_absolute_deviation": 0.0037702044531600907,
+            "repeat_per_round": 1,
+            "result_sha256": "88020e560c5b27be4f6f4ca119247f2e2fe31b81fa1bfc217865cc58782ce71a",
+            "rounds": 3,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.0037702044531600907,
+            "steady_sample_count": 3,
+            "steady_seconds": 7.6443467080000005,
+            "task_id": "keyed_distinct_cube_sum-p2n"
+          }
+        },
+        "local": {
+          "variant": "local",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "keyed_distinct_cube_sum-p2n",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.1515,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_cube_sum (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_keyed_distinct_cube_sum_p2n/target.py"
+            ],
+            "changed_implementation_modules": 1,
+            "topology": "local",
+            "expected_local_paths": [
+              "perf_keyed_distinct_cube_sum_p2n/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_keyed_distinct_cube_sum_p2n/observer.py",
+              "perf_keyed_distinct_cube_sum_p2n/shared.py",
+              "perf_keyed_distinct_cube_sum_p2n/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.06570815862555782,
+            "maximum_seconds": 2.035191790999999,
+            "mean_seconds": 1.6642643693999999,
+            "median_seconds": 1.6442331249999995,
+            "minimum_seconds": 1.557512375,
+            "relative_median_absolute_deviation": 0.010774121218363514,
+            "repeat_per_round": 1,
+            "result_sha256": "88020e560c5b27be4f6f4ca119247f2e2fe31b81fa1bfc217865cc58782ce71a",
+            "rounds": 15,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.017188490420743247,
+            "steady_sample_count": 7,
+            "steady_seconds": 1.6152936249999996,
+            "task_id": "keyed_distinct_cube_sum-p2n"
+          }
+        },
+        "coordinated": {
+          "variant": "coordinated",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "keyed_distinct_cube_sum-p2n",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.115,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_cube_sum (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_keyed_distinct_cube_sum_p2n/observer.py",
+              "perf_keyed_distinct_cube_sum_p2n/shared.py",
+              "perf_keyed_distinct_cube_sum_p2n/target.py"
+            ],
+            "changed_implementation_modules": 3,
+            "topology": "coordinated",
+            "expected_local_paths": [
+              "perf_keyed_distinct_cube_sum_p2n/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_keyed_distinct_cube_sum_p2n/observer.py",
+              "perf_keyed_distinct_cube_sum_p2n/shared.py",
+              "perf_keyed_distinct_cube_sum_p2n/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.0850808848867154,
+            "maximum_seconds": 0.4872762710000007,
+            "mean_seconds": 0.4046324609000002,
+            "median_seconds": 0.40004656250000004,
+            "minimum_seconds": 0.3410387710000009,
+            "relative_median_absolute_deviation": 0.050208634151181125,
+            "repeat_per_round": 2,
+            "result_sha256": "88020e560c5b27be4f6f4ca119247f2e2fe31b81fa1bfc217865cc58782ce71a",
+            "rounds": 25,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.040579331701621014,
+            "steady_sample_count": 12,
+            "steady_seconds": 0.3776971455000009,
+            "task_id": "keyed_distinct_cube_sum-p2n"
+          }
+        }
+      }
+    },
+    {
+      "task_id": "affine_checksum-p2n",
+      "family": "affine_checksum",
+      "expected_preference": "neutral",
+      "expected_variant": "starter",
+      "contrast_ratio": 1.1576390658475892,
+      "checks": {
+        "all_variants_correct": true,
+        "variant_result_digests_equal": true,
+        "topologies_exact": true,
+        "expected_variant_noise_within_limit": true,
+        "expected_preference_contrast": true
+      },
+      "passed": true,
+      "variants": {
+        "starter": {
+          "variant": "starter",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "affine_checksum-p2n",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.1263,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_affine (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [],
+            "changed_implementation_modules": 0,
+            "topology": "other",
+            "expected_local_paths": [
+              "perf_affine_checksum_p2n/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_affine_checksum_p2n/observer.py",
+              "perf_affine_checksum_p2n/shared.py",
+              "perf_affine_checksum_p2n/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.06834524301330476,
+            "maximum_seconds": 0.04395854431249996,
+            "mean_seconds": 0.037335480916666657,
+            "median_seconds": 0.03656413806249997,
+            "minimum_seconds": 0.03350767706250002,
+            "relative_median_absolute_deviation": 0.028073670456703628,
+            "repeat_per_round": 16,
+            "result_sha256": "1c816c067b46e6cea208acfa8f8397701e80b4c5784f6b2936d5f3d37e20d0ef",
+            "rounds": 15,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.02087300815008375,
+            "steady_sample_count": 7,
+            "steady_seconds": 0.0356281510625,
+            "task_id": "affine_checksum-p2n"
+          }
+        },
+        "local": {
+          "variant": "local",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "affine_checksum-p2n",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0834,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_affine (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_affine_checksum_p2n/target.py"
+            ],
+            "changed_implementation_modules": 1,
+            "topology": "local",
+            "expected_local_paths": [
+              "perf_affine_checksum_p2n/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_affine_checksum_p2n/observer.py",
+              "perf_affine_checksum_p2n/shared.py",
+              "perf_affine_checksum_p2n/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.03936905794764819,
+            "maximum_seconds": 0.04945293749999999,
+            "mean_seconds": 0.04582005016666667,
+            "median_seconds": 0.04524801043750004,
+            "minimum_seconds": 0.043164497375,
+            "relative_median_absolute_deviation": 0.026266348255061567,
+            "repeat_per_round": 16,
+            "result_sha256": "1c816c067b46e6cea208acfa8f8397701e80b4c5784f6b2936d5f3d37e20d0ef",
+            "rounds": 15,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.012136980412677413,
+            "steady_sample_count": 7,
+            "steady_seconds": 0.04434986456250001,
+            "task_id": "affine_checksum-p2n"
+          }
+        },
+        "coordinated": {
+          "variant": "coordinated",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "affine_checksum-p2n",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0867,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_affine (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_affine_checksum_p2n/observer.py",
+              "perf_affine_checksum_p2n/shared.py",
+              "perf_affine_checksum_p2n/target.py"
+            ],
+            "changed_implementation_modules": 3,
+            "topology": "coordinated",
+            "expected_local_paths": [
+              "perf_affine_checksum_p2n/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_affine_checksum_p2n/observer.py",
+              "perf_affine_checksum_p2n/shared.py",
+              "perf_affine_checksum_p2n/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.05498821097055765,
+            "maximum_seconds": 0.03456919793749999,
+            "mean_seconds": 0.032528645483333334,
+            "median_seconds": 0.0333669583125,
+            "minimum_seconds": 0.028912919250000002,
+            "relative_median_absolute_deviation": 0.004014073930432577,
+            "repeat_per_round": 16,
+            "result_sha256": "1c816c067b46e6cea208acfa8f8397701e80b4c5784f6b2936d5f3d37e20d0ef",
+            "rounds": 15,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.0605539767477295,
+            "steady_sample_count": 7,
+            "steady_seconds": 0.03077656250000005,
+            "task_id": "affine_checksum-p2n"
+          }
+        }
+      }
+    }
+  ],
+  "passed": true,
+  "P2n_design_freeze_authorized": true,
+  "P2n_model_dispatch_authorized": false
+}

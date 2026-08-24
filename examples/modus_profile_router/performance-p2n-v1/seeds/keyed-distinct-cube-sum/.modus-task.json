@@ -1,0 +1,6 @@
+{
+  "schema": "modus-performance-p2n-public-task-v1",
+  "task_id": "keyed_distinct_cube_sum-p2n",
+  "algorithm_family": "keyed_distinct_cube_sum",
+  "implementation_package": "perf_keyed_distinct_cube_sum_p2n"
+}

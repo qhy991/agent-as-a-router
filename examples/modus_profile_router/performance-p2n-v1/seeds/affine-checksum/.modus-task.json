@@ -1,0 +1,6 @@
+{
+  "schema": "modus-performance-p2n-public-task-v1",
+  "task_id": "affine_checksum-p2n",
+  "algorithm_family": "affine_checksum",
+  "implementation_package": "perf_affine_checksum_p2n"
+}
