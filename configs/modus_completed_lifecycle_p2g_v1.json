@@ -1,0 +1,38 @@
+{
+  "schema": "acrouter-modus-completed-lifecycle-p2g-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "model": {"local_slug": "gpt-5.6-luna", "reasoning_effort": "max", "authentication": "ChatGPT login"},
+  "previous_lifecycle": "examples/modus_profile_router/partial-lifecycle-p2f-v1/results/lifecycle-result.json",
+  "previous_lifecycle_sha256": "56ecfe6b7c8d3b4115859a6b3ce4742f2eb1d38c0718652109fd4d5df5061317",
+  "qualification_resolution": "examples/modus_profile_router/partial-lifecycle-p2f-v1/p2g-resolution.json",
+  "qualification_resolution_sha256": "2bf6d0541806805c8782c2d73e6d68211fde5d24674822eb0a49a608c38ebf0c",
+  "continuation_worker": {
+    "stage": "stage-unqualified",
+    "profile": "e1v2",
+    "mechanism_id": "shared-token-frequency-v1",
+    "evidence_ref": "qualification:p2c:stage-S",
+    "profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/experimental-profiles/e1-v2/p100.md",
+    "profile_sha256": "c4d0326d4fb5afb14aa51aeb91653fa7771610a41eb53de019c87bf9ff3419e1",
+    "prompt": "examples/modus_profile_router/long-horizon-p2c-v1/stage-s-task.md",
+    "prompt_sha256": "1ceacb22c0807bc2fbe214ef08e280702da7c774d3b59354f97e5daa2236850a",
+    "parent_workspace": "examples/modus_profile_router/partial-lifecycle-p2g-v1/qualified-parent",
+    "parent_tree_sha256": "af9e9f971ed1736c2057b55118baaf6d7c59c12f03224c3967ac474d919d0874",
+    "parent_verification": "examples/modus_profile_router/partial-lifecycle-p2g-v1/stage-l-parent-verification.json",
+    "parent_verification_sha256": "3c36b93cd974960a75ed9f8b71af079b729e9dab3dd9167f895f0e22c267b133",
+    "parent_record": "examples/modus_profile_router/partial-lifecycle-p2g-v1/stage-s-parent.json",
+    "parent_record_sha256": "8329b88443fe532f98ec3be6ff0b4868443b359d53cd0b89f0ab5d43bcf875f2"
+  },
+  "execution": {"continuation_worker_cells": 1, "router_calls": 0, "neutral_fallbacks": 0, "automatic_redispatch": false},
+  "expected_lifecycle": {"status": "complete", "complete": true, "pending_qualification_requests": 0},
+  "provenance": {
+    "agent_router_commit_before_freeze": "515e235",
+    "registry": "configs/modus_mechanism_evidence_v2.json",
+    "stage_verifier": "scripts/verify_modus_long_horizon_p2c_stage.py",
+    "stage_verifier_sha256": "a5ffd3c5bc2b7e9e4cea6e0d170b5bee1fd717f95ef7715b182e64e6243846ee",
+    "scorer": "scripts/score_modus_completed_lifecycle_p2g.py",
+    "scorer_sha256": "7a5a1c523dcbb6e15cb50e65c92d116d1f63907437abaa7f497c2e6d27e76c43"
+  },
+  "failure_policy": {"invalid_worker": "remain partial", "automatic_redispatch": false, "no_model_substitution": true}
+}
+

@@ -1,0 +1,6 @@
+{
+  "schema": "modus-typed-stage-descriptors-v1",
+  "stages": [
+    {"stage": "stage-unqualified", "worker_model": "gpt-5.6-luna", "semantic_kind": "token_frequency", "reuse_batches": 120, "performance_objective": "latency_subject_to_correctness_then_tokens"}
+  ]
+}

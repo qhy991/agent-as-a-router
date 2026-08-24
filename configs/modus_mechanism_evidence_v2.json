@@ -1,0 +1,99 @@
+{
+  "schema": "acrouter-modus-mechanism-evidence-v1",
+  "worker_model": "gpt-5.6-luna",
+  "cost_metric": "complete_input_plus_output_tokens",
+  "mechanisms": [
+    {
+      "mechanism_id": "shared-ordered-search-v1",
+      "evidence_ref": "case:rankcount-prefixcount-n3",
+      "verified_profile": "p100",
+      "router_eligible": false,
+      "agent_router_eligible": false,
+      "typed_matcher_eligible": true,
+      "verification_status": "known_state_replicated_but_outcome_blind_semantic_matching_failed",
+      "semantic_predicate": {
+        "kind": "ordered_search",
+        "description": "Queries are answered from one reusable sorted representation without changing exact boundary or tie semantics."
+      },
+      "applicability": {
+        "minimum_reuse_batches": 2,
+        "setup_operation": "build one sorted representation",
+        "performance_objective": "latency_subject_to_correctness_then_tokens"
+      },
+      "evidence": [
+        {
+          "kind": "replicated_execution",
+          "path": "agentic-artifacts/modus-codex-luna-max-mechanism-aware-replication-v1.json",
+          "sha256": "085c2da28d290811a69beebcd6a3801bcbe7db7906fbcb3654a026e052976aec"
+        },
+        {
+          "kind": "applicability_contract",
+          "path": "agentic-artifacts/modus-codex-luna-max-nearest-applicability-router-v1.json",
+          "sha256": "d172132413d73f5b36f593c19f0821d539ace6b4c6f5e97317c222247771a114"
+        },
+        {
+          "kind": "outcome_blind_mixed_matching_failure",
+          "path": "agentic-artifacts/modus-codex-luna-max-lookup-interval-heldout-v1.json",
+          "sha256": "36a2ccf33a996111ec7c4adf4e47f6afc43e50f5f88d7b094f6146804c003a6d"
+        }
+      ]
+    },
+    {
+      "mechanism_id": "shared-prefix-sum-v1",
+      "evidence_ref": "qualification:p2b:stage-S",
+      "verified_profile": "e1v2",
+      "router_eligible": true,
+      "agent_router_eligible": true,
+      "typed_matcher_eligible": true,
+      "verification_status": "outcome_qualified_on_unseen_linked_rangesum_transfer",
+      "semantic_predicate": {
+        "kind": "additive_range_sum",
+        "description": "Inclusive-exclusive additive range queries are answered from one reusable prefix-sum representation."
+      },
+      "applicability": {
+        "minimum_reuse_batches": 2,
+        "setup_operation": "build one additive prefix representation",
+        "performance_objective": "latency_subject_to_correctness_then_tokens"
+      },
+      "evidence": [
+        {
+          "kind": "known_state_cross_family_execution",
+          "path": "agentic-artifacts/modus-codex-luna-max-rangesum-mechanism-binding-v1.json",
+          "sha256": "f5d2979d56b68f76fdd22d76f1e0225cf73c78823c42ee457ef06876358d04a1"
+        },
+        {
+          "kind": "outcome_qualification_envelope",
+          "path": "examples/modus_profile_router/long-horizon-p2b-v1/route-qualification.json",
+          "sha256": "4e0eeb4ee93e9675eeb6c1409a2659de9e45cab06e4c7508730599707554fd3d"
+        }
+      ]
+    },
+    {
+      "mechanism_id": "shared-token-frequency-v1",
+      "evidence_ref": "qualification:p2c:stage-S",
+      "verified_profile": "e1v2",
+      "router_eligible": true,
+      "agent_router_eligible": true,
+      "typed_matcher_eligible": true,
+      "verification_status": "outcome_qualified_on_unseen_linked_token_frequency_transfer",
+      "semantic_predicate": {
+        "kind": "token_frequency",
+        "description": "Exact token counts are answered from one reusable prepared Counter."
+      },
+      "applicability": {
+        "minimum_reuse_batches": 2,
+        "setup_operation": "build one exact token Counter",
+        "performance_objective": "latency_subject_to_correctness_then_tokens"
+      },
+      "evidence": [
+        {
+          "kind": "outcome_qualification_envelope",
+          "path": "examples/modus_profile_router/long-horizon-p2c-v1/route-qualification.json",
+          "sha256": "6d4cbb619c5d88c20d836732dfd6ac2597dc3b29071ce3d007db0477163e4ac4"
+        }
+      ]
+    }
+  ],
+  "dispatch_rule": "A trusted typed matcher may return only typed_matcher_eligible mechanisms whose worker model, semantic kind, performance objective, minimum reuse predicate, and outcome qualification evidence match exactly; Agent reasoning may run only after that filter and must retain the evidence ref.",
+  "claim_boundary": "This registry is the policy input for GPT-5.6 Luna only. Evidence from other models or Profiles requires a separate qualified entry."
+}

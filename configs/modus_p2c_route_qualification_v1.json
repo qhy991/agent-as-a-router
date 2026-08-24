@@ -1,0 +1,7 @@
+{
+  "schema": "modus-route-qualification-build-v1",
+  "route_entry_path": "examples/modus_profile_router/long-horizon-p2c-v1/route-cache.json",
+  "outcome_evidence_path": "agentic-artifacts/modus-codex-luna-max-long-horizon-p2c-transfer-v1.json",
+  "policy": {"performance_ratio_maximum": 1.25, "relative_mad_maximum": 0.10, "minimum_token_saving_fraction": 0.15},
+  "observed": {"correctness_passed": true, "performance_ratio": 1.0, "maximum_relative_mad": 0.082598235765838, "token_saving_fraction": 0.18652817362528085, "evidence_stable": true}
+}

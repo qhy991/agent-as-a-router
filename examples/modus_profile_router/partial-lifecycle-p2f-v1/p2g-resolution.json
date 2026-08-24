@@ -1,0 +1,15 @@
+{
+  "candidate_view_sha256": "7740a80d0520dc59b88e1ec987a5f58601d15a243d4b3923071e4dab526f7452",
+  "neutral_fallbacks": 0,
+  "request_id": "qualification:0e0b4cec4f6408f663e313036a862a2621d05f8a1125d02750eed8d9cb259cfd",
+  "request_sha256": "1a77ec96fa27aaaed4c7731c9d3488a109efd2df017e47540c5999a7ddf56829",
+  "schema": "modus-qualification-request-resolution-v1",
+  "stage": "stage-unqualified",
+  "status": "accepted",
+  "worker_dispatch": {
+    "evidence_ref": "qualification:p2c:stage-S",
+    "mechanism_id": "shared-token-frequency-v1",
+    "profile": "e1v2",
+    "stage": "stage-unqualified"
+  }
+}
