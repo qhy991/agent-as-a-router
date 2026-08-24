@@ -1,0 +1,10 @@
+{
+  "schema": "modus-long-horizon-p2c-public-task-v1",
+  "task_id": "frequency-linked-p2c",
+  "algorithm_family": "frequency-linked",
+  "implementation_package": "perf_linked_frequency",
+  "stages": [
+    "L",
+    "S"
+  ]
+}

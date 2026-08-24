@@ -1,0 +1,117 @@
+{
+  "schema": "modus-long-horizon-p2c-qualification-v1",
+  "task_id": "frequency-linked-p2c",
+  "model_outcomes_read": false,
+  "thresholds": {
+    "starter_speedup_minimum": 1.2,
+    "single_batch_local_noninferior_ratio": 1.25,
+    "final_stage_speedup_minimum": 5.0,
+    "oracle_relative_mad_maximum": 0.1
+  },
+  "lock": {
+    "success": true,
+    "message": "ok"
+  },
+  "checks": {
+    "lock": true,
+    "starter_stage_l_stage_s_correct": true,
+    "stage_l_topology_local": true,
+    "stage_s_topology_coordinated": true,
+    "stage_s_parent_is_exact_stage_l_output": true,
+    "stage_s_changes_stage_l_implementation": true,
+    "stage_l_result_equivalent": true,
+    "final_result_equivalent": true,
+    "starter_headroom": true,
+    "stage_l_noninferior_on_single_batch": true,
+    "stage_s_final_speedup": true,
+    "oracle_noise": true
+  },
+  "passed": true,
+  "digests": {
+    "stage_l_implementation": "be8bd921663299e9d72762a2c313193724d466aa593a2240defa023b2857153b",
+    "stage_s_parent": "be8bd921663299e9d72762a2c313193724d466aa593a2240defa023b2857153b",
+    "stage_s_implementation": "648cd465d4e248d9222aea80885df71a9a44998cb781302006362cbda600582f"
+  },
+  "benchmarks": {
+    "starter_stage_l": {
+      "coefficient_of_variation": 0.08979723721995068,
+      "maximum_seconds": 0.2974160835001385,
+      "mean_seconds": 0.2646418541650443,
+      "median_seconds": 0.2546957500017015,
+      "minimum_seconds": 0.2418137289932929,
+      "relative_median_absolute_deviation": 0.050578076031196316,
+      "repeat_per_round": 2,
+      "result_sha256": "93451ed5b24d63778e3d7c5c3c431450ce4bcc38c209473a80f72f16b3fcc1df",
+      "rounds": 3,
+      "schema": "modus-performance-p0-benchmark-v1",
+      "steady_relative_median_absolute_deviation": 0.050578076031196316,
+      "steady_sample_count": 3,
+      "steady_seconds": 0.2546957500017015,
+      "task_id": "frequency-linked-p2c"
+    },
+    "stage_l_single_batch": {
+      "coefficient_of_variation": 0.38763388388831616,
+      "maximum_seconds": 0.002922418296861906,
+      "mean_seconds": 0.0019687933307371472,
+      "median_seconds": 0.0016334985351704745,
+      "minimum_seconds": 0.0011461215821100268,
+      "relative_median_absolute_deviation": 0.29836387518375357,
+      "repeat_per_round": 256,
+      "result_sha256": "93451ed5b24d63778e3d7c5c3c431450ce4bcc38c209473a80f72f16b3fcc1df",
+      "rounds": 9,
+      "schema": "modus-performance-p0-benchmark-v1",
+      "steady_relative_median_absolute_deviation": 0.04155309698897681,
+      "steady_sample_count": 4,
+      "steady_seconds": 0.001196660156267626,
+      "task_id": "frequency-linked-p2c"
+    },
+    "stage_l_final": {
+      "coefficient_of_variation": 0.3299664145168819,
+      "maximum_seconds": 0.3915647914982401,
+      "mean_seconds": 0.23732479155619834,
+      "median_seconds": 0.19114616699516773,
+      "minimum_seconds": 0.1470059580024099,
+      "relative_median_absolute_deviation": 0.2309238510331924,
+      "repeat_per_round": 2,
+      "result_sha256": "bed21412a6bd38ffdb0eb95cfe260bc6efd962df73c06da686f94d4a2c205764",
+      "rounds": 9,
+      "schema": "modus-performance-p0-benchmark-v1",
+      "steady_relative_median_absolute_deviation": 0.057165496734922376,
+      "steady_sample_count": 4,
+      "steady_seconds": 0.1744268539987388,
+      "task_id": "frequency-linked-p2c"
+    },
+    "stage_s_single_batch": {
+      "coefficient_of_variation": 0.19539482602129726,
+      "maximum_seconds": 0.003017282552718825,
+      "mean_seconds": 0.002337299967665432,
+      "median_seconds": 0.0023640879707045315,
+      "minimum_seconds": 0.001321872802748203,
+      "relative_median_absolute_deviation": 0.09213587032759699,
+      "repeat_per_round": 512,
+      "result_sha256": "93451ed5b24d63778e3d7c5c3c431450ce4bcc38c209473a80f72f16b3fcc1df",
+      "rounds": 9,
+      "schema": "modus-performance-p0-benchmark-v1",
+      "steady_relative_median_absolute_deviation": 0.08573344091852123,
+      "steady_sample_count": 4,
+      "steady_seconds": 0.0020858282881022205,
+      "task_id": "frequency-linked-p2c"
+    },
+    "stage_s_final": {
+      "coefficient_of_variation": 0.2547724467042015,
+      "maximum_seconds": 0.002351755615222828,
+      "mean_seconds": 0.001533259647784588,
+      "median_seconds": 0.0014043571777619945,
+      "minimum_seconds": 0.0011594248046549183,
+      "relative_median_absolute_deviation": 0.1654494906240945,
+      "repeat_per_round": 512,
+      "result_sha256": "bed21412a6bd38ffdb0eb95cfe260bc6efd962df73c06da686f94d4a2c205764",
+      "rounds": 9,
+      "schema": "modus-performance-p0-benchmark-v1",
+      "steady_relative_median_absolute_deviation": 0.0058668106185406094,
+      "steady_sample_count": 4,
+      "steady_seconds": 0.0011725952958840935,
+      "task_id": "frequency-linked-p2c"
+    }
+  }
+}
