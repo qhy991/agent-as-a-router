@@ -1,0 +1,99 @@
+{
+  "schema": "acrouter-modus-connectivity-p1f-selected-workers-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "purpose": "validate the stable outcome-blind Agent route by comparing each selected Profile with neutral on unseen Connectivity tasks",
+  "expected_future_deployments": 8,
+  "model": {"local_slug": "gpt-5.6-luna", "reasoning_effort": "max", "authentication": "ChatGPT login"},
+  "profiles": {
+    "neutral": {"profile_path": "/private/tmp/modus-codex-spark-neutral-profile.md", "profile_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    "p000": {"profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/profiles/p000.md", "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282", "expected_topology": "local"},
+    "e1v2": {"profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/experimental-profiles/e1-v2/p100.md", "profile_sha256": "c4d0326d4fb5afb14aa51aeb91653fa7771610a41eb53de019c87bf9ff3419e1", "expected_topology": "coordinated", "status": "unqualified-before-holdout"}
+  },
+  "tasks": {
+    "connectivity-y01": {
+      "task_id": "connectivity-y01-perf-p1f",
+      "package": "perf_connectivity_y01",
+      "selected_action": "p000",
+      "actions": ["neutral", "p000"],
+      "prompt": "examples/modus_profile_router/connectivity-p1f-v1/connectivity-y01-task.md",
+      "prompt_sha256": "9ca41940168d7d85b117e1b984e2931b177eb713dfc48bd4faa18a5f50f8ae4f",
+      "seed_root": "examples/modus_profile_router/connectivity-p1f-v1/seeds/connectivity-y01",
+      "seed_files_sha256": {
+        "benchmark.py": "43077c610b902b2a30217a7dddd9c8a5ede87edc97f43bcf14b76a0127021372",
+        "perf_connectivity_y01/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "perf_connectivity_y01/api.py": "bc7d4f9005be8d23270301519ce0f27e68dfdfd7ae2a2d47a30d05524b04bd2e",
+        "perf_connectivity_y01/observer.py": "9f53a6f322c7743bbf3f0cb134f9d4b205983afa13ea6494df84e08d765dd226",
+        "perf_connectivity_y01/shared.py": "907cf29485630abdef6a1cf4626d956ae3430cb45b1d410ff12ec6f0097b766c",
+        "perf_connectivity_y01/target.py": "93da906ec01097fa69b3c3aeb9aaf2b16018c477d8e1e66d5c890f2ed892f4dd",
+        "tests/test_public.py": "c31f0c1f1e5e2c98bede2a15003c1942cd6a84b51118322592b53e41630d49fa"
+      }
+    },
+    "connectivity-y02": {
+      "task_id": "connectivity-y02-perf-p1f",
+      "package": "perf_connectivity_y02",
+      "selected_action": "e1v2",
+      "actions": ["neutral", "e1v2"],
+      "prompt": "examples/modus_profile_router/connectivity-p1f-v1/connectivity-y02-task.md",
+      "prompt_sha256": "8699078de317f63dd4c1180c37d7cf4182c0b84d9e3d290828499c15f5be1e52",
+      "seed_root": "examples/modus_profile_router/connectivity-p1f-v1/seeds/connectivity-y02",
+      "seed_files_sha256": {
+        "benchmark.py": "341a2cdab482ba514169da79e1fcf1e781b6ae3320a1bf75eee9132c1e090d82",
+        "perf_connectivity_y02/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "perf_connectivity_y02/api.py": "bc7d4f9005be8d23270301519ce0f27e68dfdfd7ae2a2d47a30d05524b04bd2e",
+        "perf_connectivity_y02/observer.py": "9f53a6f322c7743bbf3f0cb134f9d4b205983afa13ea6494df84e08d765dd226",
+        "perf_connectivity_y02/shared.py": "907cf29485630abdef6a1cf4626d956ae3430cb45b1d410ff12ec6f0097b766c",
+        "perf_connectivity_y02/target.py": "93da906ec01097fa69b3c3aeb9aaf2b16018c477d8e1e66d5c890f2ed892f4dd",
+        "tests/test_public.py": "98408c46dd8c9faf1e1c262e34c6de3b61e706d8b090d8b8987c1ef77481c537"
+      }
+    }
+  },
+  "matrix": {
+    "tasks": 2,
+    "repetitions_per_action": 2,
+    "cells": 8,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false,
+    "full_profile_matrix_completed": false
+  },
+  "scoring": {
+    "correctness_first": "every repetition passes public and hidden connectivity cases",
+    "topology": "p000 changes only target; e1v2 changes exactly observer, shared, and target; neutral unconstrained",
+    "e1v2_semantic_gate": "observer returns a non-raw prepared component representation consumed correctly by target",
+    "performance_ratio_maximum": 1.25,
+    "steady_relative_mad_maximum": 0.10,
+    "minimum_selected_worker_token_saving_fraction": 0.15,
+    "fallback": "retain neutral for a task when the selected action fails any gate",
+    "router_correctness": "selected action must equal the lowest-token eligible action within the evaluated selected-versus-neutral set",
+    "end_to_end_cost": "routed Worker medians plus 15,533.5 live Router tokens per deployment",
+    "economic_gate": "Router plus Worker acquisition and eight expected deployments"
+  },
+  "parent_router": {
+    "evidence_path": "agentic-artifacts/modus-codex-luna-max-connectivity-p1f-agent-router-v1.json",
+    "evidence_sha256": "bfc60a466a4246ba3dcd6df248a28f6e471320633f229ca23e15ffcf27b69a6b",
+    "score_path": "examples/modus_profile_router/connectivity-p1f-v1/router-results/score.json",
+    "score_sha256": "271089cc37ed5c5a2dd8da8daebb6607ab95badd13713e5c2f01e9cd2b6aa00d",
+    "stable_repetitions": 2,
+    "actions_by_task": {"connectivity-y01": "p000", "connectivity-y02": "e1v2"},
+    "acquisition_tokens": 31067,
+    "tokens_per_deployment": 15533.5
+  },
+  "failure_policy": {
+    "invalid_or_incomplete_cell": "preserve and do not redispatch",
+    "web_search_item": "cell invalid",
+    "no_model_substitution": true,
+    "post_hoc_route_or_gate_change": false
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "cc47a8a46ef001ef54be63271a39525392a276e0",
+    "modus_commit": "42e9e10",
+    "plugin_commit": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f",
+    "verifier_path": "scripts/verify_modus_connectivity_p1f_workers.py",
+    "verifier_sha256_at_freeze": "8f12e8c7c4ce9fd52b85a3250e73b483b2bcff8675a4c8d261ee5b358a41fe22",
+    "scorer_path": "scripts/score_modus_connectivity_p1f_workers.py",
+    "scorer_sha256_at_freeze": "db811e4557899e6ca98d431790ecf230d72daa961ce228c17c517d53950a58e4"
+  },
+  "claim_boundary": "This evaluates only the outcome-blind Agent-selected action against neutral on each task. It can validate the selected route and its net economics, but cannot identify the globally best action outside the evaluated selected-versus-neutral sets."
+}
+
