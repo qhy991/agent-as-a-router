@@ -1,0 +1,55 @@
+{
+  "schema": "acrouter-modus-luna-long-horizon-p2d-initial-result-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "prospective_cached_routing_evidence": true,
+  "router_and_cache": {
+    "agent_actions": {"stage-L": "e1v2", "stage-S": "p000"},
+    "agent_usage_tokens": 20788,
+    "cache_exact_replay": true,
+    "cache_router_model_calls": 0,
+    "cache_router_tokens_per_deployment": 0
+  },
+  "validity": {
+    "complete_pipelines": 2,
+    "stage_verifications_passed": 4,
+    "parent_bindings_passed": 2,
+    "reverse_route_stage_l_e1v2_mechanism": true,
+    "stage_s_p000_target_only_delta": true,
+    "stage_s_prepared_mechanism_preserved": true,
+    "final_correctness": "2/2"
+  },
+  "first_pair": {
+    "routed_final_seconds": 0.0016915,
+    "neutral_final_seconds": 0.001392,
+    "routed_final_ratio": 1.2151580459770115,
+    "routed_worker_tokens": 245896,
+    "neutral_worker_tokens": 319120,
+    "worker_saving_fraction": 0.22945600401103028,
+    "maximum_relative_mad": 0.14224137931034486
+  },
+  "cached_primary_economics_before_replication": {
+    "acquisition_tokens": 585804,
+    "candidate_deployment_tokens": 245896,
+    "saving_per_deployment_tokens": 73224,
+    "break_even_deployments": 9,
+    "expected_deployments": 8,
+    "net_tokens_at_expected_deployments": -12
+  },
+  "trigger": {
+    "near_threshold": true,
+    "noise_above_10_percent": true,
+    "second_pair_required": true,
+    "promotion_allowed": false
+  },
+  "files": {
+    "route_cache": "examples/modus_profile_router/long-horizon-p2d-v1/route-cache.json",
+    "execution_summary": "examples/modus_profile_router/long-horizon-p2d-v1/pipeline-results/first-pair/execution-summary.json",
+    "score": "examples/modus_profile_router/long-horizon-p2d-v1/pipeline-results/first-pair/score.json",
+    "route_cache_sha256": "19393010bc891ba407b99eb5ad73619179acea2d47b6390b5b7907e788564fe2",
+    "execution_summary_sha256": "08021f04cd4c13fc45d95b370cff32e8de5ad396aedece4b2381cd2ec86f5ed8",
+    "score_sha256": "661c3255c4a99695715991e8ecd08659376b9afeefdba3c2d4e240ce65696668"
+  },
+  "claim_boundary": "The cache creation and zero-model replay are prospective and the reverse linked route is valid. The first-pair performance/noise triggers require a second pair; the apparent near-break-even cached economics cannot be promoted."
+}
+

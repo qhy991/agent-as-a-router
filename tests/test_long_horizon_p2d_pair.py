@@ -5,6 +5,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "configs/modus_long_horizon_p2d_cached_pair_v1.json"
+EVIDENCE = ROOT / "agentic-artifacts/modus-codex-luna-max-long-horizon-p2d-initial-v1.json"
 
 class LongHorizonP2dPairTest(unittest.TestCase):
     def test_reverse_route_cache_and_primary_cost_are_frozen(self):
@@ -25,5 +26,18 @@ class LongHorizonP2dPairTest(unittest.TestCase):
             self.assertEqual(hashlib.sha256(Path(profile["profile_path"]).read_bytes()).hexdigest(), profile["profile_sha256"])
         for path_key, hash_key in (("pipeline_runner_path", "pipeline_runner_sha256"), ("stage_verifier_path", "stage_verifier_sha256"), ("scorer_path", "scorer_sha256")):
             self.assertEqual(hashlib.sha256((ROOT / value["provenance"][path_key]).read_bytes()).hexdigest(), value["provenance"][hash_key])
+
+    def test_first_pair_defers_on_threshold_and_noise(self):
+        value = json.loads(EVIDENCE.read_text())
+        self.assertTrue(value["prospective_cached_routing_evidence"])
+        self.assertTrue(value["router_and_cache"]["cache_exact_replay"])
+        self.assertEqual(value["router_and_cache"]["cache_router_model_calls"], 0)
+        self.assertTrue(value["trigger"]["near_threshold"])
+        self.assertTrue(value["trigger"]["noise_above_10_percent"])
+        self.assertTrue(value["trigger"]["second_pair_required"])
+        self.assertFalse(value["trigger"]["promotion_allowed"])
+        self.assertEqual(value["cached_primary_economics_before_replication"]["net_tokens_at_expected_deployments"], -12)
+        for name, hash_key in (("route_cache", "route_cache_sha256"), ("execution_summary", "execution_summary_sha256"), ("score", "score_sha256")):
+            self.assertEqual(hashlib.sha256((ROOT / value["files"][name]).read_bytes()).hexdigest(), value["files"][hash_key])
 
 if __name__ == "__main__": unittest.main()

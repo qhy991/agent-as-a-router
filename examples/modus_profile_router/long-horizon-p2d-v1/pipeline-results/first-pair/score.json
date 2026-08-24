@@ -1,0 +1,81 @@
+{
+  "acquisition_tokens": 585804,
+  "decision": "second_pair_required",
+  "deployment": {
+    "cached_router_tokens": 0,
+    "e2e_saving_fraction": 0.22945600401103028,
+    "live_agent_counterfactual_saving_fraction": 0.16431436450238157,
+    "live_agent_counterfactual_tokens": 266684,
+    "neutral_worker_tokens": 319120,
+    "routed_e2e_tokens": 245896,
+    "routed_worker_tokens": 245896,
+    "worker_saving_fraction": 0.22945600401103028
+  },
+  "economics": {
+    "acquisition_tokens": 585804,
+    "baseline_deployment_tokens": 319120,
+    "break_even_deployments": 9,
+    "candidate_deployment_tokens": 245896,
+    "correctness_passed": false,
+    "decision": "defer_correctness",
+    "evidence_stable": false,
+    "expected_deployments": 8,
+    "minimum_saving_fraction": 0.15,
+    "net_tokens_at_expected_deployments": -12,
+    "performance_passed": false,
+    "saving_fraction": 0.22945600401103028,
+    "saving_per_deployment_tokens": 73224
+  },
+  "gates": {
+    "both_pipelines_valid": true,
+    "final_performance": true,
+    "noise": false,
+    "stage_l_performance": true,
+    "worker_token_saving": true
+  },
+  "performance": {
+    "final_routed_ratio_to_fastest": 1.2151580459770115,
+    "stage_l_routed_ratio_to_fastest": 1.0
+  },
+  "pipelines": [
+    {
+      "arm": "routed",
+      "final_seconds": 0.0016914999999999999,
+      "id": "pair1-routed",
+      "maximum_relative_mad": 0.03813183564883246,
+      "order": 1,
+      "pair": 1,
+      "parent_bound": true,
+      "parent_record_sha256": "ee8ca56894bf1ba647f0feb2d0124be5eb07162f4d4c2b85bb4f535cbc4c3d98",
+      "stage_l_seconds": 0.0012625000000000002,
+      "stage_l_verification_sha256": "348756432b9bcfe328822bdcd1c936f47397f84de3f9a8f5cbeb2c462735d74e",
+      "stage_s_verification_sha256": "d90e57c6a4778ae0fd5a6970286b7d6ad5c167583bfc29b89430001eac64bb0c",
+      "valid": true,
+      "worker_tokens": 245896
+    },
+    {
+      "arm": "neutral",
+      "final_seconds": 0.001392,
+      "id": "pair1-neutral",
+      "maximum_relative_mad": 0.14224137931034486,
+      "order": 2,
+      "pair": 1,
+      "parent_bound": true,
+      "parent_record_sha256": "8be3fd66b57211a14b8f9e9458e4a455fe2e413d1394bfafe2cee1d85e00381a",
+      "stage_l_seconds": 0.001305,
+      "stage_l_verification_sha256": "dab51633f29f6c7513a8a3f8c52e363b879fb8ee349d5dd88f03c974c02d1284",
+      "stage_s_verification_sha256": "73bed5d8afc4f47f2b4f8e35af6ceb61da0d51eaacd2b9b2b9ea89ad48904961",
+      "valid": true,
+      "worker_tokens": 319120
+    }
+  ],
+  "schema": "modus-long-horizon-p2d-first-pair-score-v1",
+  "status": "pass",
+  "trigger": {
+    "reasons": [
+      "final performance is within five percent of 1.25x",
+      "relative MAD exceeds 0.10"
+    ],
+    "triggered": true
+  }
+}

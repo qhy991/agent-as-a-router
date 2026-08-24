@@ -946,3 +946,18 @@ break even at deployment 8 with 9,371 tokens positive; that arithmetic remains
 post-outcome until a new P2d contract validates first-call creation and later
 exact hits prospectively. See
 [`agentic-artifacts/modus-route-cache-p2c-mechanism-v1.json`](../agentic-artifacts/modus-route-cache-p2c-mechanism-v1.json).
+
+### Prospective cached-routing P2d first pair
+
+On unseen linked Membership, one Agent call selected a new reverse route:
+Stage L→e1-v2 prepares the reusable representation early, then Stage S→p000
+changes only target relative to the exact parent. The hash-bound entry replayed
+that route with zero model calls before any Worker outcome. Both pipelines and
+all mechanism, parent, topology, custody, and correctness gates passed.
+
+The cached route uses 22.9% fewer Worker tokens, but the first pair is not
+conclusive. Routed final performance is 1.215x neutral, inside the frozen near-
+threshold band, and neutral relative MAD is 14.2%. Cached economics miss the
+eight-deployment horizon by only 12 tokens, but the precommitted rule requires
+a reversed second pair before any conclusion. See
+[`agentic-artifacts/modus-codex-luna-max-long-horizon-p2d-initial-v1.json`](../agentic-artifacts/modus-codex-luna-max-long-horizon-p2d-initial-v1.json).
