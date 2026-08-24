@@ -1,0 +1,506 @@
+{
+  "schema": "modus-performance-p2q-qualification-v1",
+  "profile_outcomes_read": false,
+  "task_count": 3,
+  "algorithm_family_count": 3,
+  "thresholds": {
+    "oracle_relative_median_absolute_deviation_maximum": 0.1,
+    "preference_contrast_minimum_or_noninferiority": 1.25,
+    "direct_noninferiority_ratio_maximum": 1.5,
+    "default_oracle_rounds": 15,
+    "local_selected_oracle_rounds": 25,
+    "shared_selected_oracle_rounds": 25
+  },
+  "lock": {
+    "success": true,
+    "message": "ok"
+  },
+  "tasks": [
+    {
+      "task_id": "keyed_closest_negative-p2q",
+      "family": "keyed_closest_negative",
+      "expected_preference": "p000v2",
+      "expected_variant": "local",
+      "contrast_ratio": 2.724995409824434,
+      "checks": {
+        "all_variants_correct": true,
+        "variant_result_digests_equal": true,
+        "topologies_exact": true,
+        "expected_variant_noise_within_limit": true,
+        "expected_preference_contrast": true
+      },
+      "passed": true,
+      "variants": {
+        "starter": {
+          "variant": "starter",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "keyed_closest_negative-p2q",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.034,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_closest_negative (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [],
+            "changed_implementation_modules": 0,
+            "topology": "other",
+            "expected_local_paths": [
+              "perf_keyed_closest_negative_p2q/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_keyed_closest_negative_p2q/observer.py",
+              "perf_keyed_closest_negative_p2q/shared.py",
+              "perf_keyed_closest_negative_p2q/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.0005066121831367242,
+            "maximum_seconds": 2.4441028749999996,
+            "mean_seconds": 2.443172278,
+            "median_seconds": 2.443990917,
+            "minimum_seconds": 2.4414230420000003,
+            "relative_median_absolute_deviation": 4.580949921744146e-05,
+            "repeat_per_round": 1,
+            "result_sha256": "0baa57bd219eeb7ccace644ff9720ce5017fc681d42158f310af35c3bbea8468",
+            "rounds": 3,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 4.580949921744146e-05,
+            "steady_sample_count": 3,
+            "steady_seconds": 2.443990917,
+            "task_id": "keyed_closest_negative-p2q"
+          }
+        },
+        "local": {
+          "variant": "local",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "keyed_closest_negative-p2q",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0384,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_closest_negative (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_keyed_closest_negative_p2q/target.py"
+            ],
+            "changed_implementation_modules": 1,
+            "topology": "local",
+            "expected_local_paths": [
+              "perf_keyed_closest_negative_p2q/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_keyed_closest_negative_p2q/observer.py",
+              "perf_keyed_closest_negative_p2q/shared.py",
+              "perf_keyed_closest_negative_p2q/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.004629464439447342,
+            "maximum_seconds": 0.0066362428359375,
+            "mean_seconds": 0.006556065065937501,
+            "median_seconds": 0.006545563476562488,
+            "minimum_seconds": 0.0065220211640625025,
+            "relative_median_absolute_deviation": 0.002055850985658889,
+            "repeat_per_round": 128,
+            "result_sha256": "0baa57bd219eeb7ccace644ff9720ce5017fc681d42158f310af35c3bbea8468",
+            "rounds": 25,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.0007146301171577228,
+            "steady_sample_count": 12,
+            "steady_seconds": 0.006533378746093752,
+            "task_id": "keyed_closest_negative-p2q"
+          }
+        },
+        "coordinated": {
+          "variant": "coordinated",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "keyed_closest_negative-p2q",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0382,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_closest_negative (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_keyed_closest_negative_p2q/observer.py",
+              "perf_keyed_closest_negative_p2q/shared.py",
+              "perf_keyed_closest_negative_p2q/target.py"
+            ],
+            "changed_implementation_modules": 3,
+            "topology": "coordinated",
+            "expected_local_paths": [
+              "perf_keyed_closest_negative_p2q/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_keyed_closest_negative_p2q/observer.py",
+              "perf_keyed_closest_negative_p2q/shared.py",
+              "perf_keyed_closest_negative_p2q/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.014863186283528644,
+            "maximum_seconds": 0.018756697906249994,
+            "mean_seconds": 0.018010443143749996,
+            "median_seconds": 0.01802583075,
+            "minimum_seconds": 0.017656671874999974,
+            "relative_median_absolute_deviation": 0.009895090064018433,
+            "repeat_per_round": 32,
+            "result_sha256": "0baa57bd219eeb7ccace644ff9720ce5017fc681d42158f310af35c3bbea8468",
+            "rounds": 15,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.005276736861127393,
+            "steady_sample_count": 7,
+            "steady_seconds": 0.01780342709374999,
+            "task_id": "keyed_closest_negative-p2q"
+          }
+        }
+      }
+    },
+    {
+      "task_id": "keyed_distinct_quartic_sum-p2q",
+      "family": "keyed_distinct_quartic_sum",
+      "expected_preference": "e1v3",
+      "expected_variant": "coordinated",
+      "contrast_ratio": 3.914730433682184,
+      "checks": {
+        "all_variants_correct": true,
+        "variant_result_digests_equal": true,
+        "topologies_exact": true,
+        "expected_variant_noise_within_limit": true,
+        "expected_preference_contrast": true
+      },
+      "passed": true,
+      "variants": {
+        "starter": {
+          "variant": "starter",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "keyed_distinct_quartic_sum-p2q",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0345,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_quartic_sum (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [],
+            "changed_implementation_modules": 0,
+            "topology": "other",
+            "expected_local_paths": [
+              "perf_keyed_distinct_quartic_sum_p2q/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_keyed_distinct_quartic_sum_p2q/observer.py",
+              "perf_keyed_distinct_quartic_sum_p2q/shared.py",
+              "perf_keyed_distinct_quartic_sum_p2q/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.001539699885354509,
+            "maximum_seconds": 2.4597581249999996,
+            "mean_seconds": 2.4544498193333326,
+            "median_seconds": 2.4523332499999997,
+            "minimum_seconds": 2.451258082999999,
+            "relative_median_absolute_deviation": 0.0004384261396776536,
+            "repeat_per_round": 1,
+            "result_sha256": "0bdacfcd427a26b8181c81576e0345528c4497c847ec0ef1b7ecc4f0ee9e2721",
+            "rounds": 3,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.0004384261396776536,
+            "steady_sample_count": 3,
+            "steady_seconds": 2.4523332499999997,
+            "task_id": "keyed_distinct_quartic_sum-p2q"
+          }
+        },
+        "local": {
+          "variant": "local",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "keyed_distinct_quartic_sum-p2q",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0365,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_quartic_sum (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_keyed_distinct_quartic_sum_p2q/target.py"
+            ],
+            "changed_implementation_modules": 1,
+            "topology": "local",
+            "expected_local_paths": [
+              "perf_keyed_distinct_quartic_sum_p2q/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_keyed_distinct_quartic_sum_p2q/observer.py",
+              "perf_keyed_distinct_quartic_sum_p2q/shared.py",
+              "perf_keyed_distinct_quartic_sum_p2q/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.06093822377254013,
+            "maximum_seconds": 0.6661559160000001,
+            "mean_seconds": 0.5430629360666666,
+            "median_seconds": 0.5335069159999999,
+            "minimum_seconds": 0.5299310840000002,
+            "relative_median_absolute_deviation": 0.0026740496837329756,
+            "repeat_per_round": 1,
+            "result_sha256": "0bdacfcd427a26b8181c81576e0345528c4497c847ec0ef1b7ecc4f0ee9e2721",
+            "rounds": 15,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.0018303158651863142,
+            "steady_sample_count": 7,
+            "steady_seconds": 0.5320802920000007,
+            "task_id": "keyed_distinct_quartic_sum-p2q"
+          }
+        },
+        "coordinated": {
+          "variant": "coordinated",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "keyed_distinct_quartic_sum-p2q",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0344,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_quartic_sum (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_keyed_distinct_quartic_sum_p2q/observer.py",
+              "perf_keyed_distinct_quartic_sum_p2q/shared.py",
+              "perf_keyed_distinct_quartic_sum_p2q/target.py"
+            ],
+            "changed_implementation_modules": 3,
+            "topology": "coordinated",
+            "expected_local_paths": [
+              "perf_keyed_distinct_quartic_sum_p2q/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_keyed_distinct_quartic_sum_p2q/observer.py",
+              "perf_keyed_distinct_quartic_sum_p2q/shared.py",
+              "perf_keyed_distinct_quartic_sum_p2q/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.008607146595213843,
+            "maximum_seconds": 0.14107697924999996,
+            "mean_seconds": 0.13673193458,
+            "median_seconds": 0.13647407300000003,
+            "minimum_seconds": 0.13544825000000005,
+            "relative_median_absolute_deviation": 0.004565504540923776,
+            "repeat_per_round": 4,
+            "result_sha256": "0bdacfcd427a26b8181c81576e0345528c4497c847ec0ef1b7ecc4f0ee9e2721",
+            "rounds": 25,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.0014660393665534318,
+            "steady_sample_count": 12,
+            "steady_seconds": 0.13591747912500007,
+            "task_id": "keyed_distinct_quartic_sum-p2q"
+          }
+        }
+      }
+    },
+    {
+      "task_id": "rotate_mix32-p2q",
+      "family": "rotate_mix32",
+      "expected_preference": "neutral",
+      "expected_variant": "starter",
+      "contrast_ratio": 1.0321348699355277,
+      "checks": {
+        "all_variants_correct": true,
+        "variant_result_digests_equal": true,
+        "topologies_exact": true,
+        "expected_variant_noise_within_limit": false,
+        "expected_preference_contrast": true
+      },
+      "passed": false,
+      "variants": {
+        "starter": {
+          "variant": "starter",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "rotate_mix32-p2q",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.035,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_rotate_mix (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [],
+            "changed_implementation_modules": 0,
+            "topology": "other",
+            "expected_local_paths": [
+              "perf_rotate_mix32_p2q/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_rotate_mix32_p2q/observer.py",
+              "perf_rotate_mix32_p2q/shared.py",
+              "perf_rotate_mix32_p2q/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.1763159249585829,
+            "maximum_seconds": 0.09284589062499993,
+            "mean_seconds": 0.07146373958750002,
+            "median_seconds": 0.07534170312499999,
+            "minimum_seconds": 0.05103361718749999,
+            "relative_median_absolute_deviation": 0.07775107536102714,
+            "repeat_per_round": 16,
+            "result_sha256": "8e5e4008fc0ab26143155e9bc259ec2f1a7fd418af0e599b3cff179386542b37",
+            "rounds": 15,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.117018702423912,
+            "steady_sample_count": 7,
+            "steady_seconds": 0.05779694012500003,
+            "task_id": "rotate_mix32-p2q"
+          }
+        },
+        "local": {
+          "variant": "local",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "rotate_mix32-p2q",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0519,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_rotate_mix (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_rotate_mix32_p2q/target.py"
+            ],
+            "changed_implementation_modules": 1,
+            "topology": "local",
+            "expected_local_paths": [
+              "perf_rotate_mix32_p2q/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_rotate_mix32_p2q/observer.py",
+              "perf_rotate_mix32_p2q/shared.py",
+              "perf_rotate_mix32_p2q/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.054428516530810205,
+            "maximum_seconds": 0.06475804943749996,
+            "mean_seconds": 0.05919785190416666,
+            "median_seconds": 0.05901113281249998,
+            "minimum_seconds": 0.055030224000000016,
+            "relative_median_absolute_deviation": 0.03541929654428254,
+            "repeat_per_round": 16,
+            "result_sha256": "8e5e4008fc0ab26143155e9bc259ec2f1a7fd418af0e599b3cff179386542b37",
+            "rounds": 15,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.01649237493435805,
+            "steady_sample_count": 7,
+            "steady_seconds": 0.05599746875,
+            "task_id": "rotate_mix32-p2q"
+          }
+        },
+        "coordinated": {
+          "variant": "coordinated",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "rotate_mix32-p2q",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0436,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_rotate_mix (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_rotate_mix32_p2q/observer.py",
+              "perf_rotate_mix32_p2q/shared.py",
+              "perf_rotate_mix32_p2q/target.py"
+            ],
+            "changed_implementation_modules": 3,
+            "topology": "coordinated",
+            "expected_local_paths": [
+              "perf_rotate_mix32_p2q/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_rotate_mix32_p2q/observer.py",
+              "perf_rotate_mix32_p2q/shared.py",
+              "perf_rotate_mix32_p2q/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.03652482482902927,
+            "maximum_seconds": 0.07496947387500008,
+            "mean_seconds": 0.07022760245000002,
+            "median_seconds": 0.069292765625,
+            "minimum_seconds": 0.06675227087499996,
+            "relative_median_absolute_deviation": 0.0352768752690406,
+            "repeat_per_round": 8,
+            "result_sha256": "8e5e4008fc0ab26143155e9bc259ec2f1a7fd418af0e599b3cff179386542b37",
+            "rounds": 15,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.010348392904828533,
+            "steady_sample_count": 7,
+            "steady_seconds": 0.06819395837499997,
+            "task_id": "rotate_mix32-p2q"
+          }
+        }
+      }
+    }
+  ],
+  "passed": false,
+  "P2q_design_freeze_authorized": false,
+  "P2q_model_dispatch_authorized": false
+}

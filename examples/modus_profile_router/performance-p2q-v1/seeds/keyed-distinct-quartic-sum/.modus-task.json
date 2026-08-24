@@ -1,0 +1,6 @@
+{
+  "schema": "modus-performance-p2q-public-task-v1",
+  "task_id": "keyed_distinct_quartic_sum-p2q",
+  "algorithm_family": "keyed_distinct_quartic_sum",
+  "implementation_package": "perf_keyed_distinct_quartic_sum_p2q"
+}

@@ -1,0 +1,6 @@
+{
+  "schema": "modus-performance-p2q-public-task-v1",
+  "task_id": "keyed_closest_negative-p2q",
+  "algorithm_family": "keyed_closest_negative",
+  "implementation_package": "perf_keyed_closest_negative_p2q"
+}

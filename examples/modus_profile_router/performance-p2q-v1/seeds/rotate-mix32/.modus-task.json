@@ -1,0 +1,6 @@
+{
+  "schema": "modus-performance-p2q-public-task-v1",
+  "task_id": "rotate_mix32-p2q",
+  "algorithm_family": "rotate_mix32",
+  "implementation_package": "perf_rotate_mix32_p2q"
+}
