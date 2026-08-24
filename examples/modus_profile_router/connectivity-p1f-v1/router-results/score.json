@@ -1,0 +1,63 @@
+{
+  "cells": [
+    {
+      "cell": "router-r1",
+      "last_message_sha256": "1872384d5e4883b6d7ce8bb05aa9a8f8563a22aee07607b2dced42c67efc9739",
+      "parse_error": null,
+      "parsed": {
+        "actions_by_task": {
+          "connectivity-y01-perf-p1f": "p000",
+          "connectivity-y02-perf-p1f": "e1v2"
+        },
+        "reasons_by_task": {
+          "connectivity-y01-perf-p1f": "One batch makes local preparation feasible with lower expected token use.",
+          "connectivity-y02-perf-p1f": "Reusable shared indexing amortizes preparation across 120 batches."
+        }
+      },
+      "total_tokens": 15473,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 0,
+        "input_tokens": 15023,
+        "output_tokens": 450,
+        "reasoning_output_tokens": 358
+      },
+      "valid_execution": true
+    },
+    {
+      "cell": "router-r2",
+      "last_message_sha256": "1566ed7746c7eb54af7a94a4338ede98b6effac5a799e75d4851bbde5b44547e",
+      "parse_error": null,
+      "parsed": {
+        "actions_by_task": {
+          "connectivity-y01-perf-p1f": "p000",
+          "connectivity-y02-perf-p1f": "e1v2"
+        },
+        "reasons_by_task": {
+          "connectivity-y01-perf-p1f": "One batch has no cross-batch reuse, so target-local preparation is feasible with lower overhead.",
+          "connectivity-y02-perf-p1f": "120 batches make repeated local preparation infeasible; a shared reusable index preserves performance feasibility."
+        }
+      },
+      "total_tokens": 15594,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 0,
+        "input_tokens": 15023,
+        "output_tokens": 571,
+        "reasoning_output_tokens": 466
+      },
+      "valid_execution": true
+    }
+  ],
+  "decision": "freeze_selected_worker_protocol",
+  "router_acquisition_tokens": 31067,
+  "router_tokens_per_deployment": 15533.5,
+  "schema": "modus-connectivity-p1f-router-validation-v1",
+  "stable_actions_by_task": {
+    "connectivity-y01-perf-p1f": "p000",
+    "connectivity-y02-perf-p1f": "e1v2"
+  },
+  "stable_repetitions": 2,
+  "status": "pass",
+  "worker_protocol_authorized": true
+}

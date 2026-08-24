@@ -796,3 +796,19 @@ but the candidate remains unqualified because the task was used for
 development. The result authorizes a different unseen connectivity holdout;
 it is excluded from Router and deployment-economics evidence. See
 [`agentic-artifacts/modus-codex-luna-max-reachability-e1v2-calibration-v1.json`](../agentic-artifacts/modus-codex-luna-max-reachability-e1v2-calibration-v1.json).
+
+### Outcome-blind Agent route on unseen Connectivity P1f
+
+Modus `42e9e10` added an unseen undirected-connectivity pair with one and 120
+query batches. Before any Worker outcome, two gpt-5.6-luna max Router calls saw
+only trusted contract/reuse descriptors and the three available action
+mechanisms. Both returned the same route: Y01→p000 and Y02→e1-v2. Their reasons
+consistently mapped single-batch work to local preparation and multi-batch
+work to amortized shared preprocessing.
+
+Both responses were exact valid JSON with complete usage. Router acquisition
+was 31,067 tokens and its median live cost is 15,533.5 tokens per future
+two-task deployment. This cost is frozen into the upcoming end-to-end
+economics. The result authorizes a separately frozen selected-action Worker
+comparison, but does not yet validate either route. See
+[`agentic-artifacts/modus-codex-luna-max-connectivity-p1f-agent-router-v1.json`](../agentic-artifacts/modus-codex-luna-max-connectivity-p1f-agent-router-v1.json).

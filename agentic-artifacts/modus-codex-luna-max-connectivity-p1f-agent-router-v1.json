@@ -1,0 +1,44 @@
+{
+  "schema": "acrouter-modus-luna-connectivity-p1f-agent-router-result-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "outcome_blind_router_evidence": true,
+  "model": {"slug": "gpt-5.6-luna", "reasoning_effort": "max", "authentication": "ChatGPT login"},
+  "protocol": {
+    "commit_at_dispatch": "3b4d7ab",
+    "manifest_sha256": "11bf6bdc17b235cd2c97d635f10476fed16841fb7e952dcf630fc1406b7a6a9d",
+    "worker_outcomes_available": false,
+    "router_repetitions": 2,
+    "automatic_redispatch": false
+  },
+  "execution": {
+    "valid_cells": 2,
+    "parsed_cells": 2,
+    "stable_repetitions": 2,
+    "complete_usage_cells": 2,
+    "web_search_cells": 0,
+    "router_acquisition_tokens": 31067,
+    "router_tokens_per_future_deployment": 15533.5,
+    "wave_result_sha256": "188f758a5583c4053fa80c8c37dba3982a3c7d9d6aa45977223c653df1c72a2a",
+    "score_sha256": "271089cc37ed5c5a2dd8da8daebb6607ab95badd13713e5c2f01e9cd2b6aa00d"
+  },
+  "stable_route": {
+    "connectivity-y01-perf-p1f": "p000",
+    "connectivity-y02-perf-p1f": "e1v2"
+  },
+  "reasoning_signal": {
+    "y01": "both repetitions associated one batch with target-local preparation",
+    "y02": "both repetitions associated 120 batches with amortized shared preprocessing"
+  },
+  "decision": {
+    "worker_protocol_authorized": true,
+    "worker_protocol_frozen_before_outcomes": false,
+    "next_action": "freeze only the selected action versus neutral for each task, two repetitions each"
+  },
+  "files": {
+    "wave_result": "examples/modus_profile_router/connectivity-p1f-v1/router-results/wave-result.json",
+    "score": "examples/modus_profile_router/connectivity-p1f-v1/router-results/score.json"
+  },
+  "claim_boundary": "This proves only that the Agent stably maps trusted reuse features to p000/e1-v2 before Worker outcomes. It does not yet show that either choice is correct, cost-effective, or better than fixed neutral."
+}
+

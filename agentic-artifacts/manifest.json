@@ -119,7 +119,9 @@
     "profile_luna_max_reachability_p1e_final": "modus-codex-luna-max-reachability-p1e-final-v1.json",
     "profile_luna_max_reachability_p1e_p100_protocol": "../configs/modus_reachability_luna_p1e_p100_followup_v1.json",
     "profile_luna_max_reachability_e1v2_calibration": "modus-codex-luna-max-reachability-e1v2-calibration-v1.json",
-    "profile_luna_max_reachability_e1v2_protocol": "../configs/modus_reachability_luna_p1e_e1v2_calibration_v1.json"
+    "profile_luna_max_reachability_e1v2_protocol": "../configs/modus_reachability_luna_p1e_e1v2_calibration_v1.json",
+    "profile_luna_max_connectivity_p1f_agent_router": "modus-codex-luna-max-connectivity-p1f-agent-router-v1.json",
+    "profile_luna_max_connectivity_p1f_router_protocol": "../configs/modus_connectivity_p1f_agent_router_v1.json"
   },
   "headline_metrics": {
     "id": {

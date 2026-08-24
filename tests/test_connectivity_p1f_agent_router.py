@@ -8,6 +8,7 @@ from scripts.score_modus_connectivity_p1f_router import _parse_decision, _usage_
 
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "configs/modus_connectivity_p1f_agent_router_v1.json"
+EVIDENCE = ROOT / "agentic-artifacts/modus-codex-luna-max-connectivity-p1f-agent-router-v1.json"
 
 
 class ConnectivityP1fAgentRouterTest(unittest.TestCase):
@@ -63,6 +64,22 @@ class ConnectivityP1fAgentRouterTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             _parse_decision(payload.replace('"e1v2"', '"p100"'), tasks, actions)
         self.assertEqual(_usage_tokens({"input_tokens": 6, "output_tokens": 2}), 8)
+
+    def test_outcome_blind_router_evidence_is_stable_and_hash_bound(self):
+        value = json.loads(EVIDENCE.read_text(encoding="utf-8"))
+        self.assertFalse(value["scientific_evidence"])
+        self.assertTrue(value["outcome_blind_router_evidence"])
+        self.assertEqual(value["stable_route"], {
+            "connectivity-y01-perf-p1f": "p000",
+            "connectivity-y02-perf-p1f": "e1v2",
+        })
+        self.assertTrue(value["decision"]["worker_protocol_authorized"])
+        self.assertFalse(value["decision"]["worker_protocol_frozen_before_outcomes"])
+        for name, digest in (
+            ("wave_result", "188f758a5583c4053fa80c8c37dba3982a3c7d9d6aa45977223c653df1c72a2a"),
+            ("score", "271089cc37ed5c5a2dd8da8daebb6607ab95badd13713e5c2f01e9cd2b6aa00d"),
+        ):
+            self.assertEqual(hashlib.sha256((ROOT / value["files"][name]).read_bytes()).hexdigest(), digest)
 
 
 if __name__ == "__main__":
