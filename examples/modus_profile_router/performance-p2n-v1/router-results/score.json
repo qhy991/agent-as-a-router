@@ -1,0 +1,18 @@
+{
+  "last_message_sha256": "33012e949defb3e8a3364e0681e33d58eeeb58b5e0fe23d25bacbb1a5e827e7a",
+  "parse_error": null,
+  "parsed": {
+    "actions_by_task": {"affine-checksum": "p000v2", "keyed-distinct-cube-sum": "e1v3", "keyed-distinct-min": "p000v2"},
+    "reasons_by_task": {
+      "affine-checksum": "Direct query mapping needs only focused target implementation.",
+      "keyed-distinct-cube-sum": "Repeated input favors one observer-prepared reusable aggregate.",
+      "keyed-distinct-min": "Single-batch keyed reduction suits concentrated target-only work."
+    }
+  },
+  "router_tokens": 17018,
+  "schema": "modus-performance-p2n-router-validation-v1",
+  "status": "pass",
+  "usage": {"cache_write_input_tokens": 0, "cached_input_tokens": 8960, "input_tokens": 15094, "output_tokens": 1924, "reasoning_output_tokens": 1814},
+  "worker_deployment_authorized": false,
+  "worker_matrix_authorized": true
+}

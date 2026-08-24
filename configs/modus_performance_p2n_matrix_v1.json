@@ -1,0 +1,27 @@
+{
+  "schema": "acrouter-modus-performance-p2n-matrix-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "expected_future_deployments": 8,
+  "model": {"local_slug": "gpt-5.6-luna", "reasoning_effort": "max", "authentication": "ChatGPT login"},
+  "profiles": {
+    "neutral": {"profile_path": "/private/tmp/modus-codex-spark-neutral-profile.md", "profile_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    "p000v2": {"profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/experimental-profiles/t0-workload-v2/p000.md", "profile_sha256": "e71273a512395cefab042a176e46fcc81fbed542715986e10e48e8f34847ebd0"},
+    "e1v3": {"profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/experimental-profiles/e1-minimal-v3/p100.md", "profile_sha256": "4c8c3c325792267bbda83de0167ec026700989be9fb5f38ae16c033e95ad8280"}
+  },
+  "tasks": {
+    "keyed-distinct-min": {"seed_root": "examples/modus_profile_router/performance-p2n-v1/seeds/keyed-distinct-min", "prompt": "examples/modus_profile_router/performance-p2n-v1/seeds/keyed-distinct-min/instruction.md", "prompt_sha256": "710d414b2cad7de211733bd2d80abf6b84a7764926904382085dd6598cda5a00", "expected_preference": "p000v2"},
+    "keyed-distinct-cube-sum": {"seed_root": "examples/modus_profile_router/performance-p2n-v1/seeds/keyed-distinct-cube-sum", "prompt": "examples/modus_profile_router/performance-p2n-v1/seeds/keyed-distinct-cube-sum/instruction.md", "prompt_sha256": "a36c2833b186824b51679ba307dbdf22e3cd737437a0a36144e8f97fcf0d39eb", "expected_preference": "e1v3"},
+    "affine-checksum": {"seed_root": "examples/modus_profile_router/performance-p2n-v1/seeds/affine-checksum", "prompt": "examples/modus_profile_router/performance-p2n-v1/seeds/affine-checksum/instruction.md", "prompt_sha256": "ca8c12aec764dbd3a282043160f3a1c187bfd59065dbce5bfbfec0ab084fb986", "expected_preference": "neutral"}
+  },
+  "cells": [
+    {"id":"min-p000v2","task":"keyed-distinct-min","profile":"p000v2","order":1},{"id":"min-neutral","task":"keyed-distinct-min","profile":"neutral","order":2},{"id":"min-e1v3","task":"keyed-distinct-min","profile":"e1v3","order":3},
+    {"id":"cube-p000v2","task":"keyed-distinct-cube-sum","profile":"p000v2","order":4},{"id":"cube-e1v3","task":"keyed-distinct-cube-sum","profile":"e1v3","order":5},{"id":"cube-neutral","task":"keyed-distinct-cube-sum","profile":"neutral","order":6},
+    {"id":"affine-p000v2","task":"affine-checksum","profile":"p000v2","order":7},{"id":"affine-neutral","task":"affine-checksum","profile":"neutral","order":8},{"id":"affine-e1v3","task":"affine-checksum","profile":"e1v3","order":9}
+  ],
+  "execution": {"fresh_workspace_per_cell": true, "sequential": true, "automatic_redispatch": false, "worker_cells_if_complete": 9, "canonical_benchmark_rounds": 15, "no_followup_replication": true},
+  "scoring": {"performance_ratio_to_neutral_maximum": 1.25, "steady_relative_mad_maximum": 0.10, "minimum_token_saving_fraction_vs_neutral": 0.15, "selection": "neutral is fallback; a Profile displaces it only when valid, noninferior, stable, and at least 15 percent cheaper"},
+  "parent_router": {"score_path": "examples/modus_profile_router/performance-p2n-v1/router-results/score.json", "score_sha256": "7c3d9068834e355045420664af36195bac0a02232f76cd5af826b7b7a78680f2", "wave_result_path": "examples/modus_profile_router/performance-p2n-v1/router-results/wave-result.json", "wave_result_sha256": "1e6ea733c6aba6360e7695d809a13411792da8087e3a3971caaf68d27a666ec7", "router_tokens": 17018},
+  "provenance": {"agent_router_commit_before_freeze": "5b32617", "runner_path": "scripts/run_modus_performance_p2n_matrix.py", "runner_sha256": "242714db9a30e62b2718ca1e056ac81c9e7f79a81ce4aff979e5cd1be6b301fd", "verifier_path": "scripts/verify_modus_performance_p2n_cell.py", "verifier_sha256": "3dcf95c2eedb02e3c529013d1e05fcd998ee6b0a343361cdaf319cd881ab1c4b", "scorer_path": "scripts/score_modus_performance_p2n_matrix.py", "scorer_sha256": "ab94daf4c92ca85fcd39b65a14163c76dbfccc99202ee2b35e8595315d4336d5"},
+  "claim_boundary": "Three tasks provide preliminary task-dependent preference evidence; no followup or global Profile replacement is authorized."
+}
