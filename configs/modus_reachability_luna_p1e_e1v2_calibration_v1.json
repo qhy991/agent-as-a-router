@@ -1,0 +1,95 @@
+{
+  "schema": "acrouter-modus-reachability-luna-p1e-e1v2-calibration-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "development_only": true,
+  "purpose": "calibrate whether the existing unqualified e1-v2 Profile controls reusable preprocessing semantics on the already observed reachability-x02 task",
+  "model": {
+    "local_slug": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "authentication": "ChatGPT login"
+  },
+  "harness": {
+    "codex_cli_version": "0.146.0",
+    "runner": "acrouter_repro.codex_spark_wave.run_wave",
+    "profile_delivery": "canonical candidate Profile text prepended to the task prompt",
+    "automatic_redispatch": false,
+    "web_search_event_policy": "invalidate cell",
+    "manager_measurement_dispatch": "sequential after Worker completion"
+  },
+  "profiles": {
+    "neutral": {
+      "profile_path": "/private/tmp/modus-codex-spark-neutral-profile.md",
+      "profile_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "e1v2": {
+      "profile_identity": "p100/e1-v2",
+      "bits": "E1/T0/A0",
+      "qualification_status": "unqualified-development-candidate",
+      "profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/experimental-profiles/e1-v2/p100.md",
+      "profile_sha256": "c4d0326d4fb5afb14aa51aeb91653fa7771610a41eb53de019c87bf9ff3419e1"
+    }
+  },
+  "tasks": {
+    "reachability-x02": {
+      "task_id": "reachability-x02-perf-p1e",
+      "package": "perf_reachability_x02",
+      "prompt": "examples/modus_profile_router/reachability-luna-p1e-v1/reachability-x02-task.md",
+      "prompt_sha256": "d463676fa80e83ddf2a5537d8ba6c2b01582c14989f5db3a59f6b1f3aa8617b6",
+      "seed_root": "examples/modus_profile_router/reachability-luna-p1e-v1/seeds/reachability-x02",
+      "seed_files_sha256": {
+        "benchmark.py": "0d3e4a0187e3957b12bfa96c985b616a7ffdc99c10a5f84960364624e9a88578",
+        "perf_reachability_x02/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "perf_reachability_x02/api.py": "bc7d4f9005be8d23270301519ce0f27e68dfdfd7ae2a2d47a30d05524b04bd2e",
+        "perf_reachability_x02/observer.py": "9f53a6f322c7743bbf3f0cb134f9d4b205983afa13ea6494df84e08d765dd226",
+        "perf_reachability_x02/shared.py": "907cf29485630abdef6a1cf4626d956ae3430cb45b1d410ff12ec6f0097b766c",
+        "perf_reachability_x02/target.py": "a33041c98e40824d3a448f574752d11cb2b71f1f95ca6bdecc78048c24ac463a",
+        "tests/test_public.py": "be943def0b81eac55a10d32e5d5d536386f0734261d98940f5e39b6354d77782"
+      }
+    }
+  },
+  "matrix": {
+    "actions": ["neutral", "e1v2"],
+    "tasks": 1,
+    "repetitions_per_action": 2,
+    "cells": 4,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "scoring": {
+    "correctness_first": "both repetitions pass public and hidden directed-reachability cases",
+    "e1v2_edit_topology": "exactly observer.py, shared.py, and target.py change",
+    "semantic_mechanism": "observer.prepare_input returns a non-raw prepared representation and target.answer consumes it correctly",
+    "performance_ratio_maximum": 1.25,
+    "steady_relative_mad_maximum": 0.10,
+    "token_effect": "record only; no minimum saving is required for development calibration",
+    "pass_rule": "e1-v2 passes correctness, exact edit topology, semantic mechanism, noise, and 1.25x performance in both repetitions",
+    "next_action_if_pass": "authorize design and qualification of a different unseen holdout pair",
+    "next_action_if_fail": "retain e1-v2 as unqualified and stop without a confirmatory holdout"
+  },
+  "parent_outcome": {
+    "path": "agentic-artifacts/modus-codex-luna-max-reachability-p1e-final-v1.json",
+    "sha256": "c27926f1f04a8b383127be8f8f5509cec22588ad2aef341a0b613c655d90f0cb",
+    "canonical_p100_median_seconds": 0.0127255,
+    "canonical_p100_performance_ratio": 2.7560777519086037,
+    "reason_for_calibration": "canonical p100 controlled the three-file edit shape but rebuilt adjacency inside every batch"
+  },
+  "failure_policy": {
+    "invalid_or_incomplete_cell": "calibration fails; preserve and do not redispatch",
+    "web_search_item": "cell invalid",
+    "no_model_substitution": true,
+    "post_hoc_gate_change": false
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "d7d62931b2e885fd69b5ab16fb133531b613e8b0",
+    "plugin_commit": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f",
+    "candidate_manifest": "presets/modus/experimental-profiles/e1-v2/manifest.json",
+    "verifier_path": "scripts/verify_modus_reachability_p1e_e1v2_calibration.py",
+    "verifier_sha256_at_freeze": "4fdcc77ed095f0074780b9fc850844866ca08c96d880200a000854b7a9acd597",
+    "scorer_path": "scripts/score_modus_reachability_p1e_e1v2_calibration.py",
+    "scorer_sha256_at_freeze": "51defe9cdd98b25f2944e4264280e9a50f56d44b87a12f10ba485dd79ad5bf43"
+  },
+  "claim_boundary": "This reuses an observed task solely to develop and calibrate the Profile mechanism. Passing can authorize a new holdout design but cannot enter Router preference, generalization, or deployment-economics evidence."
+}
+
