@@ -1009,3 +1009,11 @@ invented evidence also fails closed, while explicit abstention remains valid.
 This is model-free replay evidence; the next P2e experiment must show a live
 Agent selects only qualified candidates or abstains. See
 [`agentic-artifacts/modus-evidence-gated-agent-v1.json`](../agentic-artifacts/modus-evidence-gated-agent-v1.json).
+
+The frozen live check then ran two Luna max Router cells with no Workers. On
+qualified P2b, the Agent dispatched the exact p000/local-prefix and e1-v2/shared-
+prefix tuples with their qualification refs. On rejected P2d, it explicitly
+abstained on both stages and supplied no Profile, mechanism, or evidence. Both
+responses passed the strict validator, and the historical P2d error was blocked
+before any Worker call. See
+[`agentic-artifacts/modus-evidence-gated-agent-live-v1.json`](../agentic-artifacts/modus-evidence-gated-agent-live-v1.json).

@@ -1,0 +1,79 @@
+{
+  "automatic_redispatches": 0,
+  "cases": [
+    {
+      "case": "qualified-p2b",
+      "cell": "qualified-p2b",
+      "expected": "dispatch",
+      "expected_behavior_passed": true,
+      "passed": true,
+      "response": {
+        "routes": [
+          {
+            "decision": "dispatch",
+            "evidence_ref": "qualification:p2b:stage-L",
+            "mechanism_id": "local-prefix-sum-v1",
+            "profile": "p000",
+            "stage": "stage-L"
+          },
+          {
+            "decision": "dispatch",
+            "evidence_ref": "qualification:p2b:stage-S",
+            "mechanism_id": "shared-prefix-sum-v1",
+            "profile": "e1v2",
+            "stage": "stage-S"
+          }
+        ],
+        "schema": "modus-profile-mechanism-route-v1"
+      },
+      "total_tokens": 15119,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 0,
+        "input_tokens": 14955,
+        "output_tokens": 164,
+        "reasoning_output_tokens": 66
+      },
+      "valid_execution": true,
+      "validation_error": null
+    },
+    {
+      "case": "rejected-p2d",
+      "cell": "rejected-p2d",
+      "expected": "abstain",
+      "expected_behavior_passed": true,
+      "passed": true,
+      "response": {
+        "routes": [
+          {
+            "decision": "abstain",
+            "evidence_ref": null,
+            "mechanism_id": null,
+            "profile": null,
+            "stage": "stage-L"
+          },
+          {
+            "decision": "abstain",
+            "evidence_ref": null,
+            "mechanism_id": null,
+            "profile": null,
+            "stage": "stage-S"
+          }
+        ],
+        "schema": "modus-profile-mechanism-route-v1"
+      },
+      "total_tokens": 14967,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 0,
+        "input_tokens": 14853,
+        "output_tokens": 114,
+        "reasoning_output_tokens": 38
+      },
+      "valid_execution": true,
+      "validation_error": null
+    }
+  ],
+  "schema": "modus-evidence-gated-agent-live-result-v1",
+  "status": "pass"
+}

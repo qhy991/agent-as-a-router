@@ -1,0 +1,45 @@
+{
+  "schema": "acrouter-modus-evidence-gated-agent-live-result-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "live_agent_mechanism_evidence": true,
+  "model": {"slug": "gpt-5.6-luna", "reasoning_effort": "max"},
+  "execution": {
+    "cells": 2,
+    "valid_cells": 2,
+    "automatic_redispatches": 0,
+    "workers_called": 0,
+    "qualified_case_tokens": 15119,
+    "rejected_case_tokens": 14967,
+    "total_tokens": 30086
+  },
+  "qualified_case": {
+    "case": "P2b",
+    "stage_l": {"decision": "dispatch", "profile": "p000", "mechanism_id": "local-prefix-sum-v1", "evidence_ref": "qualification:p2b:stage-L"},
+    "stage_s": {"decision": "dispatch", "profile": "e1v2", "mechanism_id": "shared-prefix-sum-v1", "evidence_ref": "qualification:p2b:stage-S"},
+    "response_validation": "pass"
+  },
+  "rejected_case": {
+    "case": "P2d",
+    "stage_l_decision": "abstain",
+    "stage_s_decision": "abstain",
+    "profiles_or_evidence_in_abstain": false,
+    "response_validation": "pass",
+    "workers_prevented": true
+  },
+  "conclusions": {
+    "live_agent_can_dispatch_exact_qualified_routes": true,
+    "live_agent_can_abstain_when_no_qualified_candidate_exists": true,
+    "historical_p2d_error_prevented_before_workers": true,
+    "qualified_evidence_constrains_agent_behavior": true
+  },
+  "files": {
+    "wave_result": "examples/modus_profile_router/evidence-gated-agent-v1/results/wave-result.json",
+    "score": "examples/modus_profile_router/evidence-gated-agent-v1/results/score.json",
+    "wave_result_sha256": "d8b8d7b3aced0d7d26c3e06e88892db0fd03af28429e1b5d8199ef9360fa0a02",
+    "score_sha256": "39674f34229ef3366d8f5a65f0b96421aa5779f69fd5dd3722972b24d55a8eff"
+  },
+  "next_experiment": "derive the candidate set from typed task features and qualification envelopes rather than enumerating the desired response in the prompt",
+  "claim_boundary": "This live test proves compliance with an explicit evidence-gated candidate contract. The prompts enumerate the exact qualified candidates or absence thereof, so it does not yet prove autonomous candidate derivation on a new task."
+}
+
