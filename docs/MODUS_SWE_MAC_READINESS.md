@@ -1234,3 +1234,21 @@ apparatus priority is read custody: Worker processes must be unable to read
 other workspaces, Profile catalogs, scorers, or historical artifacts before a
 three-task matrix can support economics. See
 [`agentic-artifacts/modus-codex-luna-max-performance-p2n-partial-v1.json`](../agentic-artifacts/modus-codex-luna-max-performance-p2n-partial-v1.json).
+
+### P2o fail-closed Worker read custody
+
+P2o repaired the read-custody defect exposed by P2n. The first four frozen
+canaries are preserved as apparatus failures: denied launcher cwd, unresolved
+source import, missing run-root metadata, and nested sandbox conflict. None
+started a usable canary except v4, whose inner tools could not execute.
+
+V5 makes the outer macOS SBPL sandbox the sole permission owner, grants only
+run-root file metadata, allows current-cell content, and denies sibling-cell and
+owner-repository content. A live Luna max canary completed with full usage and
+no retry: `allowed.txt` returned `current-ok`, while both the sibling workspace
+and Agent-as-Router README returned `Operation not permitted`.
+
+This authorizes custody-confined future experiment infrastructure. It does not
+retroactively validate P2n's excluded direct task or create new Profile
+performance evidence. See
+[`agentic-artifacts/modus-p2o-read-custody-canary-v5.json`](../agentic-artifacts/modus-p2o-read-custody-canary-v5.json).

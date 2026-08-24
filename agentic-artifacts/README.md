@@ -102,6 +102,9 @@ that need to decide what to inspect before loading the full repository.
     task-preference matrix: isolated local/shared tasks select p000-v2/e1-v3
     and the Agent matches 2/2, while the direct task and full economics are
     excluded after affine-neutral reads outside its workspace.
+42. Read `modus-p2o-read-custody-canary-v5.json` for the live macOS outer-sandbox
+    canary proving that the current cell is readable while sibling cells and
+    owning repositories return `Operation not permitted`.
 
 ## Scope
 
