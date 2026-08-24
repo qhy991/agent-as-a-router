@@ -1,0 +1,77 @@
+{
+  "schema": "acrouter-modus-luna-reachability-e1v2-calibration-result-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "development_only": true,
+  "model": {
+    "slug": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "authentication": "ChatGPT login"
+  },
+  "candidate": {
+    "identity": "p100/e1-v2",
+    "profile_sha256": "c4d0326d4fb5afb14aa51aeb91653fa7771610a41eb53de019c87bf9ff3419e1",
+    "plugin_commit": "a27aea34fedf5e7b55051fc3ff7411578e7b7c5f",
+    "status_before_and_after": "unqualified-development-candidate"
+  },
+  "protocol": {
+    "commit_at_dispatch": "063e73e",
+    "task": "previously observed reachability-x02",
+    "actions": ["neutral", "e1v2"],
+    "repetitions_per_action": 2,
+    "cells": 4,
+    "manifest_sha256": "c9c15f344f96dd94f9144bd20f83a3e47b75e5ad586e6d3b8174d60eb575294a",
+    "automatic_redispatch": false
+  },
+  "execution": {
+    "valid_execution_cells": 4,
+    "correct_cells": 4,
+    "topology_fidelity_cells": 4,
+    "semantic_mechanism_required_cells": 2,
+    "semantic_mechanism_passed_cells": 2,
+    "benchmark_cells": 4,
+    "complete_usage_cells": 4,
+    "web_search_cells": 0,
+    "acquisition_tokens": 793374,
+    "wave_result_sha256": "084e0ff1cb23dac2a9fc95d79f4bea5dff8f43b6df8b3e3cf2e5bd5904ec2985",
+    "manager_verification_sha256": "c4ad7aa01da2c5e5b82eb9cdff93823388c91119126d66efe10522be2f3f08c9",
+    "score_sha256": "119c697bfacd8c1428a0a3d75749b3bdce3b4b375f8041ea26bc19b076ea59f6"
+  },
+  "outcome": {
+    "neutral": {
+      "median_seconds": 0.00770625,
+      "median_total_tokens": 230025.5,
+      "maximum_steady_relative_mad": 0.021736707167539837
+    },
+    "e1v2": {
+      "median_seconds": 0.00600975,
+      "median_total_tokens": 166661.5,
+      "maximum_steady_relative_mad": 0.02689514298683616,
+      "performance_ratio_to_fastest": 1.0,
+      "token_saving_fraction_vs_neutral": 0.2754651114767711,
+      "speedup_over_canonical_p100": 2.1174757685427847,
+      "calibration_passed": true
+    }
+  },
+  "mechanism": {
+    "observer": "prepare_input invokes shared.prepare_edges once and returns PreparedGraph",
+    "shared": "PreparedGraph owns immutable adjacency",
+    "target": "answer consumes PreparedGraph on the API path and reuses it across batches",
+    "dynamic_gate": "observer output differs from raw edges and target answers correctly from the prepared value",
+    "interpretation": "the revised E1 wording controls reusable preprocessing semantics, not only the number of edited modules"
+  },
+  "decision": {
+    "calibration_passed": true,
+    "new_holdout_design_authorized": true,
+    "candidate_router_qualified": false,
+    "next_action": "freeze a different unseen single-batch/multi-batch connectivity pair before any candidate outcome"
+  },
+  "files": {
+    "wave_result": "examples/modus_profile_router/reachability-luna-p1e-v1/e1v2-calibration-results/wave-result.json",
+    "manager_verification": "examples/modus_profile_router/reachability-luna-p1e-v1/e1v2-calibration-results/manager-verification.json",
+    "score": "examples/modus_profile_router/reachability-luna-p1e-v1/e1v2-calibration-results/score.json"
+  },
+  "claim_boundary": "This result proves only that e1-v2 repairs the intended mechanism on an already observed development task. It authorizes a new holdout but cannot support Router preference, generalization, or deployment-economics claims."
+}
+

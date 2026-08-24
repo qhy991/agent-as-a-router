@@ -781,3 +781,18 @@ mechanism placement is not yet controlled. The next valid experiment is to
 repair that E1 contract on development data and test it on a different frozen
 multi-batch holdout, not rerun P1e as confirmation. See
 [`agentic-artifacts/modus-codex-luna-max-reachability-p1e-final-v1.json`](../agentic-artifacts/modus-codex-luna-max-reachability-p1e-final-v1.json).
+
+The existing additive `p100/e1-v2` development candidate already expressed
+the missing mechanism: observer invokes shared preparation once and target
+consumes the prepared representation. A frozen development-only calibration
+therefore compared fresh neutral and e1-v2 twice on the already observed X02
+task. All four cells were valid and correct; both e1-v2 cells passed exact
+three-module topology and a dynamic non-raw prepared-representation gate.
+
+E1-v2 reached 0.00601 seconds median, 2.12x faster than canonical p100 and
+faster than fresh neutral's 0.00771 seconds. It also used 27.5% fewer median
+tokens than neutral. This validates the Profile wording as a mechanism repair,
+but the candidate remains unqualified because the task was used for
+development. The result authorizes a different unseen connectivity holdout;
+it is excluded from Router and deployment-economics evidence. See
+[`agentic-artifacts/modus-codex-luna-max-reachability-e1v2-calibration-v1.json`](../agentic-artifacts/modus-codex-luna-max-reachability-e1v2-calibration-v1.json).

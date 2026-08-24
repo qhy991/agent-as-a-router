@@ -1,0 +1,40 @@
+{
+  "acquisition_tokens": 793374,
+  "actions": {
+    "e1v2": {
+      "benchmark_and_usage_complete": true,
+      "correctness_passed": true,
+      "maximum_steady_relative_mad": 0.02689514298683616,
+      "median_seconds": 0.00600975,
+      "median_total_tokens": 166661.5,
+      "noise_gate_passed": true,
+      "performance_gate_passed": true,
+      "performance_ratio_to_fastest": 1.0,
+      "semantic_mechanism_passed": true,
+      "topology_fidelity_passed": true
+    },
+    "neutral": {
+      "benchmark_and_usage_complete": true,
+      "correctness_passed": true,
+      "maximum_steady_relative_mad": 0.021736707167539837,
+      "median_seconds": 0.0077062499999999996,
+      "median_total_tokens": 230025.5,
+      "noise_gate_passed": true,
+      "performance_gate_passed": false,
+      "performance_ratio_to_fastest": 1.2822912766754024,
+      "semantic_mechanism_passed": true,
+      "topology_fidelity_passed": true
+    }
+  },
+  "candidate": {
+    "calibration_passed": true,
+    "id": "e1-v2",
+    "speedup_over_canonical_p100": 2.1174757685427847,
+    "token_saving_fraction_vs_fresh_neutral": 0.2754651114767711
+  },
+  "claim_boundary": "Observed-task development calibration only; no Router outcome or deployment economics claim.",
+  "decision": "authorize_new_holdout_design",
+  "development_only": true,
+  "schema": "modus-reachability-p1e-e1v2-calibration-score-v1",
+  "status": "pass"
+}

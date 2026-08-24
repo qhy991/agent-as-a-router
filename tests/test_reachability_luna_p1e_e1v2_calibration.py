@@ -8,6 +8,7 @@ from scripts.score_modus_reachability_p1e_e1v2_calibration import _usage_tokens
 
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "configs/modus_reachability_luna_p1e_e1v2_calibration_v1.json"
+EVIDENCE = ROOT / "agentic-artifacts/modus-codex-luna-max-reachability-e1v2-calibration-v1.json"
 
 
 class ReachabilityLunaP1eE1v2CalibrationTest(unittest.TestCase):
@@ -54,6 +55,21 @@ class ReachabilityLunaP1eE1v2CalibrationTest(unittest.TestCase):
         self.assertEqual(scoring["steady_relative_mad_maximum"], 0.10)
         self.assertIn("non-raw prepared representation", scoring["semantic_mechanism"])
         self.assertEqual(_usage_tokens({"input_tokens": 4, "output_tokens": 3}), 7)
+
+    def test_evidence_is_development_only_and_authorizes_new_holdout(self):
+        value = json.loads(EVIDENCE.read_text(encoding="utf-8"))
+        self.assertFalse(value["scientific_evidence"])
+        self.assertTrue(value["development_only"])
+        self.assertTrue(value["outcome"]["e1v2"]["calibration_passed"])
+        self.assertTrue(value["decision"]["new_holdout_design_authorized"])
+        self.assertFalse(value["decision"]["candidate_router_qualified"])
+        for name, digest in (
+            ("wave_result", "084e0ff1cb23dac2a9fc95d79f4bea5dff8f43b6df8b3e3cf2e5bd5904ec2985"),
+            ("manager_verification", "c4ad7aa01da2c5e5b82eb9cdff93823388c91119126d66efe10522be2f3f08c9"),
+            ("score", "119c697bfacd8c1428a0a3d75749b3bdce3b4b375f8041ea26bc19b076ea59f6"),
+        ):
+            path = ROOT / value["files"][name]
+            self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), digest)
 
 
 if __name__ == "__main__":
