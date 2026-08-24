@@ -1,0 +1,32 @@
+{
+  "schema": "acrouter-modus-p2e-autonomous-agent-v2",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "model": {"local_slug": "gpt-5.6-luna", "reasoning_effort": "max", "authentication": "ChatGPT login"},
+  "prompt": "examples/modus_profile_router/evidence-gated-agent-v1/p2e-v2-task.md",
+  "prompt_sha256": "62768071183dd61fce3ebc733966cc0aed2ab7426277da18c0b0b8170e02d76d",
+  "candidate_view": "examples/modus_profile_router/evidence-gated-agent-v1/p2e-v2-candidate-view.json",
+  "candidate_view_sha256": "d11b5463f069f5958c7627cbc1994f7b137919451a998fbdd6f6587404622e3c",
+  "response_contract": {
+    "schema": "modus-profile-mechanism-route-v1",
+    "stages": ["stage-qualified", "stage-unqualified"],
+    "allowed_profiles": ["neutral", "p000", "e1v2"],
+    "allowed_mechanism_ids": ["shared-prefix-sum-v1"],
+    "allowed_evidence_refs": ["qualification:p2b:stage-S"],
+    "require_evidence_ref_for_mechanism": true,
+    "require_mechanism_for_dispatch": true,
+    "qualified_routes": [
+      {"stage": "stage-qualified", "profile": "e1v2", "mechanism_id": "shared-prefix-sum-v1", "evidence_ref": "qualification:p2b:stage-S"}
+    ]
+  },
+  "execution": {"cells": 1, "workers_authorized": false, "automatic_redispatch": false},
+  "provenance": {
+    "agent_router_commit_before_freeze": "2fec297",
+    "view_builder": "scripts/build_modus_agent_candidate_view.py",
+    "view_builder_sha256": "1964879027f5f4a957d59f27f55c096c633e7c1211a95952d97ae96618d046f2",
+    "scorer": "scripts/score_modus_p2e_agent.py",
+    "scorer_sha256": "184de4e0a4ccf10e683c6745b99dbf3e5047d7ec77eae63473699bc64d54063b"
+  },
+  "claim_boundary": "This is a new frozen protocol after the v1 vocabulary failure. It does not retry or overwrite v1 and calls no Workers."
+}
+
