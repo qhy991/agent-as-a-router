@@ -33,6 +33,13 @@ def _sha256_file(path: Path) -> str:
     return _sha256_bytes(path.read_bytes())
 
 
+def _repository_root(path: Path) -> Path:
+    for candidate in (path.parent, *path.parents):
+        if (candidate / ".git").exists():
+            return candidate.resolve()
+    return path.parent.resolve()
+
+
 def _load_json(path: Path) -> dict[str, Any]:
     value = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(value, dict):
@@ -219,6 +226,10 @@ def _run_cell(
         "PIP_NO_INDEX": "1",
         "PIP_REQUIRE_VIRTUALENV": "1",
         "PYTHONDONTWRITEBYTECODE": "1",
+        "MODUS_CUSTODY_DENY_ROOTS": os.pathsep.join(sorted({
+            str(_repository_root(cell["task"])),
+            str(_repository_root(cell["profile"])),
+        })),
     })
     timed_out = False
     returncode: int | None = None

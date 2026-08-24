@@ -1,0 +1,12 @@
+{
+  "schema": "acrouter-modus-p2o-read-custody-canary-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "model": {"local_slug": "gpt-5.6-luna", "reasoning_effort": "max", "authentication": "ChatGPT login"},
+  "task": {"path": "examples/modus_profile_router/custody-p2o-v1/task.md", "sha256": "da9db0bb239ed541543b9c7d56bf3a3a9471e6eaf6afb0cd77f40e55edbc58fc"},
+  "execution": {"cells": 1, "automatic_redispatch": false, "web_search_allowed": false, "wrapper": "src/acrouter_repro/codex_custody_wrapper.py"},
+  "expected": {"current_workspace_read": "allowed", "sibling_workspace_read": "denied", "owner_repo_read": "denied"},
+  "parent_defect": {"path": "agentic-artifacts/modus-codex-luna-max-performance-p2n-partial-v1.json", "sha256": "0a4c344f9ad738a8bd93b10b9f7ed9868996cde862d08a4664feed4a18fd9ab4"},
+  "provenance": {"agent_router_commit_before_freeze": "6522a47", "wrapper_sha256": "ee3736eaa511df00024f290fb2ede57be57763a02e819a2a603253403b7716d4", "wave_owner_sha256": "a1f9c0344f08133b5480ab38c8faef9b53b7f7b7ebb13230979765a0f7e70da3"},
+  "claim_boundary": "A passing canary authorizes custody-confined experiment infrastructure only; it is not new Profile performance evidence."
+}
