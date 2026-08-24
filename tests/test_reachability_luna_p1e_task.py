@@ -3,9 +3,12 @@ import json
 from pathlib import Path
 import unittest
 
+from scripts.verify_modus_reachability_p1e_corrected import _parse_benchmark_output
+
 
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "configs/modus_reachability_luna_p1e_v1.json"
+EVIDENCE = ROOT / "agentic-artifacts/modus-codex-luna-max-reachability-p1e-stage1-v1.json"
 
 
 class ReachabilityLunaP1eTaskTest(unittest.TestCase):
@@ -69,6 +72,34 @@ class ReachabilityLunaP1eTaskTest(unittest.TestCase):
         self.assertEqual(scoring["minimum_p000_token_saving_fraction_per_task"], 0.15)
         self.assertEqual(scoring["third_pair_rule"]["near_threshold_band_inclusive"], [1.1875, 1.3125])
         self.assertEqual(scoring["third_pair_rule"]["steady_relative_mad_maximum"], 0.10)
+
+    def test_corrected_verifier_parses_multiline_and_legacy_benchmarks(self):
+        self.assertEqual(
+            _parse_benchmark_output('{\n  "rounds": 9,\n  "steady_seconds": 0.1\n}\n')["rounds"],
+            9,
+        )
+        self.assertEqual(_parse_benchmark_output("{'seconds': 0.2}\n")["seconds"], 0.2)
+
+    def test_stage_one_evidence_is_hash_bound_and_authorizes_only_p100(self):
+        value = json.loads(EVIDENCE.read_text(encoding="utf-8"))
+        self.assertFalse(value["scientific_evidence"])
+        self.assertEqual(value["execution"]["valid_execution_cells"], 8)
+        self.assertTrue(value["result"]["profile_task_interaction_observed"])
+        self.assertEqual(value["outcome"]["stage_decision"], "authorize_p100_follow_up_on_reachability_x02")
+        self.assertFalse(value["outcome"]["third_pair_triggered"])
+        self.assertEqual(value["router_signal"]["actions_by_task"], {
+            "reachability-x01": "p000", "reachability-x02": "neutral",
+        })
+        for name in ("wave_result", "manager_verification", "score"):
+            path = ROOT / value["files"][name]
+            self.assertTrue(path.is_file())
+        score = ROOT / value["files"]["score"]
+        self.assertEqual(hashlib.sha256(score.read_bytes()).hexdigest(), value["files"]["score_sha256"])
+        corrected = ROOT / value["verifier_correction"]["corrected_verifier_path"]
+        self.assertEqual(
+            hashlib.sha256(corrected.read_bytes()).hexdigest(),
+            value["verifier_correction"]["corrected_verifier_sha256"],
+        )
 
 
 if __name__ == "__main__":

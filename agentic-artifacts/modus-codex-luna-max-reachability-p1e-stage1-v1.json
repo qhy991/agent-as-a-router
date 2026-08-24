@@ -1,0 +1,110 @@
+{
+  "schema": "acrouter-modus-luna-reachability-p1e-stage1-result-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "prospective-pre-registered-staged-profile-qualification",
+  "model": {
+    "slug": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "authentication": "ChatGPT login",
+    "codex_cli_version": "0.146.0"
+  },
+  "protocol": {
+    "path": "configs/modus_reachability_luna_p1e_v1.json",
+    "frozen_commit_at_dispatch": "3d25371c",
+    "expected_future_deployments": 8,
+    "actions": ["neutral", "p000"],
+    "tasks": ["reachability-x01", "reachability-x02"],
+    "repetitions_per_action": 2,
+    "cells": 8,
+    "automatic_redispatch": false
+  },
+  "task_provenance": {
+    "modus_commit": "a1fc62d0fab4585b32a2f1625f8610e56be29318",
+    "task_qualification_passed": true,
+    "task_qualification_sha256": "60d473d13eabb4f91f9948efc725511d17dae9f44a57e806191598c5ca645071"
+  },
+  "execution": {
+    "manifest_sha256": "c47bc2fe35a19d17d340996912af27f7d63ac5c88bc69c4ea1ecb9d271cd376c",
+    "wave_result_sha256": "1923c72a1c39484a30140ffea21b67a24860bad67178ca644470cfbeef4587c8",
+    "valid_execution_cells": 8,
+    "correct_cells": 8,
+    "topology_fidelity_cells": 8,
+    "benchmark_cells": 8,
+    "complete_usage_cells": 8,
+    "web_search_cells": 0,
+    "automatic_redispatches": 0,
+    "acquisition_tokens": 1060359
+  },
+  "verifier_correction": {
+    "frozen_verifier_sha256": "1acca1c3a47cca0c2d45623020aca5f69941726ab8d2e7623926e45536750f91",
+    "invalid_first_verification_sha256": "02204f1bc9e280ce9872b429ee6c57d30357c5c5ce2199567bb0df9cd14b8263",
+    "defects": [
+      "legacy Python-dict benchmark output was treated as JSON without fallback",
+      "the legacy path ran seven rounds instead of the protocol's nine",
+      "aggregate status omitted benchmark success"
+    ],
+    "corrected_verifier_path": "scripts/verify_modus_reachability_p1e_corrected.py",
+    "corrected_verifier_sha256": "1638ce8637d0bb856d228fc57bd39c6c4aa59eff494911da532f0ff2f3c3692a",
+    "corrected_verification_sha256": "41a55b00edf4fc86f82756a053764989bb05c36738b33f8bda49f8926762e8f5",
+    "correction_boundary": "no Worker cell was rerun; the preserved workspaces were measured using the already frozen correctness, topology, nine-round performance, and noise rules"
+  },
+  "outcome": {
+    "reachability-x01": {
+      "neutral_median_seconds": 0.0046605,
+      "neutral_median_total_tokens": 166718.5,
+      "p000_median_seconds": 0.00459625,
+      "p000_median_total_tokens": 76860.0,
+      "p000_performance_ratio_to_fastest": 1.0,
+      "p000_token_saving_fraction": 0.5389833761700111,
+      "selected_action": "p000"
+    },
+    "reachability-x02": {
+      "neutral_median_seconds": 0.00461725,
+      "neutral_median_total_tokens": 193041.0,
+      "p000_median_seconds": 0.0128015,
+      "p000_median_total_tokens": 93560.0,
+      "p000_performance_ratio_to_fastest": 2.7725377659862476,
+      "p000_token_saving_fraction": 0.5153361203060489,
+      "selected_action": "neutral",
+      "p000_rejection_reason": "performance ratio exceeds the frozen absolute 1.25x maximum"
+    },
+    "third_pair_triggered": false,
+    "stage_decision": "authorize_p100_follow_up_on_reachability_x02"
+  },
+  "router_signal": {
+    "actions_by_task": {
+      "reachability-x01": "p000",
+      "reachability-x02": "neutral"
+    },
+    "best_fixed_eligible_action": "neutral",
+    "best_fixed_two_task_median_tokens": 359759.5,
+    "routed_two_task_median_tokens": 269901.0,
+    "routed_token_saving_fraction_vs_best_fixed": 0.24977380722399267,
+    "interpretation": "the same p000 Profile is cost-effective on the one-batch task and performance-ineligible on the many-batch task"
+  },
+  "router_economics_before_p100": {
+    "acquisition_tokens": 1060359,
+    "saving_per_deployment_tokens": 89859,
+    "break_even_deployments": 12,
+    "expected_deployments": 8,
+    "net_tokens_at_expected_deployments": -341487,
+    "decision": "qualified_but_not_economic"
+  },
+  "files": {
+    "wave_result": "examples/modus_profile_router/reachability-luna-p1e-v1/results/wave-result.json",
+    "manager_verification": "examples/modus_profile_router/reachability-luna-p1e-v1/results/manager-verification.json",
+    "score": "examples/modus_profile_router/reachability-luna-p1e-v1/results/score.json",
+    "score_sha256": "b9c62d84f1d1a524b9658fd93c6524c19f9b4dc36c8b9dd964aa1063df4d7b86"
+  },
+  "result": {
+    "profile_controls_topology": true,
+    "profile_task_interaction_observed": true,
+    "task_selective_route_improves_eligible_token_cost": true,
+    "economic_at_eight_deployments": false,
+    "next_action": "run only p100 twice on reachability-x02 under a separately frozen follow-up; retain p000 on x01"
+  },
+  "claim_boundary": "This is prospective positive evidence for a Profile-task interaction and a quality-constrained token opportunity on one Luna Reachability pair. It does not yet prove net Router benefit at eight deployments, broad task generalization, or p100 suitability."
+}
+

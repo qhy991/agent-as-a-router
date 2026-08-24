@@ -741,3 +741,26 @@ same preserved outcomes were rescored without redispatch. The result shows a
 real Profile cost/behavior effect, but not a favorable cost-performance trade.
 See
 [`agentic-artifacts/modus-codex-spark-reachability-prospective-v1.json`](../agentic-artifacts/modus-codex-spark-reachability-prospective-v1.json).
+
+### Luna P1e prospective Profile-task interaction
+
+A new Modus-owned Reachability pair was then frozen at Modus `a1fc62d` and
+run with gpt-5.6-luna max. All eight neutral/p000 cells completed with full
+usage, hidden correctness, and expected p000 local-only topology. The first
+manager summary was invalid because its implementation mishandled the public
+benchmark format, ran seven rather than the frozen nine rounds, and omitted
+benchmark success from the aggregate gate. That output is preserved; no model
+cell was rerun, and a separately named corrected verifier measured the same
+workspaces against the pre-registered rules.
+
+The two tasks selected different actions. On one batch, p000 was slightly
+faster and used 53.9% fewer tokens, so it was selected. On ninety-six batches,
+p000 used 51.5% fewer tokens but was 2.77x slower, so it failed the absolute
+1.25x performance gate and neutral was selected. The routed pair therefore
+uses p000 for X01 and neutral for X02, saving 25.0% median tokens versus the
+best eligible fixed action. This is positive prospective evidence for a
+Profile-task interaction, not yet an economic deployment result: the 1,060,359
+token acquisition cost breaks even only at deployment 12, while the frozen
+horizon is eight. The unambiguous p000 failure on X02 authorizes only the
+pre-registered p100 follow-up. See
+[`agentic-artifacts/modus-codex-luna-max-reachability-p1e-stage1-v1.json`](../agentic-artifacts/modus-codex-luna-max-reachability-p1e-stage1-v1.json).

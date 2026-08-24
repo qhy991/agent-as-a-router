@@ -1,0 +1,116 @@
+{
+ "best_fixed_profile": "neutral",
+ "default_defer_action": "neutral",
+ "fixed_profiles_eligible_everywhere": [
+  "neutral"
+ ],
+ "fixed_total_median_tokens": {
+  "neutral": 359759.5
+ },
+ "oracle": {
+  "actions_by_task": {
+   "reachability-x01": "p000",
+   "reachability-x02": "neutral"
+  },
+  "saving_fraction_vs_best_fixed": 0.24977380722399267,
+  "total_median_tokens": 269901.0
+ },
+ "promoted_candidate": null,
+ "prospective_economics": null,
+ "routing_space": {
+  "economic_observed": true,
+  "minimum_saving_fraction": 0.15
+ },
+ "schema": "modus-reachability-prospective-score-v1",
+ "staged_policy": {
+  "decision": "authorize_p100_follow_up",
+  "p000_passed_all_task_gates": false,
+  "p100_follow_up_authorized": true,
+  "third_pair_triggered": false
+ },
+ "tasks": {
+  "reachability-x01": {
+   "actions": {
+    "neutral": {
+     "behavior_fidelity_passed": true,
+     "benchmark_passed": true,
+     "correctness_passed": true,
+     "eligible": true,
+     "median_seconds": 0.0046605,
+     "median_total_tokens": 166718.5,
+     "performance_gate_passed": true,
+     "performance_ratio_to_fastest": 1.0139787870546642,
+     "usage_complete": true
+    },
+    "p000": {
+     "behavior_fidelity_passed": true,
+     "benchmark_passed": true,
+     "correctness_passed": true,
+     "eligible": true,
+     "median_seconds": 0.00459625,
+     "median_total_tokens": 76860.0,
+     "performance_gate_passed": true,
+     "performance_ratio_to_fastest": 1.0,
+     "usage_complete": true
+    }
+   },
+   "eligible_actions": [
+    "neutral",
+    "p000"
+   ],
+   "oracle_action": "p000",
+   "p000_saving_fraction_vs_neutral": 0.5389833761700111,
+   "third_pair_trigger": {
+    "aggregate_p000_ratio_to_fastest": 1.0,
+    "maximum_steady_relative_mad": 0.0038322566517025557,
+    "paired_p000_to_neutral_seconds_ratios": [
+     0.9775232794605587,
+     0.9949456930852779
+    ],
+    "reasons": [],
+    "triggered": false
+   }
+  },
+  "reachability-x02": {
+   "actions": {
+    "neutral": {
+     "behavior_fidelity_passed": true,
+     "benchmark_passed": true,
+     "correctness_passed": true,
+     "eligible": true,
+     "median_seconds": 0.00461725,
+     "median_total_tokens": 193041.0,
+     "performance_gate_passed": true,
+     "performance_ratio_to_fastest": 1.0,
+     "usage_complete": true
+    },
+    "p000": {
+     "behavior_fidelity_passed": true,
+     "benchmark_passed": true,
+     "correctness_passed": true,
+     "eligible": false,
+     "median_seconds": 0.0128015,
+     "median_total_tokens": 93560.0,
+     "performance_gate_passed": false,
+     "performance_ratio_to_fastest": 2.7725377659862476,
+     "usage_complete": true
+    }
+   },
+   "eligible_actions": [
+    "neutral"
+   ],
+   "oracle_action": "neutral",
+   "p000_saving_fraction_vs_neutral": 0.5153361203060489,
+   "third_pair_trigger": {
+    "aggregate_p000_ratio_to_fastest": 2.7725377659862476,
+    "maximum_steady_relative_mad": 0.008679411118435613,
+    "paired_p000_to_neutral_seconds_ratios": [
+     2.7328920678979394,
+     2.813337727971875
+    ],
+    "reasons": [],
+    "triggered": false
+   }
+  }
+ }
+}
