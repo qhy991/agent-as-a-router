@@ -78,6 +78,10 @@ that need to decide what to inspect before loading the full repository.
     prospective scratch-qualification run that was invalidated by an
     uncontracted verifier tag; its large token/performance crossover is
     exploratory only and no second pair is authorized.
+36. Read `modus-experiment-scorecard-v1.json` for the generated P1e–P2h
+    comparison under one correctness, performance, cost, acquisition, and
+    eight-deployment economic vocabulary. Regenerate it with
+    `scripts/build_modus_experiment_scorecard.py`.
 
 ## Scope
 

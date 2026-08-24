@@ -1,0 +1,177 @@
+{
+  "canonical_owner": "the source artifact named in each row",
+  "common_contract": {
+    "correctness_and_mechanism_gate_before_cost": true,
+    "economic_horizon_deployments": 8,
+    "invalid_runs_excluded_from_valid_trends": true,
+    "minimum_token_saving_fraction": 0.15,
+    "performance_ratio_maximum": 1.25,
+    "relative_mad_maximum": 0.1
+  },
+  "derived_view": true,
+  "experiments": [
+    {
+      "acquisition_tokens": 1279023,
+      "break_even_deployments": 15,
+      "e2e_saving_fraction": null,
+      "evidence_status": "development_outcome",
+      "experiment": "P1e",
+      "final_performance_ratio_to_fastest": null,
+      "net_tokens_at_8_deployments": -560151,
+      "outcome_valid": true,
+      "route": {
+        "x01": "p000",
+        "x02": "neutral"
+      },
+      "route_qualified": true,
+      "source": {
+        "path": "agentic-artifacts/modus-codex-luna-max-reachability-p1e-final-v1.json",
+        "sha256": "c27926f1f04a8b383127be8f8f5509cec22588ad2aef341a0b613c655d90f0cb"
+      },
+      "task_family": "reachability",
+      "worker_saving_fraction": 0.24977380722399267,
+      "workflow": "two independent stage-selection tasks"
+    },
+    {
+      "acquisition_tokens": 2440628,
+      "break_even_deployments": 10,
+      "e2e_saving_fraction": 0.4374070571495502,
+      "evidence_status": "replicated_preliminary",
+      "experiment": "P1f",
+      "final_performance_ratio_to_fastest": 1.057054741711642,
+      "net_tokens_at_8_deployments": -424028,
+      "outcome_valid": true,
+      "route": {
+        "y01": "p000",
+        "y02": "e1v2"
+      },
+      "route_qualified": true,
+      "source": {
+        "path": "agentic-artifacts/modus-codex-luna-max-connectivity-p1f-replicated-v1.json",
+        "sha256": "1d67ac4d6bec758a79e0521e8b2864180fc1f0a0159f97c4155d76ff61bb75e9"
+      },
+      "task_family": "connectivity",
+      "worker_saving_fraction": 0.4643611344884131,
+      "workflow": "replicated two-task Agent routing"
+    },
+    {
+      "acquisition_tokens": 2107808,
+      "break_even_deployments": 15,
+      "e2e_saving_fraction": 0.32947692005132,
+      "evidence_status": "replicated_linked_case",
+      "experiment": "P2a",
+      "final_performance_ratio_to_fastest": 1.0,
+      "net_tokens_at_8_deployments": -981984,
+      "outcome_valid": true,
+      "route": {
+        "stage-L": "p000",
+        "stage-S": "e1v2"
+      },
+      "route_qualified": true,
+      "source": {
+        "path": "agentic-artifacts/modus-codex-luna-max-long-horizon-p2a-final-v1.json",
+        "sha256": "a300d17492a6ad33d14f5c91393cffd3939b93f12b29727e50d07133e25f28f9"
+      },
+      "task_family": "connectivity",
+      "worker_saving_fraction": 0.3737134883546699,
+      "workflow": "replicated linked Stage L to Stage S"
+    },
+    {
+      "acquisition_tokens": 907042,
+      "break_even_deployments": 3,
+      "e2e_saving_fraction": 0.6377048417062294,
+      "evidence_status": "prospective_low_acquisition",
+      "experiment": "P2b",
+      "final_performance_ratio_to_fastest": 1.0,
+      "net_tokens_at_8_deployments": 2489726,
+      "outcome_valid": true,
+      "route": {
+        "stage-L": "p000",
+        "stage-S": "e1v2"
+      },
+      "route_qualified": true,
+      "source": {
+        "path": "agentic-artifacts/modus-codex-luna-max-long-horizon-p2b-transfer-v1.json",
+        "sha256": "ca6d4ba86d3759a469b3431e6dd33ebc1397bf3af78ce71a369d7d47ba6dd01a"
+      },
+      "task_family": "rangesum",
+      "worker_saving_fraction": 0.6620703224149507,
+      "workflow": "one-pair linked transfer"
+    },
+    {
+      "acquisition_tokens": 667461,
+      "break_even_deployments": 10,
+      "e2e_saving_fraction": 0.18652817362528085,
+      "evidence_status": "prospective_low_acquisition",
+      "experiment": "P2c",
+      "final_performance_ratio_to_fastest": 1.0,
+      "net_tokens_at_8_deployments": -118237,
+      "outcome_valid": true,
+      "route": {
+        "stage-L": "p000",
+        "stage-S": "e1v2"
+      },
+      "route_qualified": true,
+      "source": {
+        "path": "agentic-artifacts/modus-codex-luna-max-long-horizon-p2c-transfer-v1.json",
+        "sha256": "c7e408d34c7efb9996382e63c1807a859dfff41d4d714f08142b3dac49aafd87"
+      },
+      "task_family": "token_frequency",
+      "worker_saving_fraction": 0.2298665695802552,
+      "workflow": "one-pair linked transfer"
+    },
+    {
+      "acquisition_tokens": 1224149,
+      "break_even_deployments": null,
+      "e2e_saving_fraction": -0.036391912381880775,
+      "evidence_status": "prospective_replicated_negative",
+      "experiment": "P2d",
+      "final_performance_ratio_to_fastest": 1.386985513911244,
+      "net_tokens_at_8_deployments": -1310165,
+      "outcome_valid": true,
+      "route": {
+        "stage-L": "e1v2",
+        "stage-S": "p000"
+      },
+      "route_qualified": false,
+      "source": {
+        "path": "agentic-artifacts/modus-codex-luna-max-long-horizon-p2d-final-v1.json",
+        "sha256": "ff1a1cede4bb8d37a6c0eeb5ef0f7fe4a3224846e18cd11a83f1154befbf3d6a"
+      },
+      "task_family": "membership",
+      "worker_saving_fraction": -0.036391912381880775,
+      "workflow": "replicated cached linked route"
+    },
+    {
+      "acquisition_tokens": 1049236,
+      "break_even_deployments": null,
+      "e2e_saving_fraction": null,
+      "evidence_status": "invalid_apparatus",
+      "excluded_from_valid_trends": true,
+      "experiment": "P2h",
+      "final_performance_ratio_to_fastest": 4.168489929455066,
+      "net_tokens_at_8_deployments": null,
+      "outcome_valid": false,
+      "route": {
+        "stage-L": "p000",
+        "stage-S": "e1v2"
+      },
+      "route_qualified": false,
+      "source": {
+        "path": "agentic-artifacts/modus-codex-luna-max-long-horizon-p2h-invalid-v1.json",
+        "sha256": "47a1cfefb18aa9054286b240a76eb7e02210736ae48561176ed01a7589073116"
+      },
+      "task_family": "distinct_out_degree",
+      "worker_saving_fraction": 0.6796022186903599,
+      "workflow": "scratch qualification after Agent proposal"
+    }
+  ],
+  "schema": "modus-experiment-scorecard-v1",
+  "summary": {
+    "invalid_outcomes": 1,
+    "net_positive_at_8_deployments": 1,
+    "qualified_routes": 5,
+    "rows": 7,
+    "valid_outcomes": 6
+  }
+}
