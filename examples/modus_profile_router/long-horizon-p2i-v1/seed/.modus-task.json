@@ -1,0 +1,10 @@
+{
+  "schema": "modus-long-horizon-p2i-public-task-v1",
+  "task_id": "keyed-max-linked-p2i",
+  "algorithm_family": "keyed-max-linked",
+  "implementation_package": "perf_linked_keyedmax",
+  "stages": [
+    "L",
+    "S"
+  ]
+}
