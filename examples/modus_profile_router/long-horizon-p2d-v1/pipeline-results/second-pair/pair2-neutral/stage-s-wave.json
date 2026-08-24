@@ -1,0 +1,31 @@
+{
+  "automatic_redispatches": 0,
+  "cells": [
+    {
+      "cell": "pair2-neutral-stage-s",
+      "events_parseable": true,
+      "events_sha256": "695aa889047cb00f4f2d266431222c0613c58c46dab752ced7ab8aa48d114965",
+      "last_message_sha256": "76b147fce1e214f9e46c785abc77d125a47e4dc9c368f6cab4bafafecc88a739",
+      "prompt_sha256": "0b1e973be9efff70e0add603817483e9306e7dbfc371bf6333a3ec3cd0fbcf61",
+      "returncode": 0,
+      "stderr_sha256": "662dc75e02b0ed9f918738cc2bda9d3a36a199dfe7e8e4b0951d914e2399d9da",
+      "timed_out": false,
+      "turn_completed": true,
+      "turn_error": null,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 152320,
+        "input_tokens": 178810,
+        "output_tokens": 4842,
+        "reasoning_output_tokens": 3269
+      },
+      "usage_complete": true,
+      "valid_execution": true,
+      "web_search_items": 0
+    }
+  ],
+  "manifest_sha256": "9014217f278607b954b3e06cc24a1329f64e5d50723f39dc7f4bf1bdc77369a1",
+  "schema": "acrouter-codex-spark-wave-result-v1",
+  "status": "pass",
+  "valid_execution_cells": 1
+}

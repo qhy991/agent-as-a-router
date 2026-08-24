@@ -141,7 +141,9 @@
     "profile_route_cache_p2c_mechanism": "modus-route-cache-p2c-mechanism-v1.json",
     "profile_luna_max_long_horizon_p2d_initial": "modus-codex-luna-max-long-horizon-p2d-initial-v1.json",
     "profile_luna_max_long_horizon_p2d_agent_cache_protocol": "../configs/modus_long_horizon_p2d_agent_cache_v1.json",
-    "profile_luna_max_long_horizon_p2d_pair_protocol": "../configs/modus_long_horizon_p2d_cached_pair_v1.json"
+    "profile_luna_max_long_horizon_p2d_pair_protocol": "../configs/modus_long_horizon_p2d_cached_pair_v1.json",
+    "profile_luna_max_long_horizon_p2d_final": "modus-codex-luna-max-long-horizon-p2d-final-v1.json",
+    "profile_luna_max_long_horizon_p2d_second_pair_protocol": "../configs/modus_long_horizon_p2d_second_pair_v1.json"
   },
   "headline_metrics": {
     "id": {

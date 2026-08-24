@@ -961,3 +961,18 @@ threshold band, and neutral relative MAD is 14.2%. Cached economics miss the
 eight-deployment horizon by only 12 tokens, but the precommitted rule requires
 a reversed second pair before any conclusion. See
 [`agentic-artifacts/modus-codex-luna-max-long-horizon-p2d-initial-v1.json`](../agentic-artifacts/modus-codex-luna-max-long-horizon-p2d-initial-v1.json).
+
+The reversed second pair resolved P2d as a negative routing result. All four
+pipelines remained correct, linked, topology-faithful, and mechanism-faithful;
+the cache continued to replay the exact Agent decision with zero model cost.
+But the decision itself was wrong for utility. Across two repetitions, the
+reversed route was 1.387x slower, used 3.6% more Worker tokens, and has no
+break-even deployment. Combined acquisition is 1,224,149 tokens and the eight-
+deployment net is -1,310,165 tokens.
+
+This separates cache correctness from route qualification. An exact cache can
+reliably replay a bad outcome-blind decision. A deployment cache must therefore
+bind correctness, performance, stability, and cost evidence—not only Router
+JSON and its provenance—and the Agent must abstain when its action conflicts
+with qualified stage-mechanism evidence. See
+[`agentic-artifacts/modus-codex-luna-max-long-horizon-p2d-final-v1.json`](../agentic-artifacts/modus-codex-luna-max-long-horizon-p2d-final-v1.json).

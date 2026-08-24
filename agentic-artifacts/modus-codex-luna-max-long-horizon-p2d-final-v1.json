@@ -1,0 +1,67 @@
+{
+  "schema": "acrouter-modus-luna-long-horizon-p2d-final-result-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "prospective_cached_routing_negative_evidence": true,
+  "router_and_cache": {
+    "agent_actions": {"stage-L": "e1v2", "stage-S": "p000"},
+    "agent_outcome_blind": true,
+    "cache_exact_replay": true,
+    "cached_router_model_calls": 0,
+    "cached_router_tokens_per_deployment": 0
+  },
+  "validity": {
+    "complete_pipelines": 4,
+    "stage_verifications_passed": 8,
+    "parent_bindings_passed": 4,
+    "reverse_route_stage_l_e1v2_mechanism": "2/2",
+    "stage_s_p000_target_only_delta": "2/2",
+    "stage_s_prepared_mechanism_preserved": "2/2",
+    "final_correctness": "4/4"
+  },
+  "replicated_aggregates": {
+    "neutral_final_seconds": 0.00108725,
+    "routed_final_seconds": 0.001508,
+    "routed_final_ratio_to_fastest": 1.386985513911244,
+    "neutral_worker_tokens": 295464,
+    "routed_worker_tokens": 306216.5,
+    "worker_saving_fraction": -0.036391912381880775,
+    "live_agent_counterfactual_tokens": 327004.5,
+    "live_agent_counterfactual_saving_fraction": -0.10674904556900322
+  },
+  "economics": {
+    "combined_acquisition_tokens": 1224149,
+    "cached_candidate_deployment_tokens": 306216.5,
+    "neutral_deployment_tokens": 295464,
+    "saving_per_deployment_tokens": -10752,
+    "break_even_deployments": null,
+    "expected_deployments": 8,
+    "net_tokens_at_expected_deployments": -1310165,
+    "decision": "reject_cached_route"
+  },
+  "conclusions": {
+    "cache_identity_and_zero_model_replay_work": true,
+    "profile_behavior_and_linked_state_handoff_work": true,
+    "agent_selected_route_is_cost_performance_qualified": false,
+    "exact_cache_can_reliably_replay_a_bad_route": true,
+    "valid_agent_json_is_not_deployment_evidence": true,
+    "cache_must_bind_worker_outcome_qualification": true,
+    "free_agent_reasoning_must_not_override_qualified_stage_action_evidence": true
+  },
+  "cache_entry_disposition": {
+    "entry_sha256": "19393010bc891ba407b99eb5ad73619179acea2d47b6390b5b7907e788564fe2",
+    "experimental_replay_valid": true,
+    "deployment_qualified": false,
+    "required_next_state": "reject or supersede with an entry that binds correctness, performance, stability, and cost qualification evidence"
+  },
+  "files": {
+    "initial_evidence": "agentic-artifacts/modus-codex-luna-max-long-horizon-p2d-initial-v1.json",
+    "second_execution": "examples/modus_profile_router/long-horizon-p2d-v1/pipeline-results/second-pair/execution-summary.json",
+    "second_score": "examples/modus_profile_router/long-horizon-p2d-v1/pipeline-results/second-pair/score.json",
+    "second_execution_sha256": "878ecae72080e37b17100e469a3ecd2e515e9108b9f9865e77434e93f09ab63c",
+    "second_score_sha256": "b9ed96b8abcc0d7f7af87feb9eb579b4f0fd064fb56850322628ef22901263b6"
+  },
+  "next_experiment": "upgrade the route cache to distinguish experimental Agent decisions from outcome-qualified deployment routes, and require exact mechanism evidence or abstention before caching",
+  "claim_boundary": "This negative result does not refute Profile control or cached replay. It refutes the assumption that an outcome-blind Agent decision becomes deployment-worthy merely because it is syntactically valid, stable, and exactly cached."
+}
+
