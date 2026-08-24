@@ -6,6 +6,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "configs/modus_connectivity_p1f_third_pair_replication_v1.json"
+EVIDENCE = ROOT / "agentic-artifacts/modus-codex-luna-max-connectivity-p1f-replicated-v1.json"
 
 
 class ConnectivityP1fReplicationTest(unittest.TestCase):
@@ -46,6 +47,25 @@ class ConnectivityP1fReplicationTest(unittest.TestCase):
             self.assertEqual(
                 hashlib.sha256((ROOT / value["provenance"][path_key]).read_bytes()).hexdigest(),
                 value["provenance"][hash_key],
+            )
+
+    def test_replicated_evidence_preserves_route_but_rejects_eight_deployments(self):
+        value = json.loads(EVIDENCE.read_text(encoding="utf-8"))
+        self.assertFalse(value["scientific_evidence"])
+        self.assertTrue(value["replicated_preliminary_evidence"])
+        self.assertTrue(value["conclusions"]["agent_router_matches_constrained_oracle"])
+        self.assertTrue(value["conclusions"]["router_plus_worker_reduces_per_deployment_tokens"])
+        self.assertFalse(value["conclusions"]["router_plus_worker_net_positive_at_eight_deployments"])
+        self.assertEqual(value["economics"]["break_even_deployments"], 10)
+        self.assertEqual(value["economics"]["net_tokens_at_expected_deployments"], -424028)
+        for name, hash_key in (
+            ("replication_wave_result", "replication_wave_result_sha256"),
+            ("replication_manager_verification", "replication_manager_verification_sha256"),
+            ("replication_score", "replication_score_sha256"),
+        ):
+            self.assertEqual(
+                hashlib.sha256((ROOT / value["files"][name]).read_bytes()).hexdigest(),
+                value["files"][hash_key],
             )
 
 

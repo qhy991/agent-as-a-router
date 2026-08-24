@@ -1,0 +1,298 @@
+{
+ "benchmarked_cells": 4,
+ "cells": [
+  {
+   "action": "neutral",
+   "benchmark": {
+    "all_seconds": [
+     0.000945,
+     0.001348,
+     0.002421,
+     0.001212,
+     0.001135,
+     0.00099,
+     0.00183,
+     0.001321,
+     0.001064
+    ],
+    "median_seconds": 0.001212,
+    "rounds": 9,
+    "schema": "modus-performance-p0-benchmark-v1",
+    "steady_relative_median_absolute_deviation": 0.057935735150925156,
+    "steady_seconds": 0.0010270000000000001,
+    "success": true
+   },
+   "cell": "connectivity-y01-neutral-r1",
+   "correct": true,
+   "correctness": {
+    "hidden": {
+     "returncode": 0,
+     "stderr": "",
+     "stdout": "hidden-ok\n",
+     "timed_out": false
+    },
+    "hidden_passed": true,
+    "public": {
+     "returncode": 0,
+     "stderr": "test_connectivity (test_public.PublicTest.test_connectivity) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+     "stdout": "",
+     "timed_out": false
+    },
+    "public_passed": true,
+    "schema": "modus-performance-p0-correctness-v1",
+    "success": true,
+    "task_id": "connectivity-y01-perf-p1f"
+   },
+   "repetition": 1,
+   "semantic_mechanism": null,
+   "semantic_mechanism_passed": true,
+   "semantic_mechanism_required": false,
+   "task": "connectivity-y01",
+   "topology": {
+    "changed_implementation_paths": [
+     "perf_connectivity_y01/target.py"
+    ],
+    "expected_topology": "unconstrained",
+    "passed": true,
+    "schema": "modus-performance-p0-topology-v1",
+    "task_id": "connectivity-y01-perf-p1f",
+    "topology": "unconstrained"
+   },
+   "topology_fidelity_passed": true,
+   "usage": {
+    "cache_write_input_tokens": 0,
+    "cached_input_tokens": 116992,
+    "input_tokens": 142567,
+    "output_tokens": 6005,
+    "reasoning_output_tokens": 3881
+   },
+   "usage_complete": true,
+   "wave_valid_execution": true
+  },
+  {
+   "action": "p000",
+   "benchmark": {
+    "all_seconds": [
+     0.002033,
+     0.005636,
+     0.002116,
+     0.001857,
+     0.003994,
+     0.001991,
+     0.004375,
+     0.002238,
+     0.002174
+    ],
+    "median_seconds": 0.002174,
+    "rounds": 9,
+    "schema": "modus-performance-p0-benchmark-v1",
+    "steady_relative_median_absolute_deviation": 0.031063618290258478,
+    "steady_seconds": 0.002012,
+    "success": true
+   },
+   "cell": "connectivity-y01-p000-r1",
+   "correct": true,
+   "correctness": {
+    "hidden": {
+     "returncode": 0,
+     "stderr": "",
+     "stdout": "hidden-ok\n",
+     "timed_out": false
+    },
+    "hidden_passed": true,
+    "public": {
+     "returncode": 0,
+     "stderr": "test_connectivity (test_public.PublicTest.test_connectivity) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+     "stdout": "",
+     "timed_out": false
+    },
+    "public_passed": true,
+    "schema": "modus-performance-p0-correctness-v1",
+    "success": true,
+    "task_id": "connectivity-y01-perf-p1f"
+   },
+   "repetition": 1,
+   "semantic_mechanism": null,
+   "semantic_mechanism_passed": true,
+   "semantic_mechanism_required": false,
+   "task": "connectivity-y01",
+   "topology": {
+    "changed_implementation_paths": [
+     "perf_connectivity_y01/target.py"
+    ],
+    "expected_topology": "local",
+    "passed": true,
+    "schema": "modus-performance-p0-topology-v1",
+    "task_id": "connectivity-y01-perf-p1f",
+    "topology": "local"
+   },
+   "topology_fidelity_passed": true,
+   "usage": {
+    "cache_write_input_tokens": 0,
+    "cached_input_tokens": 97792,
+    "input_tokens": 121337,
+    "output_tokens": 4699,
+    "reasoning_output_tokens": 3445
+   },
+   "usage_complete": true,
+   "wave_valid_execution": true
+  },
+  {
+   "action": "neutral",
+   "benchmark": {
+    "all_seconds": [
+     0.002234,
+     0.002068,
+     0.001812,
+     0.001965,
+     0.005302,
+     0.002367,
+     0.003749,
+     0.001587,
+     0.003095
+    ],
+    "median_seconds": 0.002234,
+    "rounds": 9,
+    "schema": "modus-performance-p0-benchmark-v1",
+    "steady_relative_median_absolute_deviation": 0.0677786603124173,
+    "steady_seconds": 0.0018885,
+    "success": true
+   },
+   "cell": "connectivity-y02-neutral-r1",
+   "correct": true,
+   "correctness": {
+    "hidden": {
+     "returncode": 0,
+     "stderr": "",
+     "stdout": "hidden-ok\n",
+     "timed_out": false
+    },
+    "hidden_passed": true,
+    "public": {
+     "returncode": 0,
+     "stderr": "test_connectivity (test_public.PublicTest.test_connectivity) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+     "stdout": "",
+     "timed_out": false
+    },
+    "public_passed": true,
+    "schema": "modus-performance-p0-correctness-v1",
+    "success": true,
+    "task_id": "connectivity-y02-perf-p1f"
+   },
+   "repetition": 1,
+   "semantic_mechanism": null,
+   "semantic_mechanism_passed": true,
+   "semantic_mechanism_required": false,
+   "task": "connectivity-y02",
+   "topology": {
+    "changed_implementation_paths": [
+     "perf_connectivity_y02/observer.py",
+     "perf_connectivity_y02/shared.py",
+     "perf_connectivity_y02/target.py"
+    ],
+    "expected_topology": "unconstrained",
+    "passed": true,
+    "schema": "modus-performance-p0-topology-v1",
+    "task_id": "connectivity-y02-perf-p1f",
+    "topology": "unconstrained"
+   },
+   "topology_fidelity_passed": true,
+   "usage": {
+    "cache_write_input_tokens": 0,
+    "cached_input_tokens": 195840,
+    "input_tokens": 218104,
+    "output_tokens": 7960,
+    "reasoning_output_tokens": 4832
+   },
+   "usage_complete": true,
+   "wave_valid_execution": true
+  },
+  {
+   "action": "e1v2",
+   "benchmark": {
+    "all_seconds": [
+     0.00608,
+     0.002233,
+     0.002043,
+     0.002511,
+     0.002888,
+     0.002055,
+     0.002509,
+     0.002068,
+     0.002731
+    ],
+    "median_seconds": 0.002509,
+    "rounds": 9,
+    "schema": "modus-performance-p0-benchmark-v1",
+    "steady_relative_median_absolute_deviation": 0.006063545961678353,
+    "steady_seconds": 0.0020615,
+    "success": true
+   },
+   "cell": "connectivity-y02-e1v2-r1",
+   "correct": true,
+   "correctness": {
+    "hidden": {
+     "returncode": 0,
+     "stderr": "",
+     "stdout": "hidden-ok\n",
+     "timed_out": false
+    },
+    "hidden_passed": true,
+    "public": {
+     "returncode": 0,
+     "stderr": "test_connectivity (test_public.PublicTest.test_connectivity) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+     "stdout": "",
+     "timed_out": false
+    },
+    "public_passed": true,
+    "schema": "modus-performance-p0-correctness-v1",
+    "success": true,
+    "task_id": "connectivity-y02-perf-p1f"
+   },
+   "repetition": 1,
+   "semantic_mechanism": {
+    "run": {
+     "returncode": 0,
+     "stderr": "",
+     "stdout": "mechanism-ok\n",
+     "timed_out": false
+    },
+    "schema": "modus-prepared-representation-mechanism-v1",
+    "success": true
+   },
+   "semantic_mechanism_passed": true,
+   "semantic_mechanism_required": true,
+   "task": "connectivity-y02",
+   "topology": {
+    "changed_implementation_paths": [
+     "perf_connectivity_y02/observer.py",
+     "perf_connectivity_y02/shared.py",
+     "perf_connectivity_y02/target.py"
+    ],
+    "expected_topology": "coordinated",
+    "passed": true,
+    "schema": "modus-performance-p0-topology-v1",
+    "task_id": "connectivity-y02-perf-p1f",
+    "topology": "coordinated"
+   },
+   "topology_fidelity_passed": true,
+   "usage": {
+    "cache_write_input_tokens": 0,
+    "cached_input_tokens": 127488,
+    "input_tokens": 173325,
+    "output_tokens": 9325,
+    "reasoning_output_tokens": 7145
+   },
+   "usage_complete": true,
+   "wave_valid_execution": true
+  }
+ ],
+ "correct_cells": 4,
+ "measurement_dispatch": "sequential",
+ "schema": "modus-connectivity-p1f-selected-worker-verification-v1",
+ "semantic_mechanism_passed_cells": 1,
+ "semantic_mechanism_required_cells": 1,
+ "status": "pass",
+ "topology_fidelity_cells": 4,
+ "usage_complete_cells": 4
+}

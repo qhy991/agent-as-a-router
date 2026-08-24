@@ -123,7 +123,9 @@
     "profile_luna_max_connectivity_p1f_agent_router": "modus-codex-luna-max-connectivity-p1f-agent-router-v1.json",
     "profile_luna_max_connectivity_p1f_router_protocol": "../configs/modus_connectivity_p1f_agent_router_v1.json",
     "profile_luna_max_connectivity_p1f_initial": "modus-codex-luna-max-connectivity-p1f-initial-v1.json",
-    "profile_luna_max_connectivity_p1f_worker_protocol": "../configs/modus_connectivity_p1f_selected_workers_v1.json"
+    "profile_luna_max_connectivity_p1f_worker_protocol": "../configs/modus_connectivity_p1f_selected_workers_v1.json",
+    "profile_luna_max_connectivity_p1f_replicated": "modus-codex-luna-max-connectivity-p1f-replicated-v1.json",
+    "profile_luna_max_connectivity_p1f_replication_protocol": "../configs/modus_connectivity_p1f_third_pair_replication_v1.json"
   },
   "headline_metrics": {
     "id": {

@@ -833,3 +833,20 @@ and the initial protocol did not precommit an ambiguity repetition. A separate
 post-outcome third-pair replication is required and must add its evidence cost.
 See
 [`agentic-artifacts/modus-codex-luna-max-connectivity-p1f-initial-v1.json`](../agentic-artifacts/modus-codex-luna-max-connectivity-p1f-initial-v1.json).
+
+The separately frozen post-outcome third pair completed four additional valid
+cells without changing actions or gates. Combining three repetitions per
+action strengthens the route: Y01 p000 is now the fastest action and saves
+47.2% Worker tokens; Y02 e1-v2 is only 1.057x slower than neutral and saves
+45.9%. Both remain correct, topology-faithful, and noise-qualified; e1-v2 again
+passes the prepared-representation mechanism gate. The original Agent route
+continues to match the constrained Oracle on both tasks.
+
+Replicated per-deployment economics remain attractive: Workers save 46.4%,
+and Router-inclusive saving is 43.7%. But the extra four cells cost 683,322
+tokens. Combined acquisition rises to 2,440,628 tokens, moving break-even from
+deployment 7 to deployment 10. At the frozen eight-deployment horizon the
+system is 424,028 tokens negative. Thus Modus now has replicated evidence that
+Profile routing improves per-deployment cost-performance, but not that this
+more robust evidence plan is net-positive at eight deployments. See
+[`agentic-artifacts/modus-codex-luna-max-connectivity-p1f-replicated-v1.json`](../agentic-artifacts/modus-codex-luna-max-connectivity-p1f-replicated-v1.json).

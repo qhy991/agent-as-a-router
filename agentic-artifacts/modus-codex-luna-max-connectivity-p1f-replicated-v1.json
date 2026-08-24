@@ -1,0 +1,102 @@
+{
+  "schema": "acrouter-modus-luna-connectivity-p1f-replicated-result-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "replicated_preliminary_evidence": true,
+  "model": {"slug": "gpt-5.6-luna", "reasoning_effort": "max", "authentication": "ChatGPT login"},
+  "experiment_scope": {
+    "unseen_task_family": "undirected connectivity",
+    "agent_router_calls": 2,
+    "initial_worker_cells": 8,
+    "post_outcome_replication_cells": 4,
+    "combined_repetitions_per_action": 3,
+    "automatic_redispatches": 0,
+    "full_profile_matrix_completed": false
+  },
+  "replication": {
+    "protocol_commit_at_dispatch": "592ab7d",
+    "manifest_sha256": "1b04eb0934e8e23dcc4f68bcfadc63715f25ee8b394aa806c37160a7ec2c1a05",
+    "valid_cells": 4,
+    "correct_cells": 4,
+    "topology_fidelity_cells": 4,
+    "e1v2_semantic_mechanism_cells": "1/1",
+    "complete_usage_cells": 4,
+    "replication_acquisition_tokens": 683322,
+    "post_outcome_triggered": true
+  },
+  "replicated_tasks": {
+    "connectivity-y01": {
+      "agent_action": "p000",
+      "constrained_oracle_action": "p000",
+      "neutral_median_seconds": 0.0006575,
+      "p000_median_seconds": 0.000647,
+      "p000_performance_ratio": 1.0,
+      "neutral_median_tokens": 238494,
+      "p000_median_tokens": 126036,
+      "worker_saving_fraction": 0.4715338750660394,
+      "quality_performance_and_topology_passed": true
+    },
+    "connectivity-y02": {
+      "agent_action": "e1v2",
+      "constrained_oracle_action": "e1v2",
+      "neutral_median_seconds": 0.0006485,
+      "e1v2_median_seconds": 0.0006855,
+      "e1v2_performance_ratio": 1.057054741711642,
+      "neutral_median_tokens": 337801,
+      "e1v2_median_tokens": 182650,
+      "worker_saving_fraction": 0.4592970417494323,
+      "quality_performance_topology_and_semantic_mechanism_passed": true
+    }
+  },
+  "router": {
+    "actions_by_task": {"connectivity-y01": "p000", "connectivity-y02": "e1v2"},
+    "stable_repetitions": 2,
+    "matches_constrained_oracle_on_all_tasks": true,
+    "tokens_per_deployment": 15533.5
+  },
+  "deployment": {
+    "fixed_neutral_worker_tokens": 576295,
+    "routed_worker_tokens": 308686,
+    "worker_saving_fraction": 0.4643611344884131,
+    "routed_e2e_tokens_including_router": 324219.5,
+    "e2e_saving_fraction": 0.4374070571495502
+  },
+  "economics": {
+    "initial_acquisition_tokens": 1757306,
+    "replication_acquisition_tokens": 683322,
+    "combined_acquisition_tokens": 2440628,
+    "saving_per_deployment_tokens": 252075,
+    "break_even_deployments": 10,
+    "expected_deployments": 8,
+    "net_tokens_at_expected_deployments": -424028,
+    "net_tokens_at_break_even_deployment": 80122,
+    "decision_at_expected_deployments": "qualified_but_not_economic"
+  },
+  "conclusions": {
+    "profile_behavior_is_controllable": true,
+    "profile_task_preference_replication": true,
+    "mechanism_aware_e1_transfers_to_unseen_contract": true,
+    "agent_router_matches_constrained_oracle": true,
+    "router_plus_worker_reduces_per_deployment_tokens": true,
+    "router_plus_worker_net_positive_at_eight_deployments": false,
+    "router_plus_worker_net_positive_from_deployment": 10
+  },
+  "qualification": {
+    "p000_connectivity_single_batch_qualified": true,
+    "e1v2_connectivity_multi_batch_mechanism_qualified": true,
+    "global_e1v2_profile_qualified": false,
+    "reason_global_remains_false": "one held-out family and a post-outcome replication do not establish broad mechanism generalization"
+  },
+  "files": {
+    "initial_evidence": "agentic-artifacts/modus-codex-luna-max-connectivity-p1f-initial-v1.json",
+    "replication_wave_result": "examples/modus_profile_router/connectivity-p1f-v1/replication-results/wave-result.json",
+    "replication_manager_verification": "examples/modus_profile_router/connectivity-p1f-v1/replication-results/manager-verification.json",
+    "replication_score": "examples/modus_profile_router/connectivity-p1f-v1/replication-results/score.json",
+    "replication_wave_result_sha256": "029dab110d7655ea244cca4fa275c1bf1c07a475b0696e522defe0a768994673",
+    "replication_manager_verification_sha256": "dc62f2d85821a49920f7c4cc307c5ecf4d292782f18fee259214a51e4b58d5f1",
+    "replication_score_sha256": "66f7f28df044ead9a1ad6d657a30f36404196a3b323df0c415c153ff1f4e7754"
+  },
+  "next_experiment": "use this qualified single-stage routing rule inside one linked long-horizon performance workflow, and precommit a lower-cost staged evidence plan so net benefit can be tested without post-outcome acquisition inflation",
+  "claim_boundary": "The replicated result supports controllable Profile behavior, task-dependent cost-performance preference, and correct outcome-blind Agent routing on one unseen family. The Oracle is constrained to selected-versus-neutral actions, the extra repetition was post-outcome, and net benefit is absent at the frozen eight-deployment horizon despite 43.7% per-deployment saving."
+}
+
