@@ -1,0 +1,39 @@
+{
+  "cells": [
+    {
+      "cell": "router-r1",
+      "last_message_sha256": "8c799ed46baa28d4700597c30d3d6f57782ebbc7c6b712006877b0fcd611ab68",
+      "parse_error": null,
+      "parsed": {
+        "actions_by_stage": {
+          "stage-L": "e1v2",
+          "stage-S": "p000"
+        },
+        "reasons_by_stage": {
+          "stage-L": "Prepare the reusable membership representation before the linked stage.",
+          "stage-S": "Tune only the target while preserving the reused cached representation."
+        }
+      },
+      "total_tokens": 20788,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 0,
+        "input_tokens": 15017,
+        "output_tokens": 5771,
+        "reasoning_output_tokens": 5696
+      },
+      "valid_execution": true
+    }
+  ],
+  "decision": "freeze_linked_pipeline_protocol",
+  "pipeline_protocol_authorized": true,
+  "router_acquisition_tokens": 20788,
+  "router_tokens_per_deployment": 20788,
+  "schema": "modus-long-horizon-p2d-router-validation-v1",
+  "stable_actions_by_stage": {
+    "stage-L": "e1v2",
+    "stage-S": "p000"
+  },
+  "stable_repetitions": 1,
+  "status": "pass"
+}
