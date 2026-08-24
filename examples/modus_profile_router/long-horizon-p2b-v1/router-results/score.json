@@ -1,0 +1,39 @@
+{
+  "cells": [
+    {
+      "cell": "router-r1",
+      "last_message_sha256": "d9ca21c261e11027778b683f50d8193b63a2577738f7fa582c97efaf5b9bbe39",
+      "parse_error": null,
+      "parsed": {
+        "actions_by_stage": {
+          "stage-L": "p000",
+          "stage-S": "e1v2"
+        },
+        "reasons_by_stage": {
+          "stage-L": "Single batch makes target-local preparation sufficient.",
+          "stage-S": "Reusable shared preparation amortizes across 120 batches."
+        }
+      },
+      "total_tokens": 16223,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 0,
+        "input_tokens": 15051,
+        "output_tokens": 1172,
+        "reasoning_output_tokens": 1100
+      },
+      "valid_execution": true
+    }
+  ],
+  "decision": "freeze_linked_pipeline_protocol",
+  "pipeline_protocol_authorized": true,
+  "router_acquisition_tokens": 16223,
+  "router_tokens_per_deployment": 16223,
+  "schema": "modus-long-horizon-p2b-router-validation-v1",
+  "stable_actions_by_stage": {
+    "stage-L": "p000",
+    "stage-S": "e1v2"
+  },
+  "stable_repetitions": 1,
+  "status": "pass"
+}
