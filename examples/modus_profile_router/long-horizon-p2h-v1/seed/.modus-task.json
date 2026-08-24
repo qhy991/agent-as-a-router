@@ -1,0 +1,10 @@
+{
+  "schema": "modus-long-horizon-p2h-public-task-v1",
+  "task_id": "distinct-out-degree-linked-p2h",
+  "algorithm_family": "distinct-out-degree-linked",
+  "implementation_package": "perf_linked_outdegree",
+  "stages": [
+    "L",
+    "S"
+  ]
+}

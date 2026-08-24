@@ -1,0 +1,70 @@
+{
+  "schema": "acrouter-modus-long-horizon-p2h-agent-proposal-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "purpose": "one outcome-blind Agent proposal for scratch qualification on unseen distinct_out_degree",
+  "expected_future_deployments": 8,
+  "model": {
+    "local_slug": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "authentication": "ChatGPT login"
+  },
+  "router": {
+    "prompt": "examples/modus_profile_router/long-horizon-p2h-v1/router-task.md",
+    "prompt_sha256": "58232752be7b97241e11846b400dc260017176a773a4b462152e5a6ef49d1b5e",
+    "stages": ["stage-L", "stage-S"],
+    "allowed_actions": ["neutral", "p000", "e1v2"],
+    "repetitions": 1,
+    "worker_outcomes_available": false,
+    "route_qualification_available": false,
+    "invalid_response": "stop without Worker calls"
+  },
+  "profiles": {
+    "neutral": {
+      "profile_path": "/private/tmp/modus-codex-spark-neutral-profile.md",
+      "profile_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "p000": {
+      "profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/profiles/p000.md",
+      "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282"
+    },
+    "e1v2": {
+      "profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/experimental-profiles/e1-v2/p100.md",
+      "profile_sha256": "c4d0326d4fb5afb14aa51aeb91653fa7771610a41eb53de019c87bf9ff3419e1"
+    }
+  },
+  "task": {
+    "seed_root": "examples/modus_profile_router/long-horizon-p2h-v1/seed",
+    "seed_tree_sha256": "51b9c21a3c61e162329671b612eef3339f6d2eff1878344258cdc2dc557d1f2b",
+    "stage_l_prompt": "examples/modus_profile_router/long-horizon-p2h-v1/seed/instruction-stage-l.md",
+    "stage_l_prompt_sha256": "b40c357c82f0c09ee71ab4e90375e1608a3ad158bcb7f69bca09900e7ecf69a6",
+    "stage_s_prompt": "examples/modus_profile_router/long-horizon-p2h-v1/seed/instruction-stage-s.md",
+    "stage_s_prompt_sha256": "1c4fcb5c022bd33d3e50279792c49c2cd1998d845960211a21302cb1160228be",
+    "qualification_path": "examples/modus_profile_router/long-horizon-p2h-v1/task-qualification.json",
+    "qualification_sha256": "4fb691c7923d4888035d679dd6807fbb4c9e33568f74a530611c8bdc8c2b9caf",
+    "modus_commit": "d82196f"
+  },
+  "next_phase": {
+    "worker_deployment_authorized": false,
+    "qualification_pair_authorized_only_after_valid_proposal": true,
+    "pair_order_rule": "odd first nibble of Router prompt sha256 means neutral-first; even means proposed-route-first",
+    "router_prompt_first_nibble": "5",
+    "frozen_pair_order_if_valid": ["neutral", "proposed-route"],
+    "performance_ratio_maximum": 1.25,
+    "steady_relative_mad_maximum": 0.10,
+    "minimum_worker_token_saving_fraction": 0.15,
+    "automatic_redispatch": false
+  },
+  "failure_policy": {
+    "invalid_router": "stop",
+    "no_model_substitution": true,
+    "automatic_redispatch": false,
+    "valid_but_bad_proposal": "preserve as negative outcome; never repair post hoc"
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "8ae7ee3",
+    "scorer_path": "scripts/score_modus_long_horizon_p2h_router.py",
+    "scorer_sha256_at_freeze": "e86a68d134cae60f24c91a9c117038eb2bcf7766750dfc772c6f3185380073dd"
+  },
+  "claim_boundary": "The Agent response is an untrusted qualification proposal. It cannot authorize deployment and supports no Worker, performance, Profile preference, or economics claim until the separately frozen pair completes."
+}
