@@ -1,0 +1,52 @@
+{
+  "schema": "acrouter-modus-evidence-gated-agent-mechanism-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "model_free_mechanism_evidence": true,
+  "contract": {
+    "stages": ["stage-L", "stage-S"],
+    "dispatch_identity": ["stage", "profile", "mechanism_id", "evidence_ref"],
+    "nonneutral_requires_mechanism": true,
+    "nonneutral_requires_qualification_evidence": true,
+    "abstain_allowed": true
+  },
+  "qualified_routes": [
+    {"stage": "stage-L", "profile": "p000", "mechanism_id": "local-prefix-sum-v1", "evidence_ref": "qualification:p2b:stage-L"},
+    {"stage": "stage-S", "profile": "e1v2", "mechanism_id": "shared-prefix-sum-v1", "evidence_ref": "qualification:p2b:stage-S"}
+  ],
+  "positive_replay": {
+    "case": "P2b",
+    "response": {"stage-L": "p000", "stage-S": "e1v2"},
+    "validator_result": "allow"
+  },
+  "negative_replay": {
+    "case": "P2d historical Agent response",
+    "response": {"stage-L": "e1v2", "stage-S": "p000"},
+    "validator_result": "reject before Workers",
+    "first_error": "routes[0] is not outcome-qualified"
+  },
+  "fail_closed_checks": {
+    "missing_evidence": true,
+    "partial_evidence": true,
+    "swapped_stage_evidence": true,
+    "invented_evidence": true,
+    "unqualified_stage_profile_swap": true,
+    "explicit_abstain_valid": true,
+    "qualification_source_sha_verified": true
+  },
+  "files": {
+    "validator": "src/acrouter_repro/codex_spark_shadow.py",
+    "qualified_contract": "configs/modus_p2b_qualified_router_contract_v1.json",
+    "qualification_envelope": "examples/modus_profile_router/long-horizon-p2b-v1/route-qualification.json",
+    "validator_sha256": "3191c554c9244eb150331f2a20bed07f6a856823c00c64ffa929ed260202f26f",
+    "qualified_contract_sha256": "e6b0a1b7768cf69fe907fefe67c8908ee344e9d48e5ac09f27ebd312f272ae5f",
+    "qualification_envelope_sha256": "4e0eeb4ee93e9675eeb6c1409a2659de9e45cab06e4c7508730599707554fd3d"
+  },
+  "decision": {
+    "evidence_gated_candidate_generation_ready": true,
+    "p2d_error_prevented_model_free": true,
+    "next_action": "run one new P2e outcome-blind Agent cell with only exact qualified candidates or abstain"
+  },
+  "claim_boundary": "This model-free replay proves the response contract would reject the historical P2d route before Workers. It does not yet show a live Agent will comply, select P2b, or abstain on a new task."
+}
+

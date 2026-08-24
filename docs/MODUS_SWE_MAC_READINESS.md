@@ -993,3 +993,19 @@ tamper, and cache/decision tamper all fail closed. This closes the defect found
 by P2d: cached Agent provenance is necessary, while qualified Worker outcome
 evidence is the deployment authority. See
 [`agentic-artifacts/modus-route-qualification-envelope-v1.json`](../agentic-artifacts/modus-route-qualification-envelope-v1.json).
+
+### Evidence-gated Agent candidate generation
+
+The Router response contract now optionally carries exact qualified route
+tuples. Every non-neutral dispatch must match stage, Profile, mechanism, and
+qualification evidence ref together. A global allowlist is insufficient because
+it permits stage/action swaps; exact tuples close that gap while preserving an
+explicit abstain response.
+
+The qualified P2b p000→e1-v2 response is accepted. The historical P2d reverse
+e1-v2→p000 response is rejected before any Worker call, even when it reuses
+otherwise valid mechanisms and evidence refs. Missing, partial, swapped, or
+invented evidence also fails closed, while explicit abstention remains valid.
+This is model-free replay evidence; the next P2e experiment must show a live
+Agent selects only qualified candidates or abstains. See
+[`agentic-artifacts/modus-evidence-gated-agent-v1.json`](../agentic-artifacts/modus-evidence-gated-agent-v1.json).

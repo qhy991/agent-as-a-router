@@ -1,0 +1,20 @@
+{
+  "schema": "modus-qualified-router-contract-v1",
+  "qualification_source": {
+    "path": "examples/modus_profile_router/long-horizon-p2b-v1/route-qualification.json",
+    "sha256": "4e0eeb4ee93e9675eeb6c1409a2659de9e45cab06e4c7508730599707554fd3d"
+  },
+  "response_contract": {
+    "schema": "modus-profile-mechanism-route-v1",
+    "stages": ["stage-L", "stage-S"],
+    "allowed_profiles": ["neutral", "p000", "e1v2"],
+    "allowed_mechanism_ids": ["local-prefix-sum-v1", "shared-prefix-sum-v1"],
+    "allowed_evidence_refs": ["qualification:p2b:stage-L", "qualification:p2b:stage-S"],
+    "require_evidence_ref_for_mechanism": true,
+    "require_mechanism_for_dispatch": true,
+    "qualified_routes": [
+      {"stage": "stage-L", "profile": "p000", "mechanism_id": "local-prefix-sum-v1", "evidence_ref": "qualification:p2b:stage-L"},
+      {"stage": "stage-S", "profile": "e1v2", "mechanism_id": "shared-prefix-sum-v1", "evidence_ref": "qualification:p2b:stage-S"}
+    ]
+  }
+}

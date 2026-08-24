@@ -30,7 +30,9 @@ PROFILE_MECHANISM_CONTRACT_KEYS = {
 PROFILE_MECHANISM_OPTIONAL_CONTRACT_KEYS = {
     "allowed_evidence_refs",
     "require_mechanism_for_dispatch",
+    "qualified_routes",
 }
+QUALIFIED_ROUTE_KEYS = {"stage", "profile", "mechanism_id", "evidence_ref"}
 PROFILE_MECHANISM_ROUTE_KEYS = {
     "stage",
     "decision",
@@ -125,6 +127,37 @@ def _validate_profile_mechanism_contract(value: Any) -> dict[str, Any]:
         raise SparkShadowError(
             "response_contract.require_mechanism_for_dispatch is invalid"
         )
+    qualified_routes = value.get("qualified_routes")
+    if qualified_routes is not None:
+        if not isinstance(qualified_routes, list) or not qualified_routes:
+            raise SparkShadowError("response_contract.qualified_routes is invalid")
+        identities = set()
+        for index, route in enumerate(qualified_routes):
+            if not isinstance(route, dict) or set(route) != QUALIFIED_ROUTE_KEYS:
+                raise SparkShadowError(
+                    f"response_contract.qualified_routes[{index}] fields differ"
+                )
+            identity = tuple(route[field] for field in (
+                "stage", "profile", "mechanism_id", "evidence_ref"
+            ))
+            if not all(isinstance(item, str) and item for item in identity):
+                raise SparkShadowError(
+                    f"response_contract.qualified_routes[{index}] is invalid"
+                )
+            if identity in identities:
+                raise SparkShadowError("response_contract.qualified_routes are duplicated")
+            identities.add(identity)
+            if route["stage"] not in value["stages"]:
+                raise SparkShadowError("qualified route stage is not allowed")
+            if route["profile"] not in value["allowed_profiles"]:
+                raise SparkShadowError("qualified route profile is not allowed")
+            if route["mechanism_id"] not in value["allowed_mechanism_ids"]:
+                raise SparkShadowError("qualified route mechanism is not allowed")
+            if (
+                allowed_evidence_refs is not None
+                and route["evidence_ref"] not in allowed_evidence_refs
+            ):
+                raise SparkShadowError("qualified route evidence is not allowed")
     return value
 
 
@@ -180,6 +213,15 @@ def validate_profile_mechanism_response(
             and evidence_ref is None
         ):
             return f"routes[{index}].evidence_ref is required for a mechanism"
+        qualified_routes = contract.get("qualified_routes")
+        if qualified_routes is not None and not any(
+            route["stage"] == qualified["stage"]
+            and route["profile"] == qualified["profile"]
+            and route["mechanism_id"] == qualified["mechanism_id"]
+            and route["evidence_ref"] == qualified["evidence_ref"]
+            for qualified in qualified_routes
+        ):
+            return f"routes[{index}] is not outcome-qualified"
     return None
 
 
