@@ -1,0 +1,76 @@
+{
+  "schema": "acrouter-modus-connectivity-p1f-third-pair-replication-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "post_outcome_replication": true,
+  "purpose": "add one paired neutral/Agent-selected repetition per task because initial performance ratios were close to the frozen 1.25x gate",
+  "expected_future_deployments": 8,
+  "model": {"local_slug": "gpt-5.6-luna", "reasoning_effort": "max", "authentication": "ChatGPT login"},
+  "profiles": {
+    "neutral": {"profile_path": "/private/tmp/modus-codex-spark-neutral-profile.md", "profile_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    "p000": {"profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/profiles/p000.md", "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282"},
+    "e1v2": {"profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/experimental-profiles/e1-v2/p100.md", "profile_sha256": "c4d0326d4fb5afb14aa51aeb91653fa7771610a41eb53de019c87bf9ff3419e1"}
+  },
+  "tasks": {
+    "connectivity-y01": {
+      "task_id": "connectivity-y01-perf-p1f",
+      "package": "perf_connectivity_y01",
+      "selected_action": "p000",
+      "actions": ["neutral", "p000"],
+      "prompt": "examples/modus_profile_router/connectivity-p1f-v1/connectivity-y01-task.md",
+      "prompt_sha256": "9ca41940168d7d85b117e1b984e2931b177eb713dfc48bd4faa18a5f50f8ae4f",
+      "seed_root": "examples/modus_profile_router/connectivity-p1f-v1/seeds/connectivity-y01"
+    },
+    "connectivity-y02": {
+      "task_id": "connectivity-y02-perf-p1f",
+      "package": "perf_connectivity_y02",
+      "selected_action": "e1v2",
+      "actions": ["neutral", "e1v2"],
+      "prompt": "examples/modus_profile_router/connectivity-p1f-v1/connectivity-y02-task.md",
+      "prompt_sha256": "8699078de317f63dd4c1180c37d7cf4182c0b84d9e3d290828499c15f5be1e52",
+      "seed_root": "examples/modus_profile_router/connectivity-p1f-v1/seeds/connectivity-y02"
+    }
+  },
+  "matrix": {
+    "cells": 4,
+    "repetitions_per_action": 1,
+    "fresh_workspace_per_cell": true,
+    "automatic_redispatch": false,
+    "web_search_allowed": false
+  },
+  "scoring": {
+    "combine_with_initial": "three repetitions per action after adding this pair",
+    "correctness_first": true,
+    "performance_ratio_maximum": 1.25,
+    "steady_relative_mad_maximum": 0.10,
+    "minimum_selected_worker_token_saving_fraction": 0.15,
+    "router_actions_frozen": {"connectivity-y01": "p000", "connectivity-y02": "e1v2"},
+    "router_tokens_per_deployment": 15533.5,
+    "economic_gate": "include initial acquisition plus all replication Worker tokens at eight deployments"
+  },
+  "parent_initial": {
+    "evidence_path": "agentic-artifacts/modus-codex-luna-max-connectivity-p1f-initial-v1.json",
+    "evidence_sha256": "2cd76a568aec6008a9636af537f833cd6ac3456b69fe5af3736cbadf43a5c349",
+    "worker_protocol_path": "configs/modus_connectivity_p1f_selected_workers_v1.json",
+    "worker_protocol_sha256": "973fe7b9aacaec73c4f4f4e4e185c4a942b9c72fbea961e47918e9007d8c2d5d",
+    "manager_verification_path": "examples/modus_profile_router/connectivity-p1f-v1/worker-results/manager-verification.json",
+    "manager_verification_sha256": "68b785690ae62ee42c46c02106534314f6ae2a5cd19773ffd03ff872aa3e9554",
+    "total_acquisition_tokens": 1757306,
+    "initial_ratios": {"connectivity-y01": 1.2361932938856015, "connectivity-y02": 1.209859791949344}
+  },
+  "parent_router": {"tokens_per_deployment": 15533.5},
+  "failure_policy": {
+    "invalid_or_incomplete_cell": "replication fails; preserve and do not redispatch",
+    "no_model_substitution": true,
+    "post_hoc_action_or_gate_change": false
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "c9da78aee10464a53602924c76a021d822d0ecec",
+    "verifier_path": "scripts/verify_modus_connectivity_p1f_workers.py",
+    "verifier_sha256_at_freeze": "8f12e8c7c4ce9fd52b85a3250e73b483b2bcff8675a4c8d261ee5b358a41fe22",
+    "scorer_path": "scripts/score_modus_connectivity_p1f_replication.py",
+    "scorer_sha256_at_freeze": "964cd182383511a77e91a3a75b8d9c8b1530149dbbf56eb38dbe98948dd691fe"
+  },
+  "claim_boundary": "This replication was triggered after seeing the initial near-threshold ratios and was not part of the original protocol. It can strengthen or overturn the route estimate, but it must remain labeled post-outcome and its acquisition cost must be charged."
+}
+
