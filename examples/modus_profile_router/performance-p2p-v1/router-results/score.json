@@ -1,0 +1,13 @@
+{
+  "decision": {
+    "action": "p000v2",
+    "reason": "Direct target-only batch expression; benchmark-aware local optimization fits, while prepared shared representations are unnecessary.",
+    "schema": "modus-performance-p2p-router-decision-v1"
+  },
+  "deployment_authorized": false,
+  "parse_error": null,
+  "router_tokens": 15265,
+  "schema": "modus-performance-p2p-router-validation-v1",
+  "status": "pass",
+  "worker_triplet_authorized": true
+}
