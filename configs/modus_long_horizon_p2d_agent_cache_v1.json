@@ -1,0 +1,52 @@
+{
+  "schema": "acrouter-modus-long-horizon-p2d-agent-cache-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "expected_future_deployments": 8,
+  "model": {"local_slug": "gpt-5.6-luna", "reasoning_effort": "max", "authentication": "ChatGPT login"},
+  "router": {
+    "prompt": "examples/modus_profile_router/long-horizon-p2d-v1/router-task.md",
+    "prompt_sha256": "a085272f5f8e1522b151e75f5807bc44fa28a224bce9e5b73573020ac7205f04",
+    "stages": ["stage-L", "stage-S"],
+    "allowed_actions": ["neutral", "p000", "e1v2"],
+    "repetitions": 1,
+    "worker_outcomes_available": false
+  },
+  "profiles": {
+    "neutral": {"profile_path": "/private/tmp/modus-codex-spark-neutral-profile.md", "profile_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    "p000": {"profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/profiles/p000.md", "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282"},
+    "e1v2": {"profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/experimental-profiles/e1-v2/p100.md", "profile_sha256": "c4d0326d4fb5afb14aa51aeb91653fa7771610a41eb53de019c87bf9ff3419e1"}
+  },
+  "task": {
+    "seed_root": "examples/modus_profile_router/long-horizon-p2d-v1/seed",
+    "seed_tree_sha256": "8d173eb03d77b0b10db24b5f40704a371a4f43497d665356a219265afd5b140f",
+    "stage_l_prompt": "examples/modus_profile_router/long-horizon-p2d-v1/stage-l-task.md",
+    "stage_l_prompt_sha256": "0776237c2bbd0990d592b5530ccbf8da2632b03f4e0ef866653b66312d6c46cb",
+    "stage_s_prompt": "examples/modus_profile_router/long-horizon-p2d-v1/stage-s-task.md",
+    "stage_s_prompt_sha256": "2706e770c40293a99301b795947536e489150a60988aabb3c4791e1125324012",
+    "qualification_path": "examples/modus_profile_router/long-horizon-p2d-v1/task-qualification.json",
+    "qualification_sha256": "7d53fd0d421a335a0d52b9aef4421ee3839f450ac4d38edf3528c051d3ffcab0",
+    "modus_commit": "ac96603"
+  },
+  "cache_gate": {
+    "entry_must_be_built_from_this_router_score": true,
+    "zero_model_exact_replay_before_workers": true,
+    "future_cached_router_tokens_per_deployment": 0,
+    "mismatch": "stop without workers",
+    "prior_mechanism_evidence": "agentic-artifacts/modus-route-cache-p2c-mechanism-v1.json",
+    "prior_mechanism_evidence_sha256": "208bda0001768d8f0c5a60e455cd7ff6080dde214cfd063c6982de3535cc6221"
+  },
+  "pipeline_stage": {
+    "authorized_before_cache_replay": false,
+    "order_rule": "even first nibble of Router prompt sha256 selects routed-first",
+    "frozen_first_pair_order": ["routed", "neutral"]
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "7285f29dc95739f7e2c8f8d35406e0258769a110",
+    "route_cache_owner_sha256": "02be019d6386d96c3c68d6575562a13ddc950f3f7dc6ea1ccbbc382a84a74906",
+    "router_scorer_path": "scripts/score_modus_long_horizon_p2d_router.py",
+    "router_scorer_sha256": "865cd83c5bd98f691b2c6a2e84396ab6d75e1737b6d1f2762a265094c2bc213e"
+  },
+  "failure_policy": {"invalid_router_or_cache": "stop", "automatic_redispatch": false, "no_model_substitution": true}
+}
+
