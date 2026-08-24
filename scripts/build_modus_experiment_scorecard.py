@@ -33,6 +33,7 @@ def build(root: Path) -> dict:
     p2k, p2k_source = _source(root, "modus-codex-luna-max-long-horizon-p2k-final-v1.json")
     p2l, p2l_source = _source(root, "modus-codex-luna-max-performance-p2l-final-v1.json")
     p2n, p2n_source = _source(root, "modus-codex-luna-max-performance-p2n-partial-v1.json")
+    p2p, p2p_source = _source(root, "modus-codex-luna-max-performance-p2p-positive-v1.json")
 
     p1f_max_ratio = max(
         row.get("p000_performance_ratio", row.get("e1v2_performance_ratio"))
@@ -235,6 +236,22 @@ def build(root: Path) -> dict:
             "net_tokens_at_8_deployments": p2n["partial_two_task_economics"]["net_tokens_at_8_deployments"],
             "disqualification": "direct task excluded by cross-workspace read custody violation",
             "source": p2n_source,
+        },
+        {
+            "experiment": "P2p",
+            "task_family": "direct_bitmix",
+            "workflow": "custody-confined direct-task triplet",
+            "route": {"direct-bitmix": "p000v2"},
+            "evidence_status": p2p["formal_status"],
+            "outcome_valid": True,
+            "route_qualified": True,
+            "final_performance_ratio_to_fastest": p2p["profiles"]["p000v2"]["performance_ratio_to_neutral"],
+            "worker_saving_fraction": p2p["profiles"]["p000v2"]["token_saving_fraction"],
+            "e2e_saving_fraction": p2p["profiles"]["p000v2"]["token_saving_fraction"],
+            "acquisition_tokens": p2p["economics"]["acquisition_tokens"],
+            "break_even_deployments": p2p["economics"]["break_even_deployments"],
+            "net_tokens_at_8_deployments": p2p["economics"]["net_tokens_at_8_deployments"],
+            "source": p2p_source,
         },
     ]
     valid = [row for row in rows if row["outcome_valid"]]

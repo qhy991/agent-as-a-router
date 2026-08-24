@@ -1252,3 +1252,23 @@ This authorizes custody-confined future experiment infrastructure. It does not
 retroactively validate P2n's excluded direct task or create new Profile
 performance evidence. See
 [`agentic-artifacts/modus-p2o-read-custody-canary-v5.json`](../agentic-artifacts/modus-p2o-read-custody-canary-v5.json).
+
+### P2p custody-confined direct-task recovery
+
+P2p replaced P2n's excluded affine task with a new direct bit-mix contract and
+ran every model through the P2o v5 wrapper. No Worker could read sibling cells,
+owning repositories, Profile catalogs, scorers, or historical evidence. The
+outcome-blind Router selected p000-v2.
+
+All three cells passed correctness, topology, fifteen-round noise, and
+performance. Neutral used 1,399,114 tokens at 0.0374 seconds. P000-v2 used
+68,451 tokens at 1.171x neutral performance, saving 95.1%. E1-v3 was faster
+(0.0117 seconds) but used 158,265 tokens. Since both candidates passed quality,
+the frozen cost-first selector chose p000-v2, matching the Router. Acquisition
+was 1,625,830 tokens, break-even was deployment 2, and `Net@8=+9,019,474`.
+
+Combined with P2n's valid subset, the current preliminary task preferences are
+local→p000-v2, shared→e1-v3, direct→p000-v2. Thus tasks select at least two
+different Profiles; neutral remains the fallback and comparison authority but
+is not selected on these three tasks. See
+[`agentic-artifacts/modus-codex-luna-max-performance-p2p-positive-v1.json`](../agentic-artifacts/modus-codex-luna-max-performance-p2p-positive-v1.json).

@@ -277,14 +277,35 @@
       "task_family": "local_and_shared_partial_subset",
       "worker_saving_fraction": 0.2770497282780957,
       "workflow": "three-task revised-Profile matrix with one custody exclusion"
+    },
+    {
+      "acquisition_tokens": 1625830,
+      "break_even_deployments": 2,
+      "e2e_saving_fraction": 0.9510754663308351,
+      "evidence_status": "valid_positive",
+      "experiment": "P2p",
+      "final_performance_ratio_to_fastest": 1.1713835217402924,
+      "net_tokens_at_8_deployments": 9019474,
+      "outcome_valid": true,
+      "route": {
+        "direct-bitmix": "p000v2"
+      },
+      "route_qualified": true,
+      "source": {
+        "path": "agentic-artifacts/modus-codex-luna-max-performance-p2p-positive-v1.json",
+        "sha256": "86c9d23e9e0265f06b18ac8fd0c160b527b8166d6b365b29991e01ae7bbd538e"
+      },
+      "task_family": "direct_bitmix",
+      "worker_saving_fraction": 0.9510754663308351,
+      "workflow": "custody-confined direct-task triplet"
     }
   ],
   "schema": "modus-experiment-scorecard-v1",
   "summary": {
     "invalid_outcomes": 1,
-    "net_positive_at_8_deployments": 2,
-    "qualified_routes": 6,
-    "rows": 12,
-    "valid_outcomes": 11
+    "net_positive_at_8_deployments": 3,
+    "qualified_routes": 7,
+    "rows": 13,
+    "valid_outcomes": 12
   }
 }

@@ -105,6 +105,9 @@ that need to decide what to inspect before loading the full repository.
 42. Read `modus-p2o-read-custody-canary-v5.json` for the live macOS outer-sandbox
     canary proving that the current cell is readable while sibling cells and
     owning repositories return `Operation not permitted`.
+43. Read `modus-codex-luna-max-performance-p2p-positive-v1.json` for the fresh
+    custody-confined direct task: p000-v2 is selected over faster e1-v3 because
+    both pass quality and p000-v2 uses fewer tokens; Router matches the choice.
 
 ## Scope
 

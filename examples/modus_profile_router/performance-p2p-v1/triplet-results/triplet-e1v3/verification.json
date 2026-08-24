@@ -1,0 +1,96 @@
+{
+  "benchmark": {
+    "all_seconds": [
+      0.011733,
+      0.011739,
+      0.012146,
+      0.011581,
+      0.012139,
+      0.0118,
+      0.011916,
+      0.011587,
+      0.01192,
+      0.011916,
+      0.012081,
+      0.012095,
+      0.011818,
+      0.0121,
+      0.011639
+    ],
+    "median_seconds": 0.011916,
+    "rounds": 15,
+    "steady_relative_mad": 0.007244523992158868,
+    "steady_seconds": 0.011733,
+    "success": true
+  },
+  "checks": {
+    "benchmark": true,
+    "correctness": true,
+    "custody": true,
+    "semantic_mechanism": true,
+    "topology": true
+  },
+  "correctness": {
+    "hidden": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "hidden-ok\n",
+      "timed_out": false
+    },
+    "public": {
+      "returncode": 0,
+      "stderr": "test_bitmix (test_public.PublicTest.test_bitmix) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "stdout": "",
+      "timed_out": false
+    },
+    "success": true
+  },
+  "custody": {
+    "files": {
+      ".modus-task.json": {
+        "actual_sha256": "cace6760591c88ccd4e6ea0ee38ab37a5668818020b32a1723388af9017e67a9",
+        "expected_sha256": "cace6760591c88ccd4e6ea0ee38ab37a5668818020b32a1723388af9017e67a9",
+        "present": true
+      },
+      "benchmark.py": {
+        "actual_sha256": "f730bc900b3b4869efa988fe1921d24d52a3c853a084e9bb1bd27cdd45957e09",
+        "expected_sha256": "f730bc900b3b4869efa988fe1921d24d52a3c853a084e9bb1bd27cdd45957e09",
+        "present": true
+      },
+      "instruction.md": {
+        "actual_sha256": "a99f5b6ad87468bd36f14398a6f69070eeaf4584ba293211be221f641964b617",
+        "expected_sha256": "a99f5b6ad87468bd36f14398a6f69070eeaf4584ba293211be221f641964b617",
+        "present": true
+      },
+      "tests/test_public.py": {
+        "actual_sha256": "05b189f36d3e3ceaec0c9b64381cff948f1353845f227211fa1ffc732bbceb31",
+        "expected_sha256": "05b189f36d3e3ceaec0c9b64381cff948f1353845f227211fa1ffc732bbceb31",
+        "present": true
+      }
+    },
+    "passed": true
+  },
+  "implementation_digest": "18d007583904a6c8bab53e920397e59a148002aae7a08b36ae32855420143193",
+  "passed": true,
+  "profile": "e1v3",
+  "schema": "modus-performance-p2p-cell-verification-v1",
+  "semantic_mechanism": {
+    "run": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "mechanism-ok\n",
+      "timed_out": false
+    },
+    "success": true
+  },
+  "topology": {
+    "changed_implementation_paths": [
+      "perf_direct_bitmix_p2p/observer.py",
+      "perf_direct_bitmix_p2p/shared.py",
+      "perf_direct_bitmix_p2p/target.py"
+    ],
+    "expected_topology": "coordinated",
+    "passed": true,
+    "topology": "coordinated"
+  }
+}

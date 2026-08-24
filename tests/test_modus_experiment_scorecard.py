@@ -19,9 +19,9 @@ class ModusExperimentScorecardTest(unittest.TestCase):
         self.assertFalse(rows["P2h"]["outcome_valid"])
         self.assertTrue(rows["P2h"]["excluded_from_valid_trends"])
         self.assertIsNone(rows["P2h"]["net_tokens_at_8_deployments"])
-        self.assertEqual(value["summary"]["valid_outcomes"], 11)
-        self.assertEqual(value["summary"]["qualified_routes"], 6)
-        self.assertEqual(value["summary"]["net_positive_at_8_deployments"], 2)
+        self.assertEqual(value["summary"]["valid_outcomes"], 12)
+        self.assertEqual(value["summary"]["qualified_routes"], 7)
+        self.assertEqual(value["summary"]["net_positive_at_8_deployments"], 3)
 
     def test_valid_negative_p2i_keeps_saving_but_blocks_economics(self):
         value = json.loads(SCORECARD.read_text())
@@ -67,6 +67,9 @@ class ModusExperimentScorecardTest(unittest.TestCase):
         self.assertGreater(rows["P2n"]["worker_saving_fraction"], 0.25)
         self.assertLess(rows["P2n"]["net_tokens_at_8_deployments"], 0)
         self.assertIn("custody", rows["P2n"]["disqualification"])
+
+    def test_p2p_restores_direct_task_under_read_custody(self):
+        value=json.loads(SCORECARD.read_text());rows={r["experiment"]:r for r in value["experiments"]};self.assertTrue(rows["P2p"]["outcome_valid"]);self.assertTrue(rows["P2p"]["route_qualified"]);self.assertGreater(rows["P2p"]["worker_saving_fraction"],0.90);self.assertGreater(rows["P2p"]["net_tokens_at_8_deployments"],0)
 
 
 if __name__ == "__main__":

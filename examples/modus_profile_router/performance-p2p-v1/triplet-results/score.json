@@ -1,0 +1,90 @@
+{
+  "acquisition_tokens": 1625830,
+  "candidates": {
+    "e1v3": {
+      "eligible": true,
+      "gates": {
+        "noise": true,
+        "performance": true,
+        "token_saving": true,
+        "valid": true
+      },
+      "performance_ratio_to_neutral": 0.313557283732863,
+      "token_saving_fraction_vs_neutral": 0.8868819838840867
+    },
+    "p000v2": {
+      "eligible": true,
+      "gates": {
+        "noise": true,
+        "performance": true,
+        "token_saving": true,
+        "valid": true
+      },
+      "performance_ratio_to_neutral": 1.1713835217402924,
+      "token_saving_fraction_vs_neutral": 0.9510754663308351
+    }
+  },
+  "decision": "select_p000v2",
+  "economics": {
+    "acquisition_tokens": 1625830,
+    "baseline_deployment_tokens": 1399114,
+    "break_even_deployments": 2,
+    "candidate_deployment_tokens": 68451,
+    "correctness_passed": true,
+    "decision": "promote",
+    "evidence_stable": true,
+    "expected_deployments": 8,
+    "minimum_saving_fraction": 0.15,
+    "net_tokens_at_expected_deployments": 9019474,
+    "performance_passed": true,
+    "saving_fraction": 0.9510754663308351,
+    "saving_per_deployment_tokens": 1330663
+  },
+  "profile_revision_effect": {
+    "e1v3_seconds_ratio_to_p000v2": 0.267681146194561,
+    "e1v3_tokens_ratio_to_p000v2": 2.312091861331463,
+    "implementation_digest_differs": true
+  },
+  "rows": [
+    {
+      "id": "triplet-neutral",
+      "implementation_digest": "de588850e1c7c767084ae0f177ca5099491a9352c9281fd12041b86868644481",
+      "order": 1,
+      "profile": "neutral",
+      "relative_mad": 0.023918330260028327,
+      "seconds": 0.037419,
+      "valid": true,
+      "verification_sha256": "e71e346c0552c794f638f8b4fc5bfd552a3d04ce28998e150583317e3439441d",
+      "worker_tokens": 1399114
+    },
+    {
+      "id": "triplet-p000v2",
+      "implementation_digest": "9f5a04a4c9e9f5945a88c7a33b2a9aace90b15f68cf60caeb474a7343db97649",
+      "order": 2,
+      "profile": "p000v2",
+      "relative_mad": 0.04775050191640805,
+      "seconds": 0.043832,
+      "valid": true,
+      "verification_sha256": "eb61ef7746af597622d9c895cd833ef1874510e502f89e1297399b60eaefe7c5",
+      "worker_tokens": 68451
+    },
+    {
+      "id": "triplet-e1v3",
+      "implementation_digest": "18d007583904a6c8bab53e920397e59a148002aae7a08b36ae32855420143193",
+      "order": 3,
+      "profile": "e1v3",
+      "relative_mad": 0.007244523992158868,
+      "seconds": 0.011733,
+      "valid": true,
+      "verification_sha256": "97627b9acf98241f09415e937c5fe3cf63388459aa9f809c0e0b87190949afff",
+      "worker_tokens": 158265
+    }
+  ],
+  "schema": "modus-performance-p2p-triplet-score-v1",
+  "selected_profile": "p000v2",
+  "status": "pass",
+  "trigger": {
+    "reasons": [],
+    "triggered": false
+  }
+}
