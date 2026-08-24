@@ -1,0 +1,6 @@
+{
+  "schema": "modus-performance-p2j-public-task-v1",
+  "task_id": "group-distinct-p2j",
+  "algorithm_family": "group-distinct",
+  "implementation_package": "perf_groupdistinct_p2j"
+}

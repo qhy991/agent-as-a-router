@@ -1,0 +1,128 @@
+{
+  "schema": "modus-performance-p2j-qualification-v1",
+  "profile_outcomes_read": false,
+  "task_count": 1,
+  "algorithm_family_count": 1,
+  "thresholds": {
+    "starter_speedup_minimum": 1.2,
+    "oracle_relative_median_absolute_deviation_maximum": 0.1
+  },
+  "lock": {
+    "success": true,
+    "message": "ok"
+  },
+  "tasks": [
+    {
+      "task_id": "group-distinct-p2j",
+      "family": "group-distinct",
+      "checks": {
+        "starter_and_local_oracle_correct": true,
+        "variant_result_digests_equal": true,
+        "topologies_exact": true,
+        "local_oracle_noise_within_limit": true,
+        "starter_slower_than_local_oracle": true
+      },
+      "passed": true,
+      "starter_speedup_to_local_oracle": 199.55219041300208,
+      "variants": {
+        "starter": {
+          "variant": "starter",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "group-distinct-p2j",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0401,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_group_distinct (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [],
+            "changed_implementation_modules": 0,
+            "topology": "other",
+            "expected_local_paths": [
+              "perf_groupdistinct_p2j/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_groupdistinct_p2j/observer.py",
+              "perf_groupdistinct_p2j/shared.py",
+              "perf_groupdistinct_p2j/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.07354758729308537,
+            "maximum_seconds": 1.6073763329999995,
+            "mean_seconds": 1.4655477636666667,
+            "median_seconds": 1.4430143750000006,
+            "minimum_seconds": 1.346252583,
+            "relative_median_absolute_deviation": 0.06705532091459625,
+            "repeat_per_round": 1,
+            "result_sha256": "529eb00dfa356d116d173295c941201c79ec86f1ca2c5de6c18c02df2917a82f",
+            "rounds": 3,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.06705532091459625,
+            "steady_sample_count": 3,
+            "steady_seconds": 1.4430143750000006,
+            "task_id": "group-distinct-p2j"
+          }
+        },
+        "local": {
+          "variant": "local",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "group-distinct-p2j",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0513,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_group_distinct (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_groupdistinct_p2j/target.py"
+            ],
+            "changed_implementation_modules": 1,
+            "topology": "local",
+            "expected_local_paths": [
+              "perf_groupdistinct_p2j/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_groupdistinct_p2j/observer.py",
+              "perf_groupdistinct_p2j/shared.py",
+              "perf_groupdistinct_p2j/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.20405097324744945,
+            "maximum_seconds": 0.011847220054687496,
+            "mean_seconds": 0.008855380461805555,
+            "median_seconds": 0.008540335609374998,
+            "minimum_seconds": 0.0065192083359375,
+            "relative_median_absolute_deviation": 0.1424801680848765,
+            "repeat_per_round": 128,
+            "result_sha256": "529eb00dfa356d116d173295c941201c79ec86f1ca2c5de6c18c02df2917a82f",
+            "rounds": 9,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.07053006964308435,
+            "steady_sample_count": 4,
+            "steady_seconds": 0.0072312630195312515,
+            "task_id": "group-distinct-p2j"
+          }
+        }
+      }
+    }
+  ],
+  "passed": true,
+  "P2j_design_freeze_authorized": true,
+  "P2j_model_dispatch_authorized": false
+}
