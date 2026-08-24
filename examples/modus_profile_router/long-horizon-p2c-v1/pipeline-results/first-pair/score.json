@@ -1,0 +1,76 @@
+{
+  "acquisition_tokens": 667461,
+  "decision": "qualified_but_not_economic",
+  "deployment": {
+    "e2e_saving_fraction": 0.18652817362528085,
+    "live_router_tokens": 15951,
+    "neutral_worker_tokens": 368057,
+    "routed_e2e_tokens": 299404,
+    "routed_worker_tokens": 283453,
+    "worker_saving_fraction": 0.2298665695802552
+  },
+  "economics": {
+    "acquisition_tokens": 667461,
+    "baseline_deployment_tokens": 368057,
+    "break_even_deployments": 10,
+    "candidate_deployment_tokens": 299404,
+    "correctness_passed": true,
+    "decision": "qualified_but_not_economic",
+    "evidence_stable": true,
+    "expected_deployments": 8,
+    "minimum_saving_fraction": 0.15,
+    "net_tokens_at_expected_deployments": -118237,
+    "performance_passed": true,
+    "saving_fraction": 0.18652817362528085,
+    "saving_per_deployment_tokens": 68653
+  },
+  "gates": {
+    "both_pipelines_valid": true,
+    "final_performance": true,
+    "noise": true,
+    "stage_l_performance": true,
+    "worker_token_saving": true
+  },
+  "performance": {
+    "final_routed_ratio_to_fastest": 1.0,
+    "stage_l_routed_ratio_to_fastest": 1.0
+  },
+  "pipelines": [
+    {
+      "arm": "routed",
+      "final_seconds": 0.0025155000000000004,
+      "id": "pair1-routed",
+      "maximum_relative_mad": 0.018485390578413786,
+      "order": 1,
+      "pair": 1,
+      "parent_bound": true,
+      "parent_record_sha256": "7ee715a052ec67cc77e7bd5c6068877051cd15dad8dfcf8d27e63807bd67132f",
+      "stage_l_seconds": 0.000925,
+      "stage_l_verification_sha256": "c0b93ab365b719d6af5884ec727191c57170289424ce461db782c1cb827c732e",
+      "stage_s_verification_sha256": "132b060d601353724a3c36bb6d98fff9c351d06b95c605f5c0300335404fa8af",
+      "valid": true,
+      "worker_tokens": 283453
+    },
+    {
+      "arm": "neutral",
+      "final_seconds": 0.0031174999999999996,
+      "id": "pair1-neutral",
+      "maximum_relative_mad": 0.082598235765838,
+      "order": 2,
+      "pair": 1,
+      "parent_bound": true,
+      "parent_record_sha256": "761205b63ae4ce35b6bbeb362bf40a8cafa4e3ac092f799d21ef0a1a9e2ffbd8",
+      "stage_l_seconds": 0.0014145,
+      "stage_l_verification_sha256": "cfc101a5ebc0a3296a754a03e5a373b5597bcc55895e92c9bfb8ba4e091e1148",
+      "stage_s_verification_sha256": "44d31ddbaa8ff4c61cbcc6bc14a805914423aefdd2b6f65da4fca9342d8b31c8",
+      "valid": true,
+      "worker_tokens": 368057
+    }
+  ],
+  "schema": "modus-long-horizon-p2c-first-pair-score-v1",
+  "status": "pass",
+  "trigger": {
+    "reasons": [],
+    "triggered": false
+  }
+}

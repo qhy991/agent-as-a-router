@@ -1,0 +1,71 @@
+{
+  "schema": "acrouter-modus-luna-long-horizon-p2c-transfer-result-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "prospective_low_acquisition_transfer_evidence": true,
+  "scope": {"contract": "linked TokenFrequency", "router_calls": 1, "pipelines": 2, "worker_calls": 4, "second_pair_run": false},
+  "router": {"actions": {"stage-L": "p000", "stage-S": "e1v2"}, "tokens_per_deployment": 15951, "outcome_blind": true},
+  "validity": {
+    "complete_pipelines": 2,
+    "stage_verifications_passed": 4,
+    "parent_bindings_passed": 2,
+    "routed_stage_l_local": true,
+    "routed_stage_s_coordinated_semantic_mechanism": true,
+    "final_correctness": "2/2",
+    "maximum_relative_mad": 0.082598235765838
+  },
+  "performance": {
+    "routed_stage_l_seconds": 0.000925,
+    "neutral_stage_l_seconds": 0.0014145,
+    "routed_final_seconds": 0.0025155,
+    "neutral_final_seconds": 0.0031175,
+    "routed_final_ratio_to_fastest": 1.0
+  },
+  "deployment": {
+    "neutral_worker_tokens": 368057,
+    "routed_worker_tokens": 283453,
+    "worker_saving_fraction": 0.2298665695802552,
+    "routed_e2e_tokens_with_live_router": 299404,
+    "live_router_e2e_saving_fraction": 0.18652817362528085
+  },
+  "primary_economics": {
+    "acquisition_tokens": 667461,
+    "saving_per_deployment_tokens": 68653,
+    "break_even_deployments": 10,
+    "expected_deployments": 8,
+    "net_tokens_at_expected_deployments": -118237,
+    "decision": "qualified_but_not_economic"
+  },
+  "stopping_rule": {
+    "quality_trigger": false,
+    "near_threshold_trigger": false,
+    "noise_trigger": false,
+    "second_pair_run": false,
+    "stopped_after_first_pair": true
+  },
+  "post_outcome_cached_route_counterfactual": {
+    "live_router_tokens_per_repeated_deployment": 0,
+    "candidate_deployment_tokens": 283453,
+    "saving_per_deployment_tokens": 84604,
+    "break_even_deployments": 8,
+    "net_tokens_at_eight_deployments": 9371,
+    "claim_status": "design input only; route caching was not the frozen primary policy"
+  },
+  "cross_contract_conclusion": {
+    "p2b_and_p2c_both_reduce_worker_and_live_router_deployment_tokens": true,
+    "live_agent_net_positive_at_eight_on_both": false,
+    "p2b_net_positive_at_eight": true,
+    "p2c_net_positive_at_eight": false,
+    "interpretation": "deployment utility transfers, but eight-deployment net benefit depends on task savings magnitude and Router reuse policy"
+  },
+  "files": {
+    "router_score": "examples/modus_profile_router/long-horizon-p2c-v1/router-results/score.json",
+    "execution_summary": "examples/modus_profile_router/long-horizon-p2c-v1/pipeline-results/first-pair/execution-summary.json",
+    "score": "examples/modus_profile_router/long-horizon-p2c-v1/pipeline-results/first-pair/score.json",
+    "router_score_sha256": "d55b27ec3777643fe0e5f59f1374ad6b822ce6f13476e6d4247df97e0ca8df90",
+    "execution_summary_sha256": "387e0c9020734cdd2d6d7e2a864d5ae9aa29e6bb482de298159fbcc590cb3cd6",
+    "score_sha256": "8a94517c309c9f5f874e6a41e5ee72a826148157f041bd6979f27c9cf02238cb"
+  },
+  "claim_boundary": "This clear first-pair transfer replicates Profile-stage behavior, linked state handoff, final performance, and per-deployment token saving on a second new semantic contract. It does not replicate live-Agent net-positive economics at eight deployments; the cached-route result is explicitly post-outcome counterfactual."
+}
+

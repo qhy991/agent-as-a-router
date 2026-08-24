@@ -913,3 +913,19 @@ correctly stopped without a second pair. This supports the hypothesis that
 Modus becomes economic when qualified Profile predicates are transferred with
 minimal, outcome-gated evidence. See
 [`agentic-artifacts/modus-codex-luna-max-long-horizon-p2b-transfer-v1.json`](../agentic-artifacts/modus-codex-luna-max-long-horizon-p2b-transfer-v1.json).
+
+P2c independently repeated the same low-acquisition protocol on linked
+TokenFrequency. The Agent again selected Stage L→p000 and Stage S→e1-v2; both
+pipelines were correct, parent-bound, and mechanism-faithful. Routed final
+performance was faster, Worker tokens fell 23.0%, and live-Router deployment
+tokens fell 18.7%. No uncertainty trigger fired, so the run stopped after one
+pair.
+
+Unlike P2b, P2c is not economic at eight deployments: 667,461 acquisition
+tokens and 68,653 saving per deployment break even at deployment 10, leaving an
+118,237-token deficit at eight. Thus low-cost transfer reliably improves
+deployment efficiency across two semantics, but live-Agent net benefit is not
+universal. A post-outcome calculation shows that caching the already verified
+route would break even at deployment 8 with 9,371 tokens positive; that is a
+next design hypothesis, not part of this primary result. See
+[`agentic-artifacts/modus-codex-luna-max-long-horizon-p2c-transfer-v1.json`](../agentic-artifacts/modus-codex-luna-max-long-horizon-p2c-transfer-v1.json).
