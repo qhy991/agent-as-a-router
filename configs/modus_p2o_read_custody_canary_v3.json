@@ -1,0 +1,10 @@
+{
+  "schema":"acrouter-modus-p2o-read-custody-canary-v3","frozen_at":"2026-08-24","run_authorized":true,
+  "model":{"local_slug":"gpt-5.6-luna","reasoning_effort":"max","authentication":"ChatGPT login"},
+  "task":{"path":"examples/modus_profile_router/custody-p2o-v1/task.md","sha256":"da9db0bb239ed541543b9c7d56bf3a3a9471e6eaf6afb0cd77f40e55edbc58fc"},
+  "execution":{"cells":1,"automatic_redispatch":false,"wrapper":"src/acrouter_repro/codex_custody_wrapper_v3.py","source_root_resolution":"absolute from wrapper __file__"},
+  "expected":{"current_workspace_read":"allowed","sibling_workspace_read":"denied","owner_repo_read":"denied"},
+  "parent_failure":{"path":"agentic-artifacts/modus-p2o-custody-import-failure-v2.json","sha256":"4f434d896435059fc270a094ec680f8f55b2e2dd7ccdd0176556cd2a465b63a4"},
+  "provenance":{"agent_router_commit_before_freeze":"58dda6a","wrapper_sha256":"94c94b09b7e737817c1e1d6ed5b905166e07b88fa7a07f2b52458bd598d76e93","wave_owner_sha256":"a1f9c0344f08133b5480ab38c8faef9b53b7f7b7ebb13230979765a0f7e70da3"},
+  "claim_boundary":"Passing authorizes custody-confined infrastructure only."
+}

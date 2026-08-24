@@ -1,0 +1,12 @@
+{
+  "schema":"modus-p2o-custody-import-failure-v2",
+  "formal_status":"apparatus_startup_failure",
+  "scientific_evidence":false,
+  "model_turn_started":false,
+  "returncode":1,
+  "automatic_redispatches":0,
+  "diagnosis":"wrapper v2 started from the allowed workspace, but its relative PYTHONPATH no longer resolved acrouter_repro before sandbox activation",
+  "custody_conclusion":"not_evaluated",
+  "wave_result":"examples/modus_profile_router/custody-p2o-v1/wave-result-v2.json",
+  "wave_result_sha256":"97a21b505733b056da0b27a4c215ceb0dfd45fbc6ced0e59cf58967ddbf6d6a1"
+}

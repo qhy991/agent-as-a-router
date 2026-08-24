@@ -1,0 +1,25 @@
+{
+  "automatic_redispatches": 0,
+  "cells": [
+    {
+      "cell": "canary",
+      "events_parseable": true,
+      "events_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "last_message_sha256": null,
+      "prompt_sha256": "b7c619e932bd411624cb055884d4d89dca3c5469aaca2e50d27848c2dcf1c7af",
+      "returncode": 1,
+      "stderr_sha256": "00fe0a69c3adcf21cd3637cd2edbf84d6a00485954607b55208b0972c8b3683a",
+      "timed_out": false,
+      "turn_completed": false,
+      "turn_error": null,
+      "usage": null,
+      "usage_complete": false,
+      "valid_execution": false,
+      "web_search_items": 0
+    }
+  ],
+  "manifest_sha256": "8666c4001acd8be1886d77e0092c08b73ef50b1ac95e677b19b35b5345b7fda6",
+  "schema": "acrouter-codex-spark-wave-result-v1",
+  "status": "fail",
+  "valid_execution_cells": 0
+}
