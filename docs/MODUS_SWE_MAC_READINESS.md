@@ -764,3 +764,20 @@ token acquisition cost breaks even only at deployment 12, while the frozen
 horizon is eight. The unambiguous p000 failure on X02 authorizes only the
 pre-registered p100 follow-up. See
 [`agentic-artifacts/modus-codex-luna-max-reachability-p1e-stage1-v1.json`](../agentic-artifacts/modus-codex-luna-max-reachability-p1e-stage1-v1.json).
+
+The authorized P100 follow-up then ran only on X02. Both repetitions were
+correct, used complete usage, and changed exactly observer, shared, and target,
+but remained 2.76x slower than neutral. P100 was therefore rejected and the
+final route stayed X01→p000, X02→neutral. The follow-up added 218,664 evidence
+tokens without improving the route; total acquisition became 1,279,023 tokens,
+moving break-even to deployment 15 and leaving a 560,151-token deficit at the
+frozen eight-deployment horizon.
+
+Source inspection explains the null P100 result. The current P100 Profile
+controls the three-file edit shape but tells observer to preserve raw input;
+both Workers consequently rebuilt adjacency inside each batch rather than
+preparing it once. Thus Profile topology is controllable, while intended
+mechanism placement is not yet controlled. The next valid experiment is to
+repair that E1 contract on development data and test it on a different frozen
+multi-batch holdout, not rerun P1e as confirmation. See
+[`agentic-artifacts/modus-codex-luna-max-reachability-p1e-final-v1.json`](../agentic-artifacts/modus-codex-luna-max-reachability-p1e-final-v1.json).

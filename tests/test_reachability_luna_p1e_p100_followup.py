@@ -8,6 +8,7 @@ from scripts.score_modus_reachability_p1e_p100_followup import _usage_tokens
 
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "configs/modus_reachability_luna_p1e_p100_followup_v1.json"
+EVIDENCE = ROOT / "agentic-artifacts/modus-codex-luna-max-reachability-p1e-final-v1.json"
 
 
 class ReachabilityLunaP1eP100FollowupTest(unittest.TestCase):
@@ -58,6 +59,24 @@ class ReachabilityLunaP1eP100FollowupTest(unittest.TestCase):
         self.assertEqual(scoring["x01_action_frozen"], "p000")
         self.assertEqual(scoring["final_router_saving_minimum"], 0.15)
         self.assertEqual(_usage_tokens({"input_tokens": 10, "output_tokens": 2}), 12)
+
+    def test_final_evidence_preserves_null_p100_and_mixed_route(self):
+        value = json.loads(EVIDENCE.read_text(encoding="utf-8"))
+        self.assertFalse(value["scientific_evidence"])
+        self.assertFalse(value["p100_followup"]["performance_eligible"])
+        self.assertFalse(value["p100_followup"]["selected_for_x02"])
+        self.assertEqual(value["final_route"]["actions_by_task"], {
+            "reachability-x01": "p000", "reachability-x02": "neutral",
+        })
+        self.assertEqual(value["end_to_end_economics"]["break_even_deployments"], 15)
+        self.assertFalse(value["conclusions"]["router_net_token_benefit_at_eight_deployments"])
+        for name in ("p100_wave_result", "p100_manager_verification", "p100_score"):
+            self.assertTrue((ROOT / value["files"][name]).is_file())
+        score = ROOT / value["files"]["p100_score"]
+        self.assertEqual(
+            hashlib.sha256(score.read_bytes()).hexdigest(),
+            "37ea17ee44d8a018bf96517de389e8050fe9f5253ef4beb0f3475a9a4c0ca041",
+        )
 
 
 if __name__ == "__main__":

@@ -1,0 +1,84 @@
+{
+  "schema": "acrouter-modus-luna-reachability-p1e-final-result-v1",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "development_outcome_evidence": true,
+  "evidence_kind": "prospective-sequential-profile-routing-pilot",
+  "model": {
+    "slug": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "authentication": "ChatGPT login"
+  },
+  "sequential_design": {
+    "stage1_commit_at_dispatch": "3d25371c",
+    "stage1_cells": 8,
+    "stage1_actions": ["neutral", "p000"],
+    "stage1_decision": "p000 passed x01 and failed x02 without ambiguity",
+    "p100_followup_commit_at_dispatch": "f9e9136",
+    "p100_followup_cells": 2,
+    "full_matrix_completed": false,
+    "automatic_redispatches": 0
+  },
+  "p100_followup": {
+    "manifest_sha256": "35d09c28b1996e87a5f49c5accef7abf2c3f8574577c2a6ec015c9820337fffa",
+    "wave_result_sha256": "a8e452a31eefbe4a86e2b8847b6890e8295bb1a6c2cc2dad973b0b6d8a0effcd",
+    "manager_verification_sha256": "b8a96b0ffd80b3c626cb9afb7bf08ffb39ded78484e9543ea6a2528c552727f5",
+    "score_sha256": "37ea17ee44d8a018bf96517de389e8050fe9f5253ef4beb0f3475a9a4c0ca041",
+    "valid_execution_cells": 2,
+    "correct_cells": 2,
+    "coordinated_edit_topology_cells": 2,
+    "benchmark_cells": 2,
+    "complete_usage_cells": 2,
+    "acquisition_tokens": 218664,
+    "median_seconds": 0.0127255,
+    "median_total_tokens": 109332.0,
+    "performance_ratio_to_fastest": 2.7560777519086037,
+    "token_saving_fraction_vs_neutral": 0.4336332696162991,
+    "performance_eligible": false,
+    "selected_for_x02": false
+  },
+  "mechanism_audit": {
+    "observed_edit_shape": "p100 changed exactly observer.py, shared.py, and target.py in both repetitions",
+    "semantic_limitation": "the p100 Profile required observer to preserve raw input, so the produced shared reachability helper rebuilt adjacency inside every batch instead of preprocessing once in observer",
+    "consequence": "the path-count topology manipulation passed, but it did not realize the intended cross-batch coordinated optimization",
+    "interpretation": "edit topology is controlled; mechanism suitability is not guaranteed by topology alone"
+  },
+  "final_route": {
+    "actions_by_task": {
+      "reachability-x01": "p000",
+      "reachability-x02": "neutral"
+    },
+    "best_fixed_eligible_action": "neutral",
+    "best_fixed_two_task_median_tokens": 359759.5,
+    "routed_two_task_median_tokens": 269901.0,
+    "saving_per_deployment_tokens": 89859,
+    "saving_fraction_vs_best_fixed": 0.24977380722399267,
+    "quality_and_performance_passed": true
+  },
+  "end_to_end_economics": {
+    "stage1_acquisition_tokens": 1060359,
+    "p100_followup_acquisition_tokens": 218664,
+    "total_acquisition_tokens": 1279023,
+    "expected_future_deployments": 8,
+    "break_even_deployments": 15,
+    "net_tokens_at_expected_deployments": -560151,
+    "decision": "qualified_but_not_economic",
+    "p100_followup_changed_final_route": false
+  },
+  "conclusions": {
+    "profile_changes_agent_behavior": "observed prospectively through reproducible local versus three-module edit shapes",
+    "profile_effect_is_task_dependent": "p000 is eligible and cost-saving on x01 but performance-ineligible on x02",
+    "task_selective_profile_routing_can_reduce_worker_tokens": "the frozen route saves 25.0% per deployment versus fixed neutral while preserving correctness and performance gates",
+    "router_net_token_benefit_at_eight_deployments": false,
+    "profile_control_is_not_yet_mechanism_control": "p100 controlled touched modules but not placement of reusable preprocessing"
+  },
+  "files": {
+    "stage1_evidence": "agentic-artifacts/modus-codex-luna-max-reachability-p1e-stage1-v1.json",
+    "p100_wave_result": "examples/modus_profile_router/reachability-luna-p1e-v1/p100-followup-results/wave-result.json",
+    "p100_manager_verification": "examples/modus_profile_router/reachability-luna-p1e-v1/p100-followup-results/manager-verification.json",
+    "p100_score": "examples/modus_profile_router/reachability-luna-p1e-v1/p100-followup-results/score.json"
+  },
+  "next_experiment": "repair the E1 Profile as a mechanism-aware preprocessing contract on a development workload, then freeze a different held-out multi-batch task; do not reinterpret or rerun P1e as confirmatory evidence",
+  "claim_boundary": "This one-family pilot prospectively supports controllable Profile behavior, a Profile-task interaction, and a 25.0% quality-constrained worker-token opportunity. It rejects net token benefit at the frozen eight-deployment horizon and does not establish broad Router generalization or semantic mechanism control."
+}
+

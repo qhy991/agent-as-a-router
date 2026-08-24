@@ -115,7 +115,9 @@
     "profile_spark_reachability_prospective": "modus-codex-spark-reachability-prospective-v1.json",
     "profile_reachability_prospective_protocol": "../configs/modus_reachability_prospective_v1.json",
     "profile_luna_max_reachability_p1e_stage1": "modus-codex-luna-max-reachability-p1e-stage1-v1.json",
-    "profile_luna_max_reachability_p1e_protocol": "../configs/modus_reachability_luna_p1e_v1.json"
+    "profile_luna_max_reachability_p1e_protocol": "../configs/modus_reachability_luna_p1e_v1.json",
+    "profile_luna_max_reachability_p1e_final": "modus-codex-luna-max-reachability-p1e-final-v1.json",
+    "profile_luna_max_reachability_p1e_p100_protocol": "../configs/modus_reachability_luna_p1e_p100_followup_v1.json"
   },
   "headline_metrics": {
     "id": {

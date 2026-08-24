@@ -1,0 +1,145 @@
+{
+ "benchmarked_cells": 2,
+ "cells": [
+  {
+   "action": "p100",
+   "benchmark": {
+    "all_seconds": [
+     0.012931,
+     0.012657,
+     0.01287,
+     0.012965,
+     0.012722,
+     0.012899,
+     0.012866,
+     0.012761,
+     0.012817
+    ],
+    "median_seconds": 0.012866,
+    "rounds": 9,
+    "schema": "modus-performance-p0-benchmark-v1",
+    "steady_relative_median_absolute_deviation": 0.0037279755130872087,
+    "steady_seconds": 0.0127415,
+    "success": true
+   },
+   "cell": "reachability-x02-p100-r1",
+   "correct": true,
+   "correctness": {
+    "hidden": {
+     "returncode": 0,
+     "stderr": "",
+     "stdout": "hidden-ok\n",
+     "timed_out": false
+    },
+    "hidden_passed": true,
+    "public": {
+     "returncode": 0,
+     "stderr": "test_reachability (test_public.PublicTest.test_reachability) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+     "stdout": "",
+     "timed_out": false
+    },
+    "public_passed": true,
+    "schema": "modus-performance-p0-correctness-v1",
+    "success": true,
+    "task_id": "reachability-x02-perf-p1e"
+   },
+   "repetition": 1,
+   "task": "reachability-x02",
+   "topology": {
+    "changed_implementation_paths": [
+     "perf_reachability_x02/observer.py",
+     "perf_reachability_x02/shared.py",
+     "perf_reachability_x02/target.py"
+    ],
+    "expected_topology": "coordinated",
+    "passed": true,
+    "schema": "modus-performance-p0-topology-v1",
+    "task_id": "reachability-x02-perf-p1e",
+    "topology": "coordinated"
+   },
+   "topology_fidelity_passed": true,
+   "usage": {
+    "cache_write_input_tokens": 0,
+    "cached_input_tokens": 61440,
+    "input_tokens": 104867,
+    "output_tokens": 5270,
+    "reasoning_output_tokens": 3867
+   },
+   "usage_complete": true,
+   "wave_valid_execution": true
+  },
+  {
+   "action": "p100",
+   "benchmark": {
+    "all_seconds": [
+     0.012816,
+     0.012883,
+     0.012862,
+     0.012649,
+     0.012309,
+     0.012852,
+     0.01277,
+     0.012965,
+     0.012883
+    ],
+    "median_seconds": 0.012852,
+    "rounds": 9,
+    "schema": "modus-performance-p0-benchmark-v1",
+    "steady_relative_median_absolute_deviation": 0.006569888665958486,
+    "steady_seconds": 0.0127095,
+    "success": true
+   },
+   "cell": "reachability-x02-p100-r2",
+   "correct": true,
+   "correctness": {
+    "hidden": {
+     "returncode": 0,
+     "stderr": "",
+     "stdout": "hidden-ok\n",
+     "timed_out": false
+    },
+    "hidden_passed": true,
+    "public": {
+     "returncode": 0,
+     "stderr": "test_reachability (test_public.PublicTest.test_reachability) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+     "stdout": "",
+     "timed_out": false
+    },
+    "public_passed": true,
+    "schema": "modus-performance-p0-correctness-v1",
+    "success": true,
+    "task_id": "reachability-x02-perf-p1e"
+   },
+   "repetition": 2,
+   "task": "reachability-x02",
+   "topology": {
+    "changed_implementation_paths": [
+     "perf_reachability_x02/observer.py",
+     "perf_reachability_x02/shared.py",
+     "perf_reachability_x02/target.py"
+    ],
+    "expected_topology": "coordinated",
+    "passed": true,
+    "schema": "modus-performance-p0-topology-v1",
+    "task_id": "reachability-x02-perf-p1e",
+    "topology": "coordinated"
+   },
+   "topology_fidelity_passed": true,
+   "usage": {
+    "cache_write_input_tokens": 0,
+    "cached_input_tokens": 80640,
+    "input_tokens": 103754,
+    "output_tokens": 4773,
+    "reasoning_output_tokens": 3491
+   },
+   "usage_complete": true,
+   "wave_valid_execution": true
+  }
+ ],
+ "correct_cells": 2,
+ "measurement_dispatch": "sequential",
+ "schema": "modus-reachability-prospective-verification-v1",
+ "status": "pass",
+ "topology_fidelity_cells": 2,
+ "usage_complete_cells": 2
+}
