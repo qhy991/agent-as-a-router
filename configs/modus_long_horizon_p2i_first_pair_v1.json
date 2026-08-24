@@ -1,0 +1,108 @@
+{
+  "schema": "acrouter-modus-long-horizon-p2i-first-pair-v1",
+  "frozen_at": "2026-08-24",
+  "run_authorized": true,
+  "purpose": "prospectively qualify one Agent-proposed Profile route on keyed_max with an observable-contract verifier",
+  "expected_future_deployments": 8,
+  "model": {
+    "local_slug": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "authentication": "ChatGPT login"
+  },
+  "task": {
+    "seed_root": "examples/modus_profile_router/long-horizon-p2i-v1/seed",
+    "seed_tree_sha256": "ab355518ba8295cdfac71819f75e96f1a6726b93a3745fe92abb5a8aba2f0b3c",
+    "stage_l_prompt": "examples/modus_profile_router/long-horizon-p2i-v1/seed/instruction-stage-l.md",
+    "stage_l_prompt_sha256": "c853b7eb9067c4b0af28b59c9248b79a8333b4ce0e3dae38d6080855791e1b71",
+    "stage_s_prompt": "examples/modus_profile_router/long-horizon-p2i-v1/seed/instruction-stage-s.md",
+    "stage_s_prompt_sha256": "d0d2fc240c97681c5e70ff08d97bee33bc54743ccbb81268f0d76b87a0af8e75"
+  },
+  "profiles": {
+    "neutral": {
+      "profile_path": "/private/tmp/modus-codex-spark-neutral-profile.md",
+      "profile_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "p000": {
+      "profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/profiles/p000.md",
+      "profile_sha256": "4430eff8d5b732333319f93bf0a699c3593f6e6d708296d304c76c7161f67282"
+    },
+    "e1v2": {
+      "profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/experimental-profiles/e1-v2/p100.md",
+      "profile_sha256": "c4d0326d4fb5afb14aa51aeb91653fa7771610a41eb53de019c87bf9ff3419e1"
+    }
+  },
+  "arms": {
+    "proposed-route": {
+      "stage-L": "p000",
+      "stage-S": "e1v2",
+      "qualified_cached_router_calls_per_deployment": 0
+    },
+    "neutral": {
+      "stage-L": "neutral",
+      "stage-S": "neutral",
+      "qualified_cached_router_calls_per_deployment": 0
+    }
+  },
+  "pipelines": [
+    {"id": "pair1-proposed-route", "pair": 1, "order": 1, "arm": "proposed-route"},
+    {"id": "pair1-neutral", "pair": 1, "order": 2, "arm": "neutral"}
+  ],
+  "execution": {
+    "fresh_workspace_per_pipeline": true,
+    "stage_s_uses_same_workspace_as_stage_l": true,
+    "stage_s_parent_record_required": true,
+    "pipeline_dispatch": "sequential proposed-route then neutral",
+    "automatic_redispatch": false,
+    "qualification_worker_cells_if_complete": 4,
+    "deployment_worker_calls_authorized_before_score": false
+  },
+  "verifier_contract": {
+    "public_and_hidden_correctness": true,
+    "profile_topology": true,
+    "parent_binding": true,
+    "frozen_file_custody": true,
+    "nine_round_performance": true,
+    "prepared_semantics_for_e1v2": true,
+    "internal_representation_type_or_tag": false
+  },
+  "scoring": {
+    "performance_ratio_maximum": 1.25,
+    "steady_relative_mad_maximum": 0.10,
+    "minimum_worker_token_saving_fraction": 0.15,
+    "near_threshold_band_inclusive": [1.1875, 1.3125],
+    "second_pair_triggers": [
+      "pipeline quality disagreement",
+      "near-threshold final performance",
+      "relative MAD above 0.10"
+    ],
+    "clear_negative_stop": "stop without second pair when quality, performance, or token gate clearly fails outside ambiguity",
+    "clear_positive_stop": "stop after first pair when every gate passes outside ambiguity",
+    "qualified_cached_router_tokens_per_deployment": 0,
+    "acquisition": "15,597 Router proposal tokens plus actual four qualification Worker calls"
+  },
+  "parent_router": {
+    "score_path": "examples/modus_profile_router/long-horizon-p2i-v1/router-results/score.json",
+    "score_sha256": "eb76626b68639bda383469b6b9ba49414b1325e0a668bbfe66ca8ebd94d63522",
+    "wave_result_path": "examples/modus_profile_router/long-horizon-p2i-v1/router-results/wave-result.json",
+    "wave_result_sha256": "4e69505c05737487a091dd9c4bd2f3a4e920df266f92d8507a8114f4f083840a",
+    "actions": {"stage-L": "p000", "stage-S": "e1v2"},
+    "acquisition_tokens": 15597,
+    "worker_deployment_authorized": false
+  },
+  "failure_policy": {
+    "invalid_cell": "preserve and stop affected pipeline",
+    "no_model_substitution": true,
+    "automatic_redispatch": false,
+    "bad_agent_proposal": "preserve as negative routing evidence; do not replace the route"
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "05e83b5",
+    "pipeline_runner_path": "scripts/run_modus_long_horizon_p2i_pipeline.py",
+    "pipeline_runner_sha256": "4df62248785ff63b6e4f62a1aa44f48a86c1a1d63f7c50e5e832811967803e76",
+    "stage_verifier_path": "scripts/verify_modus_long_horizon_p2i_stage.py",
+    "stage_verifier_sha256": "59a71cecd4bda8a190c5d666901eace2e03f66ce33973b29e99914e0bc0952b1",
+    "scorer_path": "scripts/score_modus_long_horizon_p2i_pair.py",
+    "scorer_sha256_at_freeze": "ce1cf5613455132d68c6ccc61397667e9e53f691095900b012b31942e2f06729"
+  },
+  "claim_boundary": "This pair can qualify or reject the Agent proposal and measure acquisition economics. One clear pair is prospective evidence but not a broad universal routing claim."
+}

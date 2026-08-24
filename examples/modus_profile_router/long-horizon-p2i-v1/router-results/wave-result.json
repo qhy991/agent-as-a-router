@@ -1,0 +1,31 @@
+{
+  "automatic_redispatches": 0,
+  "cells": [
+    {
+      "cell": "p2i-router-proposal",
+      "events_parseable": true,
+      "events_sha256": "dfe5bc51129b181a2a7af038bd49f136d58f1ceff728c02b62584f4b039d0cf1",
+      "last_message_sha256": "472b9a1799a7971cf96579e02197d736070baab8a97329392b9f8410b09aa2f2",
+      "prompt_sha256": "31a69a0bfe4ba8d3d2876ba66266e7bf18d4313e3110f64b6b68bd50583d3782",
+      "returncode": 0,
+      "stderr_sha256": "5cc1ffa54dfe84314082e195807157c8696ceae927f062193b3c62fd79165a7a",
+      "timed_out": false,
+      "turn_completed": true,
+      "turn_error": null,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 0,
+        "input_tokens": 15206,
+        "output_tokens": 391,
+        "reasoning_output_tokens": 321
+      },
+      "usage_complete": true,
+      "valid_execution": true,
+      "web_search_items": 0
+    }
+  ],
+  "manifest_sha256": "f25684183d5b131066b430271b6d6e64fd75eef4b0b8e7aaccfbd50cfd59dc50",
+  "schema": "acrouter-codex-spark-wave-result-v1",
+  "status": "pass",
+  "valid_execution_cells": 1
+}
