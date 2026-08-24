@@ -74,6 +74,10 @@ that need to decide what to inspect before loading the full repository.
     for full-versus-staged evidence cost and deployment break-even.
 34. Read `modus-codex-luna-max-reachability-deployment-simulation-v1.json` for
     the tested 1–20 deployment decision and net-token curves.
+35. Read `modus-codex-luna-max-long-horizon-p2h-invalid-v1.json` for the
+    prospective scratch-qualification run that was invalidated by an
+    uncontracted verifier tag; its large token/performance crossover is
+    exploratory only and no second pair is authorized.
 
 ## Scope
 

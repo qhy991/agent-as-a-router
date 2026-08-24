@@ -1,0 +1,12 @@
+{
+  "implementation_digest": "f34ac88a5c8da9cd7af8a6ca94e90816022df89282ea28142945871f1e156a6f",
+  "implementation_files_sha256": {
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "api.py": "bc7d4f9005be8d23270301519ce0f27e68dfdfd7ae2a2d47a30d05524b04bd2e",
+    "observer.py": "9f53a6f322c7743bbf3f0cb134f9d4b205983afa13ea6494df84e08d765dd226",
+    "shared.py": "907cf29485630abdef6a1cf4626d956ae3430cb45b1d410ff12ec6f0097b766c",
+    "target.py": "6299f93c92e7ca3ce43c281a782b61fc941331c2702795ae4f2b38bb87a04902"
+  },
+  "schema": "modus-long-horizon-p2h-parent-v1",
+  "stage_l_verification_sha256": "44ad349eeb2cf7a598faac1c1c03be2a564b7ac3257fc0e4cc49dcd9065a88ba"
+}

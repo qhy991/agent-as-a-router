@@ -1,0 +1,97 @@
+{
+  "schema": "modus-long-horizon-p2h-invalid-evidence-v1",
+  "recorded_at": "2026-08-24",
+  "formal_status": "invalid_apparatus",
+  "scientific_evidence": false,
+  "prospective_execution_completed": true,
+  "task": {
+    "id": "distinct-out-degree-linked-p2h",
+    "stages": ["single batch", "twenty five-query batches"],
+    "modus_commit": "d82196fd734de16c582acc84c10a3f5272a83b85",
+    "qualification_passed_before_model_outcomes": true,
+    "qualification_sha256": "4fb691c7923d4888035d679dd6807fbb4c9e33568f74a530611c8bdc8c2b9caf"
+  },
+  "protocol": {
+    "agent_proposal": "configs/modus_long_horizon_p2h_agent_proposal_v1.json",
+    "agent_proposal_sha256": "0a4b063bd848709bfc1ae2b9b76ac70457517f3deaaab4e2db97e300a2ed0b06",
+    "first_pair": "configs/modus_long_horizon_p2h_first_pair_v1.json",
+    "first_pair_sha256": "6a91411358e192b99ce2e2a10c9f8a2dc38dceb001c00fed2b83d4e47b210b31",
+    "agent_router_commit_at_execution": "22fa7b767a69044457dc39b1877f45193fbe3270",
+    "model": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "automatic_redispatches": 0,
+    "expected_future_deployments": 8
+  },
+  "agent_proposal": {
+    "status": "pass",
+    "actions": {"stage-L": "p000", "stage-S": "e1v2"},
+    "matches_preoutcome_oracle_topology": true,
+    "tokens": 14909,
+    "worker_deployment_authorized_by_proposal": false
+  },
+  "canonical_execution": {
+    "status": "fail",
+    "neutral": {
+      "stage_l_passed": true,
+      "stage_s_passed": true,
+      "stage_l_tokens": 183729,
+      "stage_s_tokens": 599616,
+      "worker_tokens": 783345,
+      "stage_l_seconds": 0.009086,
+      "final_seconds": 0.0146715,
+      "maximum_relative_mad": 0.13260402821797362
+    },
+    "proposed_route": {
+      "stage_l_passed": true,
+      "stage_s_passed": false,
+      "stage_l_tokens": 93114,
+      "stage_s_tokens": 157868,
+      "worker_tokens": 250982,
+      "stage_l_seconds": 0.11561099999999999,
+      "final_seconds": 0.061158000000000004,
+      "maximum_relative_mad": 0.06046633310441812,
+      "correctness_passed": true,
+      "topology_passed": true,
+      "parent_binding_passed": true,
+      "semantic_mechanism_passed": false
+    }
+  },
+  "invalidity": {
+    "earliest_divergence": "The frozen Stage S verifier required prepared[0] == 'distinct-out-degree-v1', but neither the task contract nor the Worker prompt exposed that oracle-specific representation tag.",
+    "classification": "uncontracted_hidden_representation_requirement",
+    "worker_fault": false,
+    "why_scientific_claims_are_blocked": "One arm failed a verifier condition that was not part of the supported task interface, so the routed/neutral pair is not a valid outcome comparison.",
+    "frozen_scorer_reported_decision": "second_pair_required",
+    "manager_decision": "stop_invalid_no_retry",
+    "second_pair_authorized": false
+  },
+  "exploratory_only": {
+    "worker_token_saving_fraction": 0.6796022186903599,
+    "stage_l_proposed_ratio_to_fastest": 12.72408100374202,
+    "final_proposed_ratio_to_fastest": 4.168489929455066,
+    "acquisition_tokens": 1049236,
+    "interpretation": "The Profiles sharply reduced search tokens, but the delivered implementation was much slower. These values identify a future hypothesis and must not be pooled with valid P1/P2 outcomes."
+  },
+  "conclusions": {
+    "agent_can_propose_the_oracle_topology_on_an_unseen_semantic_task": "observed_behavior_only",
+    "profile_route_reduces_tokens": "exploratory_not_scientific",
+    "profile_route_meets_quality_and_performance_gates": false,
+    "route_qualified": false,
+    "deployment_authorized": false,
+    "p2h_supports_modus_core_claim": false
+  },
+  "files": {
+    "execution_summary": "examples/modus_profile_router/long-horizon-p2h-v1/first-pair-results/execution-summary.json",
+    "execution_summary_sha256": "f43323b5c968c2602b33e1c9db5338ef6e4035bd58b96c6d6e5f591825533c5e",
+    "score": "examples/modus_profile_router/long-horizon-p2h-v1/first-pair-results/score.json",
+    "score_sha256": "c297139b16e62a777b1f54adb84ccc4a0c7bbbc1b33b3f83b909162eeba6fa65",
+    "neutral_stage_l_verification": "examples/modus_profile_router/long-horizon-p2h-v1/first-pair-results/pair1-neutral/stage-l-verification.json",
+    "neutral_stage_l_verification_sha256": "44ad349eeb2cf7a598faac1c1c03be2a564b7ac3257fc0e4cc49dcd9065a88ba",
+    "neutral_stage_s_verification": "examples/modus_profile_router/long-horizon-p2h-v1/first-pair-results/pair1-neutral/stage-s-verification.json",
+    "neutral_stage_s_verification_sha256": "25f1bc4afcdc74a3f16e34f717d23039487a4457da64b67904d3329ccdcfcf08",
+    "proposed_stage_l_verification": "examples/modus_profile_router/long-horizon-p2h-v1/first-pair-results/pair1-proposed-route/stage-l-verification.json",
+    "proposed_stage_l_verification_sha256": "e69cb04aa8bb3f6dd858108ac8373ff2f04a88288a88fdb3bd5bd99526ae2e63",
+    "proposed_stage_s_verification": "examples/modus_profile_router/long-horizon-p2h-v1/first-pair-results/pair1-proposed-route/stage-s-verification.json",
+    "proposed_stage_s_verification_sha256": "c689f367fbd73bc6f677c492049ef1fdde479c5d304abf8cd58d4bf435875116"
+  }
+}

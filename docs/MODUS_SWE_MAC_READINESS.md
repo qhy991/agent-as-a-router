@@ -1071,3 +1071,24 @@ parent binding while using 171,176 tokens. Combined with the initial 126,949-
 token RangeSum Worker, the lifecycle has zero pending requests and transitions
 from partial to `complete=true` with no neutral fallback. See
 [`agentic-artifacts/modus-completed-lifecycle-p2g-live-v1.json`](../agentic-artifacts/modus-completed-lifecycle-p2g-live-v1.json).
+
+### P2h scratch qualification: invalid apparatus result
+
+P2h introduced an unseen linked distinct-out-degree task. Before any Worker
+outcome, a single Luna max Agent proposed Stage L→p000 and Stage S→e1-v2, which
+matched the hidden oracle topology. The proposed route used 250,982 Worker
+tokens versus neutral's 783,345, an exploratory 68.0% reduction. Its delivered
+code was nevertheless 12.72x slower at Stage L and 4.17x slower at the final
+stage.
+
+This pair is not scientific evidence. The frozen Stage S verifier additionally
+required the prepared object to carry the oracle-specific tag
+`distinct-out-degree-v1`, although neither the task contract nor Worker prompt
+declared that representation. Correctness, coordinated topology, parent
+binding, and the nine-round benchmark passed, but the uncontracted tag check
+invalidated the routed arm. The run is preserved as `invalid_apparatus`, is not
+pooled with valid P1/P2 outcomes, and authorizes neither deployment nor a
+second pair. It does expose the next falsifiable question: whether restrictive
+Profiles consistently trade large token savings for worse implementation
+quality on unseen tasks under a verifier limited to observable semantics. See
+[`agentic-artifacts/modus-codex-luna-max-long-horizon-p2h-invalid-v1.json`](../agentic-artifacts/modus-codex-luna-max-long-horizon-p2h-invalid-v1.json).
