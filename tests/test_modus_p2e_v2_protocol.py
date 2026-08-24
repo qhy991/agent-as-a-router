@@ -5,6 +5,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "configs/modus_p2e_autonomous_agent_v2.json"
+EVIDENCE = ROOT / "agentic-artifacts/modus-p2e-agent-schema-failure-v2.json"
 
 class ModusP2eV2ProtocolTest(unittest.TestCase):
     def test_agent_facing_view_uses_dispatch_and_abstain_only(self):
@@ -17,5 +18,15 @@ class ModusP2eV2ProtocolTest(unittest.TestCase):
         self.assertEqual(hashlib.sha256((ROOT / value["prompt"]).read_bytes()).hexdigest(), value["prompt_sha256"])
         for path_key, hash_key in (("view_builder", "view_builder_sha256"), ("scorer", "scorer_sha256")):
             self.assertEqual(hashlib.sha256((ROOT / value["provenance"][path_key]).read_bytes()).hexdigest(), value["provenance"][hash_key])
+
+    def test_v2_behavior_passes_but_schema_failure_is_preserved(self):
+        value = json.loads(EVIDENCE.read_text())
+        self.assertTrue(value["behavior"]["candidate_derivation_and_decision_behavior_passed"])
+        self.assertEqual(value["response_failure"]["observed_top_level_key"], "type")
+        self.assertEqual(value["response_failure"]["required_top_level_key"], "schema")
+        self.assertEqual(value["execution"]["workers_called"], 0)
+        self.assertFalse(value["decision"]["retry_same_protocol"])
+        for name, hash_key in (("wave_result", "wave_result_sha256"), ("score", "score_sha256")):
+            self.assertEqual(hashlib.sha256((ROOT / value["files"][name]).read_bytes()).hexdigest(), value["files"][hash_key])
 
 if __name__ == "__main__": unittest.main()

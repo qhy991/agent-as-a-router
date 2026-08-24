@@ -1,0 +1,31 @@
+{
+  "schema": "acrouter-modus-p2e-agent-schema-failure-v2",
+  "captured_at": "2026-08-24",
+  "scientific_evidence": false,
+  "development_failure_evidence": true,
+  "execution": {"valid_cell": true, "workers_called": 0, "automatic_redispatches": 0, "total_tokens": 15330},
+  "behavior": {
+    "qualified_stage_decision": "dispatch",
+    "qualified_tuple_exact": true,
+    "unqualified_stage_decision": "abstain",
+    "candidate_derivation_and_decision_behavior_passed": true
+  },
+  "response_failure": {
+    "observed_top_level_key": "type",
+    "required_top_level_key": "schema",
+    "validation_error": "response fields differ"
+  },
+  "decision": {
+    "run_valid_for_router_claim": false,
+    "retry_same_protocol": false,
+    "next_action": "freeze v3 with an explicit top-level JSON skeleton while leaving candidate decisions derived"
+  },
+  "files": {
+    "wave_result": "examples/modus_profile_router/evidence-gated-agent-v1/p2e-v2-results/wave-result.json",
+    "score": "examples/modus_profile_router/evidence-gated-agent-v1/p2e-v2-results/score.json",
+    "wave_result_sha256": "b0796e297ec7455944f018359bcc34f0ee308ed19804f99f85f3399264f50c88",
+    "score_sha256": "2761e876dc6f8b36ef1ef1ba603205cd4abb81c4a9f34097f9a232bde6f53181"
+  },
+  "claim_boundary": "The autonomous dispatch/abstain behavior is correct, but the response is contract-invalid. No Worker was called and no routing success is claimed."
+}
+

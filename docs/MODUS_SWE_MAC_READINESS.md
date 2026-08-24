@@ -1026,3 +1026,11 @@ rejected and no Worker ran. This is a fail-closed vocabulary defect, not a
 candidate matching failure. The same protocol is not retried; a frozen v2 must
 project host `defer` into the canonical Agent-facing `abstain` state. See
 [`agentic-artifacts/modus-p2e-agent-vocabulary-failure-v1.json`](../agentic-artifacts/modus-p2e-agent-vocabulary-failure-v1.json).
+
+P2e v2 projected host `defer` into Agent-facing `abstain`. The live Agent then
+made both correct decisions—exact qualified dispatch and unqualified abstain—
+but emitted top-level `type` instead of the required `schema`. The strict
+validator again rejected the response and called no Worker. This narrows the
+remaining apparatus issue to output-schema anchoring; v2 remains a separate
+failure and is not retried. See
+[`agentic-artifacts/modus-p2e-agent-schema-failure-v2.json`](../agentic-artifacts/modus-p2e-agent-schema-failure-v2.json).
