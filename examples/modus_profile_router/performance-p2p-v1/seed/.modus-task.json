@@ -1,0 +1,6 @@
+{
+  "schema": "modus-performance-p2p-public-task-v1",
+  "task_id": "direct-bitmix-p2p",
+  "algorithm_family": "direct-bitmix",
+  "implementation_package": "perf_direct_bitmix_p2p"
+}

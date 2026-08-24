@@ -1,0 +1,178 @@
+{
+  "schema": "modus-performance-p2p-qualification-v1",
+  "profile_outcomes_read": false,
+  "task_count": 1,
+  "algorithm_family_count": 1,
+  "thresholds": {
+    "starter_noninferior_ratio_maximum": 1.5,
+    "oracle_relative_median_absolute_deviation_maximum": 0.1
+  },
+  "lock": {
+    "success": true,
+    "message": "ok"
+  },
+  "tasks": [
+    {
+      "task_id": "direct-bitmix-p2p",
+      "family": "direct-bitmix",
+      "checks": {
+        "all_variants_correct": true,
+        "variant_result_digests_equal": true,
+        "topologies_exact": true,
+        "starter_noise_within_limit": true,
+        "starter_noninferior_to_profile_variants": true
+      },
+      "passed": true,
+      "starter_ratio_to_fastest_profile_variant": 0.8144332704486239,
+      "variants": {
+        "starter": {
+          "variant": "starter",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "direct-bitmix-p2p",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0552,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_bitmix (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [],
+            "changed_implementation_modules": 0,
+            "topology": "other",
+            "expected_local_paths": [
+              "perf_direct_bitmix_p2p/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_direct_bitmix_p2p/observer.py",
+              "perf_direct_bitmix_p2p/shared.py",
+              "perf_direct_bitmix_p2p/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.062217348385867545,
+            "maximum_seconds": 0.027885109374999995,
+            "mean_seconds": 0.023989764760416664,
+            "median_seconds": 0.023591544281249988,
+            "minimum_seconds": 0.022402682312499977,
+            "relative_median_absolute_deviation": 0.03600055102899718,
+            "repeat_per_round": 32,
+            "result_sha256": "666acb38fb05ee1863e72538960c18789ea1fc141843a8578106e8167ae3c0e6",
+            "rounds": 15,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.01089749254011215,
+            "steady_sample_count": 7,
+            "steady_seconds": 0.0227422356875,
+            "task_id": "direct-bitmix-p2p"
+          }
+        },
+        "local": {
+          "variant": "local",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "direct-bitmix-p2p",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0509,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_bitmix (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_direct_bitmix_p2p/target.py"
+            ],
+            "changed_implementation_modules": 1,
+            "topology": "local",
+            "expected_local_paths": [
+              "perf_direct_bitmix_p2p/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_direct_bitmix_p2p/observer.py",
+              "perf_direct_bitmix_p2p/shared.py",
+              "perf_direct_bitmix_p2p/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.06818255404370714,
+            "maximum_seconds": 0.03344958203124998,
+            "mean_seconds": 0.029182260591666676,
+            "median_seconds": 0.028797458343750026,
+            "minimum_seconds": 0.02535192446875001,
+            "relative_median_absolute_deviation": 0.033332974252165685,
+            "repeat_per_round": 32,
+            "result_sha256": "666acb38fb05ee1863e72538960c18789ea1fc141843a8578106e8167ae3c0e6",
+            "rounds": 15,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.007671912697692463,
+            "steady_sample_count": 7,
+            "steady_seconds": 0.02792400128125,
+            "task_id": "direct-bitmix-p2p"
+          }
+        },
+        "coordinated": {
+          "variant": "coordinated",
+          "correctness": {
+            "schema": "modus-performance-p0-correctness-v1",
+            "task_id": "direct-bitmix-p2p",
+            "success": true,
+            "tests": {
+              "passed": true,
+              "returncode": 0,
+              "timed_out": false,
+              "duration_seconds": 0.0588,
+              "stdout": "",
+              "stderr": "test_hidden (test_hidden.HiddenTest) ... ok\ntest_bitmix (test_public.PublicTest) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+            }
+          },
+          "topology": {
+            "schema": "modus-performance-p0-topology-v1",
+            "changed_implementation_paths": [
+              "perf_direct_bitmix_p2p/observer.py",
+              "perf_direct_bitmix_p2p/shared.py",
+              "perf_direct_bitmix_p2p/target.py"
+            ],
+            "changed_implementation_modules": 3,
+            "topology": "coordinated",
+            "expected_local_paths": [
+              "perf_direct_bitmix_p2p/target.py"
+            ],
+            "expected_coordinated_paths": [
+              "perf_direct_bitmix_p2p/observer.py",
+              "perf_direct_bitmix_p2p/shared.py",
+              "perf_direct_bitmix_p2p/target.py"
+            ]
+          },
+          "benchmark": {
+            "coefficient_of_variation": 0.15499135479508167,
+            "maximum_seconds": 0.045509976562500054,
+            "mean_seconds": 0.036529333775,
+            "median_seconds": 0.03446366537500001,
+            "minimum_seconds": 0.028549764343750006,
+            "relative_median_absolute_deviation": 0.13341851791497122,
+            "repeat_per_round": 32,
+            "result_sha256": "666acb38fb05ee1863e72538960c18789ea1fc141843a8578106e8167ae3c0e6",
+            "rounds": 15,
+            "schema": "modus-performance-p0-benchmark-v1",
+            "steady_relative_median_absolute_deviation": 0.05768164160768529,
+            "steady_sample_count": 7,
+            "steady_seconds": 0.03239706903125,
+            "task_id": "direct-bitmix-p2p"
+          }
+        }
+      }
+    }
+  ],
+  "passed": true,
+  "P2p_design_freeze_authorized": true,
+  "P2p_model_dispatch_authorized": false
+}
