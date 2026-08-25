@@ -161,7 +161,8 @@
     "profile_luna_max_performance_p2l_final": "modus-codex-luna-max-performance-p2l-final-v1.json",
     "profile_luna_max_performance_p2n_partial": "modus-codex-luna-max-performance-p2n-partial-v1.json",
     "profile_p2o_read_custody_canary": "modus-p2o-read-custody-canary-v5.json",
-    "profile_luna_max_performance_p2p_positive": "modus-codex-luna-max-performance-p2p-positive-v1.json"
+    "profile_luna_max_performance_p2p_positive": "modus-codex-luna-max-performance-p2p-positive-v1.json",
+    "profile_p2r_all_temp_custody_canary": "modus-p2r-all-temp-custody-canary-v1.json"
   },
   "headline_metrics": {
     "id": {

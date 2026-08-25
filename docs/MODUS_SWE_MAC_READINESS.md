@@ -1272,3 +1272,18 @@ local→p000-v2, shared→e1-v3, direct→p000-v2. Thus tasks select at least tw
 different Profiles; neutral remains the fallback and comparison authority but
 is not selected on these three tasks. See
 [`agentic-artifacts/modus-codex-luna-max-performance-p2p-positive-v1.json`](../agentic-artifacts/modus-codex-luna-max-performance-p2p-positive-v1.json).
+
+### P2r all-temporary-run custody
+
+P2r closes the remaining read-custody gap after P2q exposed that P2o v5 still
+allowed scanning historical workspaces elsewhere in `/private/tmp`. Wrapper v6
+denies all `/private/tmp` file content by default, allows metadata only, grants
+content access back to the current cell, and redirects TMPDIR/TMP/TEMP into that
+cell. Owning repositories remain denied.
+
+A live Luna max canary read `current-ok` from the current workspace while the
+sibling cell, a historical temp-run sentinel, and Agent-as-Router README were
+all reported `not readable`. The turn completed with full usage, no Web Search,
+and no retry. P2q has no surviving outcome and is not retroactively validated;
+future policy tests must use a new protocol and wrapper v6. See
+[`agentic-artifacts/modus-p2r-all-temp-custody-canary-v1.json`](../agentic-artifacts/modus-p2r-all-temp-custody-canary-v1.json).

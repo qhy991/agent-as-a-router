@@ -1,0 +1,1 @@
+{"schema":"modus-p2r-custody-canary-v1","allowed":"current-ok","sibling":"not readable","historical_tmp":"not readable","owner_repo":"not readable"}

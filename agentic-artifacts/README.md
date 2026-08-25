@@ -108,6 +108,9 @@ that need to decide what to inspect before loading the full repository.
 43. Read `modus-codex-luna-max-performance-p2p-positive-v1.json` for the fresh
     custody-confined direct task: p000-v2 is selected over faster e1-v3 because
     both pass quality and p000-v2 uses fewer tokens; Router matches the choice.
+44. Read `modus-p2r-all-temp-custody-canary-v1.json` for the live v6 canary
+    proving current-cell access while sibling, historical `/private/tmp`, and
+    owner-repository content are all unreadable.
 
 ## Scope
 
