@@ -1,0 +1,12 @@
+{
+  "schema": "modus-router-task-descriptor-v1",
+  "task_id": "single-batch-keyed-reduction",
+  "worker_model": {
+    "slug": "gpt-5.6-luna",
+    "reasoning_effort": "max"
+  },
+  "semantic_kind": "keyed-reduction",
+  "workload_shape": "single-batch",
+  "reusable_preparation": false,
+  "performance_objective": "latency-subject-to-correctness-then-tokens"
+}

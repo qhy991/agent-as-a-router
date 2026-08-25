@@ -1,0 +1,68 @@
+{
+  "schema": "modus-profile-experience-transfer-qualification-v1",
+  "profile_outcomes_read": false,
+  "source": {
+    "repository": "qhy991/Modus",
+    "commit": "c7bb032",
+    "qualification_a_sha256": "a7470936103051251f8136021656ab464991bd54d58ec774468f8dcff128ed93",
+    "qualification_b_sha256": "4b4b92e17e5e9fd1bf160b7b849de7fba4214167aefae4b472a3b62171f10753"
+  },
+  "thresholds": {
+    "maximum_relative_mad": 0.1,
+    "minimum_noninferiority_or_contrast": 1.25,
+    "shared_selected_oracle_rounds": 35
+  },
+  "tasks": [
+    {
+      "task_id": "single-batch-keyed-reduction",
+      "seed_tree_sha256": "3de1d0578c7e376ad03eb108cbd90f7b3967c3c8aaadccb125b84050b0534406",
+      "expected_transfer_strategy": "target-scoped-optimization",
+      "qualification_a": {
+        "contrast_ratio": 2.460157032145772,
+        "steady_seconds": 0.006415867023438437,
+        "relative_mad": 0.004045172533923323
+      },
+      "qualification_b": {
+        "contrast_ratio": 1.6692435050660144,
+        "steady_seconds": 0.013330345374996,
+        "relative_mad": 0.0178680912927357
+      },
+      "passed": true
+    },
+    {
+      "task_id": "repeated-batch-keyed-aggregate",
+      "seed_tree_sha256": "71a7ab000af9f25412632b5b4dddce37cb07bae7c4e7ad894a3ed8b52ae7c9ad",
+      "expected_transfer_strategy": "prepared-shared-optimization",
+      "qualification_a": {
+        "contrast_ratio": 7.6820369699110405,
+        "steady_seconds": 0.1434750102500857,
+        "relative_mad": 0.07301547483167165
+      },
+      "qualification_b": {
+        "contrast_ratio": 8.827516957514266,
+        "steady_seconds": 0.1447955210001055,
+        "relative_mad": 0.05421287340863095
+      },
+      "passed": true
+    },
+    {
+      "task_id": "direct-bit-transformation",
+      "seed_tree_sha256": "8c8cc76c2bc72757c19f259bff966b00fc004b40aaa1f0d0b91657d676123b06",
+      "expected_transfer_strategy": "target-scoped-optimization",
+      "qualification_a": {
+        "contrast_ratio": 1.0491972734738708,
+        "steady_seconds": 0.07390534118746928,
+        "relative_mad": 0.06705100041319167
+      },
+      "qualification_b": {
+        "contrast_ratio": 1.066638424928926,
+        "steady_seconds": 0.06561068493755329,
+        "relative_mad": 0.07514083555413904
+      },
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "model_dispatch_authorized": false,
+  "claim_boundary": "This qualification validates task correctness, topology expression, oracle contrast, and measurement stability before any Router or Worker outcome. It does not validate the transfer route."
+}

@@ -1,0 +1,156 @@
+{
+  "schema": "modus-profile-experience-registry-v1",
+  "worker_model": {
+    "slug": "gpt-5.6-luna",
+    "reasoning_effort": "max"
+  },
+  "cost_metric": "complete_input_plus_output_tokens",
+  "strategies": [
+    {
+      "strategy_id": "unconstrained-optimization",
+      "summary": "Broad implementation search without a required edit topology.",
+      "behavior_contract": {
+        "topology": "unconstrained",
+        "reusable_preparation": "optional"
+      },
+      "artifact_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "strategy_id": "target-scoped-optimization",
+      "summary": "Concentrate implementation changes in the named target module.",
+      "behavior_contract": {
+        "topology": "target-only",
+        "reusable_preparation": "absent"
+      },
+      "artifact_sha256": "e71273a512395cefab042a176e46fcc81fbed542715986e10e48e8f34847ebd0"
+    },
+    {
+      "strategy_id": "prepared-shared-optimization",
+      "summary": "Prepare one minimal query-ready shared representation and consume it in the target.",
+      "behavior_contract": {
+        "topology": "observer-shared-target",
+        "reusable_preparation": "required"
+      },
+      "artifact_sha256": "4c8c3c325792267bbda83de0167ec026700989be9fb5f38ae16c033e95ad8280"
+    }
+  ],
+  "task_experience": [
+    {
+      "experience_id": "single-batch-keyed-reduction",
+      "maturity": "prospective-single-instance",
+      "task_signature": {
+        "semantic_kind": "keyed-reduction",
+        "workload_shape": "single-batch",
+        "reusable_preparation": false,
+        "performance_objective": "latency-subject-to-correctness-then-tokens"
+      },
+      "selected_strategy": "target-scoped-optimization",
+      "observations": {
+        "correctness_passed": true,
+        "behavior_passed": true,
+        "performance_ratio_to_unconstrained": 0.9420727522306109,
+        "token_saving_fraction_vs_unconstrained": 0.6135039866202867,
+        "selected_worker_tokens": 66555
+      },
+      "rejected_strategies": [],
+      "evidence": {
+        "evidence_ref": "evidence:profile-affinity:single-batch-keyed-reduction",
+        "path": "agentic-artifacts/modus-codex-luna-max-performance-p2s-fresh-transfer-v1.json",
+        "sha256": "8bdc6624640d4418545ffd176b1d2017e2a457bbcc90b4c4545533cfa3da5311"
+      }
+    },
+    {
+      "experience_id": "repeated-batch-keyed-aggregate",
+      "maturity": "prospective-single-instance",
+      "task_signature": {
+        "semantic_kind": "keyed-distinct-aggregate",
+        "workload_shape": "repeated-batches",
+        "reusable_preparation": true,
+        "performance_objective": "latency-subject-to-correctness-then-tokens"
+      },
+      "selected_strategy": "prepared-shared-optimization",
+      "observations": {
+        "correctness_passed": true,
+        "behavior_passed": true,
+        "performance_ratio_to_unconstrained": 0.946623713845342,
+        "token_saving_fraction_vs_unconstrained": 0.4180120924614925,
+        "selected_worker_tokens": 159978
+      },
+      "rejected_strategies": [
+        {
+          "strategy_id": "target-scoped-optimization",
+          "reason": "performance-ineligible",
+          "performance_ratio_to_unconstrained": 8.40570976297263,
+          "token_saving_fraction_vs_unconstrained": 0.6932829359506989
+        }
+      ],
+      "evidence": {
+        "evidence_ref": "evidence:profile-affinity:repeated-batch-keyed-aggregate",
+        "path": "agentic-artifacts/modus-codex-luna-max-performance-p2s-fresh-transfer-v1.json",
+        "sha256": "8bdc6624640d4418545ffd176b1d2017e2a457bbcc90b4c4545533cfa3da5311"
+      }
+    },
+    {
+      "experience_id": "direct-bit-transformation",
+      "maturity": "prospective-single-instance",
+      "task_signature": {
+        "semantic_kind": "direct-bit-transformation",
+        "workload_shape": "single-batch",
+        "reusable_preparation": false,
+        "performance_objective": "latency-subject-to-correctness-then-tokens"
+      },
+      "selected_strategy": "target-scoped-optimization",
+      "observations": {
+        "correctness_passed": true,
+        "behavior_passed": true,
+        "performance_ratio_to_unconstrained": 0.9484019432370238,
+        "token_saving_fraction_vs_unconstrained": 0.9225360734478648,
+        "selected_worker_tokens": 125279
+      },
+      "rejected_strategies": [],
+      "evidence": {
+        "evidence_ref": "evidence:profile-affinity:direct-bit-transformation",
+        "path": "agentic-artifacts/modus-codex-luna-max-performance-p2s-fresh-transfer-v1.json",
+        "sha256": "8bdc6624640d4418545ffd176b1d2017e2a457bbcc90b4c4545533cfa3da5311"
+      }
+    }
+  ],
+  "router_experience": [
+    {
+      "experience_id": "evidence-required-for-routing",
+      "maturity": "replicated-development",
+      "observation": {
+        "task_only_exact_plan_matches": "0/3",
+        "task_only_stage_matches": "4/12",
+        "evidence_bound_exact_plan_matches": "3/3",
+        "evidence_bound_stage_matches": "12/12",
+        "known_state_zero_token_cache_preferred": true
+      },
+      "evidence": {
+        "evidence_ref": "evidence:router-policy:evidence-bound-routing",
+        "path": "agentic-artifacts/modus-codex-luna-max-stage-router-shadow-v1.json",
+        "sha256": "f40eae269d3439356ac4ee9973f56edc318e6460c7f5c9f759d310f4f8cbf7c8"
+      }
+    }
+  ],
+  "decision_policy": {
+    "quality_order": [
+      "correctness",
+      "behavior",
+      "performance",
+      "stability",
+      "tokens"
+    ],
+    "maximum_performance_ratio": 1.25,
+    "maximum_relative_mad": 0.1,
+    "minimum_token_saving_fraction": 0.15,
+    "decisions": [
+      "dispatch",
+      "abstain",
+      "request_qualification"
+    ],
+    "exact_cache_before_agent": true,
+    "missing_evidence_decision": "request_qualification"
+  },
+  "claim_boundary": "The registry contains qualified experience for one Worker model and three semantic task signatures. It supports bounded transfer decisions, not universal strategy superiority or natural-task prevalence."
+}

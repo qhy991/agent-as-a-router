@@ -1,0 +1,6 @@
+{
+  "schema": "modus-profile-experience-transfer-public-task-v1",
+  "task_id": "direct-bit-transformation",
+  "algorithm_family": "direct-bit-transformation",
+  "implementation_package": "modus_direct_bit_transformation"
+}

@@ -1,0 +1,6 @@
+{
+  "schema": "modus-profile-experience-transfer-public-task-v1",
+  "task_id": "single-batch-keyed-reduction",
+  "algorithm_family": "keyed-reduction",
+  "implementation_package": "modus_single_batch_keyed_reduction"
+}

@@ -1,0 +1,6 @@
+{
+  "schema": "modus-profile-experience-transfer-public-task-v1",
+  "task_id": "repeated-batch-keyed-aggregate",
+  "algorithm_family": "keyed-distinct-aggregate",
+  "implementation_package": "modus_repeated_batch_keyed_aggregate"
+}

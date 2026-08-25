@@ -1,0 +1,140 @@
+{
+  "schema": "modus-profile-experience-transfer-protocol-v1",
+  "frozen_at": "2026-08-25",
+  "run_authorized": true,
+  "expected_future_deployments": 8,
+  "model": {
+    "local_slug": "gpt-5.6-luna",
+    "reasoning_effort": "max"
+  },
+  "strategies": {
+    "unconstrained-optimization": {
+      "artifact_repository": "generated-empty",
+      "artifact_path": null,
+      "artifact_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "behavior_contract": "unconstrained"
+    },
+    "target-scoped-optimization": {
+      "artifact_repository": "dsh-personal-plugins",
+      "artifact_path": "presets/modus/execution-strategies/target-scoped-optimization/profile.md",
+      "artifact_sha256": "e71273a512395cefab042a176e46fcc81fbed542715986e10e48e8f34847ebd0",
+      "behavior_contract": "target-only"
+    },
+    "prepared-shared-optimization": {
+      "artifact_repository": "dsh-personal-plugins",
+      "artifact_path": "presets/modus/execution-strategies/prepared-shared-optimization/profile.md",
+      "artifact_sha256": "4c8c3c325792267bbda83de0167ec026700989be9fb5f38ae16c033e95ad8280",
+      "behavior_contract": "observer-shared-target with minimal query-ready preparation"
+    }
+  },
+  "router": {
+    "policy": "router/AGENTS.md",
+    "policy_sha256": "bfc14548f3b8d8825802bf115f443211eae49c46b6cc8602aa6942ec3547762a",
+    "experience_registry": "configs/modus_profile_experience_registry.json",
+    "experience_registry_sha256": "1ddbb06180c24773984e2e6e68da587de50d37c41f89b2b540ab09781dfb6a08",
+    "context_builder": "scripts/build_modus_router_context.py",
+    "context_builder_sha256": "0d992dbc43b939979b0468602a31e2f9a112716572e4b1e8c09777482a05c761",
+    "context": "examples/modus_profile_router/profile-experience-transfer/router-context.json",
+    "context_sha256": "1b227d62686688e6bd903e25d583c8116c6e602b2aa615e1616dbd148f0f2744",
+    "prompt": "examples/modus_profile_router/profile-experience-transfer/router-task.md",
+    "prompt_sha256": "c6a63fb306ed6848c345def3baca7a856780ff47e57b7f34a259f74c454d9ced",
+    "scorer": "scripts/score_modus_profile_experience_router.py",
+    "scorer_sha256": "a08e5c9d7ac2f94d42f5c7cecd36872d0f1615d22653970ffb62a48e75200a51",
+    "tasks": [
+      "single-batch-keyed-reduction",
+      "repeated-batch-keyed-aggregate",
+      "direct-bit-transformation"
+    ],
+    "qualified_dispatch": {
+      "single-batch-keyed-reduction": {
+        "strategy": "target-scoped-optimization",
+        "evidence_ref": "evidence:profile-affinity:single-batch-keyed-reduction"
+      },
+      "repeated-batch-keyed-aggregate": {
+        "strategy": "prepared-shared-optimization",
+        "evidence_ref": "evidence:profile-affinity:repeated-batch-keyed-aggregate"
+      },
+      "direct-bit-transformation": {
+        "strategy": "target-scoped-optimization",
+        "evidence_ref": "evidence:profile-affinity:direct-bit-transformation"
+      }
+    },
+    "worker_outcomes_available": false,
+    "calls": 1
+  },
+  "tasks": {
+    "single-batch-keyed-reduction": {
+      "descriptor": "examples/modus_profile_router/profile-experience-transfer/task-descriptors/single-batch-keyed-reduction.json",
+      "seed_root": "examples/modus_profile_router/profile-experience-transfer/seeds/single-batch-keyed-reduction",
+      "seed_tree_sha256": "3de1d0578c7e376ad03eb108cbd90f7b3967c3c8aaadccb125b84050b0534406",
+      "prompt": "examples/modus_profile_router/profile-experience-transfer/seeds/single-batch-keyed-reduction/instruction.md",
+      "prompt_sha256": "d676bcc415e09e55d3361c3e8c32f806b5622faff294ed8989ea8d72e084094d",
+      "expected_transfer_strategy": "target-scoped-optimization"
+    },
+    "repeated-batch-keyed-aggregate": {
+      "descriptor": "examples/modus_profile_router/profile-experience-transfer/task-descriptors/repeated-batch-keyed-aggregate.json",
+      "seed_root": "examples/modus_profile_router/profile-experience-transfer/seeds/repeated-batch-keyed-aggregate",
+      "seed_tree_sha256": "71a7ab000af9f25412632b5b4dddce37cb07bae7c4e7ad894a3ed8b52ae7c9ad",
+      "prompt": "examples/modus_profile_router/profile-experience-transfer/seeds/repeated-batch-keyed-aggregate/instruction.md",
+      "prompt_sha256": "7b63d04022d5609377fd26e55f7d3e69463a3fd209d95eb50b4b653f2d15ab81",
+      "expected_transfer_strategy": "prepared-shared-optimization"
+    },
+    "direct-bit-transformation": {
+      "descriptor": "examples/modus_profile_router/profile-experience-transfer/task-descriptors/direct-bit-transformation.json",
+      "seed_root": "examples/modus_profile_router/profile-experience-transfer/seeds/direct-bit-transformation",
+      "seed_tree_sha256": "8c8cc76c2bc72757c19f259bff966b00fc004b40aaa1f0d0b91657d676123b06",
+      "prompt": "examples/modus_profile_router/profile-experience-transfer/seeds/direct-bit-transformation/instruction.md",
+      "prompt_sha256": "84648cc05b447589be49f8f4df448f9d0627ac53ef2ce1f87257cdce501e4880",
+      "expected_transfer_strategy": "target-scoped-optimization"
+    }
+  },
+  "qualification": {
+    "path": "examples/modus_profile_router/profile-experience-transfer/task-qualification.json",
+    "sha256": "9e63e58857d600458b1430ae9ebca9d4cf401d1ce607efea8f74d90f05ac6774",
+    "passed": true
+  },
+  "execution": {
+    "fixed_baseline_strategy": "prepared-shared-optimization",
+    "staged_cell_policy": "For each task run the fixed baseline and the Router-selected strategy; remove an exact duplicate.",
+    "authorized_worker_range": [
+      3,
+      6
+    ],
+    "fresh_workspace_per_cell": true,
+    "sequential": true,
+    "automatic_redispatch": false,
+    "no_followup_replication": true,
+    "no_counterfactual_matrix_completion": true,
+    "runner": "scripts/run_modus_profile_experience_transfer.py",
+    "runner_sha256": "75ab4aa4bd5f1e18c0b716559ae51653ab6ba954afff09d18372b74708d51458",
+    "verifier": "scripts/verify_modus_profile_experience_cell.py",
+    "verifier_sha256": "5fb18ec979733a4d4efb05ffe518d6336803bad56814f8edde0045aa9f3faa28",
+    "custody_wrapper": "src/acrouter_repro/codex_custody_wrapper_v6.py",
+    "custody_wrapper_sha256": "3db2e0e8758d4a2066485252686ed418b4d76f095b43eb57745e47d7da737212",
+    "custody_qualification": "agentic-artifacts/modus-p2r-all-temp-custody-canary-v1.json",
+    "custody_qualification_sha256": "a92c935ed726152b69ba652b6cf675ff3784c0779dec4e1de48c0020a9066287"
+  },
+  "scoring": {
+    "maximum_performance_ratio": 1.25,
+    "maximum_relative_mad": 0.1,
+    "minimum_token_saving_fraction": 0.15,
+    "scorer": "scripts/score_modus_profile_experience_transfer.py",
+    "scorer_sha256": "fb1a0fe42d6e8fb6597cccfa60fefe69613b98e8de074e33ce0116c50583aefb",
+    "transfer_gate": "Actual formal route must match all three frozen experience-transfer strategies.",
+    "baseline": "prepared-shared-optimization on all three tasks"
+  },
+  "economics": {
+    "prior_experience_acquisition_tokens": 2952770,
+    "marginal_acquisition": "one Router call plus every derived Worker cell",
+    "full_lineage_acquisition": "prior experience acquisition plus marginal acquisition",
+    "expected_deployments": 8
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "41ebe70",
+    "profile_plugin_commit": "282c96a",
+    "task_source_repository": "qhy991/Modus",
+    "task_source_commit": "c7bb032",
+    "historical_codenames_agent_visible": false
+  },
+  "claim_boundary": "This prospective experiment tests whether accumulated Profile experience transfers to three new task instances with staged acquisition. It does not build a new complete-matrix Oracle or establish universal strategy superiority."
+}
