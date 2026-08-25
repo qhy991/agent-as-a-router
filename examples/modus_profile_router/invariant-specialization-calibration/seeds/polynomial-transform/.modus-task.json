@@ -1,0 +1,6 @@
+{
+  "schema": "modus-invariant-specialization-public-task-v1",
+  "task_id": "polynomial-transform",
+  "algorithm_family": "polynomial-transform",
+  "implementation_package": "modus_invariant_polynomial_transform"
+}

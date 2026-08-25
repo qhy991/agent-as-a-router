@@ -1,0 +1,6 @@
+{
+  "schema": "modus-invariant-specialization-public-task-v1",
+  "task_id": "rolling-hash",
+  "algorithm_family": "rolling-hash",
+  "implementation_package": "modus_invariant_rolling_hash"
+}

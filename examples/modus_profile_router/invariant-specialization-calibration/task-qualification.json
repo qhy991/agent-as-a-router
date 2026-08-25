@@ -1,0 +1,71 @@
+{
+  "schema": "modus-invariant-specialization-task-qualification-v1",
+  "profile_outcomes_read": false,
+  "source": {
+    "repository": "qhy991/Modus",
+    "commit": "2991132",
+    "qualification_a_sha256": "5ecc8bf8892f8d4cf98c9ff364dde9d80aa1b614268519264fbb7610cbed8d88",
+    "qualification_b_sha256": "ffd23af96df4cba031917524228a0d75dc5b2be68d4ade55a854ffb50404193e"
+  },
+  "thresholds": {
+    "minimum_starter_speedup": 1.2,
+    "maximum_oracle_relative_mad": 0.1
+  },
+  "tasks": [
+    {
+      "task_id": "modular-bit-transform",
+      "seed_tree_sha256": "b607f52aa5f835643fef376b9e0525357ee221cd3a1ecc8a1580687d8a23788f",
+      "qualification_a": {
+        "starter_speedup": 1.752416645572347,
+        "maximum_relative_mad": 0.022383708864870115
+      },
+      "qualification_b": {
+        "starter_speedup": 1.479628331710734,
+        "maximum_relative_mad": 0.030554740956007253
+      },
+      "passed": true
+    },
+    {
+      "task_id": "rolling-hash",
+      "seed_tree_sha256": "d8fc559f89445853f38fddfe528c3c78f35efbe3b21d25441053583884c87658",
+      "qualification_a": {
+        "starter_speedup": 13.433109145678118,
+        "maximum_relative_mad": 0.017648159697817887
+      },
+      "qualification_b": {
+        "starter_speedup": 14.604711418146941,
+        "maximum_relative_mad": 0.0516750807912801
+      },
+      "passed": true
+    },
+    {
+      "task_id": "polynomial-transform",
+      "seed_tree_sha256": "f39e81342b64b8f77e1f69d9b067150273ba3d82ddadb8b4e640d1121f29a2e0",
+      "qualification_a": {
+        "starter_speedup": 2.0369281446787406,
+        "maximum_relative_mad": 0.02423662360272065
+      },
+      "qualification_b": {
+        "starter_speedup": 1.9851314706906888,
+        "maximum_relative_mad": 0.018305792490966127
+      },
+      "passed": true
+    },
+    {
+      "task_id": "crc-transform",
+      "seed_tree_sha256": "96f761214c580d8ce71dbf211ad510b2604e227a19dc569518b728e059cccdc1",
+      "qualification_a": {
+        "starter_speedup": 39.734582985757775,
+        "maximum_relative_mad": 0.025213763243994936
+      },
+      "qualification_b": {
+        "starter_speedup": 21.87109553708262,
+        "maximum_relative_mad": 0.02266948699190072
+      },
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "model_dispatch_authorized": false,
+  "claim_boundary": "Profile-blind qualification of task correctness, topology expression, invariant oracle semantics, headroom, and measurement noise. It does not establish Profile manipulation or utility."
+}

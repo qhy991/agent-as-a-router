@@ -1,0 +1,6 @@
+{
+  "schema": "modus-invariant-specialization-public-task-v1",
+  "task_id": "modular-bit-transform",
+  "algorithm_family": "modular-bit-transform",
+  "implementation_package": "modus_invariant_modular_bit_transform"
+}

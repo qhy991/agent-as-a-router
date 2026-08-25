@@ -1,0 +1,270 @@
+{
+  "schema": "modus-invariant-specialization-calibration-protocol-v1",
+  "frozen_at": "2026-08-25",
+  "run_authorized": true,
+  "development_only": true,
+  "model": {
+    "local_slug": "gpt-5.6-luna",
+    "reasoning_effort": "max"
+  },
+  "strategies": {
+    "target-scoped-optimization": {
+      "artifact_repository": "dsh-personal-plugins",
+      "artifact_path": "presets/modus/execution-strategies/target-scoped-optimization/profile.md",
+      "artifact_sha256": "e71273a512395cefab042a176e46fcc81fbed542715986e10e48e8f34847ebd0",
+      "status": "evidence-bounded-existing"
+    },
+    "prepared-shared-optimization": {
+      "artifact_repository": "dsh-personal-plugins",
+      "artifact_path": "presets/modus/execution-strategies/prepared-shared-optimization/profile.md",
+      "artifact_sha256": "4c8c3c325792267bbda83de0167ec026700989be9fb5f38ae16c033e95ad8280",
+      "status": "evidence-bounded-existing"
+    },
+    "invariant-specialized-optimization": {
+      "artifact_repository": "dsh-personal-plugins",
+      "artifact_path": "presets/modus/execution-strategies/invariant-specialized-optimization/profile.md",
+      "artifact_sha256": "6d639921f65b4edc5108b52afc002dbcfb7d5025ab803baea45c783afd1eb3a4",
+      "status": "unqualified-development-candidate"
+    }
+  },
+  "tasks": {
+    "modular-bit-transform": {
+      "seed_root": "examples/modus_profile_router/invariant-specialization-calibration/seeds/modular-bit-transform",
+      "seed_tree_sha256": "b607f52aa5f835643fef376b9e0525357ee221cd3a1ecc8a1580687d8a23788f",
+      "prompt": "examples/modus_profile_router/invariant-specialization-calibration/seeds/modular-bit-transform/instruction.md",
+      "prompt_sha256": "c37508bcc79cb5c897c405619df9506c2b3a2af3602e29fa222030ef468ce58d"
+    },
+    "rolling-hash": {
+      "seed_root": "examples/modus_profile_router/invariant-specialization-calibration/seeds/rolling-hash",
+      "seed_tree_sha256": "d8fc559f89445853f38fddfe528c3c78f35efbe3b21d25441053583884c87658",
+      "prompt": "examples/modus_profile_router/invariant-specialization-calibration/seeds/rolling-hash/instruction.md",
+      "prompt_sha256": "3b2497b72764a5015e706ed352d8c39383bceb64dc639e966ab2e55c773fe5a7"
+    },
+    "polynomial-transform": {
+      "seed_root": "examples/modus_profile_router/invariant-specialization-calibration/seeds/polynomial-transform",
+      "seed_tree_sha256": "f39e81342b64b8f77e1f69d9b067150273ba3d82ddadb8b4e640d1121f29a2e0",
+      "prompt": "examples/modus_profile_router/invariant-specialization-calibration/seeds/polynomial-transform/instruction.md",
+      "prompt_sha256": "f740c49b2ccedb1c170fdb358023e6cfab3a9a93f22f3e2fc1b0f02d98f80102"
+    },
+    "crc-transform": {
+      "seed_root": "examples/modus_profile_router/invariant-specialization-calibration/seeds/crc-transform",
+      "seed_tree_sha256": "96f761214c580d8ce71dbf211ad510b2604e227a19dc569518b728e059cccdc1",
+      "prompt": "examples/modus_profile_router/invariant-specialization-calibration/seeds/crc-transform/instruction.md",
+      "prompt_sha256": "5503446af1657762ab8c3233d7ae4006a6f65f04aebbeb65c967d21610ba5313"
+    }
+  },
+  "qualification": {
+    "path": "examples/modus_profile_router/invariant-specialization-calibration/task-qualification.json",
+    "sha256": "531b530fc0c9de31dad1d368810e8d4725b15a0a6bbd64ac578ff18bf0e15fcc",
+    "task_source_commit": "2991132",
+    "passed": true
+  },
+  "cells": [
+    {
+      "id": "modular-bit-transform--target-scoped-optimization--r1",
+      "task_id": "modular-bit-transform",
+      "strategy": "target-scoped-optimization",
+      "repetition": 1,
+      "order": 1
+    },
+    {
+      "id": "modular-bit-transform--prepared-shared-optimization--r1",
+      "task_id": "modular-bit-transform",
+      "strategy": "prepared-shared-optimization",
+      "repetition": 1,
+      "order": 2
+    },
+    {
+      "id": "modular-bit-transform--invariant-specialized-optimization--r1",
+      "task_id": "modular-bit-transform",
+      "strategy": "invariant-specialized-optimization",
+      "repetition": 1,
+      "order": 3
+    },
+    {
+      "id": "rolling-hash--target-scoped-optimization--r1",
+      "task_id": "rolling-hash",
+      "strategy": "target-scoped-optimization",
+      "repetition": 1,
+      "order": 4
+    },
+    {
+      "id": "rolling-hash--prepared-shared-optimization--r1",
+      "task_id": "rolling-hash",
+      "strategy": "prepared-shared-optimization",
+      "repetition": 1,
+      "order": 5
+    },
+    {
+      "id": "rolling-hash--invariant-specialized-optimization--r1",
+      "task_id": "rolling-hash",
+      "strategy": "invariant-specialized-optimization",
+      "repetition": 1,
+      "order": 6
+    },
+    {
+      "id": "polynomial-transform--target-scoped-optimization--r1",
+      "task_id": "polynomial-transform",
+      "strategy": "target-scoped-optimization",
+      "repetition": 1,
+      "order": 7
+    },
+    {
+      "id": "polynomial-transform--prepared-shared-optimization--r1",
+      "task_id": "polynomial-transform",
+      "strategy": "prepared-shared-optimization",
+      "repetition": 1,
+      "order": 8
+    },
+    {
+      "id": "polynomial-transform--invariant-specialized-optimization--r1",
+      "task_id": "polynomial-transform",
+      "strategy": "invariant-specialized-optimization",
+      "repetition": 1,
+      "order": 9
+    },
+    {
+      "id": "crc-transform--target-scoped-optimization--r1",
+      "task_id": "crc-transform",
+      "strategy": "target-scoped-optimization",
+      "repetition": 1,
+      "order": 10
+    },
+    {
+      "id": "crc-transform--prepared-shared-optimization--r1",
+      "task_id": "crc-transform",
+      "strategy": "prepared-shared-optimization",
+      "repetition": 1,
+      "order": 11
+    },
+    {
+      "id": "crc-transform--invariant-specialized-optimization--r1",
+      "task_id": "crc-transform",
+      "strategy": "invariant-specialized-optimization",
+      "repetition": 1,
+      "order": 12
+    },
+    {
+      "id": "modular-bit-transform--invariant-specialized-optimization--r2",
+      "task_id": "modular-bit-transform",
+      "strategy": "invariant-specialized-optimization",
+      "repetition": 2,
+      "order": 13
+    },
+    {
+      "id": "modular-bit-transform--prepared-shared-optimization--r2",
+      "task_id": "modular-bit-transform",
+      "strategy": "prepared-shared-optimization",
+      "repetition": 2,
+      "order": 14
+    },
+    {
+      "id": "modular-bit-transform--target-scoped-optimization--r2",
+      "task_id": "modular-bit-transform",
+      "strategy": "target-scoped-optimization",
+      "repetition": 2,
+      "order": 15
+    },
+    {
+      "id": "rolling-hash--invariant-specialized-optimization--r2",
+      "task_id": "rolling-hash",
+      "strategy": "invariant-specialized-optimization",
+      "repetition": 2,
+      "order": 16
+    },
+    {
+      "id": "rolling-hash--prepared-shared-optimization--r2",
+      "task_id": "rolling-hash",
+      "strategy": "prepared-shared-optimization",
+      "repetition": 2,
+      "order": 17
+    },
+    {
+      "id": "rolling-hash--target-scoped-optimization--r2",
+      "task_id": "rolling-hash",
+      "strategy": "target-scoped-optimization",
+      "repetition": 2,
+      "order": 18
+    },
+    {
+      "id": "polynomial-transform--invariant-specialized-optimization--r2",
+      "task_id": "polynomial-transform",
+      "strategy": "invariant-specialized-optimization",
+      "repetition": 2,
+      "order": 19
+    },
+    {
+      "id": "polynomial-transform--prepared-shared-optimization--r2",
+      "task_id": "polynomial-transform",
+      "strategy": "prepared-shared-optimization",
+      "repetition": 2,
+      "order": 20
+    },
+    {
+      "id": "polynomial-transform--target-scoped-optimization--r2",
+      "task_id": "polynomial-transform",
+      "strategy": "target-scoped-optimization",
+      "repetition": 2,
+      "order": 21
+    },
+    {
+      "id": "crc-transform--invariant-specialized-optimization--r2",
+      "task_id": "crc-transform",
+      "strategy": "invariant-specialized-optimization",
+      "repetition": 2,
+      "order": 22
+    },
+    {
+      "id": "crc-transform--prepared-shared-optimization--r2",
+      "task_id": "crc-transform",
+      "strategy": "prepared-shared-optimization",
+      "repetition": 2,
+      "order": 23
+    },
+    {
+      "id": "crc-transform--target-scoped-optimization--r2",
+      "task_id": "crc-transform",
+      "strategy": "target-scoped-optimization",
+      "repetition": 2,
+      "order": 24
+    }
+  ],
+  "execution": {
+    "planned_cells": 24,
+    "repetitions": 2,
+    "counterbalanced_strategy_order": true,
+    "fresh_workspace_per_cell": true,
+    "sequential": true,
+    "automatic_redispatch": false,
+    "no_post_outcome_arms": true,
+    "runner": "scripts/run_modus_invariant_specialization_calibration.py",
+    "runner_sha256": "155df4939361f1103117a094d99f1e273ff5a87d41c810918d07adc2c0e00d00",
+    "verifier": "scripts/verify_modus_invariant_specialization_cell.py",
+    "verifier_sha256": "c92434a9253684e307fb858f4feb33bd727d6053cd359345f6104ad8d6afca41",
+    "custody_wrapper": "src/acrouter_repro/codex_custody_wrapper_v6.py",
+    "custody_wrapper_sha256": "3db2e0e8758d4a2066485252686ed418b4d76f095b43eb57745e47d7da737212",
+    "custody_qualification": "agentic-artifacts/modus-p2r-all-temp-custody-canary-v1.json",
+    "custody_qualification_sha256": "a92c935ed726152b69ba652b6cf675ff3784c0779dec4e1de48c0020a9066287"
+  },
+  "scoring": {
+    "scorer": "scripts/score_modus_invariant_specialization_calibration.py",
+    "scorer_sha256": "93a25dbf39467042ae1c46a4e2a53f2c32cd06a86ca54ac1da6687d7ece415be",
+    "candidate_correctness_required": "8/8",
+    "candidate_topology_required": "8/8",
+    "candidate_prepared_semantics_required": "8/8",
+    "candidate_preparation_once_required": "8/8",
+    "candidate_target_invariants_absent_required": "at least 7/8",
+    "candidate_no_data_index_required": "8/8",
+    "candidate_noise_required": "at least 7/8 at relative MAD <= 0.10",
+    "complete_valid_matrix_required": "24/24",
+    "performance_and_tokens": "diagnostic only; cannot qualify utility"
+  },
+  "provenance": {
+    "profile_plugin_commit": "cb84caa",
+    "task_source_repository": "qhy991/Modus",
+    "task_source_commit": "2991132",
+    "agent_router_commit_before_freeze": "7f36c51",
+    "a800_dispatch_authorized": false
+  },
+  "claim_boundary": "Development manipulation calibration only. A pass can authorize an independent CPU utility holdout; it cannot qualify Router use, task utility, or A800 execution."
+}
