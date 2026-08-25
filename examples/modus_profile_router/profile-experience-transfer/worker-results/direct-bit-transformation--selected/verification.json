@@ -1,0 +1,56 @@
+{
+  "benchmark": {
+    "all_seconds": [
+      0.268915,
+      0.247011,
+      0.171732,
+      0.174956,
+      0.779382,
+      0.186273,
+      0.47955,
+      0.272205,
+      0.242574,
+      0.315982,
+      0.274802,
+      0.289315,
+      0.315776,
+      0.342182,
+      0.263941
+    ],
+    "failed_run": null,
+    "rounds": 15,
+    "steady_relative_mad": 0.10858954380931181,
+    "steady_seconds": 0.242574,
+    "success": true
+  },
+  "changed_implementation_paths": [
+    "modus_direct_bit_transformation/target.py"
+  ],
+  "checks": {
+    "benchmark": true,
+    "correctness": true,
+    "custody": true,
+    "semantic_mechanism": true,
+    "topology": true
+  },
+  "correctness": {
+    "hidden": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "hidden-ok\n",
+      "timed_out": false
+    },
+    "public": {
+      "returncode": 0,
+      "stderr": "test_rotate_mix (test_public.PublicTest.test_rotate_mix) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "stdout": "",
+      "timed_out": false
+    }
+  },
+  "implementation_digest": "0a4954d8def90f926373372169d1781a72a1bccb5a6bf528fcd7adf94cae1554",
+  "passed": true,
+  "schema": "modus-profile-experience-cell-verification-v1",
+  "semantic_mechanism": null,
+  "strategy": "target-scoped-optimization",
+  "task_id": "direct-bit-transformation"
+}

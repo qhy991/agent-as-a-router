@@ -1,0 +1,63 @@
+{
+  "benchmark": {
+    "all_seconds": [
+      0.236303,
+      0.247858,
+      0.277306,
+      0.274695,
+      0.199318,
+      0.271646,
+      0.254398,
+      0.27029,
+      0.277907,
+      0.236658,
+      0.463991,
+      0.262786,
+      0.313476,
+      0.236147,
+      0.241121
+    ],
+    "failed_run": null,
+    "rounds": 15,
+    "steady_relative_mad": 0.018858437069526467,
+    "steady_seconds": 0.236658,
+    "success": true
+  },
+  "changed_implementation_paths": [
+    "modus_repeated_batch_keyed_aggregate/observer.py",
+    "modus_repeated_batch_keyed_aggregate/shared.py",
+    "modus_repeated_batch_keyed_aggregate/target.py"
+  ],
+  "checks": {
+    "benchmark": true,
+    "correctness": true,
+    "custody": true,
+    "semantic_mechanism": true,
+    "topology": true
+  },
+  "correctness": {
+    "hidden": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "hidden-ok\n",
+      "timed_out": false
+    },
+    "public": {
+      "returncode": 0,
+      "stderr": "test_quartic_sum (test_public.PublicTest.test_quartic_sum) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "stdout": "",
+      "timed_out": false
+    }
+  },
+  "implementation_digest": "ae737c42469b90b0848013a69c37ee95171143eb497af5a09fbd0905dc47bfb2",
+  "passed": true,
+  "schema": "modus-profile-experience-cell-verification-v1",
+  "semantic_mechanism": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "mechanism-ok\n",
+    "timed_out": false
+  },
+  "strategy": "prepared-shared-optimization",
+  "task_id": "repeated-batch-keyed-aggregate"
+}

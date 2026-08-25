@@ -1,0 +1,48 @@
+{
+  "last_message_sha256": "9805584c46f9bc7b7a219a33f2f23441d3d87fddff5b5e78b334558402495ea9",
+  "parse_error": null,
+  "parsed": {
+    "routes": [
+      {
+        "decision": "dispatch",
+        "evidence_refs": [
+          "evidence:profile-affinity:single-batch-keyed-reduction"
+        ],
+        "reason": "Passed correctness and behavior; performance ratio 0.942 and token saving 61.4%.",
+        "strategy": "target-scoped-optimization",
+        "task_id": "single-batch-keyed-reduction"
+      },
+      {
+        "decision": "dispatch",
+        "evidence_refs": [
+          "evidence:profile-affinity:repeated-batch-keyed-aggregate"
+        ],
+        "reason": "Passed correctness and behavior; shared preparation is performant at 0.947 ratio, while target-scoped is performance-ineligible at 8.406x.",
+        "strategy": "prepared-shared-optimization",
+        "task_id": "repeated-batch-keyed-aggregate"
+      },
+      {
+        "decision": "dispatch",
+        "evidence_refs": [
+          "evidence:profile-affinity:direct-bit-transformation"
+        ],
+        "reason": "Passed correctness and behavior; performance ratio 0.948 and token saving 92.3%.",
+        "strategy": "target-scoped-optimization",
+        "task_id": "direct-bit-transformation"
+      }
+    ]
+  },
+  "qualification_requests": 0,
+  "router_tokens": 19627,
+  "schema": "modus-profile-experience-router-validation-v1",
+  "status": "pass",
+  "usage": {
+    "cache_write_input_tokens": 0,
+    "cached_input_tokens": 8960,
+    "input_tokens": 17330,
+    "output_tokens": 2297,
+    "reasoning_output_tokens": 2070
+  },
+  "worker_acquisition_authorized": true,
+  "worker_deployment_authorized": false
+}

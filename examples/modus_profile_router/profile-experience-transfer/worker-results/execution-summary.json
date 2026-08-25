@@ -1,0 +1,48 @@
+{
+  "automatic_redispatches": 0,
+  "cells": [
+    {
+      "id": "single-batch-keyed-reduction--reference",
+      "order": 1,
+      "role": "fixed-reference",
+      "status": "pass",
+      "strategy": "prepared-shared-optimization",
+      "task_id": "single-batch-keyed-reduction"
+    },
+    {
+      "id": "single-batch-keyed-reduction--selected",
+      "order": 2,
+      "role": "router-selected",
+      "status": "pass",
+      "strategy": "target-scoped-optimization",
+      "task_id": "single-batch-keyed-reduction"
+    },
+    {
+      "id": "repeated-batch-keyed-aggregate--reference",
+      "order": 3,
+      "role": "fixed-reference",
+      "status": "pass",
+      "strategy": "prepared-shared-optimization",
+      "task_id": "repeated-batch-keyed-aggregate"
+    },
+    {
+      "id": "direct-bit-transformation--reference",
+      "order": 4,
+      "role": "fixed-reference",
+      "status": "pass",
+      "strategy": "prepared-shared-optimization",
+      "task_id": "direct-bit-transformation"
+    },
+    {
+      "id": "direct-bit-transformation--selected",
+      "order": 5,
+      "role": "router-selected",
+      "status": "pass",
+      "strategy": "target-scoped-optimization",
+      "task_id": "direct-bit-transformation"
+    }
+  ],
+  "derived_worker_cells": 5,
+  "schema": "modus-profile-experience-transfer-execution-v1",
+  "status": "pass"
+}

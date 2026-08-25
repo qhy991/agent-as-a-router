@@ -1,0 +1,163 @@
+{
+  "schema": "modus-profile-experience-transfer-evidence-v1",
+  "evidence_kind": "valid-prospective-experience-transfer-negative",
+  "formal_status": "valid_quality_failure",
+  "scientific_evidence": true,
+  "protocol": {
+    "path": "configs/modus_profile_experience_transfer.json",
+    "sha256": "66d21e99bfd03e27281beff68618c835201ef4e1b8ad85f992adc8fc8544a8ab",
+    "frozen_router_commit": "227ceb4",
+    "profile_strategy_commit": "282c96a",
+    "worker_model": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "router_policy_sha256": "bfc14548f3b8d8825802bf115f443211eae49c46b6cc8602aa6942ec3547762a",
+    "experience_registry_sha256": "1ddbb06180c24773984e2e6e68da587de50d37c41f89b2b540ab09781dfb6a08"
+  },
+  "formalization": {
+    "router_agent_policy_explicitly_injected": true,
+    "agent_visible_historical_codenames": false,
+    "strategies": [
+      "unconstrained-optimization",
+      "target-scoped-optimization",
+      "prepared-shared-optimization"
+    ],
+    "accumulated_experience_used": true,
+    "evidence_refs_required": true
+  },
+  "router": {
+    "calls": 1,
+    "valid_execution": true,
+    "usage_complete": true,
+    "web_search_items": 0,
+    "automatic_redispatches": 0,
+    "tokens": 19627,
+    "qualification_requests": 0,
+    "routes": {
+      "single-batch-keyed-reduction": "target-scoped-optimization",
+      "repeated-batch-keyed-aggregate": "prepared-shared-optimization",
+      "direct-bit-transformation": "target-scoped-optimization"
+    },
+    "experience_application_matches": "3/3"
+  },
+  "execution": {
+    "authorized_worker_range": [
+      3,
+      6
+    ],
+    "executed_worker_cells": 5,
+    "valid_worker_cells": 5,
+    "correct_worker_cells": 5,
+    "behavior_contract_cells": 5,
+    "usage_complete_cells": 5,
+    "web_search_items": 0,
+    "automatic_redispatches": 0,
+    "counterfactual_matrix_completed": false
+  },
+  "task_results": {
+    "single-batch-keyed-reduction": {
+      "selected_strategy": "target-scoped-optimization",
+      "reference_strategy": "prepared-shared-optimization",
+      "selected_tokens": 100990,
+      "reference_tokens": 117956,
+      "selected_seconds": 0.06904,
+      "reference_seconds": 0.099996,
+      "performance_ratio": 0.6904276171046843,
+      "selected_relative_mad": 0.014469872537659325,
+      "reference_relative_mad": 0.13698547941917677,
+      "transfer_prediction_match": true,
+      "quality_passed": false,
+      "failure": "fixed reference relative MAD exceeded 10%"
+    },
+    "repeated-batch-keyed-aggregate": {
+      "selected_strategy": "prepared-shared-optimization",
+      "reference_strategy": "prepared-shared-optimization",
+      "selected_tokens": 200899,
+      "reference_tokens": 200899,
+      "selected_seconds": 0.236658,
+      "reference_seconds": 0.236658,
+      "performance_ratio": 1,
+      "selected_relative_mad": 0.018858437069526467,
+      "reference_relative_mad": 0.018858437069526467,
+      "transfer_prediction_match": true,
+      "quality_passed": true
+    },
+    "direct-bit-transformation": {
+      "selected_strategy": "target-scoped-optimization",
+      "reference_strategy": "prepared-shared-optimization",
+      "selected_tokens": 71410,
+      "reference_tokens": 256498,
+      "selected_seconds": 0.242574,
+      "reference_seconds": 0.158392,
+      "performance_ratio": 1.5314788625688167,
+      "selected_relative_mad": 0.10858954380931181,
+      "reference_relative_mad": 0.01988736804889127,
+      "transfer_prediction_match": true,
+      "quality_passed": false,
+      "failure": "selected strategy exceeded both the 1.25 performance ratio and 10% relative MAD limits"
+    }
+  },
+  "deployment": {
+    "fixed_strategy": "prepared-shared-optimization",
+    "fixed_strategy_tokens": 575353,
+    "selected_route_tokens": 373299,
+    "raw_saving_tokens": 202054,
+    "raw_saving_fraction": 0.3511826652507244,
+    "quality_qualified": false
+  },
+  "acquisition": {
+    "router_tokens": 19627,
+    "worker_tokens": 747753,
+    "worker_cells": 5,
+    "marginal_tokens": 767380,
+    "prior_experience_tokens": 2952770,
+    "full_lineage_tokens": 3720150
+  },
+  "economics": {
+    "marginal": {
+      "raw_break_even_deployments": 4,
+      "raw_net_tokens_at_8_deployments": 849052,
+      "qualified_decision": "defer_correctness"
+    },
+    "full_lineage": {
+      "raw_break_even_deployments": 19,
+      "raw_net_tokens_at_8_deployments": -2103718,
+      "qualified_decision": "defer_correctness"
+    },
+    "interpretation": "Raw token savings are retained only as an unqualified counterfactual because the transfer route failed frozen quality and stability gates."
+  },
+  "conclusions": {
+    "router_agents_policy_is_durable_and_used": true,
+    "formal_semantic_strategy_names_work": true,
+    "agent_applies_accumulated_experience": "3/3",
+    "accumulated_experience_transfers_with_quality": false,
+    "staged_acquisition_reduces_raw_evidence_cost": true,
+    "short_horizon_economics_supported": false,
+    "universal_strategy_supported": false
+  },
+  "decision": {
+    "value": "reject_current_experience_transfer_policy",
+    "deployment_authorized": false,
+    "additional_small_task_arms_authorized": false,
+    "counterfactual_matrix_completion_authorized": false,
+    "post_outcome_replication_authorized": false,
+    "next_action": "Close the small-task transfer claim at a valid negative result; retain the formal Router memory system for future bounded long-horizon work only."
+  },
+  "claim_boundary": "The Agent correctly applied accumulated evidence to three new descriptors, but two matched comparisons failed frozen quality or stability. This rejects the current transfer policy without invalidating prior behavior-control or within-task Profile-affinity evidence.",
+  "files": {
+    "examples/modus_profile_router/profile-experience-transfer/router-results/last-message.txt": "2a938ef1614ed2909a2a4b714d1773749c17eded40265868866f405a3cac4d6d",
+    "examples/modus_profile_router/profile-experience-transfer/router-results/score.json": "1e47988e30abe1040a7bf7b653f49906ebe58cf27c7149d6d54b5d62d31335c8",
+    "examples/modus_profile_router/profile-experience-transfer/router-results/wave-result.json": "5844dde49c890c6371aa76ec4b5b3012d1b24faf12270277ed191c2596d7473c",
+    "examples/modus_profile_router/profile-experience-transfer/worker-results/direct-bit-transformation--reference/verification.json": "0ab14fc53dad29637c6fa62e663e567b328425a4db644130e22c9f897f22dd39",
+    "examples/modus_profile_router/profile-experience-transfer/worker-results/direct-bit-transformation--reference/wave-result.json": "1c12acd5d4ae2188bd2413e7f940b002418cb984f105fc1438fc980818409905",
+    "examples/modus_profile_router/profile-experience-transfer/worker-results/direct-bit-transformation--selected/verification.json": "84191b529957586d8721051b6aeec51a4516df860e5c399a3736e182e123cd2c",
+    "examples/modus_profile_router/profile-experience-transfer/worker-results/direct-bit-transformation--selected/wave-result.json": "d9cbcb737fb49267617fd7c649dbe8b130185ac38dd216d3a5e6ba24485a7157",
+    "examples/modus_profile_router/profile-experience-transfer/worker-results/execution-summary.json": "c6d3a7b4e6257f7edf78b8745967cf4a59485d4f222a029b28a4449b0e281387",
+    "examples/modus_profile_router/profile-experience-transfer/worker-results/repeated-batch-keyed-aggregate--reference/verification.json": "8f5995e08c31b4df752fe3caaf670e1934a046797dbced5979bf5ee32154f6a2",
+    "examples/modus_profile_router/profile-experience-transfer/worker-results/repeated-batch-keyed-aggregate--reference/wave-result.json": "a86d2f26410c8ea479e60a6f2939267498aae8a480fe092cd55263ba4fe46af8",
+    "examples/modus_profile_router/profile-experience-transfer/worker-results/score.json": "73481cc1d1d1f7e5d9f90b1d61c127ae7959939e0fa90fade6c236c3f04a8e7e",
+    "examples/modus_profile_router/profile-experience-transfer/worker-results/single-batch-keyed-reduction--reference/verification.json": "93506843ae44ebe880d98f3e7c46c94bd2b74e36bdd8bc8eaab843f1185755da",
+    "examples/modus_profile_router/profile-experience-transfer/worker-results/single-batch-keyed-reduction--reference/wave-result.json": "bea3a99f4be11c1bcd73af7d827fd0911b38c394fbc01ebf37b39a1a2c686253",
+    "examples/modus_profile_router/profile-experience-transfer/worker-results/single-batch-keyed-reduction--selected/verification.json": "49378ffc1e843a89570eefcba96834287fb1754f2c4a65c977644d0bebd0ad04",
+    "examples/modus_profile_router/profile-experience-transfer/worker-results/single-batch-keyed-reduction--selected/wave-result.json": "7f8418a4680b798fd489d51f8e51c1e862929f49135af6ff56784b566071a600"
+  }
+}

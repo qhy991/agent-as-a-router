@@ -1,0 +1,184 @@
+{
+  "acquisition": {
+    "full_lineage_tokens": 3720150,
+    "marginal_tokens": 767380,
+    "prior_experience_tokens": 2952770,
+    "router_tokens": 19627,
+    "worker_cells": 5,
+    "worker_tokens": 747753
+  },
+  "claim_boundary": "This is a prospective transfer test against one frozen fixed strategy. Missing counterfactual strategies were not executed, so the result does not estimate a new complete-matrix Oracle.",
+  "decision": "quality_fail",
+  "deployment": {
+    "fixed_strategy": "prepared-shared-optimization",
+    "fixed_strategy_tokens": 575353,
+    "saving_fraction": 0.3511826652507244,
+    "saving_tokens": 202054,
+    "selected_route_tokens": 373299
+  },
+  "full_lineage_economics": {
+    "acquisition_tokens": 3720150,
+    "baseline_deployment_tokens": 575353,
+    "break_even_deployments": 19,
+    "candidate_deployment_tokens": 373299,
+    "correctness_passed": false,
+    "decision": "defer_correctness",
+    "evidence_stable": false,
+    "expected_deployments": 8,
+    "minimum_saving_fraction": 0.15,
+    "net_tokens_at_expected_deployments": -2103718,
+    "performance_passed": false,
+    "saving_fraction": 0.3511826652507244,
+    "saving_per_deployment_tokens": 202054
+  },
+  "marginal_economics": {
+    "acquisition_tokens": 767380,
+    "baseline_deployment_tokens": 575353,
+    "break_even_deployments": 4,
+    "candidate_deployment_tokens": 373299,
+    "correctness_passed": false,
+    "decision": "defer_correctness",
+    "evidence_stable": false,
+    "expected_deployments": 8,
+    "minimum_saving_fraction": 0.15,
+    "net_tokens_at_expected_deployments": 849052,
+    "performance_passed": false,
+    "saving_fraction": 0.3511826652507244,
+    "saving_per_deployment_tokens": 202054
+  },
+  "quality_passed": false,
+  "rows": [
+    {
+      "id": "single-batch-keyed-reduction--reference",
+      "implementation_digest": "3e2d49320285e84a2faee6c64c706e8fff221f95b5ce5eb33b8720175c4f448a",
+      "order": 1,
+      "relative_mad": 0.13698547941917677,
+      "role": "fixed-reference",
+      "seconds": 0.099996,
+      "status": "pass",
+      "strategy": "prepared-shared-optimization",
+      "task_id": "single-batch-keyed-reduction",
+      "valid": true,
+      "verification_sha256": "93506843ae44ebe880d98f3e7c46c94bd2b74e36bdd8bc8eaab843f1185755da",
+      "worker_tokens": 117956
+    },
+    {
+      "id": "single-batch-keyed-reduction--selected",
+      "implementation_digest": "f519d134afb959bc2c6b6280eaebd110ea1a0977586ce274d3654d18a3d561dc",
+      "order": 2,
+      "relative_mad": 0.014469872537659325,
+      "role": "router-selected",
+      "seconds": 0.06904,
+      "status": "pass",
+      "strategy": "target-scoped-optimization",
+      "task_id": "single-batch-keyed-reduction",
+      "valid": true,
+      "verification_sha256": "49378ffc1e843a89570eefcba96834287fb1754f2c4a65c977644d0bebd0ad04",
+      "worker_tokens": 100990
+    },
+    {
+      "id": "repeated-batch-keyed-aggregate--reference",
+      "implementation_digest": "ae737c42469b90b0848013a69c37ee95171143eb497af5a09fbd0905dc47bfb2",
+      "order": 3,
+      "relative_mad": 0.018858437069526467,
+      "role": "fixed-reference",
+      "seconds": 0.236658,
+      "status": "pass",
+      "strategy": "prepared-shared-optimization",
+      "task_id": "repeated-batch-keyed-aggregate",
+      "valid": true,
+      "verification_sha256": "8f5995e08c31b4df752fe3caaf670e1934a046797dbced5979bf5ee32154f6a2",
+      "worker_tokens": 200899
+    },
+    {
+      "id": "direct-bit-transformation--reference",
+      "implementation_digest": "100a2aab36abfc9f9ca332c575fd0b7eebc52b1678fa46fcad58abdc3c6f20ca",
+      "order": 4,
+      "relative_mad": 0.01988736804889127,
+      "role": "fixed-reference",
+      "seconds": 0.158392,
+      "status": "pass",
+      "strategy": "prepared-shared-optimization",
+      "task_id": "direct-bit-transformation",
+      "valid": true,
+      "verification_sha256": "0ab14fc53dad29637c6fa62e663e567b328425a4db644130e22c9f897f22dd39",
+      "worker_tokens": 256498
+    },
+    {
+      "id": "direct-bit-transformation--selected",
+      "implementation_digest": "0a4954d8def90f926373372169d1781a72a1bccb5a6bf528fcd7adf94cae1554",
+      "order": 5,
+      "relative_mad": 0.10858954380931181,
+      "role": "router-selected",
+      "seconds": 0.242574,
+      "status": "pass",
+      "strategy": "target-scoped-optimization",
+      "task_id": "direct-bit-transformation",
+      "valid": true,
+      "verification_sha256": "84191b529957586d8721051b6aeec51a4516df860e5c399a3736e182e123cd2c",
+      "worker_tokens": 71410
+    }
+  ],
+  "schema": "modus-profile-experience-transfer-score-v1",
+  "selected_route": {
+    "direct-bit-transformation": "target-scoped-optimization",
+    "repeated-batch-keyed-aggregate": "prepared-shared-optimization",
+    "single-batch-keyed-reduction": "target-scoped-optimization"
+  },
+  "status": "pass",
+  "task_results": {
+    "direct-bit-transformation": {
+      "baseline_strategy": "prepared-shared-optimization",
+      "baseline_tokens": 256498,
+      "expected_transfer_strategy": "target-scoped-optimization",
+      "gates": {
+        "baseline_noise": true,
+        "baseline_valid": true,
+        "performance": false,
+        "selected_noise": false,
+        "selected_valid": true
+      },
+      "quality_passed": false,
+      "selected_performance_ratio_to_baseline": 1.5314788625688167,
+      "selected_strategy": "target-scoped-optimization",
+      "selected_tokens": 71410,
+      "transfer_prediction_match": true
+    },
+    "repeated-batch-keyed-aggregate": {
+      "baseline_strategy": "prepared-shared-optimization",
+      "baseline_tokens": 200899,
+      "expected_transfer_strategy": "prepared-shared-optimization",
+      "gates": {
+        "baseline_noise": true,
+        "baseline_valid": true,
+        "performance": true,
+        "selected_noise": true,
+        "selected_valid": true
+      },
+      "quality_passed": true,
+      "selected_performance_ratio_to_baseline": 1.0,
+      "selected_strategy": "prepared-shared-optimization",
+      "selected_tokens": 200899,
+      "transfer_prediction_match": true
+    },
+    "single-batch-keyed-reduction": {
+      "baseline_strategy": "prepared-shared-optimization",
+      "baseline_tokens": 117956,
+      "expected_transfer_strategy": "target-scoped-optimization",
+      "gates": {
+        "baseline_noise": false,
+        "baseline_valid": true,
+        "performance": true,
+        "selected_noise": true,
+        "selected_valid": true
+      },
+      "quality_passed": false,
+      "selected_performance_ratio_to_baseline": 0.6904276171046843,
+      "selected_strategy": "target-scoped-optimization",
+      "selected_tokens": 100990,
+      "transfer_prediction_match": true
+    }
+  },
+  "transfer_prediction_match_count": 3,
+  "transfer_prediction_task_count": 3
+}

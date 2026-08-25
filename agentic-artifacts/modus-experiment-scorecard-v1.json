@@ -321,6 +321,30 @@
       "task_family": "local_shared_direct_fresh_instances",
       "worker_saving_fraction": 0.4093913312080204,
       "workflow": "three-task Agent Router under all-temp custody"
+    },
+    {
+      "acquisition_tokens": 767380,
+      "break_even_deployments": null,
+      "disqualification": "direct-task performance and stability plus local-reference stability fail",
+      "e2e_saving_fraction": 0.3511826652507244,
+      "evidence_status": "valid_quality_failure",
+      "experiment": "ExperienceTransfer",
+      "final_performance_ratio_to_fastest": 1.5314788625688167,
+      "net_tokens_at_8_deployments": null,
+      "outcome_valid": true,
+      "route": {
+        "direct-bit-transformation": "target-scoped-optimization",
+        "repeated-batch-keyed-aggregate": "prepared-shared-optimization",
+        "single-batch-keyed-reduction": "target-scoped-optimization"
+      },
+      "route_qualified": false,
+      "source": {
+        "path": "agentic-artifacts/modus-profile-experience-transfer-result.json",
+        "sha256": "9fc830eb2fe0f5bbdcd876733f66ba38b5e2f96e2c6a3409a0f72a12a02078f5"
+      },
+      "task_family": "semantic_profile_experience_transfer",
+      "worker_saving_fraction": 0.3511826652507244,
+      "workflow": "evidence-grounded Router with staged acquisition"
     }
   ],
   "schema": "modus-experiment-scorecard-v1",
@@ -328,7 +352,7 @@
     "invalid_outcomes": 1,
     "net_positive_at_8_deployments": 3,
     "qualified_routes": 8,
-    "rows": 14,
-    "valid_outcomes": 13
+    "rows": 15,
+    "valid_outcomes": 14
   }
 }

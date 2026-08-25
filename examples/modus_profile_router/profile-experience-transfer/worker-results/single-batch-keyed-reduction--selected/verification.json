@@ -1,0 +1,56 @@
+{
+  "benchmark": {
+    "all_seconds": [
+      0.069194,
+      0.06904,
+      0.061215,
+      0.078845,
+      0.075072,
+      0.084266,
+      0.090465,
+      0.147244,
+      0.102466,
+      0.070039,
+      0.078504,
+      0.065868,
+      0.069514,
+      0.063284,
+      0.078598
+    ],
+    "failed_run": null,
+    "rounds": 15,
+    "steady_relative_mad": 0.014469872537659325,
+    "steady_seconds": 0.06904,
+    "success": true
+  },
+  "changed_implementation_paths": [
+    "modus_single_batch_keyed_reduction/target.py"
+  ],
+  "checks": {
+    "benchmark": true,
+    "correctness": true,
+    "custody": true,
+    "semantic_mechanism": true,
+    "topology": true
+  },
+  "correctness": {
+    "hidden": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "hidden-ok\n",
+      "timed_out": false
+    },
+    "public": {
+      "returncode": 0,
+      "stderr": "test_closest_negative (test_public.PublicTest.test_closest_negative) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "stdout": "",
+      "timed_out": false
+    }
+  },
+  "implementation_digest": "f519d134afb959bc2c6b6280eaebd110ea1a0977586ce274d3654d18a3d561dc",
+  "passed": true,
+  "schema": "modus-profile-experience-cell-verification-v1",
+  "semantic_mechanism": null,
+  "strategy": "target-scoped-optimization",
+  "task_id": "single-batch-keyed-reduction"
+}

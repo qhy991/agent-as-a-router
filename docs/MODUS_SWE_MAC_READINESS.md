@@ -1319,3 +1319,41 @@ process or token usage and is preserved separately as non-scientific apparatus
 evidence. The successful run used the same hash-bound v6 wrapper by absolute
 path and changed no scientific input. See
 [`agentic-artifacts/modus-codex-luna-max-performance-p2s-fresh-transfer-v1.json`](../agentic-artifacts/modus-codex-luna-max-performance-p2s-fresh-transfer-v1.json).
++
+### Formal Profile experience transfer result
+
+The next experiment replaced historical bit-coded names in the Agent-facing
+surface with three semantic execution strategies: `unconstrained-optimization`,
+`target-scoped-optimization`, and `prepared-shared-optimization`. A dedicated
+Router `AGENTS.md` owns stable decision rules, while a hash-bound experience
+registry owns qualified observations and evidence references. The generated
+Router context contains no historical experiment or Profile codenames.
+
+One outcome-blind Luna Max Router consumed 19,627 tokens and applied the
+accumulated evidence exactly on all three new descriptors: target-scoped for
+the single-batch keyed reduction, prepared-shared for the repeated-batch keyed
+aggregate, and target-scoped for the direct bit transformation. The staged
+policy then ran only five Workers: three prepared-shared fixed references plus
+the two distinct target-scoped selections. All five executions were valid,
+hidden-correct, behavior-conformant, usage-complete, and free of Web Search and
+redispatch.
+
+The transfer quality gate nevertheless failed. The single-batch reference had
+13.70% relative MAD, above the frozen 10% stability limit. More importantly,
+the selected target-scoped direct transformation ran at 0.242574 seconds versus
+the prepared-shared reference's 0.158392 seconds, a 1.531x ratio above the
+1.25x limit, and its own relative MAD was 10.86%.
+
+The selected route used 373,299 Worker tokens versus 575,353 for the fixed
+reference, a raw 35.1% saving. Marginal acquisition was reduced to 767,380
+tokens, yielding a raw deployment-4 break-even and `Net@8=+849,052`. These
+numbers are explicitly unqualified because quality failed. Including the prior
+experience acquisition gives 3,720,150 tokens, raw deployment-19 break-even,
+and `Net@8=-2,103,718`.
+
+The formal Router memory mechanism is validated as an implementation: the Agent
+read durable policy plus structured evidence and cited the correct evidence
+3/3. The current experience-transfer policy is rejected scientifically because
+application fidelity did not preserve performance and stability. No additional
+small-task arms, matrix completion, or post-outcome replication is authorized.
+This closes the small-task transfer claim at a valid negative result.

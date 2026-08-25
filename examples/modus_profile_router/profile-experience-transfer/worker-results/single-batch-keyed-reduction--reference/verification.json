@@ -1,0 +1,63 @@
+{
+  "benchmark": {
+    "all_seconds": [
+      0.115387,
+      0.501861,
+      0.157881,
+      0.320824,
+      0.09963,
+      0.086298,
+      0.540491,
+      0.223241,
+      0.121829,
+      0.168169,
+      0.118721,
+      0.177392,
+      0.171764,
+      0.099996,
+      0.094731
+    ],
+    "failed_run": null,
+    "rounds": 15,
+    "steady_relative_mad": 0.13698547941917677,
+    "steady_seconds": 0.099996,
+    "success": true
+  },
+  "changed_implementation_paths": [
+    "modus_single_batch_keyed_reduction/observer.py",
+    "modus_single_batch_keyed_reduction/shared.py",
+    "modus_single_batch_keyed_reduction/target.py"
+  ],
+  "checks": {
+    "benchmark": true,
+    "correctness": true,
+    "custody": true,
+    "semantic_mechanism": true,
+    "topology": true
+  },
+  "correctness": {
+    "hidden": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "hidden-ok\n",
+      "timed_out": false
+    },
+    "public": {
+      "returncode": 0,
+      "stderr": "test_closest_negative (test_public.PublicTest.test_closest_negative) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "stdout": "",
+      "timed_out": false
+    }
+  },
+  "implementation_digest": "3e2d49320285e84a2faee6c64c706e8fff221f95b5ce5eb33b8720175c4f448a",
+  "passed": true,
+  "schema": "modus-profile-experience-cell-verification-v1",
+  "semantic_mechanism": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "mechanism-ok\n",
+    "timed_out": false
+  },
+  "strategy": "prepared-shared-optimization",
+  "task_id": "single-batch-keyed-reduction"
+}

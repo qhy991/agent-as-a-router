@@ -35,6 +35,9 @@ def build(root: Path) -> dict:
     p2n, p2n_source = _source(root, "modus-codex-luna-max-performance-p2n-partial-v1.json")
     p2p, p2p_source = _source(root, "modus-codex-luna-max-performance-p2p-positive-v1.json")
     p2s, p2s_source = _source(root, "modus-codex-luna-max-performance-p2s-fresh-transfer-v1.json")
+    experience_transfer, experience_transfer_source = _source(
+        root, "modus-profile-experience-transfer-result.json"
+    )
 
     p1f_max_ratio = max(
         row.get("p000_performance_ratio", row.get("e1v2_performance_ratio"))
@@ -269,6 +272,23 @@ def build(root: Path) -> dict:
             "break_even_deployments": p2s["economics"]["break_even_deployments"],
             "net_tokens_at_8_deployments": p2s["economics"]["net_tokens_at_8_deployments"],
             "source": p2s_source,
+        },
+        {
+            "experiment": "ExperienceTransfer",
+            "task_family": "semantic_profile_experience_transfer",
+            "workflow": "evidence-grounded Router with staged acquisition",
+            "route": experience_transfer["router"]["routes"],
+            "evidence_status": experience_transfer["formal_status"],
+            "outcome_valid": True,
+            "route_qualified": False,
+            "final_performance_ratio_to_fastest": experience_transfer["task_results"]["direct-bit-transformation"]["performance_ratio"],
+            "worker_saving_fraction": experience_transfer["deployment"]["raw_saving_fraction"],
+            "e2e_saving_fraction": experience_transfer["deployment"]["raw_saving_fraction"],
+            "acquisition_tokens": experience_transfer["acquisition"]["marginal_tokens"],
+            "break_even_deployments": None,
+            "net_tokens_at_8_deployments": None,
+            "disqualification": "direct-task performance and stability plus local-reference stability fail",
+            "source": experience_transfer_source,
         },
     ]
     valid = [row for row in rows if row["outcome_valid"]]
