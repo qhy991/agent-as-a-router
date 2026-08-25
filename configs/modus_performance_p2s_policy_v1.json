@@ -1,0 +1,163 @@
+{
+  "schema": "acrouter-modus-performance-p2s-policy-v1",
+  "frozen_at": "2026-08-25",
+  "run_authorized": true,
+  "expected_future_deployments": 8,
+  "model": {
+    "local_slug": "gpt-5.6-luna",
+    "reasoning_effort": "max"
+  },
+  "profiles": {
+    "neutral": {
+      "profile_path": "/private/tmp/modus-codex-spark-neutral-profile.md",
+      "profile_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "p000v2": {
+      "profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/experimental-profiles/t0-workload-v2/p000.md",
+      "profile_sha256": "e71273a512395cefab042a176e46fcc81fbed542715986e10e48e8f34847ebd0"
+    },
+    "e1v3": {
+      "profile_path": "/Users/haiyan-infiniai/tools/dsh-personal-plugins-modus/presets/modus/experimental-profiles/e1-minimal-v3/p100.md",
+      "profile_sha256": "4c8c3c325792267bbda83de0167ec026700989be9fb5f38ae16c033e95ad8280"
+    }
+  },
+  "router": {
+    "prompt": "examples/modus_profile_router/performance-p2s-v1/router-task.md",
+    "prompt_sha256": "14e2e116f62ab08d3e2d80fee11390f8ea6d783a9a9bf403828173336074d5da",
+    "tasks": [
+      "keyed-closest-negative",
+      "keyed-distinct-quartic-sum",
+      "rotate-mix32"
+    ],
+    "allowed_actions": [
+      "neutral",
+      "p000v2",
+      "e1v3"
+    ],
+    "scorer": "scripts/score_modus_performance_p2s_router.py",
+    "scorer_sha256": "a6204d29df0b3b4a847c2a569e2a4892a8588195598288ea704a8ae3e916eebb",
+    "worker_outcomes_available": false
+  },
+  "tasks": {
+    "keyed-closest-negative": {
+      "seed_root": "examples/modus_profile_router/performance-p2s-v1/seeds/keyed-closest-negative",
+      "seed_tree_sha256": "1d51e043a0e41e883c8ec7edc5ee40f52a644f03c64b7605e3ca0771b35d6adf",
+      "prompt": "examples/modus_profile_router/performance-p2s-v1/seeds/keyed-closest-negative/instruction.md",
+      "prompt_sha256": "64d975d74ca1ee86c8a37a7628c61b74a9f5c7b6fe2ce8c9032e758f42853fa3",
+      "expected_preference": "p000v2"
+    },
+    "keyed-distinct-quartic-sum": {
+      "seed_root": "examples/modus_profile_router/performance-p2s-v1/seeds/keyed-distinct-quartic-sum",
+      "seed_tree_sha256": "00a56d299c07d73ac7a988c45cc581fdc1429f98bd2f3f941300af40fbb0262a",
+      "prompt": "examples/modus_profile_router/performance-p2s-v1/seeds/keyed-distinct-quartic-sum/instruction.md",
+      "prompt_sha256": "90dc28d1d585d43d1ed9d2c3eb5a7af484b9d7a8624f6c76a46c8743c3b16f07",
+      "expected_preference": "e1v3"
+    },
+    "rotate-mix32": {
+      "seed_root": "examples/modus_profile_router/performance-p2s-v1/seeds/rotate-mix32",
+      "seed_tree_sha256": "0f6417ccd15def3a1ce1fa86f71dcc66a3db07c68c86604d943c3ee7ce121878",
+      "prompt": "examples/modus_profile_router/performance-p2s-v1/seeds/rotate-mix32/instruction.md",
+      "prompt_sha256": "077ec3759885081966b98a6211538ed43dfa6e6b593b5704b31e6708d5e2a304",
+      "expected_preference": "neutral"
+    }
+  },
+  "qualification": {
+    "path": "examples/modus_profile_router/performance-p2s-v1/task-qualification.json",
+    "sha256": "cb42e5e34bc5d6d96142d315256c75be8f133e8dde1c2e2fe0fc475228405e65",
+    "modus_commit": "211e5c8"
+  },
+  "cells": [
+    {
+      "id": "local-e1v3",
+      "task": "keyed-closest-negative",
+      "profile": "e1v3",
+      "order": 1
+    },
+    {
+      "id": "local-p000v2",
+      "task": "keyed-closest-negative",
+      "profile": "p000v2",
+      "order": 2
+    },
+    {
+      "id": "local-neutral",
+      "task": "keyed-closest-negative",
+      "profile": "neutral",
+      "order": 3
+    },
+    {
+      "id": "shared-neutral",
+      "task": "keyed-distinct-quartic-sum",
+      "profile": "neutral",
+      "order": 4
+    },
+    {
+      "id": "shared-e1v3",
+      "task": "keyed-distinct-quartic-sum",
+      "profile": "e1v3",
+      "order": 5
+    },
+    {
+      "id": "shared-p000v2",
+      "task": "keyed-distinct-quartic-sum",
+      "profile": "p000v2",
+      "order": 6
+    },
+    {
+      "id": "direct-p000v2",
+      "task": "rotate-mix32",
+      "profile": "p000v2",
+      "order": 7
+    },
+    {
+      "id": "direct-neutral",
+      "task": "rotate-mix32",
+      "profile": "neutral",
+      "order": 8
+    },
+    {
+      "id": "direct-e1v3",
+      "task": "rotate-mix32",
+      "profile": "e1v3",
+      "order": 9
+    }
+  ],
+  "execution": {
+    "router_calls": 1,
+    "worker_cells": 9,
+    "fresh_workspace_per_cell": true,
+    "sequential": true,
+    "automatic_redispatch": false,
+    "no_followup_replication": true,
+    "custody_wrapper": "src/acrouter_repro/codex_custody_wrapper_v6.py",
+    "custody_wrapper_sha256": "3db2e0e8758d4a2066485252686ed418b4d76f095b43eb57745e47d7da737212",
+    "custody_qualification_evidence": "agentic-artifacts/modus-p2r-all-temp-custody-canary-v1.json",
+    "custody_qualification_evidence_sha256": "a92c935ed726152b69ba652b6cf675ff3784c0779dec4e1de48c0020a9066287"
+  },
+  "scoring": {
+    "performance_ratio_to_neutral_maximum": 1.25,
+    "steady_relative_mad_maximum": 0.1,
+    "minimum_token_saving_fraction": 0.15,
+    "task_selection": "neutral fallback; lowest-token eligible Profile displaces it",
+    "deployment_baseline": "lowest-token fixed Profile passing correctness, performance, and noise on all three tasks",
+    "expected_deployments": 8,
+    "acquisition": "Router plus all nine Worker calls",
+    "router_gate": "exact match to constrained outcome oracle"
+  },
+  "provenance": {
+    "agent_router_commit_before_freeze": "34ab7ca",
+    "runner": "scripts/run_modus_performance_p2s_matrix.py",
+    "runner_sha256": "355547c8cbd4806776e05b0146874d4ef4e20fb8d7947bea1dbc2fdbb976f5f0",
+    "verifier": "scripts/verify_modus_performance_p2s_cell.py",
+    "verifier_sha256": "f9832ec92bd249e1e951554d6f5eb72cdd6757434efe205dbaa9c8c5c619d879",
+    "matrix_scorer": "scripts/score_modus_performance_p2s_matrix.py",
+    "matrix_scorer_sha256": "f1152bf00a4e4f8eb1256943575487ea918b6aed97d2089a3339b41ff7803d29"
+  },
+  "lineage": {
+    "p2q_outcome_reused": false,
+    "p2q_rerun": false,
+    "fresh_workload_instances": true,
+    "custody_contract": "P2r v6 all-temp content denial"
+  },
+  "claim_boundary": "One fully prospective fresh-instance three-task policy test under P2r v6 custody; no post-outcome task, Profile, threshold, or replication changes."
+}
