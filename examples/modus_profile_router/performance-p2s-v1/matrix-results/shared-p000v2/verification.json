@@ -1,0 +1,56 @@
+{
+  "benchmark": {
+    "all_seconds": [
+      0.621669,
+      0.604576,
+      0.959275,
+      0.687316,
+      0.614607,
+      0.609979,
+      0.621521,
+      0.597011,
+      0.65154,
+      0.616959,
+      0.650574,
+      0.61119,
+      0.594498,
+      0.642583,
+      0.605354
+    ],
+    "failed_run": null,
+    "rounds": 15,
+    "steady_relative_mad": 0.009640640022201991,
+    "steady_seconds": 0.605354,
+    "success": true
+  },
+  "changed_implementation_paths": [
+    "perf_keyed_distinct_quartic_sum_p2s/target.py"
+  ],
+  "checks": {
+    "benchmark": true,
+    "correctness": true,
+    "custody": true,
+    "semantic_mechanism": true,
+    "topology": true
+  },
+  "correctness": {
+    "hidden": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "hidden-ok\n",
+      "timed_out": false
+    },
+    "public": {
+      "returncode": 0,
+      "stderr": "test_quartic_sum (test_public.PublicTest.test_quartic_sum) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "stdout": "",
+      "timed_out": false
+    }
+  },
+  "implementation_digest": "0b638c7d28cab0ec4fc0669863e33279e5e3e2f4916a0d2bcc02272256c733de",
+  "passed": true,
+  "profile": "p000v2",
+  "schema": "modus-performance-p2s-cell-verification-v1",
+  "semantic_mechanism": null,
+  "task": "keyed-distinct-quartic-sum"
+}

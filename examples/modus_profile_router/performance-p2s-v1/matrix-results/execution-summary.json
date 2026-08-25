@@ -1,0 +1,70 @@
+{
+  "automatic_redispatches": 0,
+  "cells": [
+    {
+      "id": "local-e1v3",
+      "order": 1,
+      "profile": "e1v3",
+      "status": "pass",
+      "task": "keyed-closest-negative"
+    },
+    {
+      "id": "local-p000v2",
+      "order": 2,
+      "profile": "p000v2",
+      "status": "pass",
+      "task": "keyed-closest-negative"
+    },
+    {
+      "id": "local-neutral",
+      "order": 3,
+      "profile": "neutral",
+      "status": "pass",
+      "task": "keyed-closest-negative"
+    },
+    {
+      "id": "shared-neutral",
+      "order": 4,
+      "profile": "neutral",
+      "status": "pass",
+      "task": "keyed-distinct-quartic-sum"
+    },
+    {
+      "id": "shared-e1v3",
+      "order": 5,
+      "profile": "e1v3",
+      "status": "pass",
+      "task": "keyed-distinct-quartic-sum"
+    },
+    {
+      "id": "shared-p000v2",
+      "order": 6,
+      "profile": "p000v2",
+      "status": "pass",
+      "task": "keyed-distinct-quartic-sum"
+    },
+    {
+      "id": "direct-p000v2",
+      "order": 7,
+      "profile": "p000v2",
+      "status": "pass",
+      "task": "rotate-mix32"
+    },
+    {
+      "id": "direct-neutral",
+      "order": 8,
+      "profile": "neutral",
+      "status": "pass",
+      "task": "rotate-mix32"
+    },
+    {
+      "id": "direct-e1v3",
+      "order": 9,
+      "profile": "e1v3",
+      "status": "pass",
+      "task": "rotate-mix32"
+    }
+  ],
+  "schema": "modus-performance-p2s-execution-v1",
+  "status": "pass"
+}

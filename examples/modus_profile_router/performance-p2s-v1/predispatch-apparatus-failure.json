@@ -1,0 +1,18 @@
+{
+  "schema": "modus-performance-p2s-predispatch-apparatus-failure-v1",
+  "formal_status": "invalid_before_model_dispatch",
+  "scientific_evidence": false,
+  "model_calls": 0,
+  "usage_tokens": 0,
+  "cause": "The matrix launcher received the frozen custody wrapper as a repository-relative executable path; subprocess resolution occurred from the fresh Worker workspace and raised FileNotFoundError before Codex started.",
+  "preserved_observations": {
+    "first_cell_workspace_materialized": true,
+    "events_file_created": true,
+    "events_file_bytes": 0,
+    "stderr_file_bytes": 0,
+    "last_message_created": false,
+    "verification_created": false
+  },
+  "correction": "The same hash-bound v6 wrapper was supplied by absolute path to a new run root. No task, Profile, order, threshold, model, or prompt changed.",
+  "retry_policy": "Not a Worker redispatch because no model process or request existed; the invalid launch attempt is excluded from scientific and token evidence."
+}

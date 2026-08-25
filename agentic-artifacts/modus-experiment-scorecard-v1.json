@@ -298,14 +298,37 @@
       "task_family": "direct_bitmix",
       "worker_saving_fraction": 0.9510754663308351,
       "workflow": "custody-confined direct-task triplet"
+    },
+    {
+      "acquisition_tokens": 2952770,
+      "break_even_deployments": 13,
+      "e2e_saving_fraction": 0.4093913312080204,
+      "evidence_status": "valid_profile_task_interaction_and_exact_router_but_not_economic_at_8",
+      "experiment": "P2s",
+      "final_performance_ratio_to_fastest": 1.0141864932761935,
+      "net_tokens_at_8_deployments": -1001850,
+      "outcome_valid": true,
+      "route": {
+        "keyed-closest-negative": "p000v2",
+        "keyed-distinct-quartic-sum": "e1v3",
+        "rotate-mix32": "p000v2"
+      },
+      "route_qualified": true,
+      "source": {
+        "path": "agentic-artifacts/modus-codex-luna-max-performance-p2s-fresh-transfer-v1.json",
+        "sha256": "8bdc6624640d4418545ffd176b1d2017e2a457bbcc90b4c4545533cfa3da5311"
+      },
+      "task_family": "local_shared_direct_fresh_instances",
+      "worker_saving_fraction": 0.4093913312080204,
+      "workflow": "three-task Agent Router under all-temp custody"
     }
   ],
   "schema": "modus-experiment-scorecard-v1",
   "summary": {
     "invalid_outcomes": 1,
     "net_positive_at_8_deployments": 3,
-    "qualified_routes": 7,
-    "rows": 13,
-    "valid_outcomes": 12
+    "qualified_routes": 8,
+    "rows": 14,
+    "valid_outcomes": 13
   }
 }

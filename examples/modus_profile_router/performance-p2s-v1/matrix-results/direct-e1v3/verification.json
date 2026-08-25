@@ -1,0 +1,63 @@
+{
+  "benchmark": {
+    "all_seconds": [
+      0.042031,
+      0.040105,
+      0.039728,
+      0.040322,
+      0.04065,
+      0.039933,
+      0.03998,
+      0.040181,
+      0.040469,
+      0.03997,
+      0.040131,
+      0.040082,
+      0.041344,
+      0.039788,
+      0.045169
+    ],
+    "failed_run": null,
+    "rounds": 15,
+    "steady_relative_mad": 0.0028021015761821614,
+    "steady_seconds": 0.03997,
+    "success": true
+  },
+  "changed_implementation_paths": [
+    "perf_rotate_mix32_p2s/observer.py",
+    "perf_rotate_mix32_p2s/shared.py",
+    "perf_rotate_mix32_p2s/target.py"
+  ],
+  "checks": {
+    "benchmark": true,
+    "correctness": true,
+    "custody": true,
+    "semantic_mechanism": true,
+    "topology": true
+  },
+  "correctness": {
+    "hidden": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "hidden-ok\n",
+      "timed_out": false
+    },
+    "public": {
+      "returncode": 0,
+      "stderr": "test_rotate_mix (test_public.PublicTest.test_rotate_mix) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "stdout": "",
+      "timed_out": false
+    }
+  },
+  "implementation_digest": "576b7f83c55ad153022cd2cda72b84fb3d8081f2ebc4a7bfd5d298b272eaaf60",
+  "passed": true,
+  "profile": "e1v3",
+  "schema": "modus-performance-p2s-cell-verification-v1",
+  "semantic_mechanism": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "mechanism-ok\n",
+    "timed_out": false
+  },
+  "task": "rotate-mix32"
+}

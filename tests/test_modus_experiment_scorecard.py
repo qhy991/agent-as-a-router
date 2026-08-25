@@ -19,8 +19,8 @@ class ModusExperimentScorecardTest(unittest.TestCase):
         self.assertFalse(rows["P2h"]["outcome_valid"])
         self.assertTrue(rows["P2h"]["excluded_from_valid_trends"])
         self.assertIsNone(rows["P2h"]["net_tokens_at_8_deployments"])
-        self.assertEqual(value["summary"]["valid_outcomes"], 12)
-        self.assertEqual(value["summary"]["qualified_routes"], 7)
+        self.assertEqual(value["summary"]["valid_outcomes"], 13)
+        self.assertEqual(value["summary"]["qualified_routes"], 8)
         self.assertEqual(value["summary"]["net_positive_at_8_deployments"], 3)
 
     def test_valid_negative_p2i_keeps_saving_but_blocks_economics(self):
@@ -70,6 +70,17 @@ class ModusExperimentScorecardTest(unittest.TestCase):
 
     def test_p2p_restores_direct_task_under_read_custody(self):
         value=json.loads(SCORECARD.read_text());rows={r["experiment"]:r for r in value["experiments"]};self.assertTrue(rows["P2p"]["outcome_valid"]);self.assertTrue(rows["P2p"]["route_qualified"]);self.assertGreater(rows["P2p"]["worker_saving_fraction"],0.90);self.assertGreater(rows["P2p"]["net_tokens_at_8_deployments"],0)
+
+    def test_p2s_validates_fresh_instance_route_but_not_eight_deployment_economics(self):
+        value = json.loads(SCORECARD.read_text())
+        rows = {row["experiment"]: row for row in value["experiments"]}
+        row = rows["P2s"]
+        self.assertTrue(row["outcome_valid"])
+        self.assertTrue(row["route_qualified"])
+        self.assertGreater(row["worker_saving_fraction"], 0.40)
+        self.assertLess(row["final_performance_ratio_to_fastest"], 1.25)
+        self.assertEqual(row["break_even_deployments"], 13)
+        self.assertLess(row["net_tokens_at_8_deployments"], 0)
 
 
 if __name__ == "__main__":

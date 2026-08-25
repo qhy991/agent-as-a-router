@@ -1,0 +1,31 @@
+{
+  "automatic_redispatches": 0,
+  "cells": [
+    {
+      "cell": "router",
+      "events_parseable": true,
+      "events_sha256": "7602f2a210fdb736198d481588481c3583c66bdc6fa1d390257c5f26d7a35c4f",
+      "last_message_sha256": "1f18b75c075e1f02f15b1249cbca690d41efdae877622ce948ae7c7c38bf1529",
+      "prompt_sha256": "a460af39e6291ad9d73d8aec5f2463cf978e922a680886ded0923c16cf264b09",
+      "returncode": 0,
+      "stderr_sha256": "5065a2a4fb06f9f133c922549899f59c7c14b2e5a8935dd48baf145347b3b808",
+      "timed_out": false,
+      "turn_completed": true,
+      "turn_error": null,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 8960,
+        "input_tokens": 14981,
+        "output_tokens": 1628,
+        "reasoning_output_tokens": 1518
+      },
+      "usage_complete": true,
+      "valid_execution": true,
+      "web_search_items": 0
+    }
+  ],
+  "manifest_sha256": "f654bc3549a375b0298bc0939f2d2a4a2723b0d0a001eadfcd077c5d121755ae",
+  "schema": "acrouter-codex-spark-wave-result-v1",
+  "status": "pass",
+  "valid_execution_cells": 1
+}

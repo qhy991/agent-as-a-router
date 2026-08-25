@@ -1287,3 +1287,35 @@ all reported `not readable`. The turn completed with full usage, no Web Search,
 and no retry. P2q has no surviving outcome and is not retroactively validated;
 future policy tests must use a new protocol and wrapper v6. See
 [`agentic-artifacts/modus-p2r-all-temp-custody-canary-v1.json`](../agentic-artifacts/modus-p2r-all-temp-custody-canary-v1.json).
++
+### P2s fresh-instance all-temp-confined policy test
+
+P2s is the first complete three-task policy test under P2r v6 custody. It used
+fresh workload instances for a one-batch local reduction, a 100-batch shared
+reduction, and a direct rotation mix. The one-call outcome-blind Luna Max Router
+selected p000-v2, e1-v3, and p000-v2. All nine neutral/p000-v2/e1-v3 Workers
+passed hidden correctness, Profile topology, semantic mechanism, complete usage,
+and fifteen-round performance verification without Web Search or redispatch.
+The Router matched the constrained outcome oracle 3/3.
+
+The local task selected p000-v2, saving 61.4% tokens versus neutral at 0.942x
+neutral time. The shared task selected e1-v3, saving 41.8% at 0.947x; p000-v2
+was rejected at 8.41x neutral time. Contrary to the pre-registered task
+expectation, the direct task selected p000-v2 rather than neutral: it was
+slightly faster and saved 92.3% tokens. This is useful prospective evidence for
+two task-dependent Profile preferences, not evidence that neutral is required
+for every direct task.
+
+E1-v3 was the lowest-token fixed Profile that passed quality on all three tasks,
+at 595,677 tokens per three-task deployment. The selective route used 351,812
+tokens, saving 40.9% or 243,865 tokens per deployment, while its worst ratio to
+the fastest correct implementation was 1.014x. Evidence acquisition nevertheless
+cost 2,952,770 tokens, so break-even is deployment 13 and
+`Net@8=-1,001,850`. The Profile route and Agent judgment are qualified, but
+deployment is not authorized at the frozen eight-deployment horizon.
+
+One launcher attempt using a relative wrapper path failed before any model
+process or token usage and is preserved separately as non-scientific apparatus
+evidence. The successful run used the same hash-bound v6 wrapper by absolute
+path and changed no scientific input. See
+[`agentic-artifacts/modus-codex-luna-max-performance-p2s-fresh-transfer-v1.json`](../agentic-artifacts/modus-codex-luna-max-performance-p2s-fresh-transfer-v1.json).

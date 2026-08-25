@@ -1,0 +1,63 @@
+{
+  "benchmark": {
+    "all_seconds": [
+      0.013443,
+      0.013559,
+      0.018247,
+      0.017103,
+      0.014412,
+      0.013857,
+      0.013499,
+      0.013784,
+      0.013455,
+      0.013534,
+      0.01376,
+      0.013703,
+      0.013766,
+      0.013891,
+      0.015064
+    ],
+    "failed_run": null,
+    "rounds": 15,
+    "steady_relative_mad": 0.005837150879266973,
+    "steady_seconds": 0.013534,
+    "success": true
+  },
+  "changed_implementation_paths": [
+    "perf_keyed_closest_negative_p2s/observer.py",
+    "perf_keyed_closest_negative_p2s/shared.py",
+    "perf_keyed_closest_negative_p2s/target.py"
+  ],
+  "checks": {
+    "benchmark": true,
+    "correctness": true,
+    "custody": true,
+    "semantic_mechanism": true,
+    "topology": true
+  },
+  "correctness": {
+    "hidden": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "hidden-ok\n",
+      "timed_out": false
+    },
+    "public": {
+      "returncode": 0,
+      "stderr": "test_closest_negative (test_public.PublicTest.test_closest_negative) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "stdout": "",
+      "timed_out": false
+    }
+  },
+  "implementation_digest": "1de14087920f54c6821288b8d849dabdf308e0ab9e39590dfc5e152726113fa6",
+  "passed": true,
+  "profile": "e1v3",
+  "schema": "modus-performance-p2s-cell-verification-v1",
+  "semantic_mechanism": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "mechanism-ok\n",
+    "timed_out": false
+  },
+  "task": "keyed-closest-negative"
+}

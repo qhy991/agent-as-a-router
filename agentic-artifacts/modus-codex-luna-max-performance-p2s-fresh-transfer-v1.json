@@ -1,0 +1,146 @@
+{
+  "schema": "modus-performance-p2s-fresh-transfer-evidence-v1",
+  "evidence_kind": "valid-prospective-fresh-instance-profile-router-result",
+  "formal_status": "valid_profile_task_interaction_and_exact_router_but_not_economic_at_8",
+  "scientific_evidence": true,
+  "protocol": {
+    "path": "configs/modus_performance_p2s_policy_v1.json",
+    "sha256": "0ecbee5e4fba0363e74be790410176d256070bf65b6ca791482f03ad05d67f36",
+    "frozen_agent_router_commit": "3bd0023",
+    "modus_task_commit": "211e5c8",
+    "model": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "expected_future_deployments": 8,
+    "profiles": [
+      "neutral",
+      "p000v2",
+      "e1v3"
+    ],
+    "fresh_workload_instances": true,
+    "p2q_outcome_reused": false
+  },
+  "execution": {
+    "router_calls": 1,
+    "worker_cells": 9,
+    "valid_worker_cells": 9,
+    "correct_worker_cells": 9,
+    "topology_and_semantic_mechanism_cells": 9,
+    "usage_complete_cells": 9,
+    "automatic_redispatches": 0,
+    "web_search_items": 0,
+    "router_tokens": 16609,
+    "worker_acquisition_tokens": 2936161,
+    "total_acquisition_tokens": 2952770
+  },
+  "task_results": {
+    "keyed-closest-negative": {
+      "expected_profile": "p000v2",
+      "selected_profile": "p000v2",
+      "selected_tokens": 66555,
+      "selected_seconds": 0.013726,
+      "performance_ratio_to_neutral": 0.9420727522306109,
+      "token_saving_fraction_vs_neutral": 0.6135039866202867
+    },
+    "keyed-distinct-quartic-sum": {
+      "expected_profile": "e1v3",
+      "selected_profile": "e1v3",
+      "selected_tokens": 159978,
+      "selected_seconds": 0.068173,
+      "performance_ratio_to_neutral": 0.946623713845342,
+      "token_saving_fraction_vs_neutral": 0.4180120924614925,
+      "rejected_profile": "p000v2",
+      "rejected_profile_performance_ratio_to_neutral": 8.40570976297263
+    },
+    "rotate-mix32": {
+      "expected_profile": "neutral",
+      "selected_profile": "p000v2",
+      "selected_tokens": 125279,
+      "selected_seconds": 0.037092,
+      "performance_ratio_to_neutral": 0.9484019432370238,
+      "token_saving_fraction_vs_neutral": 0.9225360734478648,
+      "preregistered_expectation_supported": false
+    }
+  },
+  "router": {
+    "actions_by_task": {
+      "keyed-closest-negative": "p000v2",
+      "keyed-distinct-quartic-sum": "e1v3",
+      "rotate-mix32": "p000v2"
+    },
+    "exact_matches": 3,
+    "tasks": 3,
+    "exact_match_fraction": 1,
+    "selected_distinct_profiles": 2,
+    "outcome_blind": true
+  },
+  "deployment": {
+    "best_eligible_fixed_profile": "e1v3",
+    "best_eligible_fixed_tokens": 595677,
+    "routed_worker_tokens": 351812,
+    "worker_saving_fraction_vs_best_eligible_fixed": 0.4093913312080204,
+    "saving_per_deployment_tokens": 243865,
+    "worst_selected_ratio_to_fastest_correct": 1.0141864932761935,
+    "worst_selected_ratio_to_neutral": 0.9484019432370238
+  },
+  "economics": {
+    "acquisition_tokens": 2952770,
+    "expected_deployments": 8,
+    "break_even_deployments": 13,
+    "net_tokens_at_8_deployments": -1001850,
+    "decision": "qualified_but_not_economic"
+  },
+  "custody_audit": {
+    "wrapper": "P2r v6 all-temp content denial",
+    "current_cell_content_available": true,
+    "external_experiment_content_observed": false,
+    "owner_repo_content_observed": false,
+    "denied_parent_enumeration_attempts": 1,
+    "denied_shell_heredoc_temp_attempts": 3,
+    "effect_on_final_validity": "none; all final canonical verifications passed"
+  },
+  "conclusions": {
+    "profile_changes_agent_cost_and_implementation": true,
+    "task_dependent_profile_preference_observed": true,
+    "agent_router_matches_constrained_oracle": "3/3",
+    "dynamic_route_reduces_worker_tokens_vs_best_fixed": true,
+    "dynamic_route_is_net_positive_at_8": false,
+    "universal_profile_supported": false,
+    "direct_task_neutral_expectation_supported": false,
+    "p2s_supports_modus_design": "Profile-conditioned Workers plus an outcome-blind Agent Router can select different cost-performance-eligible Profiles across fresh task instances; qualification cost still prevents promotion at the frozen horizon."
+  },
+  "decision": {
+    "worker_route_quality_qualified": true,
+    "profile_task_interaction_supported": true,
+    "router_prediction_supported": true,
+    "deployment_authorized": false,
+    "reason": "Break-even is deployment 13, beyond the frozen eight-deployment horizon.",
+    "followup_replication_authorized": false
+  },
+  "claim_boundary": "One prospective fresh instance per local, shared-reuse, and direct semantic type. This supports selective Profile routing under v6 custody, not universal Profile superiority or net benefit at eight deployments.",
+  "files": {
+    "examples/modus_profile_router/performance-p2s-v1/matrix-results/direct-e1v3/verification.json": "adec1b04e414d7e2404d7dac90f3b364cbd4d130d66f0e4cceab71c02258d030",
+    "examples/modus_profile_router/performance-p2s-v1/matrix-results/direct-e1v3/wave-result.json": "a26598ae95a9e804e829d7893d581c73cb87fc0e1e0b496900cc0e1cccfe321f",
+    "examples/modus_profile_router/performance-p2s-v1/matrix-results/direct-neutral/verification.json": "e286d16da30b3fe76d27d799a6d85d362745f2f5f208cd03ca8a5e8dc6fa04f8",
+    "examples/modus_profile_router/performance-p2s-v1/matrix-results/direct-neutral/wave-result.json": "945cb3d5afebaf890b26199082c0ad193050544b88c3840c7dd9a6b817e7dd39",
+    "examples/modus_profile_router/performance-p2s-v1/matrix-results/direct-p000v2/verification.json": "e6dfc75e73b43220a48bee956401d2aff5a4470af9de677a2a54913c233c1532",
+    "examples/modus_profile_router/performance-p2s-v1/matrix-results/direct-p000v2/wave-result.json": "a9fde4160beea6e5914052c16818bb6c906b00abc5eb507892f0fa5382714a06",
+    "examples/modus_profile_router/performance-p2s-v1/matrix-results/execution-summary.json": "1b0ce05444bc58fcd961e41dbab19837e1561194c394e3981e740de800ee73d2",
+    "examples/modus_profile_router/performance-p2s-v1/matrix-results/local-e1v3/verification.json": "c7ba665e8e4704a69fb5722d890b0d7600cc797e9aaf6b618c07419ce98febe6",
+    "examples/modus_profile_router/performance-p2s-v1/matrix-results/local-e1v3/wave-result.json": "53d308d2fcc4d4c4d2330d9d319feffe4810a38b1966df0affcc4051ace88a38",
+    "examples/modus_profile_router/performance-p2s-v1/matrix-results/local-neutral/verification.json": "e34f3e84710022c6f3c9620734c1fe3aeb7f53cbae12d9642ba07c408c87b61a",
+    "examples/modus_profile_router/performance-p2s-v1/matrix-results/local-neutral/wave-result.json": "f0de6a965a09b288b5f8ed945c1501dfbdd362fdb3cbb6d003788e61bea30dbb",
+    "examples/modus_profile_router/performance-p2s-v1/matrix-results/local-p000v2/verification.json": "f4f69dcea85898a11e2f0263d0876cb0893e2eb404becbd8a07bd300ae27eaf5",
+    "examples/modus_profile_router/performance-p2s-v1/matrix-results/local-p000v2/wave-result.json": "4afa3584319022fb471b5ea6d73033578b325208d0c69299eb9e80a118d53391",
+    "examples/modus_profile_router/performance-p2s-v1/matrix-results/score.json": "1c87387b1f897e450ef131caf02db0bf11caa8c8861cfbe6a0834fc319b1c1e3",
+    "examples/modus_profile_router/performance-p2s-v1/matrix-results/shared-e1v3/verification.json": "571fb588932a2e757281f01ed07a5b05e331bf5fc7a80dec73ef23b5770bd69f",
+    "examples/modus_profile_router/performance-p2s-v1/matrix-results/shared-e1v3/wave-result.json": "94cd366af78a8b3c91c2e0e618728aec117f82a3b86b6a1e67969429ad8a6bfd",
+    "examples/modus_profile_router/performance-p2s-v1/matrix-results/shared-neutral/verification.json": "b88f739392fa64a6690857419c25c956e2f35763b30df068833ba12cfda48dcc",
+    "examples/modus_profile_router/performance-p2s-v1/matrix-results/shared-neutral/wave-result.json": "990bc66d8c08bb5995f433dd369c4ca3df4bba15b85a3811afcecee0a0a6ad42",
+    "examples/modus_profile_router/performance-p2s-v1/matrix-results/shared-p000v2/verification.json": "6c2155d81c0f35b21a58778a4d0fdb080f67a091429eaa8e746f40a408f85df6",
+    "examples/modus_profile_router/performance-p2s-v1/matrix-results/shared-p000v2/wave-result.json": "b5241078fce6c60c8fed5764d9d604eee201da12b6066e77bf019e1e26cc5e0b",
+    "examples/modus_profile_router/performance-p2s-v1/predispatch-apparatus-failure.json": "b89333cd873e929824dc764040aa84ccff2c5ed760e801a4f6b393c46e25948a",
+    "examples/modus_profile_router/performance-p2s-v1/router-results/last-message.txt": "3bd8954b515a0973f8b8cd685a62e983c91211e157f72959c6398581dcc2617c",
+    "examples/modus_profile_router/performance-p2s-v1/router-results/score.json": "2e933c25bffa4c2e273b6d07c7b539cbed19978009b2811dfe4afa9713bb26b9",
+    "examples/modus_profile_router/performance-p2s-v1/router-results/wave-result.json": "b057e0f39d59786b91c2d9aacb7964ab85e4d430964e17bb92f40124a5f38785"
+  }
+}

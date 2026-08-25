@@ -34,6 +34,7 @@ def build(root: Path) -> dict:
     p2l, p2l_source = _source(root, "modus-codex-luna-max-performance-p2l-final-v1.json")
     p2n, p2n_source = _source(root, "modus-codex-luna-max-performance-p2n-partial-v1.json")
     p2p, p2p_source = _source(root, "modus-codex-luna-max-performance-p2p-positive-v1.json")
+    p2s, p2s_source = _source(root, "modus-codex-luna-max-performance-p2s-fresh-transfer-v1.json")
 
     p1f_max_ratio = max(
         row.get("p000_performance_ratio", row.get("e1v2_performance_ratio"))
@@ -252,6 +253,22 @@ def build(root: Path) -> dict:
             "break_even_deployments": p2p["economics"]["break_even_deployments"],
             "net_tokens_at_8_deployments": p2p["economics"]["net_tokens_at_8_deployments"],
             "source": p2p_source,
+        },
+        {
+            "experiment": "P2s",
+            "task_family": "local_shared_direct_fresh_instances",
+            "workflow": "three-task Agent Router under all-temp custody",
+            "route": p2s["router"]["actions_by_task"],
+            "evidence_status": p2s["formal_status"],
+            "outcome_valid": True,
+            "route_qualified": p2s["decision"]["worker_route_quality_qualified"],
+            "final_performance_ratio_to_fastest": p2s["deployment"]["worst_selected_ratio_to_fastest_correct"],
+            "worker_saving_fraction": p2s["deployment"]["worker_saving_fraction_vs_best_eligible_fixed"],
+            "e2e_saving_fraction": p2s["deployment"]["worker_saving_fraction_vs_best_eligible_fixed"],
+            "acquisition_tokens": p2s["economics"]["acquisition_tokens"],
+            "break_even_deployments": p2s["economics"]["break_even_deployments"],
+            "net_tokens_at_8_deployments": p2s["economics"]["net_tokens_at_8_deployments"],
+            "source": p2s_source,
         },
     ]
     valid = [row for row in rows if row["outcome_valid"]]
