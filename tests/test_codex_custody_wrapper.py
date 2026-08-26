@@ -9,7 +9,13 @@ from acrouter_repro.codex_custody_wrapper_v6 import build_profile as build_profi
 from acrouter_repro.codex_custody_wrapper_v7 import build_profile as build_profile_v7
 
 
+V7_WRAPPER = Path(__file__).resolve().parents[1] / "src/acrouter_repro/codex_custody_wrapper_v7.py"
+
+
 class CodexCustodyWrapperTest(unittest.TestCase):
+    def test_v7_wrapper_is_executable(self):
+        self.assertTrue(V7_WRAPPER.stat().st_mode & 0o111)
+
     @unittest.skipUnless(shutil.which("sandbox-exec"), "macOS sandbox-exec required")
     def test_v7_denies_home_repositories_but_allows_explicit_runtime(self):
         with tempfile.TemporaryDirectory() as temporary, tempfile.TemporaryDirectory() as home:
