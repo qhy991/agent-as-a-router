@@ -38,6 +38,7 @@ class CodexCustodyWrapperTest(unittest.TestCase):
                 [],
                 home_root=home_root,
                 runtime_roots=[runtime],
+                control_processes=[Path("/bin/true")],
             )
             result = subprocess.run(
                 [
@@ -67,7 +68,91 @@ class CodexCustodyWrapperTest(unittest.TestCase):
                     [],
                     home_root=home_root,
                     runtime_roots=[home_root],
+                    control_processes=[Path("/bin/true")],
                 )
+
+    @unittest.skipUnless(shutil.which("sandbox-exec"), "macOS sandbox-exec required")
+    def test_v7_home_is_readable_only_by_control_process(self):
+        with (
+            tempfile.TemporaryDirectory() as temporary,
+            tempfile.TemporaryDirectory() as home,
+        ):
+            workspace = Path(temporary).resolve() / "cell/workspace"
+            workspace.mkdir(parents=True)
+            home_root = Path(home).resolve()
+            state = home_root / ".codex"
+            state.mkdir()
+            secret = state / "state.txt"
+            secret.write_text("control-only")
+            runtime = home_root / ".runtime"
+            runtime.mkdir()
+            profile = build_profile_v7(
+                workspace,
+                [],
+                home_root=home_root,
+                runtime_roots=[runtime],
+                control_processes=[Path("/bin/cat")],
+            )
+            control = subprocess.run(
+                ["sandbox-exec", "-p", profile, "/bin/cat", str(secret)],
+                capture_output=True,
+                text=True,
+            )
+            worker = subprocess.run(
+                [
+                    "sandbox-exec",
+                    "-p",
+                    profile,
+                    "/bin/zsh",
+                    "-c",
+                    'IFS= read -r line < "$1"; print -r -- "$line"',
+                    "--",
+                    str(secret),
+                ],
+                capture_output=True,
+                text=True,
+            )
+        self.assertEqual(control.returncode, 0)
+        self.assertIn("control-only", control.stdout)
+        self.assertNotIn("control-only", worker.stdout)
+        self.assertIn("operation not permitted", worker.stderr.lower())
+
+    @unittest.skipUnless(shutil.which("sandbox-exec"), "macOS sandbox-exec required")
+    def test_v7_allows_declared_artifacts_but_not_neighboring_tmp(self):
+        with tempfile.TemporaryDirectory(dir="/private/tmp") as temporary:
+            root = Path(temporary).resolve()
+            workspace = root / "cell/workspace"
+            artifacts = root / "output/cell"
+            sibling = root / "other-cell"
+            workspace.mkdir(parents=True)
+            artifacts.mkdir(parents=True)
+            sibling.mkdir()
+            allowed = artifacts / "result.txt"
+            denied = sibling / "result.txt"
+            allowed.write_text("allowed-artifact")
+            denied.write_text("denied-neighbor")
+            profile = build_profile_v7(
+                workspace,
+                [],
+                home_root=Path.home(),
+                runtime_roots=[Path("/bin")],
+                control_processes=[Path("/bin/true")],
+                artifact_roots=[artifacts],
+            )
+            artifact_read = subprocess.run(
+                ["sandbox-exec", "-p", profile, "/bin/cat", str(allowed)],
+                capture_output=True,
+                text=True,
+            )
+            sibling_read = subprocess.run(
+                ["sandbox-exec", "-p", profile, "/bin/cat", str(denied)],
+                capture_output=True,
+                text=True,
+            )
+        self.assertEqual(artifact_read.returncode, 0)
+        self.assertIn("allowed-artifact", artifact_read.stdout)
+        self.assertNotEqual(sibling_read.returncode, 0)
+        self.assertNotIn("denied-neighbor", sibling_read.stdout)
 
     @unittest.skipUnless(shutil.which("sandbox-exec"), "macOS sandbox-exec required")
     def test_current_cell_is_readable_but_sibling_and_owner_repo_are_denied(self):
